@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NewBee AI Club 白皮书（最终修订版）</title>
+<style>
+  :root {
+    --gold: #8B7355;
+    --dark: #1A1A1A;
+    --gray: #666;
+    --light-bg: #F9F6F0;
+    --border: #C4B69C;
+    --white: #fff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+    color: var(--dark);
+    background: #EDEAD8;
+    line-height: 1.8;
+  }
+  /* 封面 */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(165deg, #FAF8F2 0%, #F0EBE0 50%, #E8E0D0 100%);
+    text-align: center;
+    padding: 3rem 1.5rem;
+    position: relative;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 2.5rem; left: 2.5rem; right: 2.5rem; bottom: 2.5rem;
+    border: 1px solid var(--border);
+    pointer-events: none;
+  }
+  .cover-brand { font-family: "Arial", sans-serif; font-size: 3.2rem; font-weight: 700; color: var(--gold); letter-spacing: 4px; }
+  .cover-cn { font-family: "Noto Sans SC", "SimHei", sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--dark); margin-top: .3rem; }
+  .cover-divider { width: 120px; height: 2px; background: var(--border); margin: 2rem auto; }
+  .cover-title { font-size: 1.6rem; color: var(--dark); margin-bottom: .3rem; }
+  .cover-sub { font-size: 1.1rem; color: var(--gray); }
+  .cover-motto { color: var(--gold); font-size: 1.1rem; margin-top: 3rem; letter-spacing: 6px; }
+  .cover-motto-en { color: var(--gold); font-size: .85rem; margin-top: .4rem; font-family: "Arial", sans-serif; letter-spacing: 2px; }
+  .cover-date { color: var(--gray); font-size: .9rem; margin-top: 3.5rem; }
+
+  /* 导航 */
+  .toc-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,242,.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: .6rem 1rem;
+    display: flex; align-items: center; gap: 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .toc-bar a {
+    color: var(--gray); text-decoration: none; font-size: .82rem;
+    padding: .25rem .5rem; border-radius: 4px; transition: all .2s;
+  }
+  .toc-bar a:hover { color: var(--gold); background: rgba(139,115,85,.08); }
+  .toc-home { font-weight: 700; color: var(--gold) !important; font-size: .9rem !important; }
+
+  /* 主体 */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 3rem 3.5rem;
+    box-shadow: 0 0 60px rgba(0,0,0,.06);
+    min-height: 100vh;
+  }
+  @media (max-width: 860px) { .content { padding: 2rem 1.2rem; } }
+
+  h1 {
+    font-family: "Noto Sans SC", "SimHei", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 3rem 0 1.2rem;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid var(--border);
+  }
+  h1:first-child { margin-top: 0; }
+  h2 {
+    font-family: "Noto Sans SC", "SimHei", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 2rem 0 .8rem;
+  }
+  p {
+    text-indent: 2em;
+    margin-bottom: .8rem;
+    text-align: justify;
+  }
+  p.no-indent { text-indent: 0; }
+  ul {
+    list-style: none;
+    padding-left: 2em;
+    margin-bottom: .8rem;
+  }
+  ul li {
+    position: relative;
+    padding-left: 1.2em;
+    margin-bottom: .35rem;
+  }
+  ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: .75em;
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .quote-block {
+    border-left: 3px solid var(--gold);
+    padding: .8rem 1.2rem;
+    margin: 2rem 0;
+    color: var(--gray);
+    font-style: italic;
+    background: rgba(139,115,85,.03);
+  }
+  .end-divider {
+    text-align: center;
+    margin: 3rem 0 1.5rem;
+    color: var(--border);
+    letter-spacing: 8px;
+  }
+  .footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--gray);
+    font-size: .85rem;
+    background: rgba(250,248,242,.6);
+  }
+  .footer a { color: var(--gold); text-decoration: none; }
+  .dl-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: .55rem 1.6rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-size: .9rem;
+    border-radius: 4px;
+    transition: all .2s;
+  }
+  .dl-btn:hover { background: var(--gold); color: var(--white); }
+
+  /* 滚动平滑 */
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body>
+
+<!-- 封面 -->
+<div class="cover">
+  <div class="cover-brand">NewBee AI Club</div>
+  <div class="cover-cn">先蜂AI俱乐部</div>
+  <div class="cover-divider"></div>
+  <div class="cover-title">白皮书（最终修订版）</div>
+  <div class="cover-sub">俱乐部章程</div>
+  <div class="cover-motto">好奇心 · 创造力 · 致良知</div>
+  <div class="cover-motto-en">Curiosity · Creativity · Conscience</div>
+  <div class="cover-date">2026年3月21日</div>
+</div>
+
+<!-- 导航条 -->
+<nav class="toc-bar">
+  <a href="#" class="toc-home">NB Club</a>
+  <a href="#s1">组织简介</a>
+  <a href="#s2">愿景与使命</a>
+  <a href="#s3">基本原则</a>
+  <a href="#s4">服务对象</a>
+  <a href="#s5">工作方向</a>
+  <a href="#s6">成员机制</a>
+  <a href="#s7">会费与资金</a>
+  <a href="#s8">治理机制</a>
+  <a href="#s9">合作边界</a>
+  <a href="#s10">商业说明</a>
+  <a href="#s11">社区文化</a>
+  <a href="#s12">发展方式</a>
+  <a href="#s13">结语</a>
+</nav>
+
+<!-- 正文 -->
+<div class="content">
+
+<h1 id="s1">一、组织简介</h1>
+<p>NewBee AI Club 是一个由华人 AI 学习者、实践者及跨领域从业者共同参与的非营利性社群。</p>
+<p>俱乐部以人工智能的学习、交流、实践与公共分享为核心，致力于推动 AI 在个人成长、组织协作与社会生活中的负责任应用。</p>
+<p>NewBee AI Club 不以盈利分配为目的，不以商业转化为核心目标。</p>
+<p>组织开展的活动、项目与协作，旨在促进知识共享、实践互助、公共教育与社区共建，支持更多人在 AI 时代形成持续学习与理性应用的能力。</p>
+
+<h1 id="s2">二、愿景与使命</h1>
+<h2>1）愿景</h2>
+<p>建设一个开放、可信、长期主义的华人 AI 学习与实践社群，促进不同背景参与者在 AI 时代实现持续学习、经验共享与协作成长。</p>
+<h2>2）使命</h2>
+<ul>
+  <li>推动 AI 知识普及与实践交流</li>
+  <li>鼓励在真实场景中探索 AI 的负责任应用</li>
+  <li>搭建跨行业、跨地域的学习与协作网络</li>
+  <li>促进经验、方法、工具与案例的共享</li>
+  <li>培育开放、互助、透明、尊重公共价值的社区文化</li>
+</ul>
+
+<h1 id="s3">三、基本原则</h1>
+<h2>1）非营利原则</h2>
+<p>俱乐部不以盈利分配为目的，不向成员分红。组织获得的会费、捐助或其他合法收入，均应用于支持与使命相关的活动、项目及必要运营。</p>
+<h2>2）公共价值原则</h2>
+<p>俱乐部重视知识共享、经验交流、公共讨论与责任实践，避免将组织目标导向单一商业利益或销售转化。</p>
+<h2>3）开放包容原则</h2>
+<p>俱乐部欢迎认同组织宗旨、愿意参与学习与共建的人加入。尊重不同职业背景、经验阶段与实践路径，反对不必要的圈层化和排他性。</p>
+<h2>4）透明审慎原则</h2>
+<p>俱乐部在治理、活动组织、资金使用及合作机制上坚持公开透明、审慎规范，并接受成员监督与反馈。</p>
+<h2>5）责任使用原则</h2>
+<p>俱乐部倡导在合法、合规、尊重他人权益的前提下使用 AI 技术，关注数据安全、知识产权、伦理边界与社会影响。</p>
+
+<h1 id="s4">四、服务对象与参与方式</h1>
+<p>NewBee AI Club 面向对 AI 学习、应用与交流有兴趣的个人开放，包括但不限于：</p>
+<ul>
+  <li>在教育、产品、设计、研发、咨询、运营、创业、公益等领域探索 AI 应用的人</li>
+  <li>希望系统学习 AI、提升实践能力的学习者</li>
+  <li>愿意参与交流、共创、分享与社区建设的人</li>
+</ul>
+<p>俱乐部鼓励不同背景的参与者共同学习与互相支持，而不将组织定位为特定职业群体的封闭圈层。凡认同俱乐部宗旨、愿意遵守社区规范者，均可申请参与俱乐部活动与社区共建。</p>
+
+<h1 id="s5">五、主要工作方向</h1>
+<h2>1）学习交流</h2>
+<p>组织主题分享、读书讨论、案例拆解、工具交流、工作坊等活动，并根据俱乐部统一安排开展包括 ZERO AI 方法论课程在内的学习项目。</p>
+<h2>2）实践共创</h2>
+<p>围绕真实问题开展小规模实验、协作项目与经验复盘。</p>
+<h2>3）公共分享</h2>
+<p>开放部分讲座、公开内容与学习资源。</p>
+<h2>4）资源连接</h2>
+<p>促进成员之间在知识、经验、工具、项目与跨界合作上的连接，但组织本身不以商业撮合或利益转化为主要目标。</p>
+<h2>5）社区建设</h2>
+<p>持续营造真诚、互助、理性、长期主义的社区氛围。</p>
+
+<h1 id="s6">六、成员机制</h1>
+<h2>1）成员定义</h2>
+<p>加入俱乐部的个人称为成员。成员身份的意义在于参与学习、交流、共建与社区维护，而非获取商业特权或利益分配。</p>
+<h2>2）加入条件</h2>
+<p>申请人应认同俱乐部宗旨、基本原则与社区规范，并愿意以诚信、合作、尊重的方式参与社区活动。</p>
+<h2>3）加入流程</h2>
+<p>俱乐部可根据发展阶段设置必要的申请与审核流程，以维护社区秩序与参与质量。相关流程应遵循公开、合理、适度的原则，不以制造身份门槛或封闭圈层为目的。</p>
+<p>如设置推荐机制，推荐仅作为辅助了解申请人背景与参与意愿的方式，不构成排他性资格条件。</p>
+<p>如设置审核机制，其目的在于维护社区价值、秩序与参与体验。</p>
+<h2>4）成员权利</h2>
+<ul>
+  <li>参加俱乐部组织的相关活动</li>
+  <li>获取公开或成员共享的学习资料与活动信息</li>
+  <li>根据俱乐部统一安排，参与包括 ZERO AI 方法论课程在内的学习项目，并获得相应的课程内容、资料支持、案例交流与实践支持</li>
+  <li>对组织事务提出建议、意见与反馈</li>
+  <li>在符合规则的前提下参与共创项目、志愿服务及社区建设</li>
+  <li>了解组织制度、重要安排及相关说明</li>
+</ul>
+<h2>5）成员义务</h2>
+<ul>
+  <li>遵守俱乐部宗旨、规则与社区规范</li>
+  <li>尊重他人，维护平等、合作、理性的交流环境</li>
+  <li>不以俱乐部名义进行误导性宣传、商业承诺或不当利益输送</li>
+  <li>在 AI 使用、内容分享与项目合作中遵守法律法规、伦理要求与知识产权规则</li>
+  <li>在自身能力与意愿范围内，为社区发展作出积极贡献</li>
+</ul>
+
+<h1 id="s7">七、会费与资金使用</h1>
+<p>为支持组织活动与基础运营，俱乐部可根据实际需要收取适度会费，或接受合法合规的捐助与支持。所有资金均应服务于组织使命，不得用于成员分红或私人利益分配。</p>
+<p>资金可主要用于：活动组织与场地支持、社区平台与工具维护、学习资料与公共内容建设、必要的行政与运营支出，以及其他与组织使命相关且经过适当说明的支出。</p>
+<p>俱乐部应建立必要的财务记录与说明机制，持续提升资金使用透明度，并接受成员监督。</p>
+
+<h1 id="s8">八、治理机制</h1>
+<p>NewBee AI Club 采取服务型治理方式。治理的目标是保障组织稳定运行、维护社区价值、促进成员参与，并推动组织使命的落实，而非强化个人权力。</p>
+<h2>1）治理角色</h2>
+<p>可根据实际需要设置协调人、执行小组、志愿者团队或其他必要角色，负责活动组织、成员沟通、制度维护和项目推进。</p>
+<h2>2）决策原则</h2>
+<p>组织重大事项应遵循充分沟通、审慎讨论、合理记录与必要透明的原则。在条件允许的情况下，应尽量听取成员意见，避免形成过度中心化的个人决策模式。</p>
+<h2>3）利益冲突回避</h2>
+<p>凡涉及个人商业利益、资源分配或合作导向的事项，相关人员应主动说明情况，并根据需要回避讨论与决策。</p>
+<h2>4）反馈与申诉</h2>
+<p>成员有权对组织机制、活动安排、治理方式提出反馈与建议。俱乐部应保留适当的沟通与申诉渠道，以维护成员信任及社区健康发展。</p>
+
+<h1 id="s9">九、合作与对外边界</h1>
+<p>NewBee AI Club 欢迎与教育机构、研究社群、行业组织、公益项目及其他认同公共价值的伙伴开展合作。所有合作均应符合组织宗旨，不得损害俱乐部的独立性、公信力与非营利导向。</p>
+<p>未经组织明确同意，任何成员或外部主体不得以 NewBee AI Club 名义进行以下行为：</p>
+<ul>
+  <li>作出商业担保或收益承诺</li>
+  <li>发布带有误导性的品牌背书信息</li>
+  <li>将个人项目包装为组织官方立场</li>
+  <li>以组织名义开展未经授权的收费活动、招商或推广行为</li>
+</ul>
+<p>成员参与与俱乐部有关的合作或共创项目时，应明确区分个人行为、合作行为与组织立场，避免对外造成误解。</p>
+
+<h1 id="s10">十、课程、项目与商业活动说明</h1>
+<p>俱乐部鼓励成员分享学习经验、实践案例与方法工具，支持围绕 AI 应用开展讨论与合作。</p>
+<p>俱乐部可根据统一安排开展包括 ZERO AI 方法论课程在内的学习项目，但俱乐部本身不以售课、引流、转化或商业孵化为核心目标。</p>
+<p>成员之间可能存在职业合作、项目连接或市场化实践，这属于社区自然交流的一部分；但相关行为不当然构成组织推荐、官方认可或品牌背书。</p>
+<p>如俱乐部未来开展收费课程、专题项目或合作活动，应事先明确其目标、边界、费用用途与组织关系，并保持必要透明。</p>
+
+<h1 id="s11">十一、社区文化</h1>
+<p>NewBee AI Club 倡导：</p>
+<ul>
+  <li><strong>真诚交流</strong></li>
+  <li><strong>持续学习</strong></li>
+  <li><strong>互相支持</strong></li>
+  <li><strong>尊重差异</strong></li>
+  <li><strong>责任实践</strong></li>
+</ul>
+<p>我们相信，一个健康的 AI 社群，不应只是资源交换和身份识别的平台，更应是一个促进成长、协作与公共价值的共同体。</p>
+
+<h1 id="s12">十二、发展方式</h1>
+<p>俱乐部的发展坚持稳健、审慎、以使命为导向的原则。</p>
+<p>如未来在不同城市或地区开展活动，应优先考虑社区实际需要、组织能力及本地协作条件，逐步推进，而非以规模扩张本身作为目标。</p>
+<p>不同地区的活动组织可根据实际情况灵活开展，但应共同遵循 NewBee AI Club 的宗旨、基本原则与治理边界。</p>
+
+<h1 id="s13">十三、结语</h1>
+<p>NewBee AI Club 希望建设一个面向未来、扎根现实、注重责任与公共价值的 AI 社群。</p>
+<p>我们关注的不只是技术工具本身，更关注人在变化中的学习、协作、创造与判断。</p>
+<p>俱乐部欢迎所有认同这一方向的人，一起参与建设一个开放、可信、长期主义的学习与实践共同体。</p>
+
+<div class="end-divider">— · —</div>
+<div class="quote-block">好奇心 · 创造力 · 致良知 —— 让每一位华人成为 AI 时代的创造者</div>
+
+<p class="no-indent" style="text-align:center; margin-top:2rem;">
+  <a class="dl-btn" href="docs/NewBee_AI_Club_白皮书_最终修订版.docx">下载 Word 文档</a>
+</p>
+
+</div>
+
+<div class="footer">
+  <p>© 2026 NewBee AI Club · 先蜂AI俱乐部</p>
+  <p style="margin-top:.3rem;"><a href="https://github.com/xkbear/nbclub">GitHub</a></p>
+</div>
+
+</body>
+</html>
