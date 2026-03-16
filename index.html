@@ -142,6 +142,17 @@
     background: rgba(250,248,242,.6);
   }
   .footer a { color: var(--gold); text-decoration: none; }
+  /* 申请入会按钮 */
+  .join-btn {
+    background: var(--gold) !important;
+    color: #fff !important;
+    border-radius: 3px;
+    padding: .3rem .8rem !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none !important;
+  }
+  .join-btn:hover { background: #b8942f !important; }
   /* 滚动平滑 */
   html { scroll-behavior: smooth; }
 
@@ -357,6 +368,7 @@
     <a href="#s10" onclick="closeToc()">商业说明</a>
     <a href="#s11" onclick="closeToc()">社区文化</a>
     <a href="#s12" onclick="closeToc()">发展方式</a>
+    <a href="mailto:allyzhang@gmail.com?subject=%E7%94%B3%E8%AF%B7%E5%8A%A0%E5%85%A5NewBee%20AI%20Club" class="join-btn" onclick="closeToc()">申请入会</a>
   </div>
 </nav>
 <script>function closeToc(){document.querySelector('.toc-links').classList.remove('open')}</script>
