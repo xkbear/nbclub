@@ -65,6 +65,8 @@
   }
   .toc-bar a:hover { color: var(--gold); background: rgba(139,115,85,.08); }
   .toc-home { font-weight: 700; color: var(--gold) !important; font-size: .9rem !important; }
+  .toc-bar-header { display: flex; align-items: center; gap: .5rem; }
+  .toc-links { display: contents; }
 
   /* 主体 */
   .content {
@@ -140,21 +142,90 @@
     background: rgba(250,248,242,.6);
   }
   .footer a { color: var(--gold); text-decoration: none; }
-  .dl-btn {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: .55rem 1.6rem;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    text-decoration: none;
-    font-size: .9rem;
-    border-radius: 4px;
-    transition: all .2s;
-  }
-  .dl-btn:hover { background: var(--gold); color: var(--white); }
-
   /* 滚动平滑 */
   html { scroll-behavior: smooth; }
+
+  /* ===== 移动端适配 ===== */
+
+  /* 导航栏：小屏幕改为汉堡菜单 */
+  .toc-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: var(--gold);
+    cursor: pointer;
+    padding: .2rem .5rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    /* 封面适配 */
+    .cover { padding: 2rem 1rem; }
+    .cover::before { top: 1.2rem; left: 1.2rem; right: 1.2rem; bottom: 1.2rem; }
+    .cover-brand { font-size: 2rem; letter-spacing: 2px; }
+    .cover-cn { font-size: 1.5rem; }
+    .cover-title { font-size: 1.2rem; }
+    .cover-sub { font-size: .95rem; }
+    .cover-motto { font-size: .95rem; letter-spacing: 3px; margin-top: 2rem; }
+    .cover-motto-en { font-size: .75rem; }
+    .cover-date { margin-top: 2rem; }
+    .cover-divider { margin: 1.2rem auto; }
+
+    /* 导航改为可折叠菜单 */
+    .toc-toggle { display: block; }
+    .toc-bar {
+      flex-wrap: wrap;
+      padding: .5rem .8rem;
+      gap: 0;
+    }
+    .toc-bar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .toc-links {
+      display: none;
+      width: 100%;
+      padding-top: .5rem;
+    }
+    .toc-links.open {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem;
+    }
+    .toc-links a {
+      flex: 0 0 auto;
+      padding: .4rem .7rem;
+      font-size: .8rem;
+      border-radius: 6px;
+      background: rgba(139,115,85,.06);
+    }
+    .toc-links a:hover,
+    .toc-links a:active {
+      background: rgba(139,115,85,.15);
+      color: var(--gold);
+    }
+
+    /* 正文适配 */
+    .content { padding: 1.5rem 1rem; }
+    h1 { font-size: 1.3rem; margin: 2rem 0 .8rem; }
+    h2 { font-size: 1.05rem; margin: 1.5rem 0 .6rem; }
+    p { font-size: .95rem; }
+    ul { padding-left: 1em; }
+    ul li { font-size: .95rem; }
+    .quote-block { padding: .6rem .8rem; font-size: .9rem; }
+  }
+
+  @media (max-width: 400px) {
+    .cover-brand { font-size: 1.6rem; }
+    .cover-cn { font-size: 1.25rem; }
+    .cover-title { font-size: 1.05rem; }
+    .content { padding: 1.2rem .8rem; }
+    h1 { font-size: 1.15rem; }
+    .toc-links a { font-size: .75rem; padding: .35rem .55rem; }
+  }
 </style>
 </head>
 <body>
@@ -173,21 +244,27 @@
 
 <!-- 导航条 -->
 <nav class="toc-bar">
-  <a href="#" class="toc-home">NB Club</a>
-  <a href="#s1">组织简介</a>
-  <a href="#s2">愿景与使命</a>
-  <a href="#s3">基本原则</a>
-  <a href="#s4">服务对象</a>
-  <a href="#s5">工作方向</a>
-  <a href="#s6">成员机制</a>
-  <a href="#s7">会费与资金</a>
-  <a href="#s8">治理机制</a>
-  <a href="#s9">合作边界</a>
-  <a href="#s10">商业说明</a>
-  <a href="#s11">社区文化</a>
-  <a href="#s12">发展方式</a>
-  <a href="#s13">结语</a>
+  <div class="toc-bar-header">
+    <a href="#" class="toc-home">NB Club</a>
+    <button class="toc-toggle" onclick="document.querySelector('.toc-links').classList.toggle('open')" aria-label="目录菜单">☰</button>
+  </div>
+  <div class="toc-links">
+    <a href="#s1" onclick="closeToc()">组织简介</a>
+    <a href="#s2" onclick="closeToc()">愿景与使命</a>
+    <a href="#s3" onclick="closeToc()">基本原则</a>
+    <a href="#s4" onclick="closeToc()">服务对象</a>
+    <a href="#s5" onclick="closeToc()">工作方向</a>
+    <a href="#s6" onclick="closeToc()">成员机制</a>
+    <a href="#s7" onclick="closeToc()">会费与资金</a>
+    <a href="#s8" onclick="closeToc()">治理机制</a>
+    <a href="#s9" onclick="closeToc()">合作边界</a>
+    <a href="#s10" onclick="closeToc()">商业说明</a>
+    <a href="#s11" onclick="closeToc()">社区文化</a>
+    <a href="#s12" onclick="closeToc()">发展方式</a>
+    <a href="#s13" onclick="closeToc()">结语</a>
+  </div>
 </nav>
+<script>function closeToc(){document.querySelector('.toc-links').classList.remove('open')}</script>
 
 <!-- 正文 -->
 <div class="content">
@@ -326,10 +403,6 @@
 
 <div class="end-divider">— · —</div>
 <div class="quote-block">好奇心 · 创造力 · 致良知 —— 让每一位华人成为 AI 时代的创造者</div>
-
-<p class="no-indent" style="text-align:center; margin-top:2rem;">
-  <a class="dl-btn" href="docs/NewBee_AI_Club_白皮书_最终修订版.docx">下载 Word 文档</a>
-</p>
 
 </div>
 
