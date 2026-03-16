@@ -226,6 +226,103 @@
     h1 { font-size: 1.15rem; }
     .toc-links a { font-size: .75rem; padding: .35rem .55rem; }
   }
+
+  /* 组织架构图 */
+  .org-chart { margin: 2.5rem 0 1rem; }
+  .org-chart .oc-header { text-align: center; margin-bottom: 32px; }
+  .org-chart .oc-header h2 {
+    font-size: 1.2rem; font-weight: 700; color: var(--dark); letter-spacing: 3px; margin-bottom: 6px;
+  }
+  .org-chart .oc-divider {
+    width: 60px; height: 2px; margin: 8px auto;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .org-chart .oc-subtitle { font-size: 11px; color: var(--gray); letter-spacing: 2px; }
+
+  .org-chart .oc-vc { width: 2px; background: rgba(139,115,85,0.3); margin: 0 auto; height: 24px; }
+
+  /* Banner */
+  .org-chart .oc-banner { display: flex; justify-content: center; }
+  .org-chart .oc-banner-inner {
+    background: linear-gradient(135deg, #1A1208 0%, #3D2E10 100%);
+    border: 2px solid #C9A84C; border-radius: 4px; padding: 14px 40px;
+    text-align: center; min-width: 280px; position: relative;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.2);
+  }
+  .org-chart .oc-banner-inner::before {
+    content: ''; position: absolute; inset: 4px;
+    border: 1px solid rgba(201,168,76,0.25); border-radius: 2px; pointer-events: none;
+  }
+  .org-chart .oc-bb-role { font-size: 9px; color: #E8C97A; letter-spacing: 3px; margin-bottom: 4px; }
+  .org-chart .oc-bb-title { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 3px; }
+  .org-chart .oc-bb-sub { font-size: 10px; color: rgba(201,168,76,0.6); margin-top: 4px; letter-spacing: 1px; }
+
+  .org-chart .oc-section-label {
+    text-align: center; font-size: 9px; color: var(--gray);
+    letter-spacing: 2px; margin-bottom: 12px;
+  }
+
+  /* Directors */
+  .org-chart .oc-directors { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+  .org-chart .oc-nd {
+    background: linear-gradient(135deg, #1A1208 0%, #3D2E10 100%);
+    border: 1.5px solid #C9A84C; border-radius: 4px;
+    padding: 10px 12px; text-align: center; min-width: 110px;
+    box-shadow: 0 2px 12px rgba(201,168,76,0.12);
+  }
+  .org-chart .oc-nd-role { font-size: 8px; color: #E8C97A; letter-spacing: 2px; margin-bottom: 4px; }
+  .org-chart .oc-nd-name { font-size: 12px; font-weight: 600; color: #fff; line-height: 1.5; }
+  .org-chart .oc-nd-domain { font-size: 9px; color: rgba(201,168,76,0.65); margin-top: 3px; line-height: 1.4; }
+
+  /* Exec */
+  .org-chart .oc-exec-row {
+    display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+    padding-top: 24px; position: relative;
+  }
+  .org-chart .oc-exec-row::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 2px; height: 24px; background: rgba(139,115,85,0.3);
+  }
+  .org-chart .oc-exec-label {
+    text-align: center; font-size: 9px; color: var(--gray);
+    letter-spacing: 2px; margin-top: 8px;
+  }
+  .org-chart .oc-ne {
+    background: #F0E8D5; border: 1.5px solid rgba(201,168,76,0.6);
+    border-radius: 4px; padding: 10px 16px; text-align: center; min-width: 150px;
+  }
+  .org-chart .oc-ne.highlight { border-color: #C9A84C; background: linear-gradient(135deg, #fffdf5, #faf3e0); }
+  .org-chart .oc-ne-role { font-size: 9px; color: #C9A84C; letter-spacing: 2px; margin-bottom: 3px; }
+  .org-chart .oc-ne-name { font-size: 12px; font-weight: 600; color: var(--dark); line-height: 1.5; }
+  .org-chart .oc-ne-sub { font-size: 10px; color: var(--gray); margin-top: 2px; }
+
+  /* Member */
+  .org-chart .oc-member-row { display: flex; justify-content: center; }
+  .org-chart .oc-nm {
+    background: linear-gradient(135deg, #fff 0%, #F9F6F0 100%);
+    border: 1px solid rgba(196,182,156,0.5); border-radius: 4px;
+    padding: 12px 36px; text-align: center;
+  }
+  .org-chart .oc-nm-role { font-size: 8px; color: var(--gray); letter-spacing: 2px; margin-bottom: 3px; }
+  .org-chart .oc-nm-name { font-size: 16px; color: var(--dark); font-weight: 600; letter-spacing: 2px; }
+  .org-chart .oc-nm-price { font-size: 10px; color: #C9A84C; margin-top: 3px; }
+
+  /* Legend */
+  .org-chart .oc-legend { margin-top: 28px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  .org-chart .oc-legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--gray); }
+  .org-chart .oc-legend-box { width: 18px; height: 10px; border-radius: 2px; }
+  .org-chart .oc-lb-dark { background: #1A1208; border: 1.5px solid #C9A84C; }
+  .org-chart .oc-lb-exec { background: #F0E8D5; border: 1.5px solid rgba(201,168,76,0.6); }
+  .org-chart .oc-lb-member { background: #fff; border: 1px solid rgba(196,182,156,0.5); }
+
+  @media (max-width: 768px) {
+    .org-chart .oc-directors { gap: 6px; }
+    .org-chart .oc-nd { min-width: 90px; padding: 8px 8px; }
+    .org-chart .oc-nd-name { font-size: 11px; }
+    .org-chart .oc-ne { min-width: 120px; padding: 8px 10px; }
+    .org-chart .oc-exec-row { gap: 8px; }
+    .org-chart .oc-banner-inner { min-width: 220px; padding: 12px 24px; }
+  }
 </style>
 </head>
 <body>
@@ -238,7 +335,6 @@
   <div class="cover-title">白皮书（最终修订版）</div>
   <div class="cover-sub">俱乐部章程</div>
   <div class="cover-motto">好奇心 · 创造力 · 致良知</div>
-  <div class="cover-motto-en">Curiosity · Creativity · Conscience</div>
   <div class="cover-date">2026年3月21日</div>
 </div>
 
@@ -261,7 +357,6 @@
     <a href="#s10" onclick="closeToc()">商业说明</a>
     <a href="#s11" onclick="closeToc()">社区文化</a>
     <a href="#s12" onclick="closeToc()">发展方式</a>
-    <a href="#s13" onclick="closeToc()">结语</a>
   </div>
 </nav>
 <script>function closeToc(){document.querySelector('.toc-links').classList.remove('open')}</script>
@@ -362,6 +457,8 @@
 <p>凡涉及个人商业利益、资源分配或合作导向的事项，相关人员应主动说明情况，并根据需要回避讨论与决策。</p>
 <h2>4）反馈与申诉</h2>
 <p>会员有权对组织机制、活动安排、治理方式提出反馈与建议。俱乐部应保留适当的沟通与申诉渠道，以维护会员信任及社区健康发展。</p>
+<h2>5）议事流程与职责</h2>
+<p>委员会会长、常务副会长、秘书长的工作职责和权限另行约定，原则上需经委员会审批后多数票通过。</p>
 
 <h1 id="s9">九、合作与对外边界</h1>
 <p>NewBee AI Club 欢迎与教育机构、研究社群、行业组织、公益项目及其他认同公共价值的伙伴开展合作。所有合作均应符合组织宗旨，不得损害俱乐部的独立性、公信力与非营利导向。</p>
@@ -395,11 +492,111 @@
 <p>俱乐部的发展坚持稳健、审慎、以使命为导向的原则。</p>
 <p>如未来在不同城市或地区开展活动，应优先考虑社区实际需要、组织能力及本地协作条件，逐步推进，而非以规模扩张本身作为目标。</p>
 <p>不同地区的活动组织可根据实际情况灵活开展，但应共同遵循 NewBee AI Club 的宗旨、基本原则与治理边界。</p>
-
-<h1 id="s13">十三、结语</h1>
 <p>NewBee AI Club 希望建设一个面向未来、扎根现实、注重责任与公共价值的 AI 社群。</p>
 <p>我们关注的不只是技术工具本身，更关注人在变化中的学习、协作、创造与判断。</p>
 <p>俱乐部欢迎所有认同这一方向的人，一起参与建设一个开放、可信、长期主义的学习与实践共同体。</p>
+
+<!-- 组织架构图 -->
+<div class="org-chart">
+  <div class="oc-header">
+    <h2>组织架构</h2>
+    <div class="oc-divider"></div>
+    <div class="oc-subtitle">Organizational Structure</div>
+  </div>
+
+  <!-- 先蜂委员会 -->
+  <div class="oc-banner">
+    <div class="oc-banner-inner">
+      <div class="oc-bb-role">Governing Body · 治理层</div>
+      <div class="oc-bb-title">先蜂委员会</div>
+      <div class="oc-bb-sub">7位创始委员 · 共治决策</div>
+    </div>
+  </div>
+
+  <div class="oc-vc"></div>
+
+  <!-- 创始委员 -->
+  <div>
+    <div class="oc-section-label">创始委员 / Founding Directors · 年费 2,999 NZD</div>
+    <div class="oc-directors">
+      <div class="oc-nd">
+        <div class="oc-nd-role">Founding President</div>
+        <div class="oc-nd-name">Pin 周品</div>
+        <div class="oc-nd-domain">AI创业 · BEEBEE AI</div>
+      </div>
+      <div class="oc-nd">
+        <div class="oc-nd-role">Executive VP</div>
+        <div class="oc-nd-name">Ally 张彤</div>
+        <div class="oc-nd-domain">媒体网络 · 天维网</div>
+      </div>
+      <div class="oc-nd">
+        <div class="oc-nd-role">Director</div>
+        <div class="oc-nd-name">Benny 黄颂源</div>
+        <div class="oc-nd-domain">PT Dupoin Futures</div>
+      </div>
+      <div class="oc-nd">
+        <div class="oc-nd-role">Director</div>
+        <div class="oc-nd-name">Ferris 路峰</div>
+        <div class="oc-nd-domain">资产管理 · 光远和声</div>
+      </div>
+      <div class="oc-nd">
+        <div class="oc-nd-role">Director</div>
+        <div class="oc-nd-name">Gavin 杨麒暇</div>
+        <div class="oc-nd-domain">文化创业 · 越侠</div>
+      </div>
+      <div class="oc-nd">
+        <div class="oc-nd-role">Director</div>
+        <div class="oc-nd-name">Jason 王磊</div>
+        <div class="oc-nd-domain">风险投资 · Icehouse</div>
+      </div>
+      <div class="oc-nd">
+        <div class="oc-nd-role">Director</div>
+        <div class="oc-nd-name">Jim 倪靖武</div>
+        <div class="oc-nd-domain">移民服务 · 百伦</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 执行层 -->
+  <div>
+    <div class="oc-exec-row">
+      <div class="oc-ne">
+        <div class="oc-ne-role">Secretary-General</div>
+        <div class="oc-ne-name">David 郑晓嵘</div>
+        <div class="oc-ne-sub">组织运营</div>
+      </div>
+      <div class="oc-ne highlight">
+        <div class="oc-ne-role">AI Master</div>
+        <div class="oc-ne-name">Fred 张鹏</div>
+        <div class="oc-ne-sub">技术与产品运营</div>
+      </div>
+      <div class="oc-ne highlight">
+        <div class="oc-ne-role">AI Master</div>
+        <div class="oc-ne-name">Harry 郑皓</div>
+        <div class="oc-ne-sub">技术与产品运营</div>
+      </div>
+    </div>
+    <div class="oc-exec-label">执行层 · Executive Team</div>
+  </div>
+
+  <div class="oc-vc" style="margin-top:20px;"></div>
+
+  <!-- 会员层 -->
+  <div class="oc-member-row">
+    <div class="oc-nm">
+      <div class="oc-nm-role">Member</div>
+      <div class="oc-nm-name">New Bee 会员</div>
+      <div class="oc-nm-price">1,999 NZD / 年</div>
+    </div>
+  </div>
+
+  <!-- 图例 -->
+  <div class="oc-legend">
+    <div class="oc-legend-item"><div class="oc-legend-box oc-lb-dark"></div>治理层（委员会）</div>
+    <div class="oc-legend-item"><div class="oc-legend-box oc-lb-exec"></div>执行层</div>
+    <div class="oc-legend-item"><div class="oc-legend-box oc-lb-member"></div>会员层</div>
+  </div>
+</div>
 
 <div class="end-divider">— · —</div>
 <div class="quote-block">好奇心 · 创造力 · 致良知 —— 让每一位华人成为 AI 时代的创造者</div>
