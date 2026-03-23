@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NB Club 组织架构图</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-pale: #F5E9C8;
+    --ink: #1A1208;
+    --ink-mid: #3D2E10;
+    --ink-light: #6B5A3A;
+    --cream: #FAF6EE;
+    --cream-dark: #F0E8D5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Noto Sans SC', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 24px 64px;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(201,168,76,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(201,168,76,0.06) 0%, transparent 50%);
+  }
+
+  .header { text-align: center; margin-bottom: 52px; }
+  .header h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px; font-weight: 700;
+    color: var(--ink); letter-spacing: 4px; margin-bottom: 6px;
+  }
+  .header .subtitle { font-size: 12px; color: var(--ink-light); letter-spacing: 3px; text-transform: uppercase; }
+  .header .divider {
+    width: 80px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 12px auto;
+  }
+
+  .chart { width: 100%; max-width: 980px; }
+
+  /* Banner */
+  .board-banner { display: flex; justify-content: center; }
+  .board-banner-inner {
+    background: linear-gradient(135deg, #1A1208 0%, #3D2E10 100%);
+    border: 2px solid var(--gold);
+    border-radius: 4px; padding: 16px 56px; text-align: center; min-width: 380px;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.2); position: relative;
+  }
+  .board-banner-inner::before {
+    content: ''; position: absolute; inset: 4px;
+    border: 1px solid rgba(201,168,76,0.25); border-radius: 2px; pointer-events: none;
+  }
+  .bb-role { font-size: 9px; color: var(--gold-light); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 4px; }
+  .bb-title { font-family: 'Noto Serif SC', serif; font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 3px; }
+  .bb-sub { font-size: 10px; color: rgba(201,168,76,0.6); margin-top: 4px; letter-spacing: 1px; }
+
+  /* Connectors */
+  .vc { width: 2px; background: rgba(201,168,76,0.3); margin: 0 auto; height: 28px; }
+
+  /* Section label */
+  .section-label {
+    text-align: center; font-size: 9px; color: var(--ink-light);
+    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px;
+  }
+
+  /* Directors */
+  .directors-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+  .node-director {
+    background: linear-gradient(135deg, #1A1208 0%, #3D2E10 100%);
+    border: 1.5px solid var(--gold); border-radius: 4px;
+    padding: 12px 14px; text-align: center; min-width: 124px;
+    box-shadow: 0 2px 12px rgba(201,168,76,0.12);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .node-director:hover { box-shadow: 0 4px 20px rgba(201,168,76,0.28); transform: translateY(-2px); }
+  .nd-role { font-size: 8px; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 5px; }
+  .nd-name { font-family: 'Noto Serif SC', serif; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: 0.5px; line-height: 1.5; }
+  .nd-domain { font-size: 9px; color: rgba(201,168,76,0.65); margin-top: 4px; line-height: 1.4; }
+
+  /* Exec layer */
+  .exec-wrapper { margin-top: 0; }
+  .exec-row {
+    display: flex; justify-content: center; gap: 20px;
+    padding-top: 28px; position: relative;
+  }
+  .exec-row::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 2px; height: 28px; background: rgba(201,168,76,0.3);
+  }
+  .exec-label {
+    text-align: center; font-size: 9px; color: var(--ink-light);
+    letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;
+  }
+  .node-exec {
+    background: var(--cream-dark); border: 1.5px solid rgba(201,168,76,0.6);
+    border-radius: 4px; padding: 12px 20px; text-align: center; min-width: 170px;
+  }
+  .node-exec.highlight { border-color: var(--gold); background: linear-gradient(135deg, #fffdf5, #faf3e0); }
+  .ne-role { font-size: 9px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .ne-name { font-family: 'Noto Serif SC', serif; font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.5; }
+  .ne-sub { font-size: 10px; color: var(--ink-light); margin-top: 3px; }
+
+  /* Member */
+  .member-row { display: flex; justify-content: center; }
+  .node-member {
+    background: linear-gradient(135deg, #fff 0%, var(--cream) 100%);
+    border: 1px solid rgba(201,168,76,0.25); border-radius: 4px;
+    padding: 10px 36px; text-align: center; min-width: 150px;
+  }
+  .nm-role { font-size: 8px; color: var(--ink-light); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+  .nm-name { font-size: 13px; color: var(--ink-mid); font-weight: 500; }
+  .nm-price { font-size: 10px; color: var(--gold); margin-top: 2px; }
+
+  /* Legend */
+  .legend { margin-top: 48px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--ink-light); }
+  .legend-box { width: 20px; height: 12px; border-radius: 2px; }
+  .lb-dark { background: #1A1208; border: 1.5px solid var(--gold); }
+  .lb-exec { background: var(--cream-dark); border: 1.5px solid rgba(201,168,76,0.6); }
+  .lb-member { background: #fff; border: 1px solid rgba(201,168,76,0.25); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>NB Club 组织架构</h1>
+  <div class="divider"></div>
+  <div class="subtitle">全球AI俱乐部·新西兰 · Organizational Structure</div>
+</div>
+
+<div class="chart">
+
+  <!-- 先蜂委员会 banner -->
+  <div class="board-banner">
+    <div class="board-banner-inner">
+      <div class="bb-role">Governing Body · 治理层</div>
+      <div class="bb-title">先蜂委员会</div>
+      <div class="bb-sub">7位创始委员 · 共治决策</div>
+    </div>
+  </div>
+
+  <div class="vc"></div>
+
+  <!-- 7位创始委员 -->
+  <div>
+    <div class="section-label">创始委员 / Founding Directors · 年费 2,999 NZD</div>
+    <div class="directors-row">
+      <div class="node-director">
+        <div class="nd-role">Founding President</div>
+        <div class="nd-name">Pin 周品</div>
+        <div class="nd-domain">AI创业 · BEEBEE AI</div>
+      </div>
+      <div class="node-director">
+        <div class="nd-role">Executive VP</div>
+        <div class="nd-name">Ally 张彤</div>
+        <div class="nd-domain">媒体网络 · 天维网</div>
+      </div>
+      <div class="node-director">
+        <div class="nd-role">Director</div>
+        <div class="nd-name">Benny 黄颂源</div>
+        <div class="nd-domain">PT Dupoin Futures</div>
+      </div>
+      <div class="node-director">
+        <div class="nd-role">Director</div>
+        <div class="nd-name">Ferris 路峰</div>
+        <div class="nd-domain">资产管理 · 光远和声</div>
+      </div>
+      <div class="node-director">
+        <div class="nd-role">Director</div>
+        <div class="nd-name">Gavin 杨麒暇</div>
+        <div class="nd-domain">文化创业 · 越侠</div>
+      </div>
+      <div class="node-director">
+        <div class="nd-role">Director</div>
+        <div class="nd-name">Jason 王磊</div>
+        <div class="nd-domain">风险投资 · Icehouse</div>
+      </div>
+      <div class="node-director">
+        <div class="nd-role">Director</div>
+        <div class="nd-name">Jim 倪靖武</div>
+        <div class="nd-domain">移民服务 · 百伦</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 执行层 -->
+  <div class="exec-wrapper">
+    <div class="exec-row">
+      <div class="node-exec">
+        <div class="ne-role">Secretary-General</div>
+        <div class="ne-name">David Zheng<br>郑晓嵘</div>
+        <div class="ne-sub">组织运营</div>
+      </div>
+      <div class="node-exec highlight">
+        <div class="ne-role">AI Master</div>
+        <div class="ne-name">Fred Zhang<br>张鹏</div>
+        <div class="ne-sub">技术与产品运营</div>
+      </div>
+      <div class="node-exec highlight">
+        <div class="ne-role">AI Master</div>
+        <div class="ne-name">Harry Zheng<br>郑皓</div>
+        <div class="ne-sub">技术与产品运营</div>
+      </div>
+    </div>
+    <div class="exec-label">执行层 · Executive Team</div>
+  </div>
+
+  <div class="vc" style="margin-top:28px;"></div>
+
+  <!-- 会员层 -->
+  <div>
+    <div class="member-row">
+      <div class="node-member" style="min-width:300px; padding:16px 48px;">
+        <div class="nm-role">Regular Member</div>
+        <div class="nm-name" style="font-size:20px; letter-spacing:2px; font-weight:600; font-family:'Noto Serif SC',serif;">New Bee 会员</div>
+        <div class="nm-price" style="font-size:11px; margin-top:6px;">1,999 NZD / 年</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-box lb-dark"></div>治理层（委员会）</div>
+  <div class="legend-item"><div class="legend-box lb-exec"></div>执行层</div>
+  <div class="legend-item"><div class="legend-box lb-member"></div>会员层</div>
+</div>
+
+</body>
+</html>
