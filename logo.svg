@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 260" width="520" height="260">
+  <!-- Infinity symbol - left loop (gold) -->
+  <path d="M260 130 C260 75 215 40 165 40 C110 40 60 80 60 130 C60 180 110 220 165 220 C215 220 260 185 260 130"
+    fill="none" stroke="#F5A623" stroke-width="22" stroke-linecap="round"/>
+
+  <!-- Infinity symbol - right loop (dark) -->
+  <path d="M260 130 C260 185 305 220 355 220 C410 220 460 180 460 130 C460 80 410 40 355 40 C305 40 260 75 260 130"
+    fill="none" stroke="#2D2D2D" stroke-width="22" stroke-linecap="round"/>
+
+  <!-- Bee body -->
+  <ellipse cx="260" cy="118" rx="22" ry="28" fill="#F5A623" transform="rotate(-10 260 118)"/>
+
+  <!-- Bee stripes -->
+  <path d="M242 108 Q260 104 277 110" stroke="#2D2D2D" stroke-width="4" fill="none"/>
+  <path d="M240 118 Q260 114 278 120" stroke="#2D2D2D" stroke-width="4" fill="none"/>
+  <path d="M242 128 Q260 124 276 129" stroke="#2D2D2D" stroke-width="4" fill="none"/>
+
+  <!-- Bee head -->
+  <circle cx="258" cy="88" r="14" fill="#2D2D2D"/>
+
+  <!-- Bee eye -->
+  <circle cx="253" cy="85" r="4" fill="white"/>
+  <circle cx="254" cy="84" r="2" fill="#2D2D2D"/>
+
+  <!-- Antennae -->
+  <path d="M252 76 Q244 58 238 52" stroke="#2D2D2D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <circle cx="236" cy="50" r="3.5" fill="#2D2D2D"/>
+  <path d="M262 76 Q264 56 270 50" stroke="#2D2D2D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <circle cx="271" cy="48" r="3.5" fill="#2D2D2D"/>
+
+  <!-- Wings -->
+  <ellipse cx="282" cy="82" rx="20" ry="12" fill="white" fill-opacity="0.85" stroke="#2D2D2D" stroke-width="1.5" transform="rotate(-20 282 82)"/>
+  <ellipse cx="290" cy="92" rx="16" ry="9" fill="white" fill-opacity="0.7" stroke="#2D2D2D" stroke-width="1.2" transform="rotate(-10 290 92)"/>
+
+  <!-- Bee stinger -->
+  <path d="M256 146 L254 156" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round"/>
+</svg>
