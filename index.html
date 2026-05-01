@@ -48,6 +48,21 @@
   .cover-motto { color: var(--gold); font-size: 1.1rem; margin-top: 3rem; letter-spacing: 6px; }
   .cover-motto-en { color: var(--gold); font-size: .85rem; margin-top: .4rem; font-family: "Arial", sans-serif; letter-spacing: 2px; }
   .cover-date { color: var(--gray); font-size: .9rem; margin-top: 3.5rem; }
+  .cover-event {
+    margin-top: 2.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #C0392B;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(192,57,43,0.4);
+    padding-bottom: 2px;
+    transition: all .2s;
+  }
+  .cover-event:hover {
+    color: #8B2616;
+    border-bottom-color: #8B2616;
+  }
 
   /* 导航 */
   .toc-bar {
@@ -96,6 +111,98 @@
     font-weight: 700;
     color: var(--dark);
     margin: 2rem 0 .8rem;
+  }
+  h3 {
+    font-family: "Noto Sans SC", "SimHei", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 1.6rem 0 .6rem;
+    letter-spacing: 1px;
+  }
+
+  /* 创始会员权益模块 */
+  .founders {
+    background: linear-gradient(135deg, #FFFDF7 0%, #F8F2E4 100%);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem 1.6rem 1.2rem;
+    margin: 1.2rem 0 2rem;
+    position: relative;
+  }
+  .founders::before {
+    content: '';
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+  .founders > * { position: relative; }
+  .benefit-title {
+    text-indent: 0;
+    margin: 1.4rem 0 .4rem;
+    font-size: 1.02rem;
+    color: var(--dark);
+    font-family: "Noto Sans SC", "SimHei", sans-serif;
+  }
+  .benefit-title:first-child { margin-top: 0; }
+  .benefit-title .num {
+    color: var(--gold);
+    margin-right: .35em;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .benefit-callout {
+    text-indent: 0;
+    margin: .6rem 0;
+    padding: .6rem .9rem;
+    background: rgba(139,115,85,.06);
+    border-left: 3px solid var(--gold);
+    color: var(--dark);
+  }
+  .benefit-note {
+    text-indent: 0;
+    margin-top: .8rem;
+    color: var(--gray);
+    border-top: 1px dashed var(--border);
+    padding-top: .6rem;
+  }
+
+  /* 会员服务表 */
+  .benefit-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 .5rem;
+    font-size: .92rem;
+    background: var(--white);
+  }
+  .benefit-table th,
+  .benefit-table td {
+    border: 1px solid var(--border);
+    padding: .55rem .7rem;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .benefit-table th {
+    background: rgba(139,115,85,.1);
+    color: var(--dark);
+    font-weight: 700;
+    font-family: "Noto Sans SC", "SimHei", sans-serif;
+    font-size: .9rem;
+    letter-spacing: 1px;
+  }
+  .benefit-table tbody tr:nth-child(even) td {
+    background: rgba(249,246,240,.55);
+  }
+  .benefit-table-wrap { overflow-x: auto; }
+  @media (max-width: 768px) {
+    .founders { padding: 1.1rem 1rem .9rem; }
+    .founders::before { top: 4px; left: 4px; right: 4px; bottom: 4px; }
+    .benefit-title { font-size: .98rem; }
+    .benefit-table { font-size: .82rem; min-width: 540px; }
+    .benefit-table th, .benefit-table td { padding: .4rem .5rem; }
   }
   p {
     text-indent: 2em;
@@ -348,6 +455,7 @@
   <div class="cover-title">白皮书（最终修订版）</div>
   <div class="cover-sub">俱乐部章程</div>
   <div class="cover-motto">好奇心 · 创造力 · 致良知</div>
+  <a href="docs/NB_Club_May4_Poster.pdf" target="_blank" rel="noopener" class="cover-event">第一次创始会员成立会议（邀请制）：2026年5月4日</a>
   <div class="cover-date">委员会成立日：2026年3月21日</div>
 </div>
 
@@ -439,15 +547,95 @@
 <p>俱乐部可根据发展阶段设置必要的申请与审核流程，以维护社区秩序与参与质量。相关流程应遵循公开、合理、适度的原则，不以制造身份门槛或封闭圈层为目的。</p>
 <p>如设置推荐机制，推荐仅作为辅助了解申请人背景与参与意愿的方式，不构成排他性资格条件。</p>
 <p>如设置审核机制，其目的在于维护社区价值、秩序与参与体验。</p>
-<h2>4）会员权利</h2>
-<ul>
-  <li>参加俱乐部组织的相关活动</li>
-  <li>获取公开或会员共享的学习资料与活动信息</li>
-  <li>根据俱乐部统一安排，参与包括 ZERO AI 方法论课程在内的学习项目，并获得相应的课程内容、资料支持、案例交流与实践支持</li>
-  <li>对组织事务提出建议、意见与反馈</li>
-  <li>在符合规则的前提下参与共创项目、志愿服务及社区建设</li>
-  <li>了解组织制度、重要安排及相关说明</li>
-</ul>
+<h2>4）创始会员权益（仅限 30 席）</h2>
+<p>俱乐部第一期仅招募 30 位创始会员，与 7 位创始委员、3 位执行层成员共同奠基。后续新会员的招募，将在创始会员稳定参与并形成共识的基础上推进。以下为创始会员专属权益清单。</p>
+
+<div class="founders">
+  <h3>核心五件套</h3>
+
+  <p class="benefit-title"><span class="num">①</span><strong>行业定制新闻简报</strong></p>
+  <ul>
+    <li>形式：由 AI 生成，围绕每位会员关注的行业、职能、议题定向产出</li>
+    <li>频率：每个工作日推送</li>
+    <li>区别：不是公共 AI 新闻聚合，而是<strong>为你这个人生成的、关于你所在行业的新闻</strong></li>
+    <li>核心价值：每天节省 30–60 分钟信息筛选，获得他人看不到的行业切片</li>
+  </ul>
+
+  <p class="benefit-title"><span class="num">②</span><strong>会员专属 AI 私教 Agent</strong></p>
+  <ul>
+    <li>形式：一个统一入口的 AI 顾问，内置俱乐部自研工具（小龙虾、Hermes、GEO 诊断等）</li>
+    <li>使用方式：会员凭 ID 登录，提问即用；底层工具按积分制消耗</li>
+    <li>区别：不是给你一份"工具清单让你自己研究"，而是<strong>一个会员问什么都接得住的 AI 私教</strong></li>
+    <li>核心价值：把"知道有这些工具"变成"真的把它用起来"——不再面对决策瘫痪</li>
+  </ul>
+
+  <p class="benefit-title"><span class="num">③</span><strong>Starmesh 平台 20 人以下免费使用权</strong></p>
+  <ul>
+    <li>内容：免除平台注册初始化费用，可创建个人 / 小型俱乐部社群</li>
+    <li>适用对象：有意建立自己社群、知识体系的会员</li>
+    <li>核心价值：获得搭建个人影响力基础设施的入场券</li>
+  </ul>
+
+  <p class="benefit-title"><span class="num">④</span><strong>月度讲座与实操工作坊（每月至少一次）</strong></p>
+  <p class="benefit-callout">我们和你一起想清楚：<strong>AI 什么时候该用，什么时候不该用</strong>。</p>
+  <ul>
+    <li>从企业、社会、历史、家庭、自然、科学、教育等多角度，探讨 AI 的用与不用</li>
+    <li>不立场、不站队，提供思考的工具和坐标</li>
+    <li>对应俱乐部"好奇心 × 创造力 × 致良知"的创会宗旨</li>
+  </ul>
+  <p class="no-indent">工作坊则与时俱进，以<strong>行业群体或家庭</strong>为单位，带大家上手小龙虾、Hermes、Claude Cowork 等<strong>无需代码经验</strong>即可掌握的实操技巧。</p>
+
+  <p class="benefit-title"><span class="num">⑤</span><strong>品哥定向咨询</strong></p>
+  <p class="no-indent">可提前 3 个月预约，免费获得品哥<strong>针对家庭或企业的定向咨询 1 次 / 年</strong>。如排期无法满足，会邀约同等级以上专家执行（创始会员同意情况下）。</p>
+  <p class="benefit-note"><small>注：品哥对外咨询市场参考价 —— 个人咨询 1,000 美元 / 小时，企业课程 1,500 美元 / 小时。</small></p>
+</div>
+
+<h3>会员服务表</h3>
+<div class="benefit-table-wrap">
+  <table class="benefit-table">
+    <thead>
+      <tr>
+        <th>服务类型</th>
+        <th>具体内容</th>
+        <th>频率 / 期限</th>
+        <th>核心价值</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>行业新闻简报</td>
+        <td>AI 生成、按个人关注行业定制</td>
+        <td>每个工作日</td>
+        <td>精准捕捉所在行业动态</td>
+      </tr>
+      <tr>
+        <td>AI 私教 Agent</td>
+        <td>统一入口，内置小龙虾、Hermes、GEO 诊断等</td>
+        <td>免费（积分制）</td>
+        <td>问什么都接得住的 AI 顾问</td>
+      </tr>
+      <tr>
+        <td>Starmesh 平台</td>
+        <td>20 人以下免费权限</td>
+        <td>永久</td>
+        <td>个人社群基础设施</td>
+      </tr>
+      <tr>
+        <td>月度活动</td>
+        <td>讲座 + 实操工作坊合一</td>
+        <td>每月至少一次</td>
+        <td>思辨深度 + 落地能力</td>
+      </tr>
+      <tr>
+        <td>创始会员定向咨询</td>
+        <td>品哥 1 次 / 年（家庭 / 企业）</td>
+        <td>限创始席位</td>
+        <td>提前 3 个月预约</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <h2>5）会员义务</h2>
 <ul>
   <li>遵守俱乐部宗旨、规则与社区规范</li>
