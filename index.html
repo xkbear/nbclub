@@ -44,6 +44,20 @@
   .cover-cn { font-family: "Noto Sans SC", "SimHei", sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--dark); margin-top: .3rem; }
   .cover-divider { width: 120px; height: 2px; background: var(--border); margin: 2rem auto; }
   .cover-title { font-size: 1.6rem; color: var(--dark); margin-bottom: .3rem; }
+  .cover-version {
+    display: inline-block;
+    margin-left: .7rem;
+    padding: .1rem .55rem;
+    font-family: "Arial", sans-serif;
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--gold);
+    background: rgba(139,115,85,.08);
+    border: 1px solid rgba(139,115,85,.35);
+    border-radius: 3px;
+    letter-spacing: 1px;
+    vertical-align: middle;
+  }
   .cover-sub { font-size: 1.1rem; color: var(--gray); }
   .cover-motto { color: var(--gold); font-size: 1.1rem; margin-top: 3rem; letter-spacing: 6px; }
   .cover-motto-en { color: var(--gold); font-size: .85rem; margin-top: .4rem; font-family: "Arial", sans-serif; letter-spacing: 2px; }
@@ -456,6 +470,137 @@
     .org-chart .oc-exec-row { gap: 8px; }
     .org-chart .oc-banner-inner { min-width: 220px; padding: 12px 24px; }
   }
+
+  /* ===== Video Hero（会歌 / 宣传片） ===== */
+  .video-hero {
+    position: relative;
+    width: 100%;
+    height: 78vh;
+    min-height: 460px;
+    max-height: 820px;
+    overflow: hidden;
+    background: #050403;
+    cursor: pointer;
+    user-select: none;
+  }
+  .video-hero .vh-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .video-hero .vh-overlay {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+    transition: opacity .8s ease;
+    padding: 1rem;
+  }
+  .video-hero .vh-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8,6,3,0.58) 0%, rgba(8,6,3,0.35) 38%, rgba(8,6,3,0.8) 100%);
+  }
+  .video-hero .vh-overlay > * { position: relative; z-index: 1; }
+  .video-hero.playing .vh-overlay { opacity: 0; pointer-events: none; }
+  .vh-tag {
+    font-family: "Arial", sans-serif;
+    font-size: .78rem;
+    letter-spacing: 6px;
+    color: #C9A84C;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+  .vh-title {
+    font-family: "Noto Serif SC", "Source Han Serif SC", serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin: 0 0 .5rem;
+    color: #fff;
+    text-shadow: 0 2px 24px rgba(0,0,0,.55);
+  }
+  .vh-subtitle {
+    font-size: .95rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,.78);
+    margin-bottom: 2.2rem;
+  }
+  .vh-play {
+    background: none;
+    border: none;
+    color: #C9A84C;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    transition: transform .3s ease, color .3s ease;
+  }
+  .vh-play::before,
+  .vh-play::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1.5px solid #C9A84C;
+    opacity: .55;
+    animation: vhPulse 2.4s ease-out infinite;
+  }
+  .vh-play::after { animation-delay: 1.2s; }
+  @keyframes vhPulse {
+    0%   { transform: scale(1);    opacity: .55; }
+    70%  { transform: scale(1.55); opacity: 0; }
+    100% { transform: scale(1.55); opacity: 0; }
+  }
+  .vh-play svg { width: 60px; height: 60px; display: block; filter: drop-shadow(0 2px 8px rgba(0,0,0,.4)); }
+  .vh-play:hover { color: #E8C97A; transform: scale(1.06); }
+  .vh-hint {
+    margin-top: 1.1rem;
+    font-size: .82rem;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,.72);
+  }
+  .vh-pause-tip {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.2rem;
+    z-index: 3;
+    font-size: .72rem;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,.7);
+    background: rgba(0,0,0,.45);
+    padding: .3rem .6rem;
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
+  }
+  .video-hero.playing .vh-pause-tip { opacity: 1; }
+  @media (max-width: 768px) {
+    .video-hero { height: 62vh; min-height: 360px; }
+    .vh-tag { font-size: .66rem; letter-spacing: 4px; margin-bottom: .8rem; }
+    .vh-title { font-size: 1.5rem; letter-spacing: 4px; }
+    .vh-subtitle { font-size: .8rem; letter-spacing: 2px; margin-bottom: 1.6rem; }
+    .vh-play { width: 76px; height: 76px; }
+    .vh-play svg { width: 46px; height: 46px; }
+    .vh-hint { font-size: .72rem; letter-spacing: 3px; }
+  }
 </style>
 </head>
 <body>
@@ -466,12 +611,31 @@
   <div class="cover-brand">NewBee AI Club</div>
   <div class="cover-cn">先蜂AI俱乐部</div>
   <div class="cover-divider"></div>
-  <div class="cover-title">白皮书（最终修订版）</div>
+  <div class="cover-title">白皮书（最终修订版）<span class="cover-version">V1.4</span></div>
   <div class="cover-sub">俱乐部章程</div>
   <div class="cover-motto">好奇心 · 创造力 · 致良知</div>
   <a href="https://mp.weixin.qq.com/s/mug_ywILKuAb5nrETO0CTg" target="_blank" rel="noopener" class="cover-event">第一次创始会员成立会议 <span class="event-date">2026 年 5 月 4 日 · 回顾</span></a>
   <div class="cover-date">委员会成立日：2026年3月21日</div>
 </div>
+
+<!-- 会歌 -->
+<section class="video-hero" id="anthem-hero">
+  <video class="vh-video" preload="none" playsinline poster="assets/anthem-poster.jpg">
+    <source src="assets/anthem.mp4" type="video/mp4">
+  </video>
+  <div class="vh-overlay" style="background-image:url('assets/anthem-poster.jpg');">
+    <div class="vh-tag">CLUB ANTHEM · 先蜂会歌</div>
+    <h2 class="vh-title">AI 时代为我而创</h2>
+    <div class="vh-subtitle">为这个时代，留下我们自己的声音</div>
+    <button class="vh-play" type="button" aria-label="播放会歌">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <polygon points="22,16 50,32 22,48" fill="currentColor"/>
+      </svg>
+    </button>
+    <div class="vh-hint">点击聆听</div>
+  </div>
+  <div class="vh-pause-tip">点击画面暂停</div>
+</section>
 
 <!-- 导航条 -->
 <nav class="toc-bar">
@@ -820,9 +984,63 @@
 
 </div>
 
+<!-- 俱乐部宣传片 -->
+<section class="video-hero" id="promo-hero">
+  <video class="vh-video" preload="none" playsinline poster="assets/promo-poster.jpg">
+    <source src="assets/promo.mp4" type="video/mp4">
+  </video>
+  <div class="vh-overlay" style="background-image:url('assets/promo-poster.jpg');">
+    <div class="vh-tag">CLUB FILM · 先蜂宣传片</div>
+    <h2 class="vh-title">走 近 先 蜂</h2>
+    <div class="vh-subtitle">如果文字打动了你，再来看看我们的影像</div>
+    <button class="vh-play" type="button" aria-label="播放宣传片">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <polygon points="22,16 50,32 22,48" fill="currentColor"/>
+      </svg>
+    </button>
+    <div class="vh-hint">点击观看</div>
+  </div>
+  <div class="vh-pause-tip">点击画面暂停</div>
+</section>
+
 <div class="footer">
   <p>© 2026 NewBee AI Club · 先蜂AI俱乐部</p>
 </div>
+
+<script>
+(function(){
+  function setupHero(id){
+    var sec = document.getElementById(id);
+    if(!sec) return;
+    var video = sec.querySelector('.vh-video');
+    var btn = sec.querySelector('.vh-play');
+    function play(){
+      sec.classList.add('playing');
+      video.muted = false;
+      var p = video.play();
+      if (p && p.catch) {
+        p.catch(function(){ video.muted = true; video.play(); });
+      }
+    }
+    function toggle(){
+      if(sec.classList.contains('playing')){
+        video.pause();
+        sec.classList.remove('playing');
+      } else { play(); }
+    }
+    sec.addEventListener('click', toggle);
+    btn.addEventListener('click', function(e){ e.stopPropagation(); play(); });
+    video.addEventListener('ended', function(){
+      sec.classList.remove('playing');
+      video.currentTime = 0;
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    setupHero('anthem-hero');
+    setupHero('promo-hero');
+  });
+})();
+</script>
 
 </body>
 </html>
