@@ -127,7 +127,77 @@
       "about": {"@id": "https://new-bee.club/#organization"},
       "inLanguage": "zh-CN",
       "datePublished": "2026-03-15",
-      "dateModified": "2026-05-07"
+      "dateModified": "2026-05-14"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://new-bee.club/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "什么是 NewBee AI Club（先蜂AI俱乐部）？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NewBee AI Club，中文名先蜂AI俱乐部，简称先蜂会，是一个立足新西兰、由华人 AI 学习者、实践者及跨领域从业者共同参与的非营利性社群。委员会成立日为 2026 年 3 月 21 日，宗旨是好奇心、创造力、致良知。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "先蜂AI俱乐部位于哪里？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "俱乐部以新西兰奥克兰（Auckland, New Zealand）为主要活动基地，面向全球华人开放。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "谁可以加入 NewBee AI Club？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "面向对 AI 学习、应用与交流有兴趣的华人个人开放，包括但不限于：在教育、产品、设计、研发、咨询、运营、创业、公益等领域探索 AI 应用的人；希望系统学习 AI、提升实践能力的学习者；愿意参与交流、共创、分享与社区建设的人。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何申请加入先蜂AI俱乐部？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "通过官网 https://new-bee.club 顶部导航栏「申请入会」按钮填写 Google 表单提交申请。第一期仅招募 30 位创始会员，与 7 位创始委员、3 位执行层成员共同奠基。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "创始会员有哪些权益？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "创始会员核心五件套：行业定制新闻简报（每工作日 AI 生成）、会员专属 AI 私教 Agent、Starmesh 平台 20 人以下免费使用权、月度讲座与实操工作坊、品哥定向咨询 1 次/年（家庭或企业，市场参考价 1000-1500 美元/小时）。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "NewBee AI Club 是营利组织吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不是。俱乐部不以盈利分配为目的，不向会员分红。所有会费、捐助或其他合法收入，均用于支持与使命相关的活动、项目及必要运营。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "俱乐部有哪些活动？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "包括月度讲座、AI 实操工作坊、读书讨论、案例拆解、工具交流，以及围绕真实问题的小规模实验、协作项目与经验复盘。每月至少一次线下或线上活动。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何联系先蜂AI俱乐部？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可通过官方邮箱 office@new-bee.club 联系，或访问官网 https://new-bee.club 查看最新信息。"
+          }
+        }
+      ]
     }
   ]
 }
@@ -600,6 +670,49 @@
     .org-chart .oc-banner-inner { min-width: 220px; padding: 12px 24px; }
   }
 
+  /* ===== FAQ ===== */
+  .faq { margin: 2.5rem 0 1rem; }
+  .faq h2 { font-size: 1.2rem; }
+  .faq details {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+  }
+  .faq details:last-of-type { border-bottom: none; }
+  .faq summary {
+    cursor: pointer;
+    font-family: "Noto Sans SC", "SimHei", sans-serif;
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 1rem;
+    padding-right: 1.5rem;
+    position: relative;
+    list-style: none;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: -.1rem;
+    color: var(--gold);
+    font-size: 1.4rem;
+    font-weight: 400;
+    transition: transform .2s;
+  }
+  .faq details[open] summary::after { content: '−'; }
+  .faq details[open] summary { color: var(--gold); }
+  .faq .faq-a {
+    margin-top: .8rem;
+    padding-left: 0;
+    color: var(--gray);
+    text-indent: 0;
+    line-height: 1.8;
+  }
+  @media (max-width: 768px) {
+    .faq summary { font-size: .95rem; }
+    .faq .faq-a { font-size: .92rem; }
+  }
+
   /* ===== Video Hero（会歌 / 宣传片） ===== */
   .video-hero {
     position: relative;
@@ -786,6 +899,7 @@
     <a href="#s10" onclick="closeToc()">商业说明</a>
     <a href="#s11" onclick="closeToc()">社区文化</a>
     <a href="#s12" onclick="closeToc()">发展方式</a>
+    <a href="#s13" onclick="closeToc()">常见问题</a>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfdXh1BNiAh9-I3jvXtWTenJ-jbBFtmGuwIAz6oqBMyDDM5RQ/formResponse" target="_blank" class="join-btn" onclick="closeToc()">申请入会</a>
     <a href="mailto:office@new-bee.club" class="join-btn" style="background:transparent;border:1px solid #C9A84C;color:#C9A84C;" onclick="closeToc()">联系我们</a>
   </div>
@@ -1108,6 +1222,43 @@
     <div class="oc-legend-item"><div class="oc-legend-box oc-lb-member"></div>会员层</div>
   </div>
 </div>
+
+<!-- 常见问题 FAQ -->
+<section class="faq" id="faq" aria-label="常见问题">
+  <h1 id="s13">十三、常见问题</h1>
+  <details>
+    <summary>什么是 NewBee AI Club（先蜂AI俱乐部）？</summary>
+    <p class="faq-a">NewBee AI Club，中文名先蜂AI俱乐部，简称"先蜂会"，是一个立足新西兰、由华人 AI 学习者、实践者及跨领域从业者共同参与的非营利性社群。委员会成立日为 2026 年 3 月 21 日，宗旨是"好奇心 · 创造力 · 致良知"。</p>
+  </details>
+  <details>
+    <summary>先蜂AI俱乐部位于哪里？</summary>
+    <p class="faq-a">俱乐部以新西兰奥克兰（Auckland, New Zealand）为主要活动基地，面向全球华人开放。线上活动覆盖全球时区，线下活动以奥克兰为主。</p>
+  </details>
+  <details>
+    <summary>谁可以加入 NewBee AI Club？</summary>
+    <p class="faq-a">面向对 AI 学习、应用与交流有兴趣的华人个人开放，包括但不限于：在教育、产品、设计、研发、咨询、运营、创业、公益等领域探索 AI 应用的人；希望系统学习 AI、提升实践能力的学习者；愿意参与交流、共创、分享与社区建设的人。</p>
+  </details>
+  <details>
+    <summary>如何申请加入先蜂AI俱乐部？</summary>
+    <p class="faq-a">通过官网顶部导航栏「申请入会」按钮填写 Google 表单提交申请。第一期仅招募 30 位创始会员，与 7 位创始委员、3 位执行层成员共同奠基。后续新会员的招募，将在创始会员稳定参与并形成共识的基础上推进。</p>
+  </details>
+  <details>
+    <summary>创始会员有哪些权益？</summary>
+    <p class="faq-a">创始会员核心五件套：① 行业定制新闻简报（每工作日 AI 生成）；② 会员专属 AI 私教 Agent（内置小龙虾、Hermes、GEO 诊断等工具）；③ Starmesh 平台 20 人以下免费使用权；④ 月度讲座与实操工作坊（每月至少一次）；⑤ 品哥定向咨询 1 次/年（家庭或企业，市场参考价 1,000-1,500 美元/小时）。</p>
+  </details>
+  <details>
+    <summary>NewBee AI Club 是营利组织吗？</summary>
+    <p class="faq-a">不是。俱乐部不以盈利分配为目的，不向会员分红。所有会费、捐助或其他合法收入，均用于支持与使命相关的活动、项目及必要运营。</p>
+  </details>
+  <details>
+    <summary>俱乐部有哪些活动？</summary>
+    <p class="faq-a">包括月度讲座、AI 实操工作坊、读书讨论、案例拆解、工具交流，以及围绕真实问题的小规模实验、协作项目与经验复盘。每月至少一次线下或线上活动。</p>
+  </details>
+  <details>
+    <summary>如何联系先蜂AI俱乐部？</summary>
+    <p class="faq-a">可通过官方邮箱 <a href="mailto:office@new-bee.club" style="color:var(--gold);">office@new-bee.club</a> 联系。重要事项请在邮件主题注明用途。</p>
+  </details>
+</section>
 
 <div class="end-divider">— · —</div>
 <div class="quote-block">好奇心 · 创造力 · 致良知 —— 让每一位华人成为 AI 时代的创造者</div>

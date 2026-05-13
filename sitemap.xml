@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://new-bee.club/</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://new-bee.club/"/>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/anthem.html</loc>
-    <lastmod>2026-05-07</lastmod>
+    <lastmod>2026-05-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <video:video>
