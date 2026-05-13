@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://new-bee.club/</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://new-bee.club/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://new-bee.club/"/>
+    <image:image>
+      <image:loc>https://new-bee.club/logo.png</image:loc>
+      <image:title>NewBee AI Club 先蜂AI俱乐部 Logo</image:title>
+      <image:caption>新西兰华人 AI 学习与实践社群</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://new-bee.club/anthem.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <video:video>
+      <video:thumbnail_loc>https://new-bee.club/assets/anthem-lyrics-poster.jpg</video:thumbnail_loc>
+      <video:title>AI 时代为我而创 · 先蜂会歌</video:title>
+      <video:description>NewBee AI Club 先蜂AI俱乐部 会歌 · AI 时代为我而创</video:description>
+      <video:content_loc>https://new-bee.club/assets/anthem-lyrics.mp4</video:content_loc>
+      <video:duration>104</video:duration>
+    </video:video>
+  </url>
+</urlset>

@@ -1,0 +1,26 @@
+# NewBee AI Club 先蜂AI俱乐部
+# https://new-bee.club
+
+User-agent: *
+Allow: /
+Disallow: /assets/_scratch/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
+User-agent: Sogou web spider
+Allow: /
+
+User-agent: YisouSpider
+Allow: /
+
+Sitemap: https://new-bee.club/sitemap.xml
