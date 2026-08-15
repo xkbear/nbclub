@@ -427,6 +427,57 @@
     .benefit-table { font-size: .82rem; min-width: 540px; }
     .benefit-table th, .benefit-table td { padding: .4rem .5rem; }
   }
+
+  /* ===== 首屏活动型布局 ===== */
+  .cover.cover-home {
+    min-height: min(860px, 100vh);
+    display: grid;
+    grid-template-columns: minmax(280px, .82fr) minmax(420px, 1.18fr);
+    gap: 2rem;
+    align-items: stretch;
+    text-align: left;
+    padding: clamp(2rem, 5vw, 4.5rem);
+    background: #171614;
+    color: #F8F3EA;
+    overflow: hidden;
+  }
+  .cover.cover-home::before { inset: 1.5rem; border-color: rgba(232,201,122,.28); }
+  .cover-home .cover-left { display:flex; flex-direction:column; justify-content:space-between; padding:1.5rem 0 1rem; z-index:1; }
+  .cover-home .cover-brand { color:#E8C97A; font-size:clamp(2.1rem,4.5vw,4.4rem); letter-spacing:3px; }
+  .cover-home .cover-cn { color:#fff; font-size:clamp(1.35rem,2vw,2rem); margin-top:.6rem; }
+  .cover-home .cover-divider { width:88px; margin:1.6rem 0; background:#C9A84C; }
+  .cover-home .cover-title { color:#fff; font-size:clamp(1.1rem,1.5vw,1.45rem); }
+  .cover-home .cover-sub,.cover-home .cover-date { color:rgba(255,255,255,.62); }
+  .cover-home .cover-motto { color:#E8C97A; font-size:.95rem; letter-spacing:4px; margin-top:2rem; }
+  .cover-home .cover-date { margin-top:1rem; font-size:.8rem; }
+  .club-note { max-width:360px; color:rgba(255,255,255,.72); font-size:.94rem; line-height:1.9; margin-top:1.6rem; text-indent:0; }
+  .home-calendar { border-top:1px solid rgba(232,201,122,.35); padding-top:1.1rem; margin-top:2rem; max-width:390px; }
+  .home-calendar-label { color:#E8C97A; font:700 .72rem Arial,sans-serif; letter-spacing:3px; text-transform:uppercase; }
+  .home-calendar-item { display:grid; grid-template-columns:58px 1fr; gap:.7rem; margin-top:.9rem; align-items:start; }
+  .home-calendar-date { color:#E8C97A; font:700 .78rem Arial,sans-serif; letter-spacing:1px; }
+  .home-calendar-link { color:#fff; text-decoration:none; font-size:.9rem; line-height:1.45; }
+  .home-calendar-link:hover { color:#E8C97A; }
+  .home-calendar-more { display:inline-block; margin-top:1rem; color:rgba(255,255,255,.55); text-decoration:none; font-size:.78rem; }
+  .home-event-panel { position:relative; min-height:100%; border:1px solid rgba(232,201,122,.35); background:#211f1b; overflow:hidden; z-index:1; }
+  .home-event-panel::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.03) 35%,rgba(0,0,0,.9) 100%); pointer-events:none; }
+  .home-event-cover { width:100%; height:100%; min-height:560px; object-fit:cover; display:block; opacity:.82; }
+  .home-event-copy { position:absolute; inset:auto 2rem 1.8rem; z-index:2; }
+  .home-event-kicker { color:#E8C97A; font:700 .72rem Arial,sans-serif; letter-spacing:3px; }
+  .home-event-copy h2 { color:#fff; font-family:"Noto Sans SC","SimHei",sans-serif; font-size:clamp(1.45rem,2.7vw,2.6rem); line-height:1.3; margin:.55rem 0; }
+  .home-event-copy p { color:rgba(255,255,255,.78); margin:.35rem 0 1rem; font-size:.92rem; text-indent:0; }
+  .home-event-button { display:inline-block; color:#211f1b; background:#E8C97A; padding:.45rem .85rem; text-decoration:none; font-size:.8rem; font-weight:700; }
+  .home-event-button:hover { background:#fff; }
+  @media (max-width: 768px) {
+    .cover.cover-home { min-height:auto; grid-template-columns:1fr; gap:1rem; padding:3.2rem 1.5rem 2rem; }
+    .cover-home::before { inset:1rem; }
+    .cover-home .cover-left { padding:.8rem 0 0; }
+    .club-note { font-size:.88rem; }
+    .home-calendar { margin-top:1.7rem; }
+    .home-event-panel { min-height:420px; }
+    .home-event-cover { min-height:420px; }
+    .home-event-copy { inset:auto 1.2rem 1.2rem; }
+    .home-event-copy h2 { font-size:1.45rem; }
+  }
   p {
     text-indent: 2em;
     margin-bottom: .8rem;
@@ -850,17 +901,28 @@
 </head>
 <body>
 
-<!-- 封面 -->
-<div class="cover">
-  <img src="logo.png" alt="NewBee AI Club 先蜂AI俱乐部 Logo · 新西兰华人 AI 社群" style="width:240px;margin-bottom:1.5rem;">
-  <h1 class="cover-brand">NewBee AI Club</h1>
-  <div class="cover-cn">先蜂AI俱乐部 · 先蜂会</div>
-  <div class="cover-divider"></div>
-  <div class="cover-title">白皮书（最终修订版）<span class="cover-version">V1.4</span></div>
-  <div class="cover-sub">俱乐部章程</div>
-  <div class="cover-motto">好奇心 · 创造力 · 致良知</div>
-  <a href="events.html" class="cover-event">第一次创始会员成立会议 <span class="event-date">2026 年 5 月 4 日 · 回顾</span></a>
-  <div class="cover-date">委员会成立日：2026年3月21日</div>
+<!-- 首屏：左侧俱乐部介绍与活动日历，右侧当前活动 -->
+<div class="cover cover-home">
+  <div class="cover-left">
+    <div>
+      <img src="logo.png" alt="NewBee AI Club 先蜂AI俱乐部 Logo · 新西兰华人 AI 社群" style="width:112px;margin-bottom:1.2rem;">
+      <h1 class="cover-brand">NewBee AI Club</h1>
+      <div class="cover-cn">先蜂AI俱乐部 · 先蜂会</div>
+      <div class="cover-divider"></div>
+      <div class="cover-title">新西兰华人 AI 学习与实践社群 <span class="cover-version">V1.4</span></div>
+      <div class="cover-sub">好奇心 · 创造力 · 致良知</div>
+      <p class="club-note">一个由 AI 学习者、实践者与跨领域从业者共同参与的非营利社群。我们在真实的企业、家庭与行业场景中学习、提问、实践和复盘。</p>
+    </div>
+    <div class="home-calendar">
+      <div class="home-calendar-label">Activity Calendar · 活动日历</div>
+      <div class="home-calendar-item"><div class="home-calendar-date">05/04<br>2026</div><a class="home-calendar-link" href="event-2026-05-04.html">第一次创始会员成立会议<br><span style="color:rgba(255,255,255,.55);font-size:.78rem">AI 时代重构老板 · 奥克兰</span></a></div>
+      <a class="home-calendar-more" href="events.html">查看全部活动与后续安排 →</a>
+    </div>
+  </div>
+  <a class="home-event-panel" href="event-2026-05-04.html">
+    <img class="home-event-cover" src="assets/events/2026-05-04/article-000.png" alt="NewBee 先蜂AI俱乐部第一次创始会员成立会议现场">
+    <div class="home-event-copy"><div class="home-event-kicker">LATEST EVENT · 2026.05.04</div><h2>第一次创始会员成立会议</h2><p>NewBee（先蜂）AI俱乐部于新西兰正式成立</p><span class="home-event-button">阅读活动回顾 →</span></div>
+  </a>
 </div>
 
 <!-- 会歌（暂时隐藏，待排版方案确定后启用）
