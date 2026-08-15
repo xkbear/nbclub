@@ -428,6 +428,33 @@
     .benefit-table th, .benefit-table td { padding: .4rem .5rem; }
   }
 
+  /* 首屏视觉调整：浅色、无边框、图片嵌入式展示 */
+  .cover.cover-home { background:linear-gradient(135deg,#FBF8F1 0%,#F2EBDD 100%); color:var(--dark); }
+  .cover.cover-home::before { border-color:rgba(139,115,85,.28); }
+  .cover-home .cover-brand { color:var(--gold); }
+  .cover-home .cover-cn,.cover-home .cover-title { color:var(--dark); }
+  .cover-home .cover-sub,.cover-home .cover-date { color:var(--gray); }
+  .club-note { color:var(--gray); }
+  .home-calendar { border-top-color:rgba(139,115,85,.35); }
+  .home-calendar-label,.home-calendar-date { color:var(--gold); }
+  .home-calendar-link { color:var(--dark); }
+  .home-calendar-link span { color:var(--gray) !important; }
+  .home-calendar-more { color:var(--gray); }
+  .home-event-panel { border:0; background:transparent; }
+  .home-event-panel::after { display:none; }
+  .home-event-cover { height:clamp(280px,43vh,430px); min-height:0; object-fit:contain; object-position:center; opacity:1; background:rgba(255,255,255,.34); }
+  .home-event-copy { position:static; padding:1.1rem 0 0; }
+  .home-event-kicker { color:var(--gold); }
+  .home-event-copy h2 { color:var(--dark); margin:.45rem 0; }
+  .home-event-copy p { color:var(--gray); }
+  .home-event-button { color:#fff; background:var(--gold); }
+  .home-event-button:hover { background:#6f5a42; }
+  @media (max-width: 768px) {
+    .home-event-panel { min-height:0; }
+    .home-event-cover { min-height:0; height:260px; }
+    .home-event-copy { padding-top:.9rem; }
+  }
+
   /* ===== 首屏活动型布局 ===== */
   .cover.cover-home {
     min-height: min(860px, 100vh);
