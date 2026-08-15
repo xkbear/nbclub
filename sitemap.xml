@@ -29,4 +29,26 @@
       <video:duration>104</video:duration>
     </video:video>
   </url>
+  <url>
+    <loc>https://new-bee.club/events.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://new-bee.club/assets/events/2026-05-04/article-000.png</image:loc>
+      <image:title>NewBee 先蜂AI俱乐部活动日历</image:title>
+      <image:caption>先蜂AI俱乐部活动与创会回顾</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://new-bee.club/event-2026-05-04.html</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://new-bee.club/assets/events/2026-05-04/article-000.png</image:loc>
+      <image:title>NewBee（先蜂）AI俱乐部于新西兰正式成立</image:title>
+      <image:caption>第一次创始会员成立会议回顾</image:caption>
+    </image:image>
+  </url>
 </urlset>
