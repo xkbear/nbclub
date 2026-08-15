@@ -924,6 +924,30 @@
     .vh-play svg { width: 46px; height: 46px; }
     .vh-hint { font-size: .72rem; letter-spacing: 3px; }
   }
+  /* Final homepage hero overrides */
+  .cover.cover-home { background:linear-gradient(135deg,#FBF8F1 0%,#F2EBDD 100%); color:var(--dark); }
+  .cover.cover-home::before { border-color:rgba(139,115,85,.28); }
+  .cover-home .cover-brand { color:var(--gold); }
+  .cover-home .cover-cn,.cover-home .cover-title { color:var(--dark); }
+  .cover-home .cover-sub,.cover-home .cover-date { color:var(--gray); }
+  .cover-home .club-note { color:var(--gray); }
+  .cover-home .home-calendar { border-top-color:rgba(139,115,85,.35); }
+  .cover-home .home-calendar-label,.cover-home .home-calendar-date { color:var(--gold); }
+  .cover-home .home-calendar-link { color:var(--dark); }
+  .cover-home .home-calendar-link span { color:var(--gray) !important; }
+  .cover-home .home-calendar-more { color:var(--gray); }
+  .cover-home .home-event-panel { border:0; background:transparent; }
+  .cover-home .home-event-panel::after { display:none; }
+  .cover-home .home-event-cover { height:clamp(280px,43vh,430px); min-height:0; object-fit:contain; object-position:center; opacity:1; background:rgba(255,255,255,.34); }
+  .cover-home .home-event-copy { position:static; padding:1.1rem 0 0; }
+  .cover-home .home-event-kicker { color:var(--gold); }
+  .cover-home .home-event-copy h2 { color:var(--dark); }
+  .cover-home .home-event-copy p { color:var(--gray); }
+  .cover-home .home-event-button { color:#fff; background:var(--gold); }
+  @media (max-width:768px) {
+    .cover-home .home-event-panel { min-height:0; }
+    .cover-home .home-event-cover { min-height:0; height:260px; }
+  }
 </style>
 </head>
 <body>
