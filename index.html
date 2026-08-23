@@ -948,33 +948,146 @@
     .cover-home .home-event-panel { min-height:0; }
     .cover-home .home-event-cover { min-height:0; height:260px; }
   }
+
+  /* Final compact homepage hero + swipeable event archive */
+  .cover.cover-home.home-carousel-hero {
+    height:min(900px,100svh);
+    min-height:min(680px,100svh);
+    max-height:900px;
+    display:grid;
+    grid-template-columns:minmax(350px,.72fr) minmax(560px,1.28fr);
+    gap:clamp(2rem,4vw,5rem);
+    align-items:center;
+    padding:clamp(2.5rem,4.3vw,4.8rem);
+    text-align:left;
+    overflow:hidden;
+  }
+  .cover.cover-home.home-carousel-hero::before { inset:clamp(.8rem,1.4vw,1.5rem); }
+  .home-intro { position:relative; z-index:1; min-width:0; }
+  .home-brand-lockup { display:flex; align-items:center; gap:1rem; margin-bottom:clamp(1rem,2vh,1.5rem); }
+  .home-brand-lockup img { width:clamp(68px,6vw,92px); height:auto; display:block; }
+  .home-season { color:var(--gold); font:700 .68rem/1.4 Arial,sans-serif; letter-spacing:3px; text-transform:uppercase; }
+  .home-intro .cover-brand { white-space:nowrap; font-size:clamp(2.35rem,3.25vw,3.8rem); letter-spacing:1px; line-height:1.03; }
+  .home-intro .cover-cn { font-size:clamp(1.2rem,1.55vw,1.6rem); margin-top:.7rem; }
+  .home-intro-lead { max-width:430px; margin:1.25rem 0 0; color:var(--gray); font-size:.92rem; line-height:1.75; text-indent:0; }
+  .home-principles { margin-top:1rem; color:var(--gold); font-size:.82rem; letter-spacing:3px; }
+  .home-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.5rem; max-width:430px; margin-top:clamp(1.25rem,2.6vh,2rem); }
+  .home-stat { padding:.75rem .8rem; background:rgba(255,255,255,.58); border-top:2px solid rgba(139,115,85,.5); }
+  .home-stat strong { display:block; color:var(--gold); font:700 1.45rem/1 Arial,sans-serif; }
+  .home-stat span { display:block; margin-top:.35rem; color:var(--gray); font:700 .62rem/1.2 Arial,sans-serif; letter-spacing:1px; }
+  .home-intro-footer { display:flex; align-items:center; justify-content:space-between; gap:1rem; max-width:430px; margin-top:1.15rem; padding-top:.9rem; border-top:1px solid rgba(139,115,85,.28); }
+  .home-intro-footer span { color:var(--gray); font-size:.76rem; }
+  .home-intro-footer a { color:var(--gold); font-size:.8rem; text-decoration:none; }
+  .home-events-showcase { position:relative; z-index:1; min-width:0; }
+  .home-events-head { display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; margin-bottom:.9rem; }
+  .home-events-label { display:block; color:var(--gold); font:700 .66rem/1.3 Arial,sans-serif; letter-spacing:3px; text-transform:uppercase; }
+  .home-events-head h2 { margin:.25rem 0 0; padding:0; border:0; color:var(--dark); font-family:"Noto Sans SC","PingFang SC",sans-serif; font-size:1.25rem; line-height:1.2; }
+  .home-carousel-controls { display:flex; align-items:center; gap:.45rem; }
+  .home-carousel-count { min-width:48px; color:var(--gray); font:700 .7rem/1 Arial,sans-serif; letter-spacing:1px; text-align:center; }
+  .home-carousel-arrow { width:38px; height:38px; display:grid; place-items:center; border:1px solid rgba(139,115,85,.42); border-radius:50%; background:rgba(255,255,255,.52); color:var(--gold); font-size:1.1rem; cursor:pointer; transition:background .2s,color .2s,transform .2s; }
+  .home-carousel-arrow:hover { background:var(--gold); color:#fff; transform:translateY(-1px); }
+  .home-event-track { display:flex; gap:1rem; width:100%; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scrollbar-width:none; outline:none; }
+  .home-event-track::-webkit-scrollbar { display:none; }
+  .home-event-slide { flex:0 0 100%; min-width:0; scroll-snap-align:start; }
+  .cover-home .home-event-panel { display:grid; grid-template-rows:minmax(260px,1fr) auto; min-height:0; height:auto; color:inherit; text-decoration:none; background:rgba(255,255,255,.45); overflow:hidden; }
+  .cover-home .home-event-media { height:clamp(270px,43svh,430px); display:flex; align-items:center; justify-content:center; overflow:hidden; background:rgba(255,255,255,.42); }
+  .cover-home .home-event-cover { width:100%; height:100%; min-height:0; object-fit:contain; object-position:center; background:transparent; opacity:1; transition:transform .45s ease; }
+  .cover-home .home-event-panel:hover .home-event-cover { transform:scale(1.018); }
+  .cover-home .home-event-copy { position:static; min-height:150px; padding:1rem 1.1rem 1.05rem; background:rgba(255,253,248,.9); }
+  .cover-home .home-event-kicker { color:var(--gold); font:700 .65rem/1.3 Arial,sans-serif; letter-spacing:2px; }
+  .cover-home .home-event-copy h3 { margin:.35rem 0 .3rem; color:var(--dark); font-family:"Noto Sans SC","PingFang SC",sans-serif; font-size:clamp(1.25rem,2vw,2rem); line-height:1.22; }
+  .cover-home .home-event-copy p { margin:0; color:var(--gray); font-size:.84rem; line-height:1.55; text-indent:0; }
+  .cover-home .home-event-button { display:inline-block; margin-top:.65rem; padding:0; color:var(--gold); background:transparent; font-size:.76rem; }
+  .home-carousel-dots { display:flex; justify-content:center; gap:.45rem; margin-top:.8rem; }
+  .home-carousel-dot { width:20px; height:3px; padding:0; border:0; background:rgba(139,115,85,.25); cursor:pointer; transition:width .25s,background .25s; }
+  .home-carousel-dot[aria-current="true"] { width:38px; background:var(--gold); }
+  @media (max-width:980px) {
+    .cover.cover-home.home-carousel-hero { grid-template-columns:minmax(300px,.8fr) minmax(440px,1.2fr); gap:2rem; padding:2.4rem; }
+    .home-intro .cover-brand { font-size:2.55rem; }
+  }
+  @media (max-width:768px) {
+    .cover.cover-home.home-carousel-hero { height:auto; min-height:100svh; max-height:none; grid-template-columns:1fr; gap:1.25rem; padding:1.45rem 1.15rem 1.6rem; overflow:visible; }
+    .cover.cover-home.home-carousel-hero::before { inset:.55rem; }
+    .home-brand-lockup { margin-bottom:.65rem; }
+    .home-brand-lockup img { width:58px; }
+    .home-season { font-size:.58rem; letter-spacing:2px; }
+    .home-intro .cover-brand { white-space:normal; font-size:2.05rem; }
+    .home-intro .cover-cn { font-size:1.08rem; margin-top:.35rem; }
+    .home-intro-lead { margin-top:.75rem; font-size:.8rem; line-height:1.55; }
+    .home-principles { margin-top:.55rem; font-size:.7rem; letter-spacing:2px; }
+    .home-stats { margin-top:.8rem; gap:.35rem; }
+    .home-stat { padding:.5rem .6rem; }
+    .home-stat strong { font-size:1.15rem; }
+    .home-stat span { font-size:.55rem; }
+    .home-intro-footer { margin-top:.7rem; padding-top:.6rem; }
+    .home-events-head { margin-bottom:.65rem; }
+    .home-events-head h2 { font-size:1.05rem; }
+    .home-carousel-arrow { width:34px; height:34px; }
+    .cover-home .home-event-panel { grid-template-rows:200px auto; }
+    .cover-home .home-event-media { height:200px; }
+    .cover-home .home-event-copy { min-height:124px; padding:.75rem .85rem .8rem; }
+    .cover-home .home-event-copy h3 { font-size:1.12rem; }
+    .cover-home .home-event-copy p { font-size:.76rem; }
+    .home-carousel-dots { margin-top:.55rem; }
+  }
 </style>
 </head>
 <body>
 
-<!-- 首屏：左侧俱乐部介绍与活动日历，右侧当前活动 -->
-<div class="cover cover-home">
-  <div class="cover-left">
-    <div>
-      <img src="logo.png" alt="NewBee AI Club 先蜂AI俱乐部 Logo · 新西兰华人 AI 社群" style="width:112px;margin-bottom:1.2rem;">
-      <h1 class="cover-brand">NewBee AI Club</h1>
-      <div class="cover-cn">先蜂AI俱乐部 · 先蜂会</div>
-      <div class="cover-divider"></div>
-      <div class="cover-title">新西兰华人 AI 学习与实践社群 <span class="cover-version">V1.4</span></div>
-      <div class="cover-sub">好奇心 · 创造力 · 致良知</div>
-      <p class="club-note">一个由 AI 学习者、实践者与跨领域从业者共同参与的非营利社群。我们在真实的企业、家庭与行业场景中学习、提问、实践和复盘。</p>
+<!-- 首屏：精简俱乐部介绍 + 可左右滑动活动回顾 -->
+<div class="cover cover-home home-carousel-hero">
+  <section class="home-intro" aria-labelledby="home-club-title">
+    <div class="home-brand-lockup"><img src="logo.png" alt="NewBee AI Club 先蜂AI俱乐部 Logo"><span class="home-season">New Zealand · 2026</span></div>
+    <h1 class="cover-brand" id="home-club-title">NewBee AI Club</h1>
+    <div class="cover-cn">先蜂AI俱乐部 · 先蜂会</div>
+    <p class="home-intro-lead">立足新西兰的华人 AI 学习与实践社群，在真实的企业、家庭与行业场景中学习、提问、实践和复盘。</p>
+    <div class="home-principles">好奇心 · 创造力 · 致良知</div>
+    <div class="home-stats" aria-label="俱乐部活动统计">
+      <div class="home-stat"><strong>4</strong><span>KEYNOTES</span></div>
+      <div class="home-stat"><strong>2</strong><span>WORKSHOPS</span></div>
+      <div class="home-stat"><strong>2026</strong><span>FOUNDED IN NZ</span></div>
     </div>
-    <div class="home-calendar">
-      <div class="home-calendar-label">Activity Calendar · 活动日历</div>
-      <div class="home-calendar-item"><div class="home-calendar-date">08/15<br>2026</div><a class="home-calendar-link" href="event-2026-08-15-k4.html">K4 · AI 读古籍，最后读到的为什么还是人？<br><span style="color:rgba(255,255,255,.55);font-size:.78rem">已举行 4 场 Keynote · 2 场 Workshop</span></a></div>
-      <a class="home-calendar-more" href="events.html">查看完整活动日历与全部回顾 →</a>
+    <div class="home-intro-footer"><span>白皮书 V1.4</span><a href="events.html">完整活动日历 →</a></div>
+  </section>
+
+  <section class="home-events-showcase" aria-labelledby="home-events-title">
+    <div class="home-events-head">
+      <div><span class="home-events-label">Event Archive · 左右滑动</span><h2 id="home-events-title">活动回顾</h2></div>
+      <div class="home-carousel-controls"><span class="home-carousel-count" id="home-carousel-count">01 / 06</span><button class="home-carousel-arrow" id="home-carousel-prev" type="button" aria-label="上一个活动">←</button><button class="home-carousel-arrow" id="home-carousel-next" type="button" aria-label="下一个活动">→</button></div>
     </div>
-  </div>
-  <a class="home-event-panel" href="event-2026-08-15-k4.html">
-    <img class="home-event-cover" src="assets/events/2026-08-15-k4/cover.jpg" alt="NewBee 先蜂AI俱乐部 K4 AI 读古籍活动封面">
-    <div class="home-event-copy"><div class="home-event-kicker">LATEST KEYNOTE · 2026.08.15</div><h2>AI 读古籍，最后读到的为什么还是人？</h2><p>AI × 历史 × 文化心理 · 胡韧奋博士</p><span class="home-event-button">阅读 K4 回顾 →</span></div>
-  </a>
+    <div class="home-event-track" id="home-event-track" tabindex="0" aria-label="活动回顾轮播，可左右滑动">
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-08-15-k4.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-08-15-k4/cover.jpg" alt="K4 AI 读古籍活动封面" fetchpriority="high"></div><div class="home-event-copy"><div class="home-event-kicker">K4 · 2026.08.15</div><h3>AI 读古籍，最后读到的为什么还是人？</h3><p>AI × 历史 × 文化心理 · 胡韧奋博士</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-08-01-k3.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-08-01-k3/cover.png" alt="K3 企业 AI 能力建设的关键路径" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K3 · 2026.08.01</div><h3>企业 AI 能力建设的关键路径</h3><p>理解 AI · 掌握 AI · 信任 AI</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-06-26-k2.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-06-26-k2/cover.jpg" alt="K2 硅基员工应用讲座" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K2 · 2026.06.26</div><h3>硅基员工应用讲座</h3><p>从聊天框走向组织上下文与真实业务闭环</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-06-05-w1.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-06-05-w1/poster.jpg" alt="W1 OpenClaw 龙虾实战工作坊" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">W1 · 2026.06.05</div><h3>OpenClaw（龙虾）实战工作坊</h3><p>现场安装、配置与 AI 自动化协作</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-05-15-k1.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-05-15-k1/cover.jpg" alt="K1 硅谷归来" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K1 · 2026.05.15</div><h3>硅谷归来</h3><p>AI 前沿观察 × 新西兰创业案例</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-05-04.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-05-04/article-000.png" alt="NewBee AI Club 创会活动现场" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">FOUNDING · 2026.05.04</div><h3>NewBee（先蜂）AI俱乐部正式成立</h3><p>第一次创始会员成立会议 · Auckland</p><span class="home-event-button">阅读创会回顾 →</span></div></a></article>
+    </div>
+    <div class="home-carousel-dots" aria-label="选择活动"><button class="home-carousel-dot" type="button" aria-label="查看第 1 个活动" aria-current="true"></button><button class="home-carousel-dot" type="button" aria-label="查看第 2 个活动"></button><button class="home-carousel-dot" type="button" aria-label="查看第 3 个活动"></button><button class="home-carousel-dot" type="button" aria-label="查看第 4 个活动"></button><button class="home-carousel-dot" type="button" aria-label="查看第 5 个活动"></button><button class="home-carousel-dot" type="button" aria-label="查看第 6 个活动"></button></div>
+  </section>
 </div>
+<script>
+(function(){
+  const track=document.getElementById('home-event-track');
+  if(!track)return;
+  const slides=Array.from(track.querySelectorAll('.home-event-slide'));
+  const dots=Array.from(document.querySelectorAll('.home-carousel-dot'));
+  const count=document.getElementById('home-carousel-count');
+  const prev=document.getElementById('home-carousel-prev');
+  const next=document.getElementById('home-carousel-next');
+  let active=0,frame=0;
+  const nearest=()=>slides.reduce((best,slide,index)=>Math.abs(slide.offsetLeft-track.scrollLeft)<Math.abs(slides[best].offsetLeft-track.scrollLeft)?index:best,0);
+  const sync=()=>{active=nearest();count.textContent=String(active+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');dots.forEach((dot,index)=>dot.setAttribute('aria-current',index===active?'true':'false'));};
+  const go=index=>{const target=(index+slides.length)%slides.length;track.scrollTo({left:slides[target].offsetLeft,behavior:'smooth'});};
+  prev.addEventListener('click',()=>go(active-1));
+  next.addEventListener('click',()=>go(active+1));
+  dots.forEach((dot,index)=>dot.addEventListener('click',()=>go(index)));
+  track.addEventListener('scroll',()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(sync);},{passive:true});
+  track.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'){event.preventDefault();go(active-1)}if(event.key==='ArrowRight'){event.preventDefault();go(active+1)}});
+  window.addEventListener('resize',sync,{passive:true});
+  sync();
+})();
+</script>
 
 <!-- 会歌（暂时隐藏，待排版方案确定后启用）
 <section class="video-hero" id="anthem-hero">
