@@ -24,6 +24,10 @@ h1{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-si
 .points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1.4rem 0 2rem;padding:0;list-style:none}
 .points li{background:#f8f5ee;padding:1rem 1.1rem;border-top:2px solid #cab895}
 .points strong{display:block;font-family:"Noto Sans SC","PingFang SC",sans-serif;font-size:.92rem;margin-bottom:.25rem}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin:1.5rem 0 2rem}
+.gallery figure{margin:0;background:var(--soft)}
+.gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.gallery figcaption{padding:.55rem .7rem;color:var(--muted);font-size:.78rem}
 .source{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--line);display:flex;gap:.7rem;flex-wrap:wrap}
 .button{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1rem;text-decoration:none;background:var(--gold);color:#fff;border-radius:2px;font-size:.88rem}
 .button.secondary{background:transparent;color:var(--gold);border:1px solid var(--gold)}
@@ -39,5 +43,6 @@ h1{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-si
   .article-body h2{font-size:1.18rem;margin-top:2.2rem}
   .article-body p{font-size:.95rem}
   .points{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
   .topbar-inner{padding:.72rem .9rem}
 }
