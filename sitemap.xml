@@ -68,7 +68,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://new-bee.club/assets/events/2026-06-05-w1/poster.jpg</image:loc>
+      <image:loc>https://new-bee.club/assets/events/2026-06-05-w1/workshop-01.jpg</image:loc>
       <image:title>OpenClaw 龙虾实战工作坊</image:title>
       <image:caption>NewBee AI Club 第一期会员实操 Workshop</image:caption>
     </image:image>
@@ -85,12 +85,23 @@
     </image:image>
   </url>
   <url>
+    <loc>https://new-bee.club/event-2026-07-17-w2.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://new-bee.club/assets/events/2026-07-17-w2/cover.jpg</image:loc>
+      <image:title>NewBee AI Club W2 从一次任务到一条内容生产线</image:title>
+      <image:caption>PPT 实战与公众号内容工作流线上 Workshop</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://new-bee.club/event-2026-08-01-k3.html</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://new-bee.club/assets/events/2026-08-01-k3/cover.png</image:loc>
+      <image:loc>https://new-bee.club/assets/events/2026-08-01-k3/cover.jpg</image:loc>
       <image:title>2026 企业 AI 能力建设的关键路径</image:title>
       <image:caption>NewBee AI Club K3 活动回顾</image:caption>
     </image:image>
