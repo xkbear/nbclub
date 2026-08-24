@@ -11,6 +11,13 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+# OpenAI search discovery (ChatGPT Search)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
 User-agent: Baiduspider
 Allow: /
 

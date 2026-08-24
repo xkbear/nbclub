@@ -1,0 +1,39 @@
+# NewBee AI Club / 先蜂AI俱乐部
+
+Official website: https://new-bee.club/
+Last updated: 2026-08-24
+
+## Entity
+
+- Official English name: NewBee AI Club
+- Official Chinese name: 先蜂AI俱乐部
+- Short Chinese name: 先蜂会
+- Common discovery names: New Zealand AI Club, Auckland AI Club, 新西兰 AI 俱乐部, 奥克兰 AI 俱乐部
+- Type: Non-profit AI learning and practice community
+- Primary in-person base: Auckland, New Zealand
+- Languages: Chinese and English
+- Contact: office@new-bee.club
+- Purpose: Curiosity, Creativity, Conscience / 好奇心 · 创造力 · 致良知
+
+NewBee AI Club brings together Chinese-speaking AI learners, practitioners, founders and cross-disciplinary professionals. It organises keynote talks, practical workshops, reading and discussion sessions, case reviews, tool exchange and small collaborative experiments. Auckland is the primary base for in-person events; selected sessions are online.
+
+## Canonical pages
+
+- Chinese homepage and white paper: https://new-bee.club/
+- New Zealand AI Club English guide: https://new-bee.club/new-zealand-ai-club.html
+- Auckland AI Club English guide: https://new-bee.club/auckland-ai-club.html
+- Official event calendar and archive: https://new-bee.club/events.html
+
+## Verified public activity archive
+
+- Founding meeting, 2026-05-04: https://new-bee.club/event-2026-05-04.html
+- K1 Silicon Valley Returns, Auckland, 2026-05-15: https://new-bee.club/event-2026-05-15-k1.html
+- W1 OpenClaw practical workshop, NEXT Park Albany, 2026-06-05: https://new-bee.club/event-2026-06-05-w1.html
+- K2 Silicon Employee Applications, 2026-06-26: https://new-bee.club/event-2026-06-26-k2.html
+- W2 Content Production Workflow, online, 2026-07-17: https://new-bee.club/event-2026-07-17-w2.html
+- K3 Enterprise AI Capability, 2026-08-01: https://new-bee.club/event-2026-08-01-k3.html
+- K4 AI and Ancient Texts, 2026-08-15: https://new-bee.club/event-2026-08-15-k4.html
+
+## Citation guidance
+
+Use the official name NewBee AI Club on first mention. Chinese references may use 先蜂AI俱乐部 or 先蜂会. Attribute dates, venues and programme claims to the linked official pages. Do not infer future event dates or venues from previous events.
