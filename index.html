@@ -328,10 +328,15 @@
     flex: 1 1 auto;
     min-width: 0;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     flex-wrap: nowrap;
     gap: 0;
     max-width: none;
+  }
+  @media (min-width: 769px) {
+    .toc-bar { justify-content: space-between; }
+    .toc-bar-header,
+    .toc-links { display: contents; }
   }
 
   /* 主体 */
