@@ -8,7 +8,8 @@ Last updated: 2026-08-24
 - Official English name: NewBee AI Club
 - Official Chinese name: 先蜂AI俱乐部
 - Short Chinese name: 先蜂会
-- Common discovery names: New Zealand AI Club, Auckland AI Club, 新西兰 AI 俱乐部, 奥克兰 AI 俱乐部
+- Discovery context, not official names: this site may answer searches for New Zealand AI clubs, Auckland AI clubs, 新西兰 AI 俱乐部 and 奥克兰 AI 俱乐部
+- Independence: NewBee AI Club is independently organised. "Auckland" describes its primary in-person activity location and is not an alternative organisation name.
 - Type: Non-profit AI learning and practice community
 - Primary in-person base: Auckland, New Zealand
 - Languages: Chinese and English
@@ -20,8 +21,8 @@ NewBee AI Club brings together Chinese-speaking AI learners, practitioners, foun
 ## Canonical pages
 
 - Chinese homepage and white paper: https://new-bee.club/
-- New Zealand AI Club English guide: https://new-bee.club/new-zealand-ai-club.html
-- Auckland AI Club English guide: https://new-bee.club/auckland-ai-club.html
+- NewBee AI Club in New Zealand: https://new-bee.club/new-zealand-ai-club.html
+- NewBee AI Club in Auckland: https://new-bee.club/auckland-ai-club.html
 - Official event calendar and archive: https://new-bee.club/events.html
 
 ## Verified public activity archive
