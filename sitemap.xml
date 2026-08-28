@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://new-bee.club/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://new-bee.club/"/>
@@ -19,14 +19,14 @@
   </url>
   <url>
     <loc>https://new-bee.club/new-zealand-ai-club.html</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en-NZ" href="https://new-bee.club/new-zealand-ai-club.html"/>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://new-bee.club/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://new-bee.club/new-zealand-ai-club.html"/>
     <image:image>
-      <image:loc>https://new-bee.club/assets/events/2026-08-15-k4/cover.jpg</image:loc>
+      <image:loc>https://new-bee.club/assets/events/2026-08-27-member-day/cover.jpg</image:loc>
       <image:title>NewBee AI Club in New Zealand</image:title>
       <image:caption>Chinese-speaking AI learning and practice community in New Zealand</image:caption>
     </image:image>
@@ -46,13 +46,13 @@
   </url>
   <url>
     <loc>https://new-bee.club/events.html</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://new-bee.club/assets/events/2026-08-15-k4/cover.jpg</image:loc>
+      <image:loc>https://new-bee.club/assets/events/2026-08-27-member-day/cover.jpg</image:loc>
       <image:title>NewBee 先蜂AI俱乐部活动日历</image:title>
-      <image:caption>先蜂AI俱乐部 Keynote、Workshop 与创会回顾</image:caption>
+      <image:caption>先蜂AI俱乐部 Keynote、Workshop、会员活动日与创会回顾</image:caption>
     </image:image>
   </url>
   <url>
@@ -130,6 +130,17 @@
       <image:loc>https://new-bee.club/assets/events/2026-08-15-k4/cover.jpg</image:loc>
       <image:title>AI 读古籍，最后读到的为什么还是人</image:title>
       <image:caption>NewBee AI Club K4 活动回顾</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://new-bee.club/event-2026-08-27-member-day.html</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://new-bee.club/assets/events/2026-08-27-member-day/cover.jpg</image:loc>
+      <image:title>NewBee AI Club 会员活动日</image:title>
+      <image:caption>NewBee AI Club 会员参加 Icehouse Ventures 年度 Showcase 合影</image:caption>
     </image:image>
   </url>
 </urlset>

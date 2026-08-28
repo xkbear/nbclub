@@ -15,6 +15,7 @@ h1{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-si
 .meta{font-size:.86rem;color:var(--muted);display:flex;gap:.55rem 1.1rem;flex-wrap:wrap}
 .cover{margin:0;background:var(--soft);display:flex;align-items:center;justify-content:center}
 .cover img{display:block;width:100%;max-height:680px;object-fit:contain}
+.cover.landscape img{height:auto;max-height:none}
 .article-body{max-width:760px;margin:auto;padding:3.2rem 2rem 4rem}
 .article-body h2{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-size:1.35rem;line-height:1.45;margin:2.8rem 0 .85rem;padding-top:.25rem}
 .article-body h2::before{content:"";display:block;width:34px;height:3px;background:var(--gold);margin-bottom:.85rem}
@@ -28,6 +29,12 @@ h1{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-si
 .gallery figure{margin:0;background:var(--soft)}
 .gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
 .gallery.slides img{aspect-ratio:auto;object-fit:contain;background:#fff}
+.gallery.mixed{align-items:start}
+.gallery.mixed img{height:auto;aspect-ratio:4/3;object-fit:contain;background:#fff}
+.gallery.mixed .portrait img{aspect-ratio:3/4}
+.gallery .wide{grid-column:1/-1}
+.gallery .wide.portrait img{max-width:520px;margin-inline:auto}
+.event-numbers strong{font-size:1.4rem;color:var(--gold);line-height:1.2}
 .gallery figcaption{padding:.55rem .7rem;color:var(--muted);font-size:.78rem}
 .source{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--line);display:flex;gap:.7rem;flex-wrap:wrap}
 .button{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1rem;text-decoration:none;background:var(--gold);color:#fff;border-radius:2px;font-size:.88rem}
@@ -45,5 +52,6 @@ h1{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-si
   .article-body p{font-size:.95rem}
   .points{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr}
+  .gallery .wide{grid-column:auto}
   .topbar-inner{padding:.72rem .9rem}
 }
