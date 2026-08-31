@@ -170,6 +170,42 @@
           vertical-align: middle;
           white-space: nowrap;
         }
+
+        .membership-rights-note {
+          margin-top: .35rem !important;
+        }
+
+        .org-chart .oc-member-row {
+          gap: 16px;
+          flex-wrap: wrap;
+          align-items: stretch;
+        }
+
+        .org-chart .oc-nm {
+          min-width: 210px;
+          padding: 16px 32px;
+        }
+
+        .org-chart .oc-nm.oc-founding-member {
+          border-color: rgba(201, 168, 76, .9);
+          background: linear-gradient(135deg, #fffaf0 0%, #f4ead2 100%);
+          box-shadow: 0 8px 24px rgba(139, 115, 85, .12);
+        }
+
+        .org-chart .oc-nm.oc-founding-member .oc-nm-role,
+        .org-chart .oc-nm.oc-founding-member .oc-nm-price {
+          color: var(--gold);
+        }
+
+        @media (max-width: 480px) {
+          .org-chart .oc-member-row { gap: 8px; }
+          .org-chart .oc-nm {
+            flex: 1 1 130px;
+            min-width: 130px;
+            padding: 12px 8px;
+          }
+          .org-chart .oc-nm-name { font-size: 14px; }
+        }
       `;
       page.head.appendChild(testStyle);
 
@@ -192,8 +228,28 @@
 
         const intro = membershipHeading.nextElementSibling;
         if (intro && intro.tagName === 'P') {
-          intro.textContent = '首期 26 席会员招募已于 2026 年 6 月 30 日截止。以下为俱乐部会员权益；后续会员计划将在现有会员稳定参与并形成共识后另行公布。';
+          intro.textContent = '首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。';
+          const rightsNote = page.createElement('p');
+          rightsNote.className = 'membership-rights-note';
+          rightsNote.textContent = '以下为俱乐部所有会员权益；后续会员计划将在现有会员稳定参与并形成共识后另行公布。';
+          intro.insertAdjacentElement('afterend', rightsNote);
         }
+      }
+
+      const memberRow = page.querySelector('.org-chart .oc-member-row');
+      if (memberRow) {
+        memberRow.innerHTML = `
+          <div class="oc-nm oc-founding-member">
+            <div class="oc-nm-role">Founding Member</div>
+            <div class="oc-nm-name">创始会员</div>
+            <div class="oc-nm-price">1,999 NZD / 年</div>
+          </div>
+          <div class="oc-nm">
+            <div class="oc-nm-role">Member</div>
+            <div class="oc-nm-name">会员</div>
+            <div class="oc-nm-price">1,299 NZD / 年</div>
+          </div>
+        `;
       }
 
       const consultationTitle = [...page.querySelectorAll('.benefit-title')]
