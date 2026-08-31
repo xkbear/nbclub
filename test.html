@@ -184,7 +184,7 @@
         .find((heading) => heading.textContent.includes('创始会员权益'));
 
       if (membershipHeading) {
-        membershipHeading.textContent = '4）创始会员权益';
+        membershipHeading.textContent = '4）会员权益';
         const status = page.createElement('span');
         status.className = 'membership-closed';
         status.textContent = '首期 26 席已于 6 月 30 日截止';
@@ -192,7 +192,7 @@
 
         const intro = membershipHeading.nextElementSibling;
         if (intro && intro.tagName === 'P') {
-          intro.textContent = '首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。以下内容为创始会员专属权益记录；后续会员计划将在创始会员稳定参与并形成共识后另行公布。';
+          intro.textContent = '首期 26 席会员招募已于 2026 年 6 月 30 日截止。以下为俱乐部会员权益；后续会员计划将在现有会员稳定参与并形成共识后另行公布。';
         }
       }
 
@@ -248,9 +248,10 @@
       );
 
       if (benefitsQuestion) {
+        benefitsQuestion.querySelector('summary').textContent = '会员有哪些权益？';
         const answer = benefitsQuestion.querySelector('.faq-a');
         if (answer) {
-          answer.textContent = '创始会员核心五件套：① 行业定制新闻简报（每工作日 AI 生成）；② 会员专属 AI 私教 Agent（内置小龙虾、Hermes、GEO 诊断等工具）；③ Starmesh 平台 20 人以下免费使用权；④ 月度讲座与实操工作坊（每月至少一次）；⑤ 品哥 + AI Master 日常答疑。';
+          answer.textContent = '会员核心五件套：① 行业定制新闻简报（每工作日 AI 生成）；② 会员专属 AI 私教 Agent（内置小龙虾、Hermes、GEO 诊断等工具）；③ Starmesh 平台 20 人以下免费使用权；④ 月度讲座与实操工作坊（每月至少一次）；⑤ 品哥 + AI Master 日常答疑。';
         }
       }
     });
