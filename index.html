@@ -131,7 +131,7 @@
       "about": {"@id": "https://new-bee.club/#organization"},
       "inLanguage": "zh-CN",
       "datePublished": "2026-03-15",
-      "dateModified": "2026-08-28"
+      "dateModified": "2026-09-01"
     },
     {
       "@type": "FAQPage",
@@ -155,14 +155,6 @@
         },
         {
           "@type": "Question",
-          "name": "新西兰有哪些面向华人的 AI 俱乐部？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "NewBee AI Club（先蜂AI俱乐部、先蜂会）是一个以奥克兰为主要线下活动基地的新西兰华人 AI 学习与实践社群，举办 AI Keynote、实操 Workshop、案例交流和线上活动。"
-          }
-        },
-        {
-          "@type": "Question",
           "name": "What is NewBee AI Club in New Zealand?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -179,18 +171,18 @@
         },
         {
           "@type": "Question",
-          "name": "如何申请加入先蜂AI俱乐部？",
+          "name": "目前如何了解后续会员计划？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "通过官网 https://new-bee.club 顶部导航栏「申请入会」按钮填写 Google 表单提交申请。第一期仅招募 30 位创始会员，与 7 位创始委员、3 位执行层成员共同奠基。"
+            "text": "首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。后续会员计划将在现有会员稳定参与并形成共识后另行公布。如希望了解下一期计划，可通过 office@new-bee.club 联系俱乐部。"
           }
         },
         {
           "@type": "Question",
-          "name": "创始会员有哪些权益？",
+          "name": "会员有哪些权益？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "创始会员核心五件套：行业定制新闻简报（每工作日 AI 生成）、会员专属 AI 私教 Agent、Starmesh 平台 20 人以下免费使用权、月度讲座与实操工作坊、品哥定向咨询 1 次/年（家庭或企业，市场参考价 1000-1500 美元/小时）。"
+            "text": "会员核心五件套：行业定制新闻简报（每工作日 AI 生成）、会员专属 AI 私教 Agent、Starmesh 平台 20 人以下免费使用权、月度讲座与实操工作坊、品哥与 AI Master 日常答疑。"
           }
         },
         {
@@ -376,7 +368,7 @@
     letter-spacing: 1px;
   }
 
-  /* 创始会员权益模块 */
+  /* 会员权益模块 */
   .founders {
     background: linear-gradient(135deg, #FFFDF7 0%, #F8F2E4 100%);
     border: 1px solid var(--border);
@@ -583,7 +575,7 @@
     background: rgba(250,248,242,.6);
   }
   .footer a { color: var(--gold); text-decoration: none; }
-  /* 申请入会按钮 */
+  /* 会员权益按钮 */
   .join-btn {
     background: var(--gold) !important;
     color: #fff !important;
@@ -1067,6 +1059,124 @@
     .home-carousel-dots { margin-top:.55rem; }
   }
 
+  /* 2026-09 approved editorial desktop layout */
+  @media (min-width:981px) {
+    body {
+      background:
+        radial-gradient(circle at 8% 18%, rgba(201,168,76,.08), transparent 28%),
+        linear-gradient(180deg,#f7f3eb 0%,#eee8da 100%);
+    }
+    .cover.cover-home.home-carousel-hero {
+      height:min(760px,82svh);
+      min-height:640px;
+      max-height:760px;
+      grid-template-columns:minmax(340px,.78fr) minmax(560px,1.22fr);
+      gap:clamp(2rem,3vw,4rem);
+      padding:clamp(2.1rem,3.2vw,3.7rem);
+    }
+    .home-intro .cover-brand { font-size:clamp(2.35rem,3vw,3.45rem); }
+    .cover-home .home-event-panel {
+      min-height:clamp(460px,58svh,560px);
+      height:clamp(460px,58svh,560px);
+    }
+    .content {
+      max-width:1180px;
+      padding:4.5rem clamp(4rem,6vw,6.5rem) 5.5rem;
+      border-left:1px solid rgba(139,115,85,.12);
+      border-right:1px solid rgba(139,115,85,.12);
+      box-shadow:0 30px 90px rgba(62,49,32,.08);
+    }
+    .content > h1,
+    .content > h2,
+    .content > h3,
+    .content > p,
+    .content > ul,
+    .content > ol,
+    .content > .quote-block,
+    .content > .highlight-box {
+      max-width:860px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    h1 {
+      font-size:2rem;
+      line-height:1.3;
+      margin-top:3.75rem;
+      padding-bottom:.75rem;
+    }
+    h2 {
+      font-size:1.42rem;
+      line-height:1.45;
+      margin-top:2.35rem;
+    }
+    h3,
+    .benefit-title { font-size:1.12rem; }
+    p,
+    li {
+      font-size:1.02rem;
+      line-height:1.9;
+    }
+    .founders,
+    .benefit-table-wrap,
+    .org-chart,
+    .local-discovery,
+    .faq {
+      max-width:1000px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .founders {
+      padding:2rem 2.2rem 1.7rem;
+      border-radius:10px;
+    }
+    .benefit-title { margin-top:1.75rem; }
+    .benefit-table { font-size:1rem; }
+    .benefit-table th { font-size:.96rem; }
+    .faq details { padding:.15rem 0; }
+    .faq summary { font-size:1.08rem; }
+  }
+
+  .membership-closed {
+    display:inline-flex;
+    align-items:center;
+    margin-left:.6rem;
+    padding:.22rem .58rem;
+    border:1px solid rgba(139,115,85,.35);
+    border-radius:999px;
+    color:var(--gold);
+    background:rgba(139,115,85,.06);
+    font:700 .68rem/1.2 Arial,sans-serif;
+    letter-spacing:1px;
+    vertical-align:middle;
+    white-space:nowrap;
+  }
+  .membership-rights-note { margin-top:.35rem !important; }
+  .org-chart .oc-member-row {
+    gap:16px;
+    flex-wrap:wrap;
+    align-items:stretch;
+  }
+  .org-chart .oc-nm {
+    min-width:210px;
+    padding:16px 32px;
+  }
+  .org-chart .oc-nm.oc-founding-member {
+    border-color:rgba(201,168,76,.9);
+    background:linear-gradient(135deg,#fffaf0 0%,#f4ead2 100%);
+    box-shadow:0 8px 24px rgba(139,115,85,.12);
+  }
+  .org-chart .oc-nm.oc-founding-member .oc-nm-role,
+  .org-chart .oc-nm.oc-founding-member .oc-nm-price { color:var(--gold); }
+  @media (max-width:480px) {
+    .org-chart .oc-member-row { gap:8px; }
+    .org-chart .oc-nm {
+      flex:1 1 130px;
+      min-width:130px;
+      padding:12px 8px;
+    }
+    .org-chart .oc-nm-name { font-size:14px; }
+  }
+
   /* ===== 地区 SEO / GEO 入口 ===== */
   .local-discovery {
     margin: 3rem 0 3.6rem;
@@ -1219,7 +1329,7 @@
     <a href="#local-ai-club" onclick="closeToc()">地区入口</a>
     <a href="#s13" onclick="closeToc()">常见问题</a>
     <a href="events.html" onclick="closeToc()">活动日历</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfdXh1BNiAh9-I3jvXtWTenJ-jbBFtmGuwIAz6oqBMyDDM5RQ/formResponse" target="_blank" class="join-btn" onclick="closeToc()">申请入会</a>
+    <a href="#s6" class="join-btn" onclick="closeToc()">会员权益</a>
     <a href="mailto:office@new-bee.club" class="join-btn" style="background:transparent;border:1px solid #C9A84C;color:#C9A84C;" onclick="closeToc()">联系我们</a>
   </div>
 </nav>
@@ -1288,8 +1398,9 @@
 <p>俱乐部可根据发展阶段设置必要的申请与审核流程，以维护社区秩序与参与质量。相关流程应遵循公开、合理、适度的原则，不以制造身份门槛或封闭圈层为目的。</p>
 <p>如设置推荐机制，推荐仅作为辅助了解申请人背景与参与意愿的方式，不构成排他性资格条件。</p>
 <p>如设置审核机制，其目的在于维护社区价值、秩序与参与体验。</p>
-<h2>4）创始会员权益（仅限 30 席）</h2>
-<p>俱乐部第一期仅招募 30 位创始会员，与 7 位创始委员、3 位执行层成员共同奠基。后续新会员的招募，将在创始会员稳定参与并形成共识的基础上推进。以下为创始会员专属权益清单。</p>
+<h2>4）会员权益 <span class="membership-closed">首期 26 席已于 6 月 30 日截止</span></h2>
+<p>首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。</p>
+<p class="membership-rights-note">以下为俱乐部所有会员权益；后续会员计划将在现有会员稳定参与并形成共识后另行公布。</p>
 
 <div class="founders">
   <h3>核心五件套</h3>
@@ -1326,9 +1437,8 @@
   </ul>
   <p class="no-indent">工作坊则与时俱进，以<strong>行业群体或家庭</strong>为单位，带大家上手小龙虾、Hermes、Claude Cowork 等<strong>无需代码经验</strong>即可掌握的实操技巧。</p>
 
-  <p class="benefit-title"><span class="num">⑤</span><strong>品哥定向咨询</strong></p>
-  <p class="no-indent">可提前 3 个月预约，免费获得品哥<strong>针对家庭或企业的定向咨询 1 次 / 年</strong>。如排期无法满足，会邀约同等级以上专家执行（创始会员同意情况下）。</p>
-  <p class="benefit-note"><small>注：品哥对外咨询市场参考价 —— 个人咨询 1,000 美元 / 小时，企业课程 1,500 美元 / 小时。</small></p>
+  <p class="benefit-title"><span class="num">⑤</span><strong>品哥 + AI Master 日常答疑</strong></p>
+  <p class="no-indent">会员可在俱乐部日常交流中获得<strong>品哥与 AI Master 的答疑支持</strong>，围绕 AI 学习、工具使用及家庭或企业场景中的实际问题进行交流。</p>
 </div>
 
 <h3>会员服务表</h3>
@@ -1368,10 +1478,10 @@
         <td>思辨深度 + 落地能力</td>
       </tr>
       <tr>
-        <td>创始会员定向咨询</td>
-        <td>品哥 1 次 / 年（家庭 / 企业）</td>
-        <td>限创始席位</td>
-        <td>提前 3 个月预约</td>
+        <td>日常答疑</td>
+        <td>品哥 + AI Master</td>
+        <td>日常</td>
+        <td>持续获得实际问题支持</td>
       </tr>
     </tbody>
   </table>
@@ -1527,10 +1637,15 @@
 
   <!-- 会员层 -->
   <div class="oc-member-row">
+    <div class="oc-nm oc-founding-member">
+      <div class="oc-nm-role">Founding Member</div>
+      <div class="oc-nm-name">创始会员</div>
+      <div class="oc-nm-price">1,999 NZD / 年</div>
+    </div>
     <div class="oc-nm">
       <div class="oc-nm-role">Member</div>
-      <div class="oc-nm-name">New Bee 会员</div>
-      <div class="oc-nm-price">1,999 NZD / 年</div>
+      <div class="oc-nm-name">会员</div>
+      <div class="oc-nm-price">1,299 NZD / 年</div>
     </div>
   </div>
 
@@ -1573,10 +1688,6 @@
     <summary>先蜂AI俱乐部位于哪里？</summary>
     <p class="faq-a">俱乐部以新西兰奥克兰（Auckland, New Zealand）为主要活动基地，面向全球华人开放。线上活动覆盖全球时区，线下活动以奥克兰为主。</p>
   </details>
-  <details>
-    <summary>新西兰有哪些面向华人的 AI 俱乐部？</summary>
-    <p class="faq-a">NewBee AI Club（先蜂AI俱乐部、先蜂会）是一个以奥克兰为主要线下活动基地的新西兰华人 AI 学习与实践社群，举办 AI Keynote、实操 Workshop、案例交流和线上活动。可查看<a href="new-zealand-ai-club.html" style="color:var(--gold);">新西兰 AI Club 中英文介绍</a>。</p>
-  </details>
   <details lang="en-NZ">
     <summary>What is NewBee AI Club in New Zealand?</summary>
     <p class="faq-a">NewBee AI Club is an independently organised, non-profit Chinese-speaking AI learning and practice community in New Zealand. It organises keynotes, hands-on workshops, case discussions and online sessions. See the <a href="new-zealand-ai-club.html" style="color:var(--gold);">New Zealand overview</a>.</p>
@@ -1586,12 +1697,12 @@
     <p class="faq-a">面向对 AI 学习、应用与交流有兴趣的华人个人开放，包括但不限于：在教育、产品、设计、研发、咨询、运营、创业、公益等领域探索 AI 应用的人；希望系统学习 AI、提升实践能力的学习者；愿意参与交流、共创、分享与社区建设的人。</p>
   </details>
   <details>
-    <summary>如何申请加入先蜂AI俱乐部？</summary>
-    <p class="faq-a">通过官网顶部导航栏「申请入会」按钮填写 Google 表单提交申请。第一期仅招募 30 位创始会员，与 7 位创始委员、3 位执行层成员共同奠基。后续新会员的招募，将在创始会员稳定参与并形成共识的基础上推进。</p>
+    <summary>目前如何了解后续会员计划？</summary>
+    <p class="faq-a">首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。后续会员计划将在现有会员稳定参与并形成共识后另行公布。如希望了解下一期计划，可通过 <a href="mailto:office@new-bee.club" style="color:var(--gold);">office@new-bee.club</a> 联系俱乐部。</p>
   </details>
   <details>
-    <summary>创始会员有哪些权益？</summary>
-    <p class="faq-a">创始会员核心五件套：① 行业定制新闻简报（每工作日 AI 生成）；② 会员专属 AI 私教 Agent（内置小龙虾、Hermes、GEO 诊断等工具）；③ Starmesh 平台 20 人以下免费使用权；④ 月度讲座与实操工作坊（每月至少一次）；⑤ 品哥定向咨询 1 次/年（家庭或企业，市场参考价 1,000-1,500 美元/小时）。</p>
+    <summary>会员有哪些权益？</summary>
+    <p class="faq-a">会员核心五件套：① 行业定制新闻简报（每工作日 AI 生成）；② 会员专属 AI 私教 Agent（内置小龙虾、Hermes、GEO 诊断等工具）；③ Starmesh 平台 20 人以下免费使用权；④ 月度讲座与实操工作坊（每月至少一次）；⑤ 品哥 + AI Master 日常答疑。</p>
   </details>
   <details>
     <summary>NewBee AI Club 是营利组织吗？</summary>
