@@ -196,6 +196,35 @@
         }
       }
 
+      const consultationTitle = [...page.querySelectorAll('.benefit-title')]
+        .find((title) => title.textContent.includes('品哥定向咨询'));
+
+      if (consultationTitle) {
+        const titleText = consultationTitle.querySelector('strong');
+        if (titleText) titleText.textContent = '品哥 + AI Master 日常答疑';
+
+        const consultationBody = consultationTitle.nextElementSibling;
+        if (consultationBody && consultationBody.tagName === 'P') {
+          consultationBody.innerHTML = '会员可在俱乐部日常交流中获得<strong>品哥与 AI Master 的答疑支持</strong>，围绕 AI 学习、工具使用及家庭或企业场景中的实际问题进行交流。';
+        }
+
+        const priceNote = consultationBody?.nextElementSibling;
+        if (priceNote?.classList.contains('benefit-note')) priceNote.remove();
+      }
+
+      const consultationRow = [...page.querySelectorAll('.benefit-table tbody tr')]
+        .find((row) => row.textContent.includes('创始会员定向咨询'));
+
+      if (consultationRow) {
+        const cells = consultationRow.querySelectorAll('td');
+        if (cells.length >= 4) {
+          cells[0].textContent = '日常答疑';
+          cells[1].textContent = '品哥 + AI Master';
+          cells[2].textContent = '日常';
+          cells[3].textContent = '持续获得实际问题支持';
+        }
+      }
+
       const faqItems = [...page.querySelectorAll('.faq details')];
       const seoQuestion = faqItems.find((item) =>
         item.querySelector('summary')?.textContent.includes('新西兰有哪些面向华人的 AI 俱乐部')
@@ -211,6 +240,17 @@
         const answer = joiningQuestion.querySelector('.faq-a');
         if (answer) {
           answer.innerHTML = '首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。后续会员安排将在创始会员稳定参与并形成共识后公布。如希望了解下一期计划，可通过 <a href="mailto:office@new-bee.club" style="color:var(--gold);">office@new-bee.club</a> 联系俱乐部。';
+        }
+      }
+
+      const benefitsQuestion = [...page.querySelectorAll('.faq details')].find((item) =>
+        item.querySelector('summary')?.textContent.includes('创始会员有哪些权益')
+      );
+
+      if (benefitsQuestion) {
+        const answer = benefitsQuestion.querySelector('.faq-a');
+        if (answer) {
+          answer.textContent = '创始会员核心五件套：① 行业定制新闻简报（每工作日 AI 生成）；② 会员专属 AI 私教 Agent（内置小龙虾、Hermes、GEO 诊断等工具）；③ Starmesh 平台 20 人以下免费使用权；④ 月度讲座与实操工作坊（每月至少一次）；⑤ 品哥 + AI Master 日常答疑。';
         }
       }
     });
