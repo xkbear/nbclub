@@ -187,12 +187,12 @@
         membershipHeading.textContent = '4）创始会员权益';
         const status = page.createElement('span');
         status.className = 'membership-closed';
-        status.textContent = '首期 30 席已满';
+        status.textContent = '首期 26 席已于 6 月 30 日截止';
         membershipHeading.appendChild(status);
 
         const intro = membershipHeading.nextElementSibling;
         if (intro && intro.tagName === 'P') {
-          intro.textContent = '首期 30 位创始会员招募已经结束。以下内容为创始会员专属权益记录；后续会员计划将在创始会员稳定参与并形成共识后另行公布。';
+          intro.textContent = '首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。以下内容为创始会员专属权益记录；后续会员计划将在创始会员稳定参与并形成共识后另行公布。';
         }
       }
 
@@ -210,7 +210,7 @@
         joiningQuestion.querySelector('summary').textContent = '目前如何了解后续会员计划？';
         const answer = joiningQuestion.querySelector('.faq-a');
         if (answer) {
-          answer.innerHTML = '首期 30 位创始会员招募已经结束。后续会员安排将在创始会员稳定参与并形成共识后公布。如希望了解下一期计划，可通过 <a href="mailto:office@new-bee.club" style="color:var(--gold);">office@new-bee.club</a> 联系俱乐部。';
+          answer.innerHTML = '首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。后续会员安排将在创始会员稳定参与并形成共识后公布。如希望了解下一期计划，可通过 <a href="mailto:office@new-bee.club" style="color:var(--gold);">office@new-bee.club</a> 联系俱乐部。';
         }
       }
     });
