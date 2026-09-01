@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://new-bee.club/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://new-bee.club/"/>
@@ -46,13 +46,24 @@
   </url>
   <url>
     <loc>https://new-bee.club/events.html</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://new-bee.club/assets/events/2026-08-27-member-day/cover.jpg</image:loc>
+      <image:loc>https://new-bee.club/assets/events/2026-09-04-w3/cover.jpg</image:loc>
       <image:title>NewBee 先蜂AI俱乐部活动日历</image:title>
-      <image:caption>先蜂AI俱乐部 Keynote、Workshop、会员活动日与创会回顾</image:caption>
+      <image:caption>先蜂AI俱乐部 Keynote、Workshop、会员活动日与创会记录；最新活动为 W3 海边 AI 生活提案</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://new-bee.club/event-2026-09-04-w3.html</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://new-bee.club/assets/events/2026-09-04-w3/cover.jpg</image:loc>
+      <image:title>NewBee AI Club W3 海边 AI 生活提案</image:title>
+      <image:caption>AI，让生活更开心；2026 年 9 月 4 日 Long Bay Workshop</image:caption>
     </image:image>
   </url>
   <url>
