@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self' data:; connect-src 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 
 <!-- ===== Search Engine Verification ===== -->
 <meta name="google-site-verification" content="IeZgm84MV3u2rq-xDdjQ7KPL4sIdr6EJbA1G6INVjnM" />
@@ -17,6 +19,7 @@
 <meta name="bingbot" content="index, follow">
 <meta name="baiduspider" content="index, follow">
 <link rel="canonical" href="https://new-bee.club/">
+<link rel="alternate" type="application/rss+xml" title="NewBee AI Club 活动订阅" href="https://new-bee.club/feed.xml">
 
 <!-- ===== Geo Targeting ===== -->
 <meta name="geo.region" content="NZ-AUK">
@@ -32,8 +35,8 @@
 <meta property="og:url" content="https://new-bee.club/">
 <meta property="og:image" content="https://new-bee.club/logo.png">
 <meta property="og:image:secure_url" content="https://new-bee.club/logo.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="1200">
+<meta property="og:image:width" content="586">
+<meta property="og:image:height" content="238">
 <meta property="og:image:alt" content="NewBee AI Club Logo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:locale:alternate" content="zh_TW">
@@ -49,7 +52,6 @@
 <!-- ===== Language Alternates ===== -->
 <link rel="alternate" hreflang="zh-CN" href="https://new-bee.club/">
 <link rel="alternate" hreflang="zh-Hant" href="https://new-bee.club/">
-<link rel="alternate" hreflang="en-NZ" href="https://new-bee.club/new-zealand-ai-club.html">
 <link rel="alternate" hreflang="x-default" href="https://new-bee.club/">
 
 <!-- ===== Schema.org JSON-LD ===== -->
@@ -73,8 +75,8 @@
       "logo": {
         "@type": "ImageObject",
         "url": "https://new-bee.club/logo.png",
-        "width": 1200,
-        "height": 1200
+        "width": 586,
+        "height": 238
       },
       "image": "https://new-bee.club/logo.png",
       "description": "NewBee AI Club（先蜂AI俱乐部、先蜂会）是一个独立运营、立足新西兰的华人 AI 学习与实践社群，由 AI 学习者、实践者及跨领域从业者共同参与。",
@@ -95,6 +97,13 @@
         "addressRegion": "Auckland"
       },
       "email": "office@new-bee.club",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "membership, event and collaboration enquiries",
+        "email": "office@new-bee.club",
+        "areaServed": "NZ",
+        "availableLanguage": ["Chinese", "English"]
+      },
       "slogan": "好奇心 · 创造力 · 致良知",
       "keywords": "NewBee AI Club, New Zealand AI Club, Chinese AI Club New Zealand, AI events New Zealand, AI workshops New Zealand, 先蜂AI俱乐部, 先蜂会, 新西兰 AI 俱乐部, 华人 AI 社群",
       "knowsAbout": [
@@ -111,6 +120,16 @@
       "sameAs": [
         "https://mp.weixin.qq.com/s/mug_ywILKuAb5nrETO0CTg"
       ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://new-bee.club/#community-service",
+      "name": "NewBee AI Club AI 学习与实践社群",
+      "serviceType": "AI learning, practical workshops and community events",
+      "description": "通过主题讲座、实操工作坊、案例讨论、会员活动日与线上交流，支持新西兰华人学习和负责任地实践人工智能。",
+      "provider": {"@id": "https://new-bee.club/#organization"},
+      "areaServed": {"@type": "Country", "name": "New Zealand"},
+      "audience": {"@type": "Audience", "audienceType": "Chinese-speaking AI learners, practitioners and cross-disciplinary professionals"}
     },
     {
       "@type": "WebSite",
@@ -131,7 +150,7 @@
       "about": {"@id": "https://new-bee.club/#organization"},
       "inLanguage": "zh-CN",
       "datePublished": "2026-03-15",
-      "dateModified": "2026-09-01"
+      "dateModified": "2026-09-02"
     },
     {
       "@type": "FAQPage",
@@ -171,10 +190,10 @@
         },
         {
           "@type": "Question",
-          "name": "目前如何了解后续会员计划？",
+          "name": "如何申请加入 NewBee AI Club？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。后续会员计划将在现有会员稳定参与并形成共识后另行公布。如希望了解下一期计划，可通过 office@new-bee.club 联系俱乐部。"
+            "text": "首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。目前开放普通会员申请，年费为 1,299 NZD。申请人可在网站的申请加入频道填写会员申请表；提交后由俱乐部审核并联系确认。"
           }
         },
         {
@@ -1004,6 +1023,7 @@
   .home-intro-footer { display:flex; align-items:center; justify-content:space-between; gap:1rem; max-width:430px; margin-top:1.15rem; padding-top:.9rem; border-top:1px solid rgba(139,115,85,.28); }
   .home-intro-footer span { color:var(--gray); font-size:.76rem; }
   .home-intro-footer a { color:var(--gold); font-size:.8rem; text-decoration:none; }
+  .home-intro-footer .home-apply-entry { padding:.42rem .7rem; border-radius:3px; background:var(--gold); color:#fff; font-weight:700; }
   .home-events-showcase { position:relative; z-index:1; min-width:0; }
   .home-events-head { display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; margin-bottom:.9rem; }
   .home-events-label { display:block; color:var(--gold); font:700 .66rem/1.3 Arial,sans-serif; letter-spacing:3px; text-transform:uppercase; }
@@ -1151,6 +1171,38 @@
     white-space:nowrap;
   }
   .membership-rights-note { margin-top:.35rem !important; }
+  .membership-open {
+    display:inline-flex;
+    align-items:center;
+    margin-left:.6rem;
+    padding:.22rem .58rem;
+    border:1px solid rgba(139,115,85,.42);
+    border-radius:999px;
+    color:var(--gold);
+    background:rgba(201,168,76,.12);
+    font:700 .68rem/1.2 Arial,sans-serif;
+    letter-spacing:1px;
+    vertical-align:middle;
+    white-space:nowrap;
+  }
+  .membership-apply-cta {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    margin:1.15rem 0 1.5rem;
+    padding:1rem 1.15rem;
+    border:1px solid rgba(139,115,85,.34);
+    border-left:4px solid var(--gold);
+    border-radius:4px;
+    background:linear-gradient(100deg,#f4ead5 0%,#fffdf8 68%);
+    color:var(--dark);
+    text-decoration:none;
+    transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+  }
+  .membership-apply-cta:hover { transform:translateY(-2px); border-color:var(--gold); box-shadow:0 12px 28px rgba(79,59,34,.1); }
+  .membership-apply-cta span { font-family:"Noto Sans SC","PingFang SC",sans-serif; font-weight:750; }
+  .membership-apply-cta small { color:var(--gold); font-size:.78rem; white-space:nowrap; }
   .org-chart .oc-member-row {
     gap:16px;
     flex-wrap:wrap;
@@ -1168,6 +1220,8 @@
   .org-chart .oc-nm.oc-founding-member .oc-nm-role,
   .org-chart .oc-nm.oc-founding-member .oc-nm-price { color:var(--gold); }
   @media (max-width:480px) {
+    .membership-open { display:flex; width:max-content; margin:.5rem 0 0; }
+    .membership-apply-cta { align-items:flex-start; flex-direction:column; gap:.25rem; }
     .org-chart .oc-member-row { gap:8px; }
     .org-chart .oc-nm {
       flex:1 1 130px;
@@ -1243,7 +1297,7 @@
       <div class="home-stat"><strong>3</strong><span>WORKSHOPS</span></div>
       <div class="home-stat"><strong>2026</strong><span>FOUNDED IN NZ</span></div>
     </div>
-    <div class="home-intro-footer"><span>白皮书 V1.4</span><a href="events.html">完整活动日历 →</a></div>
+    <div class="home-intro-footer"><span>白皮书 V1.4</span><a class="home-apply-entry" href="apply.html">申请加入 →</a><a href="events.html">活动日历 →</a></div>
   </section>
 
   <section class="home-events-showcase" aria-labelledby="home-events-title">
@@ -1329,7 +1383,7 @@
     <a href="#local-ai-club" onclick="closeToc()">地区入口</a>
     <a href="#s13" onclick="closeToc()">常见问题</a>
     <a href="events.html" onclick="closeToc()">活动日历</a>
-    <a href="#s6" class="join-btn" onclick="closeToc()">会员权益</a>
+    <a href="apply.html" class="join-btn" onclick="closeToc()">申请加入</a>
     <a href="mailto:office@new-bee.club" class="join-btn" style="background:transparent;border:1px solid #C9A84C;color:#C9A84C;" onclick="closeToc()">联系我们</a>
   </div>
 </nav>
@@ -1398,9 +1452,10 @@
 <p>俱乐部可根据发展阶段设置必要的申请与审核流程，以维护社区秩序与参与质量。相关流程应遵循公开、合理、适度的原则，不以制造身份门槛或封闭圈层为目的。</p>
 <p>如设置推荐机制，推荐仅作为辅助了解申请人背景与参与意愿的方式，不构成排他性资格条件。</p>
 <p>如设置审核机制，其目的在于维护社区价值、秩序与参与体验。</p>
-<h2>4）会员权益 <span class="membership-closed">首期 26 席已于 6 月 30 日截止</span></h2>
+<h2>4）会员权益 <span class="membership-open">会员申请开放</span></h2>
 <p>首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。</p>
-<p class="membership-rights-note">以下为俱乐部所有会员权益；后续会员计划将在现有会员稳定参与并形成共识后另行公布。</p>
+<p class="membership-rights-note">目前开放普通会员申请，年费 1,299 NZD/年。以下权益适用于俱乐部会员；申请提交后，俱乐部将进行审核并与申请人联系。</p>
+<a class="membership-apply-cta" href="apply.html"><span>申请加入 NewBee AI Club</span><small>在线填写会员申请表 →</small></a>
 
 <div class="founders">
   <h3>核心五件套</h3>
@@ -1697,8 +1752,8 @@
     <p class="faq-a">面向对 AI 学习、应用与交流有兴趣的华人个人开放，包括但不限于：在教育、产品、设计、研发、咨询、运营、创业、公益等领域探索 AI 应用的人；希望系统学习 AI、提升实践能力的学习者；愿意参与交流、共创、分享与社区建设的人。</p>
   </details>
   <details>
-    <summary>目前如何了解后续会员计划？</summary>
-    <p class="faq-a">首期 26 席创始会员招募已于 2026 年 6 月 30 日截止。后续会员计划将在现有会员稳定参与并形成共识后另行公布。如希望了解下一期计划，可通过 <a href="mailto:office@new-bee.club" style="color:var(--gold);">office@new-bee.club</a> 联系俱乐部。</p>
+    <summary>如何申请加入 NewBee AI Club？</summary>
+    <p class="faq-a">目前开放普通会员申请，年费为 1,299 NZD。请进入网站的<a href="apply.html" style="color:var(--gold);">申请加入频道</a>填写会员申请表；提交后由俱乐部审核并联系确认。如需帮助，可通过 <a href="mailto:office@new-bee.club" style="color:var(--gold);">office@new-bee.club</a> 联系俱乐部。</p>
   </details>
   <details>
     <summary>会员有哪些权益？</summary>

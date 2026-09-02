@@ -20,6 +20,7 @@ NewBee AI Club brings together Chinese-speaking AI learners, practitioners, foun
 ## Canonical pages
 
 - Chinese homepage and white paper: https://new-bee.club/
+- Membership application: https://new-bee.club/apply.html
 - NewBee AI Club in New Zealand: https://new-bee.club/new-zealand-ai-club.html
 - Official event calendar and archive: https://new-bee.club/events.html
 
