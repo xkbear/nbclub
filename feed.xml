@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>NewBee AI Club 活动与回顾</title>
+    <link>https://new-bee.club/events.html</link>
+    <description>NewBee AI Club 先蜂AI俱乐部在新西兰及线上举办的 AI Keynote、实操 Workshop、会员活动日与公开回顾。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 02 Sep 2026 12:00:00 +1200</lastBuildDate>
+    <atom:link href="https://new-bee.club/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://new-bee.club/logo.jpg</url>
+      <title>NewBee AI Club</title>
+      <link>https://new-bee.club/</link>
+    </image>
+    <ttl>1440</ttl>
+
+    <item>
+      <title>W3 海边 AI 生活提案：AI，让生活更开心</title>
+      <link>https://new-bee.club/event-2026-09-04-w3.html</link>
+      <guid isPermaLink="true">https://new-bee.club/event-2026-09-04-w3.html</guid>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 +1200</pubDate>
+      <category>Workshop</category>
+      <description>2026 年 9 月 4 日 14:00–16:00，Long Bay。围绕 AI 摄影、亲子实践、小游戏开发与日常生活创意的 Home Tea Salon。</description>
+    </item>
+    <item>
+      <title>E0 会员活动日：走进 Icehouse Ventures 年度 Showcase</title>
+      <link>https://new-bee.club/event-2026-08-27-member-day.html</link>
+      <guid isPermaLink="true">https://new-bee.club/event-2026-08-27-member-day.html</guid>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 +1200</pubDate>
+      <category>Member Event</category>
+      <description>两桌 NewBee AI Club 会员共同观察新西兰创新项目、资本与青年教育现场。</description>
+    </item>
+    <item>
+      <title>K4 AI 读古籍，最后读到的为什么还是人？</title>
+      <link>https://new-bee.club/event-2026-08-15-k4.html</link>
+      <guid isPermaLink="true">https://new-bee.club/event-2026-08-15-k4.html</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 +1200</pubDate>
+      <category>Keynote</category>
+      <description>胡韧奋博士从历史、文化心理与古籍计算出发，讨论关系、合作与大模型的解释边界。</description>
+    </item>
+    <item>
+      <title>K3 企业 AI 能力建设的关键路径</title>
+      <link>https://new-bee.club/event-2026-08-01-k3.html</link>
+      <guid isPermaLink="true">https://new-bee.club/event-2026-08-01-k3.html</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 +1200</pubDate>
+      <category>Keynote</category>
+      <description>王咏刚从理解 AI、掌握 AI 到信任 AI，梳理企业能力建设路线。</description>
+    </item>
+    <item>
+      <title>W2 从一次任务到一条内容生产线</title>
+      <link>https://new-bee.club/event-2026-07-17-w2.html</link>
+      <guid isPermaLink="true">https://new-bee.club/event-2026-07-17-w2.html</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 +1200</pubDate>
+      <category>Workshop</category>
+      <description>PPT 实战与公众号内容工作流：让 AI 从一次对话走向持续、可靠的生产协作。</description>
+    </item>
+    <item>
+      <title>K2 硅基员工应用讲座</title>
+      <link>https://new-bee.club/event-2026-06-26-k2.html</link>
+      <guid isPermaLink="true">https://new-bee.club/event-2026-06-26-k2.html</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 +1200</pubDate>
+      <category>Keynote</category>
+      <description>从聊天框走向智能体、组织上下文、权限边界与真实业务闭环。</description>
+    </item>
+    <item>
+      <title>W1 OpenClaw（龙虾）实战工作坊</title>
+      <link>https://new-bee.club/event-2026-06-05-w1.html</link>
+      <guid isPermaLink="true">https://new-bee.club/event-2026-06-05-w1.html</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 +1200</pubDate>
+      <category>Workshop</category>
+      <description>在奥克兰现场完成安装配置，并演示邮件、日历和信息检索等 AI 自动化协作场景。</description>
+    </item>
+    <item>
+      <title>K1 硅谷归来</title>
+      <link>https://new-bee.club/event-2026-05-15-k1.html</link>
+      <guid isPermaLink="true">https://new-bee.club/event-2026-05-15-k1.html</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 +1200</pubDate>
+      <category>Keynote</category>
+      <description>AI 前沿观察、新西兰创业案例，以及从工具尝鲜走向组织能力升级。</description>
+    </item>
+    <item>
+      <title>NewBee（先蜂）AI俱乐部于新西兰正式成立</title>
+      <link>https://new-bee.club/event-2026-05-04.html</link>
+      <guid isPermaLink="true">https://new-bee.club/event-2026-05-04.html</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +1200</pubDate>
+      <category>Founding</category>
+      <description>第一次创始会员成立会议完整图文回顾：AI 时代重构老板。</description>
+    </item>
+  </channel>
+</rss>

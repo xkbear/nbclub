@@ -3,12 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self' data:; connect-src 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 
 <title>AI 时代为我而创 · 先蜂会歌 ｜ NewBee AI Club 先蜂AI俱乐部</title>
 <meta name="description" content="《AI 时代为我而创》— NewBee AI Club（先蜂AI俱乐部 / 先蜂会）会歌，新西兰华人 AI 社群的共同声音。好奇心 · 创造力 · 致良知。">
 <meta name="keywords" content="先蜂会歌, AI 时代为我而创, NewBee AI Club, 先蜂AI俱乐部, 先蜂会, 新西兰 AI 俱乐部, 华人 AI 社群">
 <meta name="robots" content="index, follow, max-image-preview:large, max-video-preview:-1">
 <link rel="canonical" href="https://new-bee.club/anthem.html">
+<link rel="alternate" type="application/rss+xml" title="NewBee AI Club 活动订阅" href="https://new-bee.club/feed.xml">
 
 <meta property="og:type" content="video.other">
 <meta property="og:site_name" content="NewBee AI Club 先蜂AI俱乐部">
@@ -16,6 +19,7 @@
 <meta property="og:description" content="NewBee AI Club（先蜂AI俱乐部）会歌 — 新西兰华人 AI 社群的共同声音。">
 <meta property="og:url" content="https://new-bee.club/anthem.html">
 <meta property="og:image" content="https://new-bee.club/assets/anthem-lyrics-poster.jpg">
+<meta property="og:image:alt" content="AI 时代为我而创 · NewBee AI Club 先蜂会歌海报">
 <meta property="og:video" content="https://new-bee.club/assets/anthem-lyrics.mp4">
 <meta property="og:video:type" content="video/mp4">
 <meta property="og:locale" content="zh_CN">
@@ -24,6 +28,7 @@
 <meta name="twitter:title" content="AI 时代为我而创 · 先蜂会歌">
 <meta name="twitter:description" content="NewBee AI Club 先蜂AI俱乐部 会歌">
 <meta name="twitter:image" content="https://new-bee.club/assets/anthem-lyrics-poster.jpg">
+<meta name="twitter:image:alt" content="AI 时代为我而创 · NewBee AI Club 先蜂会歌海报">
 
 <script type="application/ld+json">
 {
@@ -140,7 +145,7 @@
     z-index: 2;
     background:
       linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.1) 40%, rgba(0,0,0,.55) 100%),
-      url('assets/anthem-lyrics-poster.jpg') center/cover no-repeat;
+      url('assets/anthem-lyrics-poster.webp') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,7 +236,7 @@
 </div>
 
 <div class="stage" id="stage">
-  <video id="v" preload="metadata" playsinline poster="assets/anthem-lyrics-poster.jpg">
+  <video id="v" preload="metadata" playsinline poster="assets/anthem-lyrics-poster.webp">
     <source src="assets/anthem-lyrics.mp4" type="video/mp4">
   </video>
   <div class="veil">

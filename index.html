@@ -834,6 +834,20 @@
     text-indent: 0;
     line-height: 1.8;
   }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+  }
+  .faq-item:last-of-type { border-bottom: none; }
+  .faq-item h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Noto Sans SC", "SimHei", sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+  .faq-item .faq-a { margin-bottom: 0; }
   @media (max-width: 768px) {
     .faq summary { font-size: .95rem; }
     .faq .faq-a { font-size: .92rem; }
@@ -1258,7 +1272,7 @@
     line-height: 1.3;
   }
   .local-discovery-intro { margin: 0; color: var(--gray); text-indent: 0; }
-  .local-grid { display: grid; grid-template-columns: 1fr; gap: .9rem; margin-top: 1.7rem; }
+  .local-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; margin-top: 1.7rem; }
   .local-card {
     display: block;
     padding: 1.25rem;
@@ -1273,6 +1287,9 @@
   .local-card h3 { margin: .45rem 0 .45rem; font-family: "Noto Sans SC", "PingFang SC", sans-serif; font-size: 1.05rem; }
   .local-card p { margin: 0; color: var(--gray); font-size: .85rem; line-height: 1.65; text-indent: 0; }
   .local-card-link { display: inline-block; margin-top: .75rem; color: var(--gold); font-size: .78rem; font-weight: 700; }
+  .local-query-links { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1rem; }
+  .local-query-links a { padding:.42rem .58rem; border:1px solid rgba(139,115,85,.28); color:var(--gold); font-size:.76rem; font-weight:700; text-decoration:none; }
+  .local-query-links a:hover { border-color:var(--gold); }
   .local-source { margin: 1rem 0 0; color: var(--gray); font-size: .68rem; text-indent: 0; }
   @media (max-width:768px) {
     .local-discovery { margin: 2.2rem 0 2.8rem; padding: 1.25rem; }
@@ -1286,7 +1303,7 @@
 <!-- 首屏：精简俱乐部介绍 + 可左右滑动活动回顾 -->
 <div class="cover cover-home home-carousel-hero">
   <section class="home-intro" aria-labelledby="home-club-title">
-    <div class="home-brand-lockup"><img src="logo.png" alt="NewBee AI Club 先蜂AI俱乐部 Logo"><span class="home-season">New Zealand · 2026</span></div>
+    <div class="home-brand-lockup"><img src="logo.webp" width="586" height="238" alt="NewBee AI Club 先蜂AI俱乐部 Logo" loading="eager" fetchpriority="high" decoding="async"><span class="home-season">New Zealand · 2026</span></div>
     <h1 class="cover-brand" id="home-club-title">NewBee AI Club</h1>
     <div class="cover-cn">先蜂AI俱乐部 · 先蜂会</div>
     <p class="home-intro-lead">立足新西兰的华人 AI 学习与实践社群，在真实的企业、家庭与行业场景中学习、提问、实践和复盘。</p>
@@ -1305,14 +1322,14 @@
       <div class="home-carousel-controls"><span class="home-carousel-count" id="home-carousel-count">01 / 08</span><button class="home-carousel-arrow" id="home-carousel-prev" type="button" aria-label="上一个活动">←</button><button class="home-carousel-arrow" id="home-carousel-next" type="button" aria-label="下一个活动">→</button></div>
     </div>
     <div class="home-event-track" id="home-event-track" tabindex="0" aria-label="活动回顾轮播，可左右滑动">
-      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-08-27-member-day.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-08-27-member-day/cover.jpg" alt="NewBee AI Club 会员参加 Icehouse Ventures 年度 Showcase 合影" fetchpriority="high"></div><div class="home-event-copy"><div class="home-event-kicker">E0 · MEMBER EVENT · 2026.08.27</div><h3>走进 Icehouse Ventures 年度 Showcase</h3><p>20 个项目 · 1000+ 投资人与潜在投资人 · 两桌会员</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
-      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-08-15-k4.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-08-15-k4/cover.jpg" alt="K4 AI 读古籍活动封面" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K4 · 2026.08.15</div><h3>AI 读古籍，最后读到的为什么还是人？</h3><p>AI × 历史 × 文化心理 · 胡韧奋博士</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
-      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-08-01-k3.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-08-01-k3/cover.jpg" alt="K3 企业 AI 能力建设的关键路径" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K3 · 2026.08.01</div><h3>企业 AI 能力建设的关键路径</h3><p>理解 AI · 掌握 AI · 信任 AI</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
-      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-07-17-w2.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-07-17-w2/cover.jpg" alt="W2 从一次任务到一条内容生产线线上工作坊" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">W2 · 2026.07.17 · ONLINE</div><h3>从一次任务到一条内容生产线</h3><p>PPT 实战 × 公众号内容工作流</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
-      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-06-26-k2.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-06-26-k2/cover.jpg" alt="K2 硅基员工应用讲座" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K2 · 2026.06.26</div><h3>硅基员工应用讲座</h3><p>从聊天框走向组织上下文与真实业务闭环</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
-      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-06-05-w1.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-06-05-w1/workshop-01.jpg" alt="W1 OpenClaw 龙虾实战工作坊现场" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">W1 · 2026.06.05</div><h3>OpenClaw（龙虾）实战工作坊</h3><p>现场安装、配置与 AI 自动化协作</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
-      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-05-15-k1.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-05-15-k1/cover.jpg" alt="K1 硅谷归来" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K1 · 2026.05.15</div><h3>硅谷归来</h3><p>AI 前沿观察 × 新西兰创业案例</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
-      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-05-04.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-05-04/article-000.png" alt="NewBee AI Club 创会活动现场" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">FOUNDING · 2026.05.04</div><h3>NewBee（先蜂）AI俱乐部正式成立</h3><p>第一次创始会员成立会议 · Auckland</p><span class="home-event-button">阅读创会回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-08-27-member-day.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-08-27-member-day/cover.webp" width="1706" height="1279" alt="NewBee AI Club 会员参加 Icehouse Ventures 年度 Showcase 合影" loading="eager" fetchpriority="high" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">E0 · MEMBER EVENT · 2026.08.27</div><h3>走进 Icehouse Ventures 年度 Showcase</h3><p>20 个项目 · 1000+ 投资人与潜在投资人 · 两桌会员</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-08-15-k4.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-08-15-k4/cover.webp" width="1500" height="643" alt="K4 AI 读古籍活动封面" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K4 · 2026.08.15</div><h3>AI 读古籍，最后读到的为什么还是人？</h3><p>AI × 历史 × 文化心理 · 胡韧奋博士</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-08-01-k3.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-08-01-k3/cover.webp" width="1280" height="544" alt="K3 企业 AI 能力建设的关键路径" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K3 · 2026.08.01</div><h3>企业 AI 能力建设的关键路径</h3><p>理解 AI · 掌握 AI · 信任 AI</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-07-17-w2.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-07-17-w2/cover.webp" width="900" height="381" alt="W2 从一次任务到一条内容生产线线上工作坊" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">W2 · 2026.07.17 · ONLINE</div><h3>从一次任务到一条内容生产线</h3><p>PPT 实战 × 公众号内容工作流</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-06-26-k2.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-06-26-k2/cover.webp" width="1280" height="544" alt="K2 硅基员工应用讲座" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K2 · 2026.06.26</div><h3>硅基员工应用讲座</h3><p>从聊天框走向组织上下文与真实业务闭环</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-06-05-w1.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-06-05-w1/workshop-01.webp" width="1800" height="1350" alt="W1 OpenClaw 龙虾实战工作坊现场" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">W1 · 2026.06.05</div><h3>OpenClaw（龙虾）实战工作坊</h3><p>现场安装、配置与 AI 自动化协作</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-05-15-k1.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-05-15-k1/cover.webp" width="1280" height="544" alt="K1 硅谷归来" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">K1 · 2026.05.15</div><h3>硅谷归来</h3><p>AI 前沿观察 × 新西兰创业案例</p><span class="home-event-button">阅读活动回顾 →</span></div></a></article>
+      <article class="home-event-slide"><a class="home-event-panel" href="event-2026-05-04.html"><div class="home-event-media"><img class="home-event-cover" src="assets/events/2026-05-04/article-000.webp" width="1080" height="556" alt="NewBee AI Club 创会活动现场" loading="lazy" decoding="async"></div><div class="home-event-copy"><div class="home-event-kicker">FOUNDING · 2026.05.04</div><h3>NewBee（先蜂）AI俱乐部正式成立</h3><p>第一次创始会员成立会议 · Auckland</p><span class="home-event-button">阅读创会回顾 →</span></div></a></article>
     </div>
     <div class="home-carousel-dots" aria-label="选择活动"><button class="home-carousel-dot" type="button" aria-label="查看第 1 个活动" aria-current="true"></button><button class="home-carousel-dot" type="button" aria-label="查看第 2 个活动"></button><button class="home-carousel-dot" type="button" aria-label="查看第 3 个活动"></button><button class="home-carousel-dot" type="button" aria-label="查看第 4 个活动"></button><button class="home-carousel-dot" type="button" aria-label="查看第 5 个活动"></button><button class="home-carousel-dot" type="button" aria-label="查看第 6 个活动"></button><button class="home-carousel-dot" type="button" aria-label="查看第 7 个活动"></button><button class="home-carousel-dot" type="button" aria-label="查看第 8 个活动"></button></div>
   </section>
@@ -1342,10 +1359,10 @@
 
 <!-- 会歌（暂时隐藏，待排版方案确定后启用）
 <section class="video-hero" id="anthem-hero">
-  <video class="vh-video" preload="none" playsinline poster="assets/anthem-poster.jpg">
+  <video class="vh-video" preload="none" playsinline poster="assets/anthem-poster.webp">
     <source src="assets/anthem.mp4" type="video/mp4">
   </video>
-  <div class="vh-overlay" style="background-image:url('assets/anthem-poster.jpg');">
+  <div class="vh-overlay" style="background-image:url('assets/anthem-poster.webp');">
     <div class="vh-tag">CLUB ANTHEM · 先蜂会歌</div>
     <h2 class="vh-title">AI 时代为我而创</h2>
     <div class="vh-subtitle">为这个时代，留下我们自己的声音</div>
@@ -1721,55 +1738,86 @@
     </div>
   </div>
   <div class="local-grid">
+    <a class="local-card" href="xin-xilan-ai-club.html">
+      <span class="local-card-en">LOCAL CLUB GUIDE</span>
+      <h3>新西兰AI俱乐部</h3>
+      <p>了解正式定位、奥克兰线下基地、线上活动方式、真实活动档案与参与入口。</p>
+      <span class="local-card-link">查看中文指南 →</span>
+    </a>
+    <a class="local-card" href="chinese-ai-club-nz.html">
+      <span class="local-card-en">CHINESE-SPEAKING COMMUNITY</span>
+      <h3>华人AI俱乐部 NZ</h3>
+      <p>面向在新西兰生活与工作的华人学习者、实践者、创业者和跨领域从业者。</p>
+      <span class="local-card-link">查看参与说明 →</span>
+    </a>
+    <a class="local-card" href="events.html">
+      <span class="local-card-en">EVENT CALENDAR</span>
+      <h3>新西兰 AI聚会</h3>
+      <p>按日期核对线上与线下 Keynote、Workshop、会员活动日和公开回顾。</p>
+      <span class="local-card-link">打开活动日历 →</span>
+    </a>
+    <a class="local-card" href="ai-enthusiasts-new-zealand.html">
+      <span class="local-card-en">LEARNING START POINT</span>
+      <h3>新西兰AI爱好者</h3>
+      <p>从真实问题、公开案例和小范围实验开始，不要求先成为工程师。</p>
+      <span class="local-card-link">查看学习路径 →</span>
+    </a>
+    <a class="local-card" href="new-zealand-ai-association.html">
+      <span class="local-card-en">ENTITY CLARITY</span>
+      <h3>新西兰AI协会</h3>
+      <p>辨析协会、俱乐部与活动社群；NewBee 不自称新西兰官方 AI 协会。</p>
+      <span class="local-card-link">核对组织性质 →</span>
+    </a>
     <a class="local-card" href="new-zealand-ai-club.html" hreflang="en-NZ">
-      <span class="local-card-en">NewBee AI Club · New Zealand</span>
-      <h3>新西兰华人 AI 学习与实践社群</h3>
-      <p>了解俱乐部在新西兰的定位、线上线下活动方式、真实活动档案及中英文参与信息。</p>
-      <span class="local-card-link">View New Zealand guide →</span>
+      <span class="local-card-en">ENGLISH GUIDE</span>
+      <h3>New Zealand AI Club</h3>
+      <p>English overview of NewBee AI Club, its programme, official facts and public event archive.</p>
+      <span class="local-card-link">Read in English →</span>
     </a>
   </div>
+  <nav class="local-query-links" aria-label="精确主题入口"><a href="xin-xilan-ai-club.html">新西兰AI俱乐部</a><a href="chinese-ai-club-nz.html">华人AI俱乐部 NZ</a><a href="events.html">新西兰 AI聚会</a><a href="ai-enthusiasts-new-zealand.html">新西兰AI爱好者</a><a href="new-zealand-ai-association.html">新西兰AI协会</a></nav>
   <p class="local-source">官方地区说明 · NewBee AI Club 为独立运营的新西兰华人 AI 学习与实践社群</p>
 </section>
 
 <!-- 常见问题 FAQ -->
 <section class="faq" id="faq" aria-label="常见问题">
   <h1 id="s13">十三、常见问题</h1>
-  <details>
-    <summary>什么是 NewBee AI Club（先蜂AI俱乐部）？</summary>
+  <article class="faq-item">
+    <h2>什么是 NewBee AI Club（先蜂AI俱乐部）？</h2>
     <p class="faq-a">NewBee AI Club，中文名先蜂AI俱乐部，简称"先蜂会"，是一个立足新西兰、由华人 AI 学习者、实践者及跨领域从业者共同参与的非营利性社群。委员会成立日为 2026 年 3 月 21 日，宗旨是"好奇心 · 创造力 · 致良知"。</p>
-  </details>
-  <details>
-    <summary>先蜂AI俱乐部位于哪里？</summary>
+  </article>
+  <article class="faq-item">
+    <h2>先蜂AI俱乐部位于哪里？</h2>
     <p class="faq-a">俱乐部以新西兰奥克兰（Auckland, New Zealand）为主要活动基地，面向全球华人开放。线上活动覆盖全球时区，线下活动以奥克兰为主。</p>
-  </details>
-  <details lang="en-NZ">
-    <summary>What is NewBee AI Club in New Zealand?</summary>
+  </article>
+  <article class="faq-item" lang="en-NZ">
+    <h2>What is NewBee AI Club in New Zealand?</h2>
     <p class="faq-a">NewBee AI Club is an independently organised, non-profit Chinese-speaking AI learning and practice community in New Zealand. It organises keynotes, hands-on workshops, case discussions and online sessions. See the <a href="new-zealand-ai-club.html" style="color:var(--gold);">New Zealand overview</a>.</p>
-  </details>
-  <details>
-    <summary>谁可以加入 NewBee AI Club？</summary>
+  </article>
+  <article class="faq-item">
+    <h2>谁可以加入 NewBee AI Club？</h2>
     <p class="faq-a">面向对 AI 学习、应用与交流有兴趣的华人个人开放，包括但不限于：在教育、产品、设计、研发、咨询、运营、创业、公益等领域探索 AI 应用的人；希望系统学习 AI、提升实践能力的学习者；愿意参与交流、共创、分享与社区建设的人。</p>
-  </details>
-  <details>
-    <summary>如何申请加入 NewBee AI Club？</summary>
+  </article>
+  <article class="faq-item">
+    <h2>如何申请加入 NewBee AI Club？</h2>
     <p class="faq-a">目前开放普通会员申请，年费为 1,299 NZD。请进入网站的<a href="apply.html" style="color:var(--gold);">申请加入频道</a>填写会员申请表；提交后由俱乐部审核并联系确认。如需帮助，可通过 <a href="mailto:office@new-bee.club" style="color:var(--gold);">office@new-bee.club</a> 联系俱乐部。</p>
-  </details>
-  <details>
-    <summary>会员有哪些权益？</summary>
+  </article>
+  <article class="faq-item">
+    <h2>会员有哪些权益？</h2>
     <p class="faq-a">会员核心五件套：① 行业定制新闻简报（每工作日 AI 生成）；② 会员专属 AI 私教 Agent（内置小龙虾、Hermes、GEO 诊断等工具）；③ Starmesh 平台 20 人以下免费使用权；④ 月度讲座与实操工作坊（每月至少一次）；⑤ 品哥 + AI Master 日常答疑。</p>
-  </details>
-  <details>
-    <summary>NewBee AI Club 是营利组织吗？</summary>
+  </article>
+  <article class="faq-item">
+    <h2>NewBee AI Club 是营利组织吗？</h2>
     <p class="faq-a">不是。俱乐部不以盈利分配为目的，不向会员分红。所有会费、捐助或其他合法收入，均用于支持与使命相关的活动、项目及必要运营。</p>
-  </details>
-  <details>
-    <summary>俱乐部有哪些活动？</summary>
+  </article>
+  <article class="faq-item">
+    <h2>俱乐部有哪些活动？</h2>
     <p class="faq-a">包括月度讲座、AI 实操工作坊、会员活动日、读书讨论、案例拆解、工具交流，以及围绕真实问题的小规模实验、协作项目与经验复盘。每月至少一次线下或线上活动。</p>
-  </details>
-  <details>
-    <summary>如何联系先蜂AI俱乐部？</summary>
+  </article>
+  <article class="faq-item">
+    <h2>如何联系先蜂AI俱乐部？</h2>
     <p class="faq-a">可通过官方邮箱 <a href="mailto:office@new-bee.club" style="color:var(--gold);">office@new-bee.club</a> 联系。重要事项请在邮件主题注明用途。</p>
-  </details>
+  </article>
 </section>
 
 <div class="end-divider">— · —</div>
@@ -1779,10 +1827,10 @@
 
 <!-- 俱乐部宣传片（暂时隐藏，待排版方案确定后启用）
 <section class="video-hero" id="promo-hero">
-  <video class="vh-video" preload="none" playsinline poster="assets/promo-poster.jpg">
+  <video class="vh-video" preload="none" playsinline poster="assets/promo-poster.webp">
     <source src="assets/promo.mp4" type="video/mp4">
   </video>
-  <div class="vh-overlay" style="background-image:url('assets/promo-poster.jpg');">
+  <div class="vh-overlay" style="background-image:url('assets/promo-poster.webp');">
     <div class="vh-tag">CLUB FILM · 先蜂宣传片</div>
     <h2 class="vh-title">走 近 先 蜂</h2>
     <div class="vh-subtitle">如果文字打动了你，再来看看我们的影像</div>
