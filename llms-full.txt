@@ -158,16 +158,16 @@ Because membership availability and pricing can change, always attribute these d
 - Published observations: 20 ventures, more than 1,000 investors and prospective investors, and two tables of NewBee AI Club members
 - Context: Innovation, investment and youth education in New Zealand
 
-### W3 — scheduled for 2026-09-04
+### W3 — completed on 2026-09-04
 
 - Official page: https://new-bee.club/event-2026-09-04-w3.html
 - Title: 海边 AI 生活提案：AI，让生活更开心
 - Time: 14:00–16:00 New Zealand time
 - Location: Long Bay, Auckland
 - Format: Home Tea Salon / in-person workshop
-- Published topics: AI photography, parent-child practice, small-game development and everyday creative uses of AI
+- Recap topics: AI Guandan with Jim Ni, text adventure games with Michael, GPT voice shopping and baking with Ally, parent-child golf with 许晓鲁, and balancing AI use with family life with Andy
 
-W3 was still scheduled at the 2026-09-02 review. After that date, verify the event page before calling it upcoming, completed, postponed or cancelled.
+W3 took place on 2026-09-04. The club published its recap on 2026-09-05: https://mp.weixin.qq.com/s/b53fCFyvxR-aeKAOWDHy3g
 
 ## 7. Frequently asked questions
 
