@@ -157,6 +157,11 @@ for (const requiredType of ["Organization", "Service", "FAQPage", "BlogPosting"]
 }
 
 const index = readFileSync(join(root, "index.html"), "utf8");
+const anthem = readFileSync(join(root, "anthem.html"), "utf8");
+const anthemVideo = anthem.match(/<video\b[^>]*>/i)?.[0] ?? "";
+if (anthem.includes("anthem-lyrics") || !anthem.includes('src="assets/anthem.mp4"')) fail("anthem.html", "anthem must use the complete original video, not the cropped lyrics version");
+if (attr(anthemVideo, "width") !== "1080" || attr(anthemVideo, "height") !== "1080" || attr(anthemVideo, "poster") !== "assets/anthem-poster.webp") fail("anthem.html", "complete anthem must retain its square dimensions and full-frame poster");
+if (!sitemap.includes("<video:content_loc>https://new-bee.club/assets/anthem.mp4</video:content_loc>")) fail("sitemap.xml", "video sitemap must reference the complete anthem");
 const queryTargets = new Map([
   ["新西兰AI俱乐部", "xin-xilan-ai-club.html"],
   ["华人AI俱乐部 NZ", "chinese-ai-club-nz.html"],
