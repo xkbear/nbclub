@@ -8,6 +8,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const base = "https://new-bee.club/";
 const pages = [
   "index.html",
+  "whitepaper.html",
   "apply.html",
   "anthem.html",
   "events.html",
@@ -70,6 +71,15 @@ for (const file of pages) {
   }
 
   const html = readFileSync(path, "utf8");
+  const body = html.split(/<body\b[^>]*>/i)[1] ?? "";
+  if ((body.match(/<main\b/gi) ?? []).length !== 1) fail(file, "expected one main landmark");
+  if ((body.match(/<h1\b/gi) ?? []).length !== 1) fail(file, "expected one page h1");
+  if (!body.includes('class="site-header"') || !body.includes('class="site-footer"')) fail(file, "missing shared navigation or footer");
+  for (const shared of ["assets/site.css", "assets/site.js"]) {
+    if (!html.includes(shared)) fail(file, `missing shared design resource (${shared})`);
+  }
+  const ids = [...body.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+  if (new Set(ids).size !== ids.length) fail(file, "duplicate element IDs");
   const expectedCanonical = file === "index.html" ? base : `${base}${file}`;
   const title = html.match(/<title>([^<]+)<\/title>/i)?.[1].trim() ?? "";
   const descriptionTag = (html.match(/<meta\b[^>]*name=["']description["'][^>]*>/i) ?? [""])[0];
@@ -108,6 +118,11 @@ for (const file of pages) {
   for (const tag of images) {
     const src = attr(tag, "src");
     if (!attr(tag, "alt")) fail(file, `image is missing alt text (${src || "unknown source"})`);
+    if (!(Number(attr(tag, "width")) > 0) || !(Number(attr(tag, "height")) > 0)) fail(file, `image is missing intrinsic dimensions (${src})`);
+    for (const candidate of attr(tag, "srcset").split(",").filter(Boolean)) {
+      const imagePath = candidate.trim().split(/\s+/)[0];
+      if (!/^(https?:|data:)/.test(imagePath) && !existsSync(join(root, imagePath))) fail(file, `responsive image does not exist (${imagePath})`);
+    }
     if (!/^(lazy|eager)$/.test(attr(tag, "loading"))) fail(file, `image is missing explicit loading mode (${src})`);
     if (attr(tag, "decoding") !== "async") warn(file, `image does not use async decoding (${src})`);
     if (!src || /^(https?:|data:)/.test(src)) continue;

@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部
 
 Official website: https://new-bee.club/
-Last updated: 2026-09-02
+Last updated: 2026-09-07
 
 ## Entity
 
@@ -19,7 +19,8 @@ NewBee AI Club brings together Chinese-speaking AI learners, practitioners, foun
 
 ## Canonical pages
 
-- Chinese homepage and white paper: https://new-bee.club/
+- Chinese homepage: https://new-bee.club/
+- Complete club white paper, membership rights and governance: https://new-bee.club/whitepaper.html
 - Chinese guide for the query 新西兰AI俱乐部: https://new-bee.club/xin-xilan-ai-club.html
 - English guide to NewBee AI Club in New Zealand: https://new-bee.club/new-zealand-ai-club.html
 - Chinese-speaking community guide for 华人AI俱乐部 NZ: https://new-bee.club/chinese-ai-club-nz.html

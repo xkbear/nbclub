@@ -7,6 +7,7 @@ NewBee AI Club 是一个由华人 AI 学习者、实践者及跨领域从业者�
 ## 📄 白皮书
 
 - [官方网站](https://new-bee.club/)
+- [完整白皮书](https://new-bee.club/whitepaper.html)
 - [下载 Word 文档](docs/NewBee_AI_Club_白皮书_最终修订版.docx)
 
 ## 🔎 地区与活动入口
@@ -27,6 +28,18 @@ xmllint --noout sitemap.xml feed.xml
 ```
 
 当前由 `main` 分支根目录发布到 GitHub Pages。页面内已设置 CSP 与 Referrer Policy；GitHub Pages 不支持通过仓库文件自定义 `X-Content-Type-Options`、`X-Frame-Options` 等 HTTP 响应头，如需完整响应头必须在域名前增加可配置的边缘/CDN 层或迁移托管平台。
+
+## 网站维护
+
+- 共享样式与交互：`assets/site.css`、`assets/site.js`。
+- 首页与活动列表：`assets/home.css`；活动正文：`assets/event-detail.css`。
+- 地区指南：`assets/local-pages.css`；会员、白皮书与会歌：`assets/pages.css`。
+- 中文页面使用一致的中文导航和 FAQ，英文介绍位于独立页面。
+- 原白皮书完整保留在 `whitepaper.html`；首页原来的 `#s1`–`#s12` 链接会转到白皮书对应章节。
+- 动效遵循系统减少动态效果设置；活动筛选、图片放大和横向浏览均为渐进增强。
+- 首页主图使用 640 / 1000 / 1672 像素响应式 WebP，原始选定图片不覆盖。可用 `node scripts/build-responsive-images.mjs` 重新生成（需安装 `sharp`，或传入已安装模块的路径）。
+- 旧组织架构地址跳转至白皮书中的现行版本；`test.html` 仅预览当前首页，不再注入旧排版。
+- 所有 Netlify 发布（包括预览发布与触发自动构建）必须先取得用户明确同意。
 
 ## 🎯 使命
 

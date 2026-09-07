@@ -18,13 +18,13 @@
   </url>
   <url>
     <loc>https://new-bee.club/apply.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://new-bee.club/xin-xilan-ai-club.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://new-bee.club/xin-xilan-ai-club.html"/>
@@ -38,7 +38,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/new-zealand-ai-club.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en-NZ" href="https://new-bee.club/new-zealand-ai-club.html"/>
@@ -52,7 +52,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/chinese-ai-club-nz.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -63,7 +63,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/ai-enthusiasts-new-zealand.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -74,13 +74,13 @@
   </url>
   <url>
     <loc>https://new-bee.club/new-zealand-ai-association.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://new-bee.club/anthem.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <video:video>
@@ -115,7 +115,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/event-2026-05-04.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -126,7 +126,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/event-2026-05-15-k1.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -137,7 +137,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/event-2026-06-05-w1.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -148,7 +148,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/event-2026-06-26-k2.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -159,7 +159,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/event-2026-07-17-w2.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -170,7 +170,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/event-2026-08-01-k3.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -181,7 +181,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/event-2026-08-15-k4.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -192,7 +192,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/event-2026-08-27-member-day.html</loc>
-    <lastmod>2026-09-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -200,5 +200,11 @@
       <image:title>NewBee AI Club E0 会员活动日</image:title>
       <image:caption>NewBee AI Club 会员参加 Icehouse Ventures 年度 Showcase 合影</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://new-bee.club/whitepaper.html</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
