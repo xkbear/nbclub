@@ -39,109 +39,134 @@
     const previous = group.querySelector('[data-rail-prev]');
     const next = group.querySelector('[data-rail-next]');
     const position = group.querySelector('[data-rail-position]');
-    const playback = group.querySelector('[data-rail-autoplay]');
     const cards = Array.from(rail.querySelectorAll('.story-card'));
     if (!cards.length) return;
-    if (playback) playback.hidden = false;
-    let frame, timer;
+    // A second visual copy lets the last card meet the first without a rewind.
+    // Only the original set participates in keyboard and screen-reader navigation.
+    const copies = cards.map(card => {
+      const copy = card.cloneNode(true);
+      copy.dataset.railClone = '';
+      copy.setAttribute('aria-hidden', 'true');
+      copy.removeAttribute('id');
+      copy.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+      copy.querySelectorAll('a,button,[tabindex]').forEach(el => el.tabIndex = -1);
+      return copy;
+    });
+    rail.append(...copies);
+    rail.setAttribute('aria-live', 'off');
+    const speed = 24; // CSS pixels per second, independent of display refresh rate.
+    let frame = 0, lastTime = 0, resumeTimer = 0, holdUntil = 0;
+    let cycle = 0, cardStep = 0, offset = 0, written = 0;
     let inView = false, hovered = false, dragging = false, focusPaused = false;
-    // Explicit pause is separate from temporary interaction and system preferences.
-    let userPaused = false, motionOptIn = false;
-    let direction = 1;
-    const step = () => cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : cards[0].offsetWidth;
-    const motionPaused = () => reduce.matches && !motionOptIn;
-    const stopped = () => userPaused || focusPaused || motionPaused();
     const sync = () => {
-      const max = rail.scrollWidth - rail.clientWidth;
-      previous.disabled = rail.scrollLeft < 5;
-      next.disabled = rail.scrollLeft >= max - 5;
-      const current = Math.min(cards.length, Math.round(rail.scrollLeft / step()) + 1);
-      if (position) position.textContent = String(current).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
+      const progress = cycle ? ((rail.scrollLeft % cycle) + cycle) % cycle : rail.scrollLeft;
+      const current = Math.min(cards.length, Math.floor((progress + .5) / (cardStep || 1)) + 1);
+      const label = String(current).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
+      if (position && position.textContent !== label) position.textContent = label;
+      if (previous) previous.disabled = !cycle && rail.scrollLeft < 5;
+      if (next) next.disabled = !cycle && rail.scrollLeft >= rail.scrollWidth - rail.clientWidth - 5;
     };
-    const updatePlayback = () => {
-      if (!playback) return;
-      playback.disabled = rail.scrollWidth <= rail.clientWidth + 5;
-      playback.setAttribute('aria-label', motionPaused() ? '播放自动滚动（减少动态效果已开启，点击启用无动画自动翻页）' : (stopped() ? '播放自动滚动' : '暂停自动滚动'));
-      playback.title = playback.getAttribute('aria-label');
-      playback.querySelector('[data-playback-label]').textContent = stopped() ? '播放' : '暂停';
-      playback.querySelector('[data-pause-icon]').toggleAttribute('hidden', stopped());
-      playback.querySelector('[data-play-icon]').toggleAttribute('hidden', !stopped());
-      rail.setAttribute('aria-live', stopped() ? 'polite' : 'off');
+    const normalize = () => {
+      if (cycle && rail.scrollLeft >= cycle) rail.scrollLeft %= cycle;
+      offset = written = rail.scrollLeft;
     };
-    const move = amount => rail.scrollBy({left: amount * step(), behavior: reduce.matches ? 'instant' : 'smooth'});
-    const canRun = () => !stopped() && !hovered && !dragging && inView && !document.hidden && rail.scrollWidth > rail.clientWidth + 5;
-    const advance = () => {
-      const max = rail.scrollWidth - rail.clientWidth;
-      if (rail.scrollLeft >= max - 5) direction = -1;
-      else if (rail.scrollLeft < 5) direction = 1;
-      move(direction);
+    const canRun = () => cycle > 0 && !reduce.matches && !hovered && !dragging && !focusPaused && inView && !document.hidden && performance.now() >= holdUntil;
+    const tick = time => {
+      frame = 0;
+      if (!canRun()) { lastTime = 0; return; }
+      // Keep fractional progress instead of losing subpixel movement to scrollLeft rounding.
+      if (Math.abs(rail.scrollLeft - written) > .75) offset = rail.scrollLeft;
+      if (lastTime) offset += speed * Math.min(time - lastTime, 50) / 1000;
+      lastTime = time;
+      offset %= cycle;
+      rail.scrollLeft = offset;
+      written = rail.scrollLeft;
+      sync();
+      frame = requestAnimationFrame(tick);
     };
     const schedule = () => {
-      clearTimeout(timer);
-      updatePlayback();
-      if (!playback || !canRun()) return;
-      timer = setTimeout(() => {
-        if (canRun()) advance();
-        schedule();
-      }, 5000);
+      cancelAnimationFrame(frame);
+      frame = 0;
+      lastTime = 0;
+      normalize();
+      sync();
+      if (canRun()) frame = requestAnimationFrame(tick);
     };
-    // Browsing resets the interval; only the pause button latches a manual pause.
-    previous?.addEventListener('click', () => { move(-1); schedule(); });
-    next?.addEventListener('click', () => { move(1); schedule(); });
-    playback?.addEventListener('click', () => {
-      const resume = stopped();
-      userPaused = !resume;
-      if (resume) {
-        focusPaused = false;
-        motionOptIn = true;
-        // A deliberate Play action responds immediately, including reduced-motion mode.
-        if (canRun()) advance();
-      }
+    const pauseForInteraction = (duration = 900) => {
+      holdUntil = performance.now() + duration;
+      clearTimeout(resumeTimer);
       schedule();
-    });
+      resumeTimer = setTimeout(schedule, duration + 20);
+    };
+    const measure = () => {
+      const progress = cycle ? (rail.scrollLeft % cycle) / cycle : 0;
+      const looping = !reduce.matches && cards.length > 1;
+      copies.forEach(copy => { copy.hidden = !looping; });
+      rail.classList.toggle('is-continuous', looping);
+      const first = cards[0].getBoundingClientRect();
+      cardStep = cards[1] ? cards[1].getBoundingClientRect().left - first.left : first.width;
+      cycle = looping ? copies[0].getBoundingClientRect().left - first.left : 0;
+      // No endless scrolling when all original cards already fit on screen.
+      if (cycle && cycle <= rail.clientWidth) {
+        cycle = 0;
+        copies.forEach(copy => { copy.hidden = true; });
+        rail.classList.remove('is-continuous');
+      }
+      rail.scrollLeft = cycle ? progress * cycle : 0;
+      schedule();
+    };
+    const move = amount => {
+      pauseForInteraction();
+      if (cycle && amount < 0 && rail.scrollLeft < cardStep) rail.scrollLeft += cycle;
+      rail.scrollBy({left: amount * cardStep, behavior: reduce.matches ? 'instant' : 'smooth'});
+    };
+    previous?.addEventListener('click', () => move(-1));
+    next?.addEventListener('click', () => move(1));
     rail.addEventListener('keydown', event => {
       if (event.target !== rail) return;
       if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-        event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1); schedule();
+        event.preventDefault();
+        move(event.key === 'ArrowRight' ? 1 : -1);
       }
     });
     group.addEventListener('focusin', event => {
-      if (event.target.closest('[data-rail-autoplay]')) return;
-      // Pointer focus on the arrows must not be mistaken for keyboard reading.
-      focusPaused = event.target.matches(':focus-visible'); schedule();
+      focusPaused = event.target.matches(':focus-visible');
+      schedule();
     });
     group.addEventListener('focusout', event => {
       if (!group.contains(event.relatedTarget)) { focusPaused = false; schedule(); }
     });
-    group.addEventListener('pointerdown', event => {
-      if (!event.target.closest('[data-rail-autoplay]')) { focusPaused = false; schedule(); }
+    group.addEventListener('pointerdown', () => { focusPaused = false; schedule(); });
+    rail.addEventListener('pointerenter', event => {
+      if (event.pointerType === 'mouse') { hovered = true; schedule(); }
     });
-    rail.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovered = true; schedule(); } });
     rail.addEventListener('pointerleave', () => { hovered = false; schedule(); });
     rail.addEventListener('pointerdown', () => { dragging = true; schedule(); }, {passive:true});
-    addEventListener('pointerup', () => { if (dragging) { dragging = false; schedule(); } }, {passive:true});
-    addEventListener('pointercancel', () => { dragging = false; schedule(); }, {passive:true});
-    rail.addEventListener('wheel', event => { if (Math.abs(event.deltaX) > 0) schedule(); }, {passive:true});
-    rail.addEventListener('scroll', () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(sync); }, {passive:true});
-    addEventListener('resize', () => { sync(); schedule(); }, {passive:true});
+    const release = () => {
+      if (!dragging) return;
+      dragging = false;
+      pauseForInteraction();
+    };
+    addEventListener('pointerup', release, {passive:true});
+    addEventListener('pointercancel', release, {passive:true});
+    rail.addEventListener('wheel', event => {
+      if (Math.abs(event.deltaX) > 0) pauseForInteraction();
+    }, {passive:true});
+    rail.addEventListener('scroll', sync, {passive:true});
+    if ('ResizeObserver' in window) new ResizeObserver(measure).observe(rail);
+    else addEventListener('resize', measure, {passive:true});
+    document.fonts?.ready.then(measure);
     document.addEventListener('visibilitychange', schedule);
-    addEventListener('pagehide', () => clearTimeout(timer));
-    addEventListener('pageshow', schedule);
-    reduce.addEventListener('change', () => { motionOptIn = false; schedule(); });
+    addEventListener('pagehide', () => { cancelAnimationFrame(frame); clearTimeout(resumeTimer); });
+    addEventListener('pageshow', () => { holdUntil = 0; schedule(); });
+    reduce.addEventListener('change', measure);
     if ('IntersectionObserver' in window) {
-      // The controls can remain visible when less than a quarter of a card is on screen.
-      const visible = new Set();
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) visible.add(entry.target);
-          else visible.delete(entry.target);
-        });
-        inView = visible.size > 0; schedule();
-      }, {threshold:0});
-      observer.observe(rail);
-      if (playback) observer.observe(playback.parentElement);
+      new IntersectionObserver(entries => {
+        inView = entries[0].isIntersecting;
+        schedule();
+      }, {threshold:0}).observe(rail);
     } else { inView = true; }
-    sync(); schedule();
+    measure();
   });
 
   const filters = document.querySelector('.filter-group');
