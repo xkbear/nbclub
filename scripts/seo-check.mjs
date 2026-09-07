@@ -75,9 +75,11 @@ for (const file of pages) {
   if ((body.match(/<main\b/gi) ?? []).length !== 1) fail(file, "expected one main landmark");
   if ((body.match(/<h1\b/gi) ?? []).length !== 1) fail(file, "expected one page h1");
   if (!body.includes('class="site-header"') || !body.includes('class="site-footer"')) fail(file, "missing shared navigation or footer");
-  for (const shared of ["assets/site.css", "assets/site.js"]) {
+  for (const shared of ["assets/theme.js", "assets/site.css", "assets/site.js"]) {
     if (!html.includes(shared)) fail(file, `missing shared design resource (${shared})`);
   }
+  if (!body.includes('data-theme-toggle')) fail(file, "missing appearance control");
+  if (html.indexOf('assets/theme.js') > html.indexOf('assets/site.css')) fail(file, "theme bootstrap must precede styles to avoid an appearance flash");
   const ids = [...body.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
   if (new Set(ids).size !== ids.length) fail(file, "duplicate element IDs");
   const expectedCanonical = file === "index.html" ? base : `${base}${file}`;

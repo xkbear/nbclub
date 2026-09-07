@@ -39,32 +39,81 @@
     const previous = group.querySelector('[data-rail-prev]');
     const next = group.querySelector('[data-rail-next]');
     const position = group.querySelector('[data-rail-position]');
+    const playback = group.querySelector('[data-rail-autoplay]');
     const cards = Array.from(rail.querySelectorAll('.story-card'));
     if (!cards.length) return;
-    let frame;
+    if (playback) playback.hidden = false;
+    let frame, timer;
+    let inView = false, hovered = false, dragging = false, focusPaused = false;
+    let userPaused = reduce.matches;
+    let direction = 1;
+    const step = () => cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : cards[0].offsetWidth;
+    const stopped = () => userPaused || focusPaused || reduce.matches;
     const sync = () => {
       const max = rail.scrollWidth - rail.clientWidth;
       previous.disabled = rail.scrollLeft < 5;
       next.disabled = rail.scrollLeft >= max - 5;
-      const step = cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : cards[0].offsetWidth;
-      const current = Math.min(cards.length, Math.round(rail.scrollLeft / step) + 1);
+      const current = Math.min(cards.length, Math.round(rail.scrollLeft / step()) + 1);
       if (position) position.textContent = String(current).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
     };
-    const move = direction => {
-      const step = cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : cards[0].offsetWidth;
-      rail.scrollBy({left: direction * step, behavior: reduce.matches ? 'instant' : 'smooth'});
+    const updatePlayback = () => {
+      if (!playback) return;
+      playback.disabled = reduce.matches;
+      playback.setAttribute('aria-label', reduce.matches ? '已遵循减少动态效果设置，自动滚动已关闭' : (stopped() ? '播放自动滚动' : '暂停自动滚动'));
+      playback.title = playback.getAttribute('aria-label');
+      playback.querySelector('[data-playback-label]').textContent = stopped() ? '播放' : '暂停';
+      playback.querySelector('[data-pause-icon]').toggleAttribute('hidden', stopped());
+      playback.querySelector('[data-play-icon]').toggleAttribute('hidden', !stopped());
+      rail.setAttribute('aria-live', stopped() ? 'polite' : 'off');
     };
-    previous?.addEventListener('click', () => move(-1));
-    next?.addEventListener('click', () => move(1));
+    const move = amount => rail.scrollBy({left: amount * step(), behavior: reduce.matches ? 'instant' : 'smooth'});
+    const schedule = () => {
+      clearTimeout(timer);
+      updatePlayback();
+      if (!playback || stopped() || hovered || dragging || !inView || document.hidden || rail.scrollWidth <= rail.clientWidth + 5) return;
+      timer = setTimeout(() => {
+        const max = rail.scrollWidth - rail.clientWidth;
+        if (rail.scrollLeft >= max - 5) direction = -1;
+        else if (rail.scrollLeft < 5) direction = 1;
+        move(direction);
+        schedule();
+      }, 5000);
+    };
+    const pauseForInteraction = () => { userPaused = true; schedule(); };
+    previous?.addEventListener('click', () => { pauseForInteraction(); move(-1); });
+    next?.addEventListener('click', () => { pauseForInteraction(); move(1); });
+    playback?.addEventListener('click', () => {
+      userPaused = !stopped();
+      focusPaused = false;
+      schedule();
+    });
     rail.addEventListener('keydown', event => {
       if (event.target !== rail) return;
       if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-        event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1);
+        event.preventDefault(); pauseForInteraction(); move(event.key === 'ArrowRight' ? 1 : -1);
       }
     });
-    rail.addEventListener('scroll', () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(sync); }, {passive: true});
-    window.addEventListener('resize', sync, {passive: true});
-    sync();
+    group.addEventListener('focusin', event => {
+      if (event.target.closest('[data-rail-autoplay]')) return;
+      focusPaused = true; schedule();
+    });
+    rail.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovered = true; schedule(); } });
+    rail.addEventListener('pointerleave', () => { hovered = false; schedule(); });
+    rail.addEventListener('pointerdown', () => { dragging = true; pauseForInteraction(); }, {passive:true});
+    addEventListener('pointerup', () => { if (dragging) { dragging = false; schedule(); } }, {passive:true});
+    addEventListener('pointercancel', () => { dragging = false; schedule(); }, {passive:true});
+    rail.addEventListener('wheel', event => { if (Math.abs(event.deltaX) > 0) pauseForInteraction(); }, {passive:true});
+    rail.addEventListener('scroll', () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(sync); }, {passive:true});
+    addEventListener('resize', () => { sync(); schedule(); }, {passive:true});
+    document.addEventListener('visibilitychange', schedule);
+    addEventListener('pagehide', () => clearTimeout(timer));
+    addEventListener('pageshow', schedule);
+    reduce.addEventListener('change', schedule);
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => { inView = entries[0].isIntersecting && entries[0].intersectionRatio >= .25; schedule(); }, {threshold:.25});
+      observer.observe(rail);
+    } else { inView = true; }
+    sync(); schedule();
   });
 
   const filters = document.querySelector('.filter-group');
