@@ -35,9 +35,6 @@
 .proof h3{font-size:20px;line-height:1.45;margin-bottom:9px}
 .proof h3 a:hover{color:var(--accent)}
 .proof p{font-size:15px;color:var(--muted)}
-.intent-nav{display:flex;gap:12px;flex-wrap:wrap}
-.intent-nav a{background:var(--surface);border-radius:100px;padding:12px 20px;font-size:13px;transition:background .2s}
-.intent-nav a:hover{background:var(--control);color:var(--accent)}
 .event-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .event{display:flex;flex-direction:column;background:var(--surface);overflow:hidden;border-radius:22px;transition:transform .5s var(--ease)}
 .event:hover{transform:translateY(-4px)}
@@ -57,5 +54,5 @@
  .page{padding-top:25px}.hero{grid-template-columns:1fr;padding:16px 0 55px;gap:34px}.hero h1{font-size:40px;margin-top:15px}.hero-lede{font-size:17px}
  .hero-card{border-radius:22px}.hero-card img{margin-bottom:25px}.section{padding-block:55px}.cards,.fact-grid,.path-grid,.event-list{grid-template-columns:1fr}
  .card{min-height:0}.card h3{margin-top:26px}.proof{grid-template-columns:1fr;gap:8px;padding-block:22px}.proof h3{font-size:19px}
- .section-head h2{font-size:31px}.section-intro{font-size:16px}.cta-panel,.zh-band{display:block;padding:28px}.cta-panel h2,.zh-band h2{font-size:26px}.cta-panel .button,.zh-band .button{margin-top:24px}.intent-nav{gap:9px}.intent-nav a{padding:10px 15px;font-size:12px}
+ .section-head h2{font-size:31px}.section-intro{font-size:16px}.cta-panel,.zh-band{display:block;padding:28px}.cta-panel h2,.zh-band h2{font-size:26px}.cta-panel .button,.zh-band .button{margin-top:24px}
 }

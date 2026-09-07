@@ -35,6 +35,7 @@ xmllint --noout sitemap.xml feed.xml
 - 首页与活动列表：`assets/home.css`；活动正文：`assets/event-detail.css`。
 - 地区指南：`assets/local-pages.css`；会员、白皮书与会歌：`assets/pages.css`。
 - 中文页面使用一致的中文导航和 FAQ，英文介绍位于独立页面。
+- 页脚和介绍页不再堆放纯关键词链接或同类主题按钮组；保留正常导航、正文中的相关链接和独立页面。检查脚本不再强制首页出现精确关键词锚文本。
 - 原白皮书完整保留在 `whitepaper.html`；首页原来的 `#s1`–`#s12` 链接会转到白皮书对应章节。
 - 动效遵循系统减少动态效果设置；活动筛选、图片放大和横向浏览均为渐进增强。
 - 深浅色由 `assets/site.css` 中的语义颜色变量统一管理；`assets/theme.js` 在样式加载前读取偏好，默认跟随系统，手动选择记入 `newbee-theme` 并跨页面、标签页同步。存储不可用时仍能切换当前页面。

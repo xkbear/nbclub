@@ -107,7 +107,6 @@ button:focus-visible,a:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .footer-column strong{display:block;color:var(--ink);font-size:12px;margin:4px 0 12px}
 .footer-column a{display:block;width:fit-content;margin:9px 0;line-height:1.6}
 .site-footer a:hover{text-decoration:underline;text-underline-offset:3px}
-.footer-topics{display:flex;flex-wrap:wrap;gap:8px 22px;padding:23px 0;border-top:1px solid var(--line-strong)}
 .footer-bottom{padding-top:18px;border-top:1px solid var(--line-strong);display:flex;justify-content:space-between;gap:16px;font-size:11px}
 .footer-bottom span:last-child{white-space:nowrap}
 .reading-progress{position:fixed;top:68px;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:var(--blue);z-index:81;pointer-events:none}

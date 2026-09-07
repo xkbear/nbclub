@@ -75,6 +75,11 @@ for (const file of pages) {
   if ((body.match(/<main\b/gi) ?? []).length !== 1) fail(file, "expected one main landmark");
   if ((body.match(/<h1\b/gi) ?? []).length !== 1) fail(file, "expected one page h1");
   if (!body.includes('class="site-header"') || !body.includes('class="site-footer"')) fail(file, "missing shared navigation or footer");
+  if (/class=["'][^"']*\b(?:footer-topics|intent-nav)\b/.test(body)) fail(file, "keyword-only navigation must not return");
+  const footer = body.match(/<footer\b[^>]*>[\s\S]*?<\/footer>/i)?.[0] ?? "";
+  for (const target of ["events.html", "whitepaper.html", "anthem.html", "apply.html", "mailto:office@new-bee.club", "feed.xml"]) {
+    if (!footer.includes('href="' + target + '"')) fail(file, `missing useful footer link (${target})`);
+  }
   for (const shared of ["assets/theme.js", "assets/site.css", "assets/site.js"]) {
     if (!html.includes(shared)) fail(file, `missing shared design resource (${shared})`);
   }
@@ -156,7 +161,6 @@ for (const requiredType of ["Organization", "Service", "FAQPage", "BlogPosting"]
   if (!schemaTypes.has(requiredType)) fail("schema", `site does not expose ${requiredType}`);
 }
 
-const index = readFileSync(join(root, "index.html"), "utf8");
 const anthem = readFileSync(join(root, "anthem.html"), "utf8");
 const anthemVideo = anthem.match(/<video\b[^>]*>/i)?.[0] ?? "";
 if (anthem.includes("anthem-lyrics") || !anthem.includes('src="assets/anthem.mp4"')) fail("anthem.html", "anthem must use the complete original video, not the cropped lyrics version");
@@ -169,12 +173,6 @@ const queryTargets = new Map([
   ["新西兰AI爱好者", "ai-enthusiasts-new-zealand.html"],
   ["新西兰AI协会", "new-zealand-ai-association.html"]
 ]);
-for (const [query, target] of queryTargets) {
-  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const pattern = new RegExp(`<a\\b[^>]*href=["']${target}["'][^>]*>\\s*${escaped}\\s*</a>`, "u");
-  if (!pattern.test(index)) fail("index.html", `missing exact-anchor link for “${query}” → ${target}`);
-}
-
 for (const file of [
   "xin-xilan-ai-club.html",
   "chinese-ai-club-nz.html",
@@ -212,4 +210,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`SEO CHECK PASSED: ${pages.length} indexable pages, ${schemaTypes.size} schema types, 5 exact query anchors, RSS and LLM discovery files.`);
+console.log(`SEO CHECK PASSED: ${pages.length} indexable pages, ${schemaTypes.size} schema types, useful navigation without keyword-only link rows, RSS and LLM discovery files.`);
