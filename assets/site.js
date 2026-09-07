@@ -45,10 +45,12 @@
     if (playback) playback.hidden = false;
     let frame, timer;
     let inView = false, hovered = false, dragging = false, focusPaused = false;
-    let userPaused = reduce.matches;
+    // Explicit pause is separate from temporary interaction and system preferences.
+    let userPaused = false, motionOptIn = false;
     let direction = 1;
     const step = () => cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : cards[0].offsetWidth;
-    const stopped = () => userPaused || focusPaused || reduce.matches;
+    const motionPaused = () => reduce.matches && !motionOptIn;
+    const stopped = () => userPaused || focusPaused || motionPaused();
     const sync = () => {
       const max = rail.scrollWidth - rail.clientWidth;
       previous.disabled = rail.scrollLeft < 5;
@@ -58,8 +60,8 @@
     };
     const updatePlayback = () => {
       if (!playback) return;
-      playback.disabled = reduce.matches;
-      playback.setAttribute('aria-label', reduce.matches ? '已遵循减少动态效果设置，自动滚动已关闭' : (stopped() ? '播放自动滚动' : '暂停自动滚动'));
+      playback.disabled = rail.scrollWidth <= rail.clientWidth + 5;
+      playback.setAttribute('aria-label', motionPaused() ? '播放自动滚动（减少动态效果已开启，点击启用无动画自动翻页）' : (stopped() ? '播放自动滚动' : '暂停自动滚动'));
       playback.title = playback.getAttribute('aria-label');
       playback.querySelector('[data-playback-label]').textContent = stopped() ? '播放' : '暂停';
       playback.querySelector('[data-pause-icon]').toggleAttribute('hidden', stopped());
@@ -67,51 +69,77 @@
       rail.setAttribute('aria-live', stopped() ? 'polite' : 'off');
     };
     const move = amount => rail.scrollBy({left: amount * step(), behavior: reduce.matches ? 'instant' : 'smooth'});
+    const canRun = () => !stopped() && !hovered && !dragging && inView && !document.hidden && rail.scrollWidth > rail.clientWidth + 5;
+    const advance = () => {
+      const max = rail.scrollWidth - rail.clientWidth;
+      if (rail.scrollLeft >= max - 5) direction = -1;
+      else if (rail.scrollLeft < 5) direction = 1;
+      move(direction);
+    };
     const schedule = () => {
       clearTimeout(timer);
       updatePlayback();
-      if (!playback || stopped() || hovered || dragging || !inView || document.hidden || rail.scrollWidth <= rail.clientWidth + 5) return;
+      if (!playback || !canRun()) return;
       timer = setTimeout(() => {
-        const max = rail.scrollWidth - rail.clientWidth;
-        if (rail.scrollLeft >= max - 5) direction = -1;
-        else if (rail.scrollLeft < 5) direction = 1;
-        move(direction);
+        if (canRun()) advance();
         schedule();
       }, 5000);
     };
-    const pauseForInteraction = () => { userPaused = true; schedule(); };
-    previous?.addEventListener('click', () => { pauseForInteraction(); move(-1); });
-    next?.addEventListener('click', () => { pauseForInteraction(); move(1); });
+    // Browsing resets the interval; only the pause button latches a manual pause.
+    previous?.addEventListener('click', () => { move(-1); schedule(); });
+    next?.addEventListener('click', () => { move(1); schedule(); });
     playback?.addEventListener('click', () => {
-      userPaused = !stopped();
-      focusPaused = false;
+      const resume = stopped();
+      userPaused = !resume;
+      if (resume) {
+        focusPaused = false;
+        motionOptIn = true;
+        // A deliberate Play action responds immediately, including reduced-motion mode.
+        if (canRun()) advance();
+      }
       schedule();
     });
     rail.addEventListener('keydown', event => {
       if (event.target !== rail) return;
       if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-        event.preventDefault(); pauseForInteraction(); move(event.key === 'ArrowRight' ? 1 : -1);
+        event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1); schedule();
       }
     });
     group.addEventListener('focusin', event => {
       if (event.target.closest('[data-rail-autoplay]')) return;
-      focusPaused = true; schedule();
+      // Pointer focus on the arrows must not be mistaken for keyboard reading.
+      focusPaused = event.target.matches(':focus-visible'); schedule();
+    });
+    group.addEventListener('focusout', event => {
+      if (!group.contains(event.relatedTarget)) { focusPaused = false; schedule(); }
+    });
+    group.addEventListener('pointerdown', event => {
+      if (!event.target.closest('[data-rail-autoplay]')) { focusPaused = false; schedule(); }
     });
     rail.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') { hovered = true; schedule(); } });
     rail.addEventListener('pointerleave', () => { hovered = false; schedule(); });
-    rail.addEventListener('pointerdown', () => { dragging = true; pauseForInteraction(); }, {passive:true});
+    rail.addEventListener('pointerdown', () => { dragging = true; schedule(); }, {passive:true});
     addEventListener('pointerup', () => { if (dragging) { dragging = false; schedule(); } }, {passive:true});
     addEventListener('pointercancel', () => { dragging = false; schedule(); }, {passive:true});
-    rail.addEventListener('wheel', event => { if (Math.abs(event.deltaX) > 0) pauseForInteraction(); }, {passive:true});
+    rail.addEventListener('wheel', event => { if (Math.abs(event.deltaX) > 0) schedule(); }, {passive:true});
     rail.addEventListener('scroll', () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(sync); }, {passive:true});
     addEventListener('resize', () => { sync(); schedule(); }, {passive:true});
     document.addEventListener('visibilitychange', schedule);
     addEventListener('pagehide', () => clearTimeout(timer));
     addEventListener('pageshow', schedule);
-    reduce.addEventListener('change', schedule);
+    reduce.addEventListener('change', () => { motionOptIn = false; schedule(); });
     if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(entries => { inView = entries[0].isIntersecting && entries[0].intersectionRatio >= .25; schedule(); }, {threshold:.25});
+      // The controls can remain visible when less than a quarter of a card is on screen.
+      const visible = new Set();
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) visible.add(entry.target);
+          else visible.delete(entry.target);
+        });
+        inView = visible.size > 0; schedule();
+      }, {threshold:0});
       observer.observe(rail);
+      if (playback) observer.observe(playback.parentElement);
     } else { inView = true; }
     sync(); schedule();
   });
