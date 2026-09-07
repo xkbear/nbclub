@@ -66,8 +66,11 @@
 .media-main .eyebrow{color:var(--muted)}
 .media-main h1{font-size:clamp(38px,5vw,68px);margin:12px 0}
 .media-main>p{font-size:19px;color:var(--muted)}
+.media-credits{display:grid;gap:2px;font-size:14px;line-height:1.7;color:var(--muted)}
+.media-credits-authors{display:flex;justify-content:center;gap:18px}
+.media-credits-authors span{white-space:nowrap}
 /* The complete anthem is square. Fit the whole frame, including the lower logo panel. */
-.media-stage{width:min(100%,720px,max(240px,calc(100svh - 340px)));border-radius:22px;overflow:hidden;background:#000;margin:24px auto 0;scroll-margin-block:90px 20px}
+.media-stage{width:min(100%,720px,max(240px,calc(100svh - 365px)));border-radius:22px;overflow:hidden;background:#000;margin:24px auto 0;scroll-margin-block:90px 20px}
 .media-stage video{width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;object-position:center}
 .media-note{font-size:12px!important;margin-top:16px;color:var(--muted)}
 .media-page .site-footer{background:var(--surface);color:var(--muted)}.media-page .footer-column strong{color:var(--ink)}.media-page .footer-topics,.media-page .footer-bottom{border-color:var(--body-ink)}
