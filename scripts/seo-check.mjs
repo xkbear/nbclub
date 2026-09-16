@@ -25,7 +25,8 @@ const pages = [
   "event-2026-08-01-k3.html",
   "event-2026-08-15-k4.html",
   "event-2026-08-27-member-day.html",
-  "event-2026-09-04-w3.html"
+  "event-2026-09-04-w3.html",
+  "event-2026-09-25-k5.html"
 ];
 
 const failures = [];

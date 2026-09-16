@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NewBee AI Club//K5//ZH-CN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:20260925-k5@new-bee.club
+DTSTAMP:20260917T000000Z
+DTSTART:20260924T223000Z
+DTEND:20260925T003000Z
+SUMMARY:先蜂会 K5｜会思考的设备，更好玩的生活
+LOCATION:Level 3\, 142 Broadway\, Newmarket\, Auckland 1023
+DESCRIPTION:先蜂会 K5：会思考的设备，更好玩的生活。F
+ erris 路峰主讲。报名：https://events.new-bee.club/events/2026
+ -09-25-k5-thinking-devices/register
+URL:https://new-bee.club/event-2026-09-25-k5.html
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

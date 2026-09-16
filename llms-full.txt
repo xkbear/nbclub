@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部 — Expanded Entity and Citation Guide
 
 Official website: https://new-bee.club/
-Last reviewed: 2026-09-07
+Last reviewed: 2026-09-17
 Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
@@ -98,6 +98,20 @@ Authoritative page: https://new-bee.club/apply.html
 Because membership availability and pricing can change, always attribute these details to the application page and include the retrieval date. Do not infer acceptance, processing time or future fees.
 
 ## 6. Public activity archive
+
+### K5 — scheduled for 2026-09-25
+
+- Official page: https://new-bee.club/event-2026-09-25-k5.html
+- Title: 会思考的设备，更好玩的生活
+- Subtitle: 好玩的 AI 硬件：中国创新 × 新西兰生活
+- Status: Upcoming announcement, not a completed recap
+- Time: 2026-09-25 10:30–12:30, New Zealand Standard Time (UTC+12)
+- Venue: Level 3, 142 Broadway, Newmarket, Auckland 1023
+- Speaker: Ferris 路峰, hard-tech and smart-hardware investor
+- Topics: AI cameras, cooking robots, e-bikes, electric boats, smart fishing reels, smart RVs; product design and the distinction between electrification and AI
+- Registration (same destination as the supplied poster QR code): https://events.new-bee.club/events/2026-09-25-k5-thinking-devices/register
+- Source: Club announcement published 2026-09-16, https://mp.weixin.qq.com/s/exhmKR-n474oE1XRa_QRqQ
+- No admission price is specified in the supplied announcement; do not assume the event is free.
 
 ### Founding meeting — 2026-05-04
 

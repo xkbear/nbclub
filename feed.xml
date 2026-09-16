@@ -5,7 +5,7 @@
     <link>https://new-bee.club/events.html</link>
     <description>NewBee AI Club 先蜂AI俱乐部在新西兰及线上举办的 AI Keynote、实操 Workshop、会员活动日与公开回顾。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 +1200</lastBuildDate>
+    <lastBuildDate>Thu, 17 Sep 2026 00:00:00 +1200</lastBuildDate>
     <atom:link href="https://new-bee.club/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://new-bee.club/logo.jpg</url>
@@ -13,6 +13,16 @@
       <link>https://new-bee.club/</link>
     </image>
     <ttl>1440</ttl>
+
+    <item>
+      <title>K5 活动预告：会思考的设备，更好玩的生活</title>
+      <link>https://new-bee.club/event-2026-09-25-k5.html</link>
+      <guid isPermaLink="true">https://new-bee.club/event-2026-09-25-k5.html</guid>
+      <pubDate>Wed, 16 Sep 2026 12:02:00 +1200</pubDate>
+      <category>Keynote</category>
+      <category>活动预告</category>
+      <description>9 月 25 日（周五）10:30–12:30，Ferris 路峰主讲好玩的 AI 硬件：中国创新 × 新西兰生活。地点：Level 3, 142 Broadway, Newmarket, Auckland 1023。详情页提供报名入口与日历下载。</description>
+    </item>
 
     <item>
       <title>W3 活动回顾：AI 不只会干活，还会陪你过日子</title>
