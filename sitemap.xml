@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://new-bee.club/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://new-bee.club/"/>
@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/events.html</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -209,7 +209,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/event-2026-09-25-k5.html</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
