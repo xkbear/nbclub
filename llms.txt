@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部
 
 Official website: https://new-bee.club/
-Last updated: 2026-09-17
+Last updated: 2026-09-27
 
 ## Entity
 
@@ -33,8 +33,7 @@ NewBee AI Club brings together Chinese-speaking AI learners, practitioners, foun
 
 ## Public activity archive and schedule
 
-- Upcoming K5, Thinking devices and a more playful life, 2026-09-25 10:30–12:30 NZST, speaker Ferris 路峰, 具体地址报名后通知 (exact address provided after registration): https://new-bee.club/event-2026-09-25-k5.html
-- K5 is an announcement, not a completed event. Registration: https://events.new-bee.club/events/2026-09-25-k5-thinking-devices/register
+- K5 recap, Beyond the screen: human vision and taste, held on 2026-09-25 at Auckland Jockey Club. Speakers: Ferris Lu, Wang Yonggang and Dash Huang. Completed event; no active registration: https://new-bee.club/event-2026-09-25-k5.html
 
 - Founding meeting, 2026-05-04: https://new-bee.club/event-2026-05-04.html
 - K1 Silicon Valley Returns, Auckland, 2026-05-15: https://new-bee.club/event-2026-05-15-k1.html

@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部 — Expanded Entity and Citation Guide
 
 Official website: https://new-bee.club/
-Last reviewed: 2026-09-17
+Last reviewed: 2026-09-27
 Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
@@ -99,19 +99,19 @@ Because membership availability and pricing can change, always attribute these d
 
 ## 6. Public activity archive
 
-### K5 — scheduled for 2026-09-25
+### K5 — completed on 2026-09-25
 
 - Official page: https://new-bee.club/event-2026-09-25-k5.html
-- Title: 会思考的设备，更好玩的生活
-- Subtitle: 好玩的 AI 硬件：中国创新 × 新西兰生活
-- Status: Upcoming announcement, not a completed recap
-- Time: 2026-09-25 10:30–12:30, New Zealand Standard Time (UTC+12)
-- Venue: 具体地址报名后通知 (exact address provided after registration)
-- Speaker: Ferris 路峰, hard-tech and smart-hardware investor
-- Topics: AI cameras, cooking robots, e-bikes, electric boats, smart fishing reels, smart RVs; product design and the distinction between electrification and AI
-- Registration: https://events.new-bee.club/events/2026-09-25-k5-thinking-devices/register
-- Source: Club announcement published 2026-09-16, https://mp.weixin.qq.com/s/exhmKR-n474oE1XRa_QRqQ
-- No admission price is specified in the supplied announcement; do not assume the event is free.
+- Recap title: 当 AI 走出屏幕，真正重要的仍是人的远见与品味
+- Original event theme: 会思考的设备，更好玩的生活
+- Status: Completed keynote; the announcement has been replaced by an illustrated recap
+- Venue: Auckland Jockey Club
+- Speakers: Ferris Lu (路峰), Wang Yonggang (王咏刚), Dash Huang (黄一孟)
+- Topics: Consumer AI hardware, product vision / technology / taste, category growth, TapTap game creation, AI Agent Cindy, organisational change and individual creativity
+- The club's recap identifies Dash Huang as its 30th member. Speaker roles and opinions are presented in the context of this event, not as independently refreshed biographies.
+- Website recap updated: 2026-09-27
+- Source: Club-provided recap text and five on-site photographs. Original public article: https://mp.weixin.qq.com/s/EFjjxZhG9VNHd4NHsCgeLQ
+- No active registration or future-event claim is made for K5.
 
 ### Founding meeting — 2026-05-04
 

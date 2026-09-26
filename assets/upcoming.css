@@ -1,4 +1,4 @@
-/* Upcoming notices stay separate from completed activity stories. */
+/* Event highlights: upcoming notices and explicitly labelled completed recaps. */
 .upcoming-event{max-width:1280px;margin:42px auto 0;padding:36px;display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.25fr);align-items:center;gap:36px;text-align:left;background:var(--card);border-radius:24px;position:relative;border-top:3px solid #e7b63c;scroll-margin-top:76px}
 .upcoming-copy{min-width:0}
 .upcoming-label{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:12px;font-weight:600;color:var(--muted);line-height:1.5}
@@ -14,6 +14,7 @@
 .upcoming-poster{display:block;min-width:0;color:var(--ink)}
 .upcoming-art{display:block;position:relative;overflow:hidden;border-radius:16px;background:#f4eddd;color:#292d32;isolation:isolate}
 .upcoming-art img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:cover;display:block}
+.upcoming-event.is-recap .upcoming-art img{aspect-ratio:4/3;object-fit:contain}
 .upcoming-art-date{position:absolute;top:6%;right:5%;display:flex;flex-direction:column;align-items:flex-end;line-height:1.1;font-variant-numeric:tabular-nums}
 .upcoming-art-date strong{font-size:clamp(28px,3.2vw,46px);font-weight:650;letter-spacing:-.05em}
 .upcoming-art-date small{font-size:10px;font-weight:600;letter-spacing:.12em;margin-top:7px}
