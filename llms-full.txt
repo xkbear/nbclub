@@ -125,6 +125,7 @@ Because membership availability and pricing can change, always attribute these d
 
 - Official page: https://new-bee.club/event-2026-05-15-k1.html
 - Title: 硅谷归来
+- Speaker: Jason 王磊
 - Format: In-person keynote
 - Venue: Icehouse Ventures headquarters, Auckland
 - Topic: AI frontier observations and New Zealand entrepreneurship
@@ -141,6 +142,7 @@ Because membership availability and pricing can change, always attribute these d
 
 - Official page: https://new-bee.club/event-2026-06-26-k2.html
 - Title: 硅基员工应用讲座
+- Speaker: 周品（品哥）
 - Format: Online keynote
 - Topic: Moving from a chat interface to agents, organisational context, permissions and real business workflows
 

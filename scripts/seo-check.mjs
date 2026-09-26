@@ -114,11 +114,41 @@ for (const file of pages) {
 
   const jsonLdBlocks = [...html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
   if (!jsonLdBlocks.length) fail(file, "missing JSON-LD");
+  const schemas = [];
   for (const [, source] of jsonLdBlocks) {
     try {
-      collectSchemaTypes(JSON.parse(source));
+      const schema = JSON.parse(source);
+      schemas.push(...(schema["@graph"] ?? (Array.isArray(schema) ? schema : [schema])));
+      collectSchemaTypes(schema);
     } catch (error) {
       fail(file, `invalid JSON-LD (${error.message})`);
+    }
+  }
+
+  if (/^event-.*-k\d+\.html$/.test(file)) {
+    const event = schemas.find(schema => [schema["@type"]].flat().includes("Event"));
+    const speakers = [event?.performer ?? []].flat();
+    const header = body.match(/<header\b[^>]*class="article-head"[^>]*>[\s\S]*?<\/header>/i)?.[0] ?? "";
+    const visibleHeader = header.replace(/<[^>]+>/g, " ").replace(/\s+/g, "");
+    if (!speakers.length) fail(file, "keynote must include an Event performer");
+    for (const speaker of speakers) {
+      const name = speaker?.name?.trim() ?? "";
+      if (!name || speaker["@type"] !== "Person") {
+        fail(file, "keynote performer must be a named Person");
+        continue;
+      }
+      // Bilingual schema names may use English in addition to the visible Chinese name.
+      const visibleName = (name.match(/[\u3400-\u9fff]+/g) ?? [name]).join("").replace(/\s+/g, "");
+      if (!visibleHeader.includes(visibleName)) fail(file, `speaker must appear in the article header (${name})`);
+    }
+  }
+
+  if (["index.html", "events.html"].includes(file)) {
+    const cards = body.match(/<article\b[^>]*data-category="keynote"[^>]*>[\s\S]*?<\/article>/gi) ?? [];
+    for (const card of cards) {
+      const target = attr(card.match(/<a\b[^>]*>/i)?.[0] ?? "", "href");
+      const speakerLine = card.match(/<p\b[^>]*class="story-speaker"[^>]*>([\s\S]*?)<\/p>/i)?.[1] ?? "";
+      if (!/主讲[：:]\s*[^<\s]/.test(speakerLine)) fail(file, `keynote card must include a visible speaker line (${target})`);
     }
   }
 

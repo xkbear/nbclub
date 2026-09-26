@@ -36,6 +36,8 @@
 .story-meta{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted);margin-bottom:15px;font-variant-numeric:tabular-nums}
 .story-body h3{font-size:25px;line-height:1.25;letter-spacing:-.04em}
 .story-body p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:14px}
+.story-body .story-speaker{color:var(--ink);font-weight:600;margin-top:12px}
+.story-body .story-speaker+p{margin-top:7px}
 .story-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:22px;color:var(--accent);font-size:13px}
 .round-arrow{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--surface);color:var(--ink);font-size:21px}
 .rail-controls{display:flex;justify-content:flex-end;align-items:center;gap:14px;margin-top:20px}
