@@ -209,7 +209,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/event-2026-09-25-k5.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -217,5 +217,12 @@
       <image:title>先蜂会 K5：当 AI 走出屏幕，真正重要的仍是人的远见与品味</image:title>
       <image:caption>2026 年 9 月 25 日活动回顾，路峰、王咏刚与黄一孟分享及对谈</image:caption>
     </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://new-bee.club/assets/events/2026-09-25-k5/recap-video-poster.webp</video:thumbnail_loc>
+      <video:title>先蜂会 K5 · 活动现场短片</video:title>
+      <video:description>记录先蜂会 K5 主题讲座的分享与交流现场。活动于 2026 年 9 月 25 日举行。</video:description>
+      <video:content_loc>https://new-bee.club/assets/events/2026-09-25-k5/recap-video.mp4</video:content_loc>
+      <video:duration>156</video:duration>
+    </video:video>
   </url>
 </urlset>

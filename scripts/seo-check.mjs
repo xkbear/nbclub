@@ -197,6 +197,13 @@ const anthemVideo = anthem.match(/<video\b[^>]*>/i)?.[0] ?? "";
 if (anthem.includes("anthem-lyrics") || !anthem.includes('src="assets/anthem.mp4"')) fail("anthem.html", "anthem must use the complete original video, not the cropped lyrics version");
 if (attr(anthemVideo, "width") !== "1080" || attr(anthemVideo, "height") !== "1080" || attr(anthemVideo, "poster") !== "assets/anthem-poster.webp") fail("anthem.html", "complete anthem must retain its square dimensions and full-frame poster");
 if (!sitemap.includes("<video:content_loc>https://new-bee.club/assets/anthem.mp4</video:content_loc>")) fail("sitemap.xml", "video sitemap must reference the complete anthem");
+const k5 = readFileSync(join(root, "event-2026-09-25-k5.html"), "utf8");
+const k5Video = k5.match(/<video\b[^>]*>/i)?.[0] ?? "";
+if (attr(k5Video, "width") !== "544" || attr(k5Video, "height") !== "960") fail("event-2026-09-25-k5.html", "K5 video must retain its original portrait dimensions");
+if (!/\bcontrols\b/.test(k5Video) || !/\bplaysinline\b/.test(k5Video) || /\bautoplay\b/.test(k5Video) || attr(k5Video, "preload") !== "none") fail("event-2026-09-25-k5.html", "K5 video must use click-to-play controls without automatic downloading or playback");
+for (const media of ["assets/events/2026-09-25-k5/recap-video.mp4", "assets/events/2026-09-25-k5/recap-video-poster.webp"]) {
+  if (!existsSync(join(root, media)) || !k5.includes(media) || !sitemap.includes(media)) fail("event-2026-09-25-k5.html", `K5 video media or discovery entry is missing (${media})`);
+}
 const queryTargets = new Map([
   ["新西兰AI俱乐部", "xin-xilan-ai-club.html"],
   ["华人AI俱乐部 NZ", "chinese-ai-club-nz.html"],
