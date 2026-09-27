@@ -14,8 +14,6 @@
 .event-film video:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
 .event-film figcaption{display:flex;justify-content:space-between;gap:10px;font-size:12px;line-height:1.6;color:var(--muted);margin-top:15px}
 .event-film figcaption span:first-child{color:var(--ink);font-weight:600}
-.event-video-fallback{display:block;width:fit-content;margin:4px auto 0;padding:7px 0;color:var(--muted);font-size:12px;text-decoration:underline;text-underline-offset:4px}
-.event-video-fallback:hover{color:var(--accent)}
 .article-body>.recap-opening{margin-top:0;margin-bottom:34px}
 @media(max-width:900px){
  .event-film-hero{grid-template-columns:minmax(0,1fr) minmax(220px,280px);gap:30px;padding-top:36px}

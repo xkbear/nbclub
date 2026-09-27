@@ -201,6 +201,8 @@ const k5 = readFileSync(join(root, "event-2026-09-25-k5.html"), "utf8");
 const k5Video = k5.match(/<video\b[^>]*>/i)?.[0] ?? "";
 if (attr(k5Video, "width") !== "544" || attr(k5Video, "height") !== "960") fail("event-2026-09-25-k5.html", "K5 video must retain its original portrait dimensions");
 if (!/\bcontrols\b/.test(k5Video) || !/\bplaysinline\b/.test(k5Video) || /\bautoplay\b/.test(k5Video) || attr(k5Video, "preload") !== "none") fail("event-2026-09-25-k5.html", "K5 video must use click-to-play controls without automatic downloading or playback");
+if (!/\bnodownload\b/.test(attr(k5Video, "controlslist")) || attr(k5Video, "oncontextmenu") !== "return false") fail("event-2026-09-25-k5.html", "K5 video must hide browser download and video context-menu entries");
+if (/<a\b[^>]*href=["'][^"']*\.mp4(?:[?#][^"']*)?["'][^>]*>/i.test(k5)) fail("event-2026-09-25-k5.html", "K5 must not expose a direct video download or new-window link");
 for (const media of ["assets/events/2026-09-25-k5/recap-video.mp4", "assets/events/2026-09-25-k5/recap-video-poster.webp"]) {
   if (!existsSync(join(root, media)) || !k5.includes(media) || !sitemap.includes(media)) fail("event-2026-09-25-k5.html", `K5 video media or discovery entry is missing (${media})`);
 }
