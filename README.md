@@ -29,6 +29,14 @@ xmllint --noout sitemap.xml feed.xml
 
 当前由 `main` 分支根目录发布到 GitHub Pages。页面内已设置 CSP 与 Referrer Policy；GitHub Pages 不支持通过仓库文件自定义 `X-Content-Type-Options`、`X-Frame-Options` 等 HTTP 响应头，如需完整响应头必须在域名前增加可配置的边缘/CDN 层或迁移托管平台。
 
+## 访问统计
+
+- 使用 Cloudflare Web Analytics；在 [Cloudflare 后台](https://dash.cloudflare.com/?to=/:account/web-analytics) 的「数据分析 → Web Analytics」中选择 `new-bee.club` 查看。网站仍由 GitHub Pages 托管，无需更改 DNS。
+- 20 个正式内容页面统一引用 `assets/analytics.js`，仅在 `https://new-bee.club` 顶层页面加载官方统计脚本。本地预览、GitHub 预览地址和 `test.html` 的嵌入预览不计入。
+- 只为统计开放 CSP 中的 `https://static.cloudflareinsights.com` 脚本源和 `https://cloudflareinsights.com` 上报源；Google Forms 原有权限不变。
+- 使用官方隐私优先统计，不读取或发送会员申请表字段。代码中的 beacon token 是公开站点标识，不是 Cloudflare 登录凭证或 API 密钥。
+- 新增正式页面时沿用共享加载器和 CSP；运行 `node scripts/analytics-check.mjs` 与 `node scripts/seo-check.mjs`。数据从接入后开始积累，首次数据展示可能延迟数分钟。
+
 ## 网站维护
 
 - 共享样式与交互：`assets/site.css`、`assets/site.js`。

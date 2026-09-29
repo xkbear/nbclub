@@ -43,8 +43,8 @@ function warn(file, message) {
 }
 
 function attr(tag, name) {
-  const match = tag.match(new RegExp(`\\b${name}=["']([^"']*)["']`, "i"));
-  return match?.[1] ?? "";
+  const match = tag.match(new RegExp(`\\b${name}=(["'])([\\s\\S]*?)\\1`, "i"));
+  return match?.[2] ?? "";
 }
 
 function hasMeta(html, key, value) {
@@ -81,7 +81,7 @@ for (const file of pages) {
   for (const target of ["events.html", "whitepaper.html", "anthem.html", "apply.html", "mailto:office@new-bee.club", "feed.xml"]) {
     if (!footer.includes('href="' + target + '"')) fail(file, `missing useful footer link (${target})`);
   }
-  for (const shared of ["assets/theme.js", "assets/site.css", "assets/site.js"]) {
+  for (const shared of ["assets/theme.js", "assets/site.css", "assets/site.js", "assets/analytics.js"]) {
     if (!html.includes(shared)) fail(file, `missing shared design resource (${shared})`);
   }
   if (!body.includes('data-theme-toggle')) fail(file, "missing appearance control");
@@ -99,6 +99,13 @@ for (const file of pages) {
   if (!hasMeta(html, "name", "robots")) fail(file, "missing robots meta");
   if (!hasMeta(html, "http-equiv", "Content-Security-Policy")) fail(file, "missing document-level CSP");
   if (!hasMeta(html, "name", "referrer")) fail(file, "missing referrer policy meta");
+
+  const analyticsTags = (html.match(/<script\b[^>]*>/gi) ?? []).filter(tag => /^assets\/analytics\.js(?:\?|$)/.test(attr(tag, "src")));
+  if (analyticsTags.length !== 1 || !/\bdefer\b/.test(analyticsTags[0])) fail(file, "expected exactly one deferred shared analytics loader");
+  const cspTag = (html.match(/<meta\b[^>]*>/gi) ?? []).find(tag => attr(tag, "http-equiv") === "Content-Security-Policy") ?? "";
+  const csp = attr(cspTag, "content");
+  if (!/script-src\s[^;]*https:\/\/static\.cloudflareinsights\.com(?:\s|;|$)/.test(csp) || !/connect-src\s[^;]*https:\/\/cloudflareinsights\.com(?:\s|;|$)/.test(csp)) fail(file, "CSP must allow the Cloudflare beacon and reporting endpoint");
+  if (/data-cf-beacon\s*=/.test(html)) fail(file, "keep the beacon in the production-only shared loader, not inline HTML");
 
   for (const property of ["og:title", "og:description", "og:url", "og:image"]) {
     if (!hasMeta(html, "property", property)) fail(file, `missing ${property}`);
