@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:newbee:social-stats:metric-observation:v1",
+  "title": "NewBee social metric observation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "platform",
+    "account_key",
+    "subject",
+    "metric",
+    "stat_date",
+    "timezone",
+    "value",
+    "value_semantics",
+    "source",
+    "fetched_at",
+    "run_id"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "platform": {
+      "enum": ["wechat_mp", "wechat_channels", "xiaohongshu"]
+    },
+    "account_key": { "type": "string", "minLength": 1 },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": { "enum": ["account", "content"] },
+        "id": { "type": "string", "minLength": 1 }
+      }
+    },
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "source_label", "unit"],
+      "properties": {
+        "key": { "type": "string", "minLength": 1 },
+        "source_label": { "type": "string", "minLength": 1 },
+        "unit": { "type": "string", "minLength": 1 }
+      }
+    },
+    "stat_date": { "type": "string", "format": "date" },
+    "timezone": { "type": "string", "minLength": 1 },
+    "value": { "type": "number", "minimum": 0 },
+    "value_semantics": {
+      "enum": ["daily_total", "lifetime_total", "end_of_day_snapshot"]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "provider", "reference"],
+      "properties": {
+        "kind": { "enum": ["official_api", "authorized_partner"] },
+        "provider": { "type": "string", "minLength": 1 },
+        "reference": { "type": "string", "minLength": 1 }
+      }
+    },
+    "fetched_at": { "type": "string", "format": "date-time" },
+    "source_updated_at": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ]
+    },
+    "run_id": { "type": "string", "minLength": 1 }
+  }
+}
