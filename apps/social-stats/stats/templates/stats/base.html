@@ -1,0 +1,26 @@
+{% load static %}<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>{% block title %}数据看板{% endblock %} · NewBee AI Club</title>
+  <link rel="stylesheet" href="{% static 'stats/dashboard.css' %}">
+</head>
+<body>
+  <header class="topbar">
+<div class="topbar-inner">
+<a class="brand" href="{% url 'dashboard' %}">
+<span class="brand-mark">∞</span>
+<span>NewBee <strong>数据中心</strong>
+</span>
+</a>{% if user.is_authenticated %}<div class="user-actions">
+<span>{{ user.get_username }}</span>
+<form action="{% url 'logout' %}" method="post">{% csrf_token %}<button type="submit" class="text-button">退出</button>
+</form>
+</div>{% endif %}</div>
+</header>
+  <main>{% block content %}{% endblock %}</main>
+  <footer class="footer">NewBee AI Club · 内部数据 · 所有日期按北京时间</footer>
+</body>
+</html>

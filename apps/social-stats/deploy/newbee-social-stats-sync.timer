@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily NewBee WeChat analytics sync, after 08:00 China time
+
+[Timer]
+OnCalendar=*-*-* 01:30:00 UTC
+Persistent=true
+Unit=newbee-social-stats-sync.service
+
+[Install]
+WantedBy=timers.target

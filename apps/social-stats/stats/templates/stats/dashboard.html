@@ -1,0 +1,140 @@
+{% extends 'stats/base.html' %}{% load stats_extras %}
+{% block content %}
+<div class="page">
+  <section class="hero">
+<div>
+<div class="eyebrow">NEWBEE / SOCIAL INTELLIGENCE</div>
+<h1>社交数据<span>一目了然。</span>
+</h1>
+<p>公众号接入后每日自动同步；视频号等待官方开放可授权的数据接口。</p>
+</div>
+<div class="hero-date">
+<span>最新完整统计日</span>
+<strong>{{ yesterday|date:'Y.m.d' }}</strong>
+<small>北京时间 · 接口通常次日 08:00 后更新</small>
+</div>
+</section>
+
+  <section class="section">
+<div class="section-head">
+<div>
+<div class="eyebrow">01 / ACCOUNT</div>
+<h2>公众号关注</h2>
+</div>
+<span class="section-note">先蜂 AI 俱乐部</span>
+</div>
+<div class="cards cards-three">{% for card in cards|slice:':3' %}<article class="metric-card">
+<div class="metric-top">
+<span>{{ card.label }}</span>
+<span class="platform-tag">公众号</span>
+</div>
+<div class="metric-value">{% if card.latest %}{{ card.latest.value|number }}<em>{{ card.unit }}</em>{% else %}暂无数据{% endif %}</div>
+<div class="metric-meta">{% if card.latest %}<span>统计至 {{ card.latest.stat_date|date:'Y.m.d' }}</span>
+<span>来源：<a href="{{ card.latest.source_reference }}" target="_blank" rel="noopener noreferrer">微信官方接口 ↗</a>
+</span>
+<span>最近同步 {{ card.status.last_success_at|date:'m.d H:i' }}</span>{% if card.stale or card.status.state == 'sync_error' %}<strong class="warn">数据已过期</strong>{% endif %}{% else %}<span>等待官方接口接通后自动更新</span>{% if card.status.state == 'sync_error' %}<strong class="warn">同步失败</strong>{% endif %}{% endif %}</div>
+</article>
+{% endfor %}</div>
+</section>
+
+  <section class="split-section">
+<div class="panel weekly">
+<div class="eyebrow">02 / LAST 7 COMPLETED DAYS</div>
+<h2>近 7 日简报</h2>
+<p class="subtle">{{ week_start|date:'m.d' }} — {{ week_end|date:'m.d' }} · 只统计完整取得的日期</p>
+<div class="weekly-grid">
+<div>
+<span>新增关注</span>
+<strong>{{ week.new_followers|number }}</strong>
+</div>
+<div>
+<span>取消关注</span>
+<strong>{{ week.unfollowed|number }}</strong>
+</div>
+<div>
+<span>净变化</span>
+<strong>{{ week.net|number }}</strong>
+</div>
+<div>
+<span>当日发表内容阅读人数合计</span>
+<strong>{{ week.content_readers|number }}</strong>
+</div>
+</div>
+<p class="fine-print">如任一天缺数，本周对应汇总显示“暂无数据”。阅读人数按发表日汇总，同一人跨日可能重复计入。</p>
+</div>
+<div class="panel chart-panel">
+<div class="eyebrow">03 / DAILY PULSE</div>
+<h2>近 14 日趋势</h2>
+<div class="chart-legend">
+<span>
+<i class="legend-blue">
+</i>新增关注</span>
+<span>
+<i class="legend-green">
+</i>当日发表内容阅读人数</span>
+</div>
+<div class="chart" role="img" aria-label="过去十四天新增关注与当日发表内容阅读人数柱状图">{% if not has_chart_data %}<div class="chart-empty">数据接入后显示趋势</div>{% endif %}{% for item in chart %}<div class="chart-day">
+<div class="bars">
+<i class="bar blue" style="height:{{ item.new_height }}%" title="{{ item.date|date:'m.d' }} 新增关注：{{ item.new|number }}">
+</i>
+<i class="bar green" style="height:{{ item.reader_height }}%" title="{{ item.date|date:'m.d' }} 当日发表内容阅读人数：{{ item.readers|number }}">
+</i>
+</div>
+<small>{{ item.date|date:'m.d' }}</small>
+</div>{% endfor %}</div>
+<p class="fine-print">两组柱各按组内最大值缩放，仅用于查看各自变化；缺失日期不画柱。</p>
+</div>
+</section>
+
+  <section class="section">
+<div class="section-head">
+<div>
+<div class="eyebrow">04 / CONTENT</div>
+<h2>公众号内容表现</h2>
+</div>
+<span class="section-note">官方“发表内容概况”统计口径</span>
+</div>
+<div class="cards cards-five">{% for card in cards|slice:'3:' %}<article class="metric-card small">
+<div class="metric-top">
+<span>{{ card.label }}</span>
+</div>
+<div class="metric-value">{% if card.latest %}{{ card.latest.value|number }}<em>{{ card.unit }}</em>{% else %}暂无数据{% endif %}</div>
+<div class="metric-meta">{% if card.latest %}<span>统计至 {{ card.latest.stat_date|date:'Y.m.d' }}</span>
+<span>来源：<a href="{{ card.latest.source_reference }}" target="_blank" rel="noopener noreferrer">微信官方接口 ↗</a>
+</span>
+<span>最近同步 {{ card.status.last_success_at|date:'m.d H:i' }}</span>{% if card.stale or card.status.state == 'sync_error' %}<strong class="warn">数据已过期</strong>{% endif %}{% else %}<span>等待官方接口接通</span>{% endif %}</div>
+</article>
+{% endfor %}</div>
+<p class="fine-print">这些内容指标按文章发表日期归集；不代表所有历史文章在该日的阅读量。</p>
+</section>
+
+  <section class="section">
+<div class="section-head">
+<div>
+<div class="eyebrow">05 / CONNECTIONS</div>
+<h2>数据源状态</h2>
+</div>
+</div>
+<div class="sources">
+<div class="source-row">
+<div class="source-icon">微</div>
+<div>
+<strong>微信公众号</strong>
+<p>先蜂 AI 俱乐部 · 关注与发表内容</p>
+</div>
+<span class="source-state">{% if statuses.followers.state == 'connected' and statuses.follower_changes.state == 'connected' and statuses.content.state == 'connected' %}已连接{% elif statuses.followers.state == 'sync_error' or statuses.follower_changes.state == 'sync_error' or statuses.content.state == 'sync_error' %}同步异常{% else %}待接入{% endif %}</span>
+</div>
+<div class="source-row">
+<div class="source-icon video">视</div>
+<div>
+<strong>微信视频号</strong>
+<p>先蜂 AI 俱乐部 · 普通创作者号</p>
+</div>
+<span class="source-state pending">等待官方接口</span>
+</div>
+</div>
+<p class="fine-print source-note">视频号仅在腾讯确认普通创作者可用的正式授权接口后接入。当前没有视频号自动数据。</p>
+</section>
+
+</div>
+{% endblock %}

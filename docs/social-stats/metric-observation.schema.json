@@ -47,7 +47,7 @@
     "timezone": { "type": "string", "minLength": 1 },
     "value": { "type": "number", "minimum": 0 },
     "value_semantics": {
-      "enum": ["daily_total", "lifetime_total", "end_of_day_snapshot"]
+      "enum": ["daily_total", "lifetime_total", "end_of_day_snapshot", "publication_cohort_snapshot"]
     },
     "source": {
       "type": "object",
