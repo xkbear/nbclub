@@ -5,7 +5,7 @@
 ## 上线前一次性准备
 
 1. 向 David 提供**部署当天**从 Mac Mini 直连外网检测到的 IPv4，让他只在公众号后台的「设置名单」里**追加**，不要删除原有地址。当前检测值不能证明运营商长期不换 IP。若换 IP，任务会停止采集；发件邮箱可用时会给维护者发异常邮件。程序不能自动改公众号后台名单。
-2. 在 Mac Mini 上配置公众号 AppSecret、发件邮箱的发送授权、周报收件人及维护者收件邮箱。密钥和邮箱授权码只写在本机 `report.env`，不发聊天、不进仓库。可参考 [`report.env.example`](../../apps/social-stats/deploy/macmini/report.env.example)。
+2. Mac Mini 已有 NewBee 邮件简报的 Titan 发件账号 `news@new-bee.club`，周报复用其本机 Keychain 配置，不用另申请邮箱或传授权码。五位收件人 Ally、Pin、Harry、David、Fred 以 Harry 最新提供的邮箱为准，只放进本机 `report.env`，不进仓库。公众号 AppSecret 仍需在本机配置，不发聊天。可参考 [`report.env.example`](../../apps/social-stats/deploy/macmini/report.env.example)。
 3. 邮件默认在 Mac Mini 本地时间每天 14:30 执行一次。奥克兰冬令时对应北京时间 10:30，夏令时对应 09:30。每日刷新近 7 日；若上周邮件尚未发送，会回查完整的上周，取得周末关注总数后发送。没有数据时不发空周报；每日缺数显示「暂无数据」，不当作 0。邮件发送记录保存在本机 SQLite，防止正常重试重复发送。每次成功运行后会在本机保存一份数据库备份，保留 30 天。
 
 ## 部署（由技术侧执行）
