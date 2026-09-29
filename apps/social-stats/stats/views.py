@@ -1,10 +1,11 @@
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 from django.views.decorators.cache import never_cache
 from django.shortcuts import render
 
+from .forms import VIEWER_USERNAME
 from .models import ConnectorStatus, Observation
 
 METRICS = [
@@ -20,11 +21,12 @@ METRICS = [
 
 
 @never_cache
-@login_required
+@user_passes_test(lambda user: user.is_authenticated and user.get_username() == VIEWER_USERNAME, login_url="login")
 def dashboard(request):
     today = datetime.now(ZoneInfo("Asia/Shanghai")).date()
     yesterday = today - timedelta(days=1)
     observations = list(Observation.objects.filter(platform="wechat_mp", stat_date__lte=yesterday, stat_date__gte=yesterday - timedelta(days=45)).order_by("-stat_date"))
+    latest_data_date = observations[0].stat_date if observations else None
     by_key = {}
     for observation in observations:
         by_key.setdefault(observation.metric_key, []).append(observation)
@@ -58,6 +60,7 @@ def dashboard(request):
     response = render(request, "stats/dashboard.html", {
         "cards": cards, "statuses": statuses, "chart": chart, "week": week,
         "week_start": week_days[-1], "week_end": yesterday, "yesterday": yesterday,
+        "latest_data_date": latest_data_date,
         "has_chart_data": any(item["new"] is not None or item["readers"] is not None for item in chart),
     })
     response["X-Robots-Tag"] = "noindex, nofollow, noarchive"

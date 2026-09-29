@@ -1,6 +1,6 @@
 # NewBee 内部社交数据看板
 
-面向 `stats.new-bee.club` 的独立服务。当前实现了公众号官方只读接口的每日采集、私有登录、14 日趋势、近 7 个完整统计日的汇总、来源及同步状态；视频号保留“等待官方接口”状态。小红书不接入。
+面向 `stats.new-bee.club` 的独立服务。当前实现了公众号官方只读接口的每日采集、共享密码访问、14 日趋势、近 7 个完整统计日的汇总、来源及同步状态；视频号保留“等待官方接口”状态。小红书不接入。
 
 **当前没有部署、没有真实账号数据，也没有保存 AppSecret。** GitHub Pages 上的公开官网继续独立运行。本应用可以复用团队已有的常开 Linux 服务器；若没有合适的服务器，再考虑免费云主机。两种情况都沿用 `new-bee.club` 品牌域名和本应用的登录保护。
 
@@ -25,11 +25,11 @@ python3 -m venv .venv
 mkdir -p data
 DASHBOARD_DEBUG=1 .venv/bin/python manage.py migrate
 DASHBOARD_DEBUG=1 .venv/bin/python manage.py test
-DASHBOARD_DEBUG=1 .venv/bin/python manage.py createsuperuser
+DASHBOARD_DEBUG=1 .venv/bin/python manage.py set_viewer_password
 DASHBOARD_DEBUG=1 .venv/bin/python manage.py runserver
 ```
 
-打开 `http://127.0.0.1:8000/` 后登录。没有真实数据时看板会如实显示“暂无数据”。本地检查无需公众号密钥，也不会触碰真实账号。真实同步只能在已加入微信白名单的服务器上运行。
+打开 `http://127.0.0.1:8000/` 后只输入共享密码。没有真实数据时看板会如实显示“暂无数据”。本地检查无需公众号密钥，也不会触碰真实账号。真实同步只能在已加入微信白名单的服务器上运行。
 
 ## 零费用优先部署
 
@@ -58,7 +58,7 @@ sudo -u newbee-stats .venv/bin/pip install -r requirements.txt
 ```sh
 sudo chown root:newbee-stats /etc/newbee-social-stats.env
 sudo chmod 0640 /etc/newbee-social-stats.env
-sudo -u newbee-stats sh -c 'set -a; . /etc/newbee-social-stats.env; set +a; cd /opt/newbee-social-stats/apps/social-stats; .venv/bin/python manage.py migrate; .venv/bin/python manage.py collectstatic --noinput; .venv/bin/python manage.py createsuperuser'
+sudo -u newbee-stats sh -c 'set -a; . /etc/newbee-social-stats.env; set +a; cd /opt/newbee-social-stats/apps/social-stats; .venv/bin/python manage.py migrate; .venv/bin/python manage.py collectstatic --noinput; .venv/bin/python manage.py set_viewer_password'
 sudo cp /opt/newbee-social-stats/apps/social-stats/deploy/newbee-social-stats*.service /etc/systemd/system/
 sudo cp /opt/newbee-social-stats/apps/social-stats/deploy/newbee-social-stats*.timer /etc/systemd/system/
 sudo systemctl daemon-reload
@@ -83,8 +83,7 @@ systemctl list-timers 'newbee-social-stats*'
 
 ## 运维与权限
 
-- 新增看板查看者：管理员通过 Django `/admin/` 创建普通用户，**不要授予 staff/superuser**。只让实际需要的人持有账号。
-- 移除查看者：在 `/admin/` 禁用该用户。所有页面均需登录，页面设置 `noindex` 和禁止缓存。
+- 看板只有一个共享密码，查看者不需要各自注册账号。只把密码告诉需要看数据的人；泄露或人员变动时在服务器执行 `manage.py set_viewer_password` 更换密码，旧登录会话随之失效。密码以哈希形式保存，页面设置 `noindex` 和禁止缓存。
 - 同步失败：`systemctl status newbee-social-stats-sync.service`、`journalctl -u newbee-social-stats-sync.service -n 100`；日志只输出接口错误码，不输出 AppSecret 或 access_token。
 - 回退：停止同步 timer；旧数据仍可只读查看并标明过期。应用代码可回退到上一已验证提交，数据库回退前先做快照。
 - 视频号：仅在腾讯确认普通创作者号可用的官方授权统计接口后开发连接器；目前不要求运营人员在后台寻找“密钥”。

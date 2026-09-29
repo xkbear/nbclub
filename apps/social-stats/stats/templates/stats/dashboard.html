@@ -3,15 +3,15 @@
 <div class="page">
   <section class="hero">
 <div>
-<div class="eyebrow">NEWBEE / SOCIAL INTELLIGENCE</div>
-<h1>社交数据<span>一目了然。</span>
+<div class="eyebrow">NEWBEE / SOCIAL DATA</div>
+<h1>社交账号<span>数据看板</span>
 </h1>
-<p>公众号接入后每日自动同步；视频号等待官方开放可授权的数据接口。</p>
+<p>接入后公众号每日自动更新；视频号等待官方接口。</p>
 </div>
 <div class="hero-date">
-<span>最新完整统计日</span>
-<strong>{{ yesterday|date:'Y.m.d' }}</strong>
-<small>北京时间 · 接口通常次日 08:00 后更新</small>
+<span>最新有数据的统计日</span>
+<strong>{% if latest_data_date %}{{ latest_data_date|date:'Y.m.d' }}{% else %}尚无统计数据{% endif %}</strong>
+<small>北京时间 · 每日自动同步</small>
 </div>
 </section>
 
@@ -28,7 +28,7 @@
 <span>{{ card.label }}</span>
 <span class="platform-tag">公众号</span>
 </div>
-<div class="metric-value">{% if card.latest %}{{ card.latest.value|number }}<em>{{ card.unit }}</em>{% else %}暂无数据{% endif %}</div>
+<div class="metric-value{% if not card.latest %} empty{% endif %}">{% if card.latest %}{{ card.latest.value|number }}<em>{{ card.unit }}</em>{% else %}暂无数据{% endif %}</div>
 <div class="metric-meta">{% if card.latest %}<span>统计至 {{ card.latest.stat_date|date:'Y.m.d' }}</span>
 <span>来源：<a href="{{ card.latest.source_reference }}" target="_blank" rel="noopener noreferrer">微信官方接口 ↗</a>
 </span>
@@ -73,7 +73,7 @@
 <i class="legend-green">
 </i>当日发表内容阅读人数</span>
 </div>
-<div class="chart" role="img" aria-label="过去十四天新增关注与当日发表内容阅读人数柱状图">{% if not has_chart_data %}<div class="chart-empty">数据接入后显示趋势</div>{% endif %}{% for item in chart %}<div class="chart-day">
+<div class="chart" role="img" aria-label="过去十四天新增关注与当日发表内容阅读人数柱状图">{% if not has_chart_data %}<div class="chart-empty">数据接入后显示趋势</div>{% else %}{% for item in chart %}<div class="chart-day">
 <div class="bars">
 <i class="bar blue" style="height:{{ item.new_height }}%" title="{{ item.date|date:'m.d' }} 新增关注：{{ item.new|number }}">
 </i>
@@ -81,7 +81,7 @@
 </i>
 </div>
 <small>{{ item.date|date:'m.d' }}</small>
-</div>{% endfor %}</div>
+</div>{% endfor %}{% endif %}</div>
 <p class="fine-print">两组柱各按组内最大值缩放，仅用于查看各自变化；缺失日期不画柱。</p>
 </div>
 </section>
@@ -98,7 +98,7 @@
 <div class="metric-top">
 <span>{{ card.label }}</span>
 </div>
-<div class="metric-value">{% if card.latest %}{{ card.latest.value|number }}<em>{{ card.unit }}</em>{% else %}暂无数据{% endif %}</div>
+<div class="metric-value{% if not card.latest %} empty{% endif %}">{% if card.latest %}{{ card.latest.value|number }}<em>{{ card.unit }}</em>{% else %}暂无数据{% endif %}</div>
 <div class="metric-meta">{% if card.latest %}<span>统计至 {{ card.latest.stat_date|date:'Y.m.d' }}</span>
 <span>来源：<a href="{{ card.latest.source_reference }}" target="_blank" rel="noopener noreferrer">微信官方接口 ↗</a>
 </span>

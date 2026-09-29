@@ -72,14 +72,23 @@ class ConnectorTests(TestCase):
             with self.assertRaises(CommandError):
                 call_command("sync_wechat", date=date(2026, 9, 27))
 
-    def test_dashboard_requires_login_and_never_exposes_credentials(self):
+    def test_dashboard_requires_shared_password_and_never_exposes_credentials(self):
         anonymous = self.client.get(reverse("dashboard"))
         self.assertEqual(anonymous.status_code, 302)
         self.assertIn("/login/", anonymous["Location"])
-        user = get_user_model().objects.create_user("harry", password="SafePassword-98271")
-        self.client.force_login(user)
+        get_user_model().objects.create_user("viewer", password="SafePassword-98271")
+        admin = get_user_model().objects.create_superuser("admin", password="AdminPassword-98271")
+        login_page = self.client.get(reverse("login"))
+        self.assertNotContains(login_page, 'name="username"')
+        self.assertEqual(self.client.post(reverse("login"), {"password": "wrong"}).status_code, 200)
+        self.assertEqual(self.client.post(reverse("login"), {"username": "admin", "password": "AdminPassword-98271"}).status_code, 200)
+        self.client.force_login(admin)
+        self.assertEqual(self.client.get(reverse("dashboard")).status_code, 302)
+        self.client.logout()
+        self.assertEqual(self.client.post(reverse("login"), {"password": "SafePassword-98271"}).status_code, 302)
         response = self.client.get(reverse("dashboard"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "暂无数据")
+        self.assertContains(response, "尚无统计数据")
         self.assertContains(response, "等待官方接口")
         self.assertEqual(response["X-Robots-Tag"], "noindex, nofollow, noarchive")
