@@ -1,13 +1,16 @@
-from datetime import date
+from datetime import date, timedelta
+from io import StringIO
 from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.core.management.base import CommandError
-from django.test import TestCase
+from django.core import mail
+from django.test import TestCase, override_settings
 from django.urls import reverse
+from django.utils import timezone
 
-from .models import ConnectorStatus, Observation
+from .models import ConnectorStatus, Observation, ReportDelivery
 from .wechat import WeChatError, _observations, sync_range
 
 
@@ -92,3 +95,57 @@ class ConnectorTests(TestCase):
         self.assertContains(response, "尚无统计数据")
         self.assertContains(response, "等待官方接口")
         self.assertEqual(response["X-Robots-Tag"], "noindex, nofollow, noarchive")
+
+
+@override_settings(EMAIL_BACKEND="django.core.mail.backends.locmem.EmailBackend")
+class WeeklyEmailTests(TestCase):
+    def add_observation(self, key, day, value):
+        Observation.objects.create(
+            platform="wechat_mp", account_key="newbee_wechat_mp", subject_kind="account",
+            subject_id="wx8245fdb4104c1756", metric_key=key, metric_label=key,
+            unit="人", stat_date=day, timezone="Asia/Shanghai", value=value,
+            value_semantics="daily_total", source_provider="WeChat Official API",
+            source_reference="https://developers.weixin.qq.com/doc/service/api/wedata/user/api_getusersummary",
+            fetched_at=timezone.now(), run_id="test-weekly-mail",
+        )
+
+    def test_sends_one_weekly_email_with_official_totals_and_no_duplicates(self):
+        monday = date(2026, 9, 21)
+        for offset in range(7):
+            day = monday + timedelta(days=offset)
+            self.add_observation("new_followers", day, 2)
+            self.add_observation("unfollowed", day, 1)
+        self.add_observation("followers", date(2026, 9, 27), 1200)
+        with patch.dict("os.environ", {
+            "REPORT_FROM_EMAIL": "office@example.com", "REPORT_RECIPIENTS": "a@example.com,b@example.com",
+            "REPORT_SMTP_HOST": "smtp.example.com",
+        }):
+            call_command("send_weekly_report", today=date(2026, 9, 28), stdout=StringIO())
+            call_command("send_weekly_report", today=date(2026, 9, 28), stdout=StringIO())
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].to, ["a@example.com", "b@example.com"])
+        self.assertIn("周末关注总数：1,200 人", mail.outbox[0].body)
+        self.assertIn("本周净增关注：7 人", mail.outbox[0].body)
+        self.assertEqual(ReportDelivery.objects.count(), 1)
+
+    def test_missing_data_does_not_send_or_invent_zero(self):
+        with patch.dict("os.environ", {
+            "REPORT_FROM_EMAIL": "office@example.com", "REPORT_RECIPIENTS": "a@example.com",
+            "REPORT_SMTP_HOST": "smtp.example.com",
+        }):
+            with self.assertRaises(CommandError):
+                call_command("send_weekly_report", today=date(2026, 9, 28), stdout=StringIO())
+        self.assertEqual(len(mail.outbox), 0)
+        self.assertEqual(ReportDelivery.objects.count(), 0)
+        output = StringIO()
+        call_command("send_weekly_report", today=date(2026, 9, 28), dry_run=True, stdout=output)
+        self.assertIn("暂无数据", output.getvalue())
+        self.assertNotIn("本周净增关注：0 人", output.getvalue())
+
+    def test_changed_ip_stops_before_wechat_sync(self):
+        with patch.dict("os.environ", {"WECHAT_ALLOWED_EGRESS_IPV4": "192.0.2.10"}):
+            with patch("stats.management.commands.run_macmini_mail.current_public_ipv4", return_value="192.0.2.11"):
+                with patch("stats.management.commands.run_macmini_mail.call_command") as nested:
+                    with self.assertRaises(CommandError):
+                        call_command("run_macmini_mail", stdout=StringIO())
+                    nested.assert_not_called()

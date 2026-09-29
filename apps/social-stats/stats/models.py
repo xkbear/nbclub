@@ -35,3 +35,12 @@ class ConnectorStatus(models.Model):
 
     class Meta:
         constraints = [models.UniqueConstraint(fields=["platform", "account_key", "feed"], name="unique_social_connector")]
+
+
+class ReportDelivery(models.Model):
+    report_kind = models.CharField(max_length=40)
+    period_end = models.DateField()
+    sent_at = models.DateTimeField()
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=["report_kind", "period_end"], name="unique_social_report_delivery")]

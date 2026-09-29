@@ -42,6 +42,13 @@ TEMPLATES = [{
 }]
 WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": os.environ.get("DASHBOARD_DB_PATH", str(BASE_DIR / "data" / "db.sqlite3")), "OPTIONS": {"timeout": 30}}}
+EMAIL_HOST = os.environ.get("REPORT_SMTP_HOST", "")
+EMAIL_PORT = int(os.environ.get("REPORT_SMTP_PORT", "587"))
+EMAIL_HOST_USER = os.environ.get("REPORT_SMTP_USER", "")
+EMAIL_HOST_PASSWORD = os.environ.get("REPORT_SMTP_PASSWORD", "")
+EMAIL_USE_TLS = os.environ.get("REPORT_SMTP_TLS", "1") == "1"
+EMAIL_USE_SSL = os.environ.get("REPORT_SMTP_SSL", "0") == "1"
+EMAIL_TIMEOUT = 20
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
