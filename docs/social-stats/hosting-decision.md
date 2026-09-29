@@ -23,10 +23,11 @@
 | 方案 | 结论 |
 | --- | --- |
 | 团队已有常开 Linux 服务器 | 优先复用；只要有稳定公网出口 IP、HTTPS 和安全的密钥存放能力，就不需要新云账号。 |
+| Cloudflare 免费 Workers／Pages | 可提供网页、定时任务和 D1 数据库，且 Python Workers 已支持 Django；但公众号 API 需要将调用方出口 IP 加入白名单。免费方案没有可保证的专属固定出口 IP，现有 SQLite 与定时任务也需改造，不能直接替代采集主机。Cloudflare 可用于 `stats.new-bee.club` 的域名与访问入口，后端仍复用有稳定出口 IP 的机器。 |
 | Oracle Always Free | 若无现成主机，可在免费额度内同时承载定时采集和私有看板；需确认账号资格、可用容量、公网 IP 及长期运行状态。 |
 | 现有 GitHub Pages | 继续承载公开官网；不能私密保存公众号密码或定时采集。 |
 | 腾讯云微搭免费体验版 | 免费档没有固定出口 IP、微信生态连接器或自定义域名；不满足本方案的完整条件。 |
-| 微信云调用／CloudBase | 官方统计接口文档标示支持云调用，可能免去手动保管 AppSecret 和设置出口 IP；但该已认证服务号与免费环境能否绑定、是否允许定时触发和私有看板，尚未在账号内验证，不能当成可用方案直接上线。 |
+| 微信云调用／CloudBase | 公众号集成文档仍要求配置网关出口 IP；云函数若主动调用公众号 API，还需开启固定出口 IP 并加入白名单。账号资格、费用和本账号接口权限尚未验证，不能当成免 IP 的免费替代方案。 |
 | 现有 Vercel/Supabase 看板 | 前端可复用设计；Supabase Edge Functions 无固定出口 IP。Vercel Pro 的 Static IPs 附加项标价 100 美元/项目/月，另有 Pro 订阅及传输费用。 |
 | Railway Pro | 技术上合适但需 20 美元/月订阅，含资源用量抵扣；仅在免费路线无法稳定运行且用户另行决定时考虑。 |
 
@@ -45,6 +46,10 @@
 ## 官方依据
 
 - [腾讯云：公众号 API 与 IP 白名单](https://cloud.tencent.com/document/product/1301/100187)
+- [Cloudflare：Workers 免费额度与定时任务](https://developers.cloudflare.com/workers/platform/pricing/)
+- [Cloudflare：Django 支持](https://developers.cloudflare.com/workers/languages/python/packages/django/)
+- [Cloudflare：专属固定出口 IP 仅限企业级附加服务](https://developers.cloudflare.com/cloudflare-one/traffic-policies/egress-policies/dedicated-egress-ips/)
+- [腾讯云：CloudBase 公众号集成与出口 IP](https://docs.cloudbase.net/integration/wechat-official-oauth)
 - [Oracle：Always Free 资源、容量和回收规则](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm)
 - [Oracle：免费账号注册与信用卡说明](https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier.htm)
 - [Oracle：公网 IP 类型](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/managingpublicIPs.htm)
