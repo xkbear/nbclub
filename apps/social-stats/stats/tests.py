@@ -1,6 +1,7 @@
 from datetime import date, timedelta
 from io import StringIO
 from unittest.mock import patch
+import re
 
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
@@ -150,6 +151,46 @@ class WeeklyEmailTests(TestCase):
         self.assertIn("本周净增关注：22 人", output.getvalue())
         self.assertIn("本周新增关注：暂无数据", output.getvalue())
         self.assertIn("官方关注总数之差", output.getvalue())
+
+    def test_test_email_has_self_contained_charts_and_does_not_mark_formal_delivery(self):
+        self.add_observation("followers", date(2026, 9, 20), 102)
+        self.add_observation("followers", date(2026, 9, 27), 124)
+        self.add_observation("content_readers", date(2026, 9, 26), 340)
+        with patch.dict("os.environ", {
+            "REPORT_FROM_EMAIL": "office@example.com", "REPORT_RECIPIENTS": "team@example.com",
+            "REPORT_SMTP_HOST": "smtp.example.com",
+        }):
+            call_command("send_weekly_report", today=date(2026, 9, 28), test_to="harry@example.com", stdout=StringIO())
+        message = mail.outbox[0]
+        self.assertEqual(message.to, ["harry@example.com"])
+        self.assertIn("【测试·图表版】", message.subject)
+        self.assertEqual(ReportDelivery.objects.count(), 0)
+        html = message.alternatives[0].content
+        self.assertIn("+21.6%", html)
+        self.assertIn("官方关注快照 1/7 天", html)
+        self.assertIn("周合计暂不展示", html)
+        self.assertNotIn("https://", html)
+        cids = set(re.findall(r'cid:([^"\s]+)', html))
+        mime = message.message()
+        inline = {part["Content-ID"].strip("<>"): part for part in mime.walk() if part["Content-ID"]}
+        self.assertEqual(cids, set(inline))
+        self.assertEqual(len(inline), 3)
+        for part in inline.values():
+            self.assertEqual(part.get_content_type(), "image/png")
+            self.assertTrue(part.get_payload(decode=True).startswith(b"\x89PNG\r\n\x1a\n"))
+        self.assertLess(len(mime.as_bytes()), 500_000)
+
+    def test_missing_logo_blocks_mail_without_creating_delivery_record(self):
+        self.add_observation("followers", date(2026, 9, 27), 124)
+        with patch.dict("os.environ", {
+            "REPORT_FROM_EMAIL": "office@example.com", "REPORT_RECIPIENTS": "team@example.com",
+            "REPORT_SMTP_HOST": "smtp.example.com",
+        }):
+            with patch("stats.report_email.Path.read_bytes", side_effect=FileNotFoundError):
+                with self.assertRaises(CommandError):
+                    call_command("send_weekly_report", today=date(2026, 9, 28), stdout=StringIO())
+        self.assertEqual(len(mail.outbox), 0)
+        self.assertEqual(ReportDelivery.objects.count(), 0)
 
     def test_changed_ip_stops_before_wechat_sync(self):
         with patch.dict("os.environ", {"WECHAT_ALLOWED_EGRESS_IPV4": "192.0.2.10"}):

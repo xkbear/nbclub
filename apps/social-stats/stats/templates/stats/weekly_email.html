@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>NewBee 公众号数据周报</title>
+  <style>
+    @media only screen and (max-width:640px) {
+      .outer { padding:12px 8px !important; }
+      .pad { padding-left:20px !important; padding-right:20px !important; }
+      .title { font-size:26px !important; }
+      .kpi-number { font-size:38px !important; }
+      .kpi-pad { padding:18px 14px !important; }
+    }
+    @media (prefers-color-scheme:dark) {
+      .page-bg { background-color:#222821 !important; }
+      .report-card { background-color:#f8f9f5 !important; color:#26352c !important; }
+    }
+  </style>
+</head>
+<body class="page-bg" style="margin:0;padding:0;background-color:#f0f7ed;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',Arial,sans-serif;color:#26352c;">
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">周末关注 {{ followers_display }} 人 · 本周净增 {{ net_display }} 人{% if growth_display %} · {{ growth_display }}{% endif %}</div>
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" class="page-bg" style="background-color:#f0f7ed;">
+    <tr><td align="center" class="outer" style="padding:32px 12px;">
+      <!--[if mso]><table role="presentation" width="640" align="center"><tr><td><![endif]-->
+      <table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" class="report-card" style="width:100%;max-width:640px;background-color:#ffffff;border:1px solid #e2e8dc;border-radius:14px;overflow:hidden;">
+        <tr><td height="5" style="height:5px;background-color:#F5BC32;line-height:5px;font-size:1px;">&nbsp;</td></tr>
+        <tr><td class="pad" style="padding:28px 32px 20px;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
+            <td width="118" valign="middle"><img src="cid:newbee-logo" alt="NewBee AI Club" width="108" height="44" style="display:block;width:108px;height:44px;border:0;"></td>
+            <td valign="middle" style="font-size:12px;line-height:1.7;letter-spacing:0.8px;color:#6b7568;">NEWBEE AI CLUB<br><span style="letter-spacing:0;font-size:12px;color:#7a8277;">先蜂 AI 俱乐部</span></td>
+          </tr></table>
+        </td></tr>
+        <tr><td class="pad" style="padding:0 32px 24px;">
+          <div style="font-size:11px;font-weight:600;letter-spacing:1.4px;color:#a45731;line-height:1.6;">WEEKLY ACCOUNT REPORT</div>
+          <h1 class="title" style="margin:8px 0 10px;font-size:30px;line-height:1.25;font-weight:700;letter-spacing:-0.5px;color:#26352c;">公众号数据周报</h1>
+          <p style="margin:0;font-size:14px;line-height:1.7;color:#727d70;">{{ week_start|date:"Y.m.d" }} — {{ week_end|date:"m.d" }} <span style="color:#bbc1b6;">&nbsp;｜&nbsp;</span> 北京时间</p>
+        </td></tr>
+        <tr><td class="pad" style="padding:0 32px 22px;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
+            <td width="50%" valign="top" style="padding-right:6px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f4f6ef;border-radius:10px;"><tr><td class="kpi-pad" style="padding:22px 22px 20px;">
+                <div style="font-size:13px;line-height:1.6;color:#687363;">周末关注总数</div>
+                <div class="kpi-number" style="font-family:Arial,sans-serif;font-size:48px;line-height:1.25;font-weight:700;letter-spacing:-1px;color:#26352c;margin:7px 0 5px;">{{ followers_display }}<span style="font-size:14px;font-weight:400;letter-spacing:0;"> 人</span></div>
+                <div style="font-size:12px;line-height:1.7;color:#7a8275;">截至 {{ week_end|date:"m月d日" }}</div>
+              </td></tr></table>
+            </td>
+            <td width="50%" valign="top" style="padding-left:6px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#edf6f0;border-radius:10px;"><tr><td class="kpi-pad" style="padding:22px 22px 20px;">
+                <div style="font-size:13px;line-height:1.6;color:#687363;">本周净增关注</div>
+                <div class="kpi-number" style="font-family:Arial,sans-serif;font-size:48px;line-height:1.25;font-weight:700;letter-spacing:-1px;color:{{ net_color }};margin:7px 0 5px;">{{ net_display }}<span style="font-size:14px;font-weight:400;letter-spacing:0;"> 人</span></div>
+                <div style="font-size:12px;line-height:1.7;color:#607561;">{% if growth_display %}较周初 <strong style="color:{{ net_color }};">{{ growth_display }}</strong>{% else %}周内关注人数变化{% endif %}</div>
+              </td></tr></table>
+            </td>
+          </tr></table>
+        </td></tr>
+        {% if net_peak %}
+        <tr><td class="pad" style="padding:0 32px 24px;">
+          <p style="margin:0;padding:13px 16px;border-left:3px solid #c85a2e;background-color:#fff8ee;font-size:14px;line-height:1.75;color:#554d3e;">{{ net_peak.day|date:"m月d日" }} 是本周净变化最高的一天，关注总数变化 <strong>{{ net_peak_display }} 人</strong>。</p>
+        </td></tr>
+        {% endif %}
+        <tr><td class="pad" style="padding:0 32px 10px;border-top:1px solid #eef0e9;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
+            <td style="padding-top:24px;"><h2 style="margin:0;font-size:19px;line-height:1.5;font-weight:650;color:#26352c;">每日关注总数</h2></td>
+            <td align="right" style="padding-top:24px;font-size:12px;color:#8a9285;">单位：人</td>
+          </tr></table>
+        </td></tr>
+        <tr><td class="pad" style="padding:0 32px 8px;">
+          {% if has_followers_chart %}<img src="cid:followers-trend" alt="每日关注总数。{{ followers_alt }}" width="576" style="display:block;width:100%;max-width:576px;height:auto;border:0;">{% else %}<p style="font-size:14px;color:#727d70;">本周关注趋势数据尚未取得。</p>{% endif %}
+        </td></tr>
+        <tr><td class="pad" style="padding:0 32px 24px;font-size:12px;line-height:1.7;color:#8a9285;">官方关注快照 {{ follower_days }}/7 天，纵轴按实际范围展示。{% if net_from_snapshots %}净增由统计周前后的关注总数计算。{% endif %}</td></tr>
+        <tr><td class="pad" style="padding:0 32px 12px;border-top:1px solid #eef0e9;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
+            <td style="padding-top:24px;"><h2 style="margin:0;font-size:19px;line-height:1.5;font-weight:650;color:#26352c;">内容阅读表现</h2></td>
+            <td align="right" style="padding-top:24px;font-size:12px;color:#8a9285;">发表内容概览</td>
+          </tr></table>
+          <p style="margin:6px 0 0;font-size:13px;line-height:1.7;color:#727d70;">本周发布 <strong style="color:#45523f;">{{ published_display }} 篇</strong> · 按官方统计日期展示阅读人数</p>
+        </td></tr>
+        <tr><td class="pad" style="padding:0 32px 18px;">
+          {% if has_readers_chart %}<img src="cid:reading-trend" alt="发表内容概览阅读人数。{{ readers_alt }}" width="576" style="display:block;width:100%;max-width:576px;height:auto;border:0;">{% else %}<p style="font-size:14px;color:#727d70;">本周内容阅读数据尚未取得。</p>{% endif %}
+        </td></tr>
+        {% if reading_peak %}
+        <tr><td class="pad" style="padding:0 32px 24px;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:#f8f9f5;border:1px solid #e9ece2;border-radius:8px;">
+            <tr><td colspan="3" style="padding:14px 16px 10px;font-size:12px;line-height:1.6;color:#7b8274;">{{ reading_peak.day|date:"m月d日" }} · 内容概览阅读峰值日</td></tr>
+            <tr>
+              <td width="34%" style="padding:0 16px 16px;font-size:12px;color:#727d70;line-height:1.8;">阅读人数<br><strong style="font-family:Arial,sans-serif;font-size:22px;color:#26352c;">{{ reading_peak.readers }}</strong></td>
+              <td width="33%" style="padding:0 8px 16px;font-size:12px;color:#727d70;line-height:1.8;">分享人数<br><strong style="font-family:Arial,sans-serif;font-size:22px;color:#26352c;">{{ reading_peak.sharers|default_if_none:"—" }}</strong></td>
+              <td width="33%" style="padding:0 8px 16px;font-size:12px;color:#727d70;line-height:1.8;">拇指赞人数<br><strong style="font-family:Arial,sans-serif;font-size:22px;color:#26352c;">{{ reading_peak.likes|default_if_none:"—" }}</strong></td>
+            </tr>
+          </table>
+        </td></tr>
+        {% endif %}
+        <tr><td class="pad" style="padding:0 32px 24px;font-size:12px;line-height:1.75;color:#8a9285;">内容数据 {{ content_days }}/7 天。阅读按微信「发表内容概览」口径展示，不跨日相加为周去重阅读人数。</td></tr>
+        <tr><td class="pad" style="padding:20px 32px 24px;background-color:#f8f9f5;border-top:1px solid #e9ece2;">
+          <p style="margin:0 0 7px;font-size:12px;line-height:1.8;color:#727d70;">关注增减明细：本周新增 {{ new_display }} 人 · 取消关注 {{ unfollowed_display }} 人。{% if change_days < 7 %}微信仅返回 {{ change_days }}/7 天明细，周合计暂不展示；“—”不代表 0。{% endif %}</p>
+          <p style="margin:0;font-size:12px;line-height:1.8;color:#727d70;">视频号数据仍待接入。</p>
+        </td></tr>
+      </table>
+      <!--[if mso]></td></tr></table><![endif]-->
+      <table role="presentation" width="640" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:640px;"><tr><td align="center" style="padding:18px 20px 0;font-size:11px;line-height:1.9;color:#83907d;">数据来自微信公众号官方接口 · 日期按北京时间<br>NewBee AI Club · 内部数据周报 · 每日更新，每周汇总</td></tr></table>
+    </td></tr>
+  </table>
+</body>
+</html>

@@ -12,6 +12,10 @@
 
 ## 部署（由技术侧执行）
 
+周报包含 NewBee Logo、关注总数与净增指标卡、每日关注折线图和内容阅读柱图。图片作为邮件内嵌附件发送，不依赖公开图床；同时保留纯文本版本。
+
+调试时使用 `manage.py send_weekly_report --preview-dir /私有目录/preview` 写入 HTML 和图片，不发信；使用 `--test-to 单个邮箱` 发送同一渲染流程的测试邮件，收件人仅该邮箱，不创建正式发送记录。正式任务继续使用本机五人名单。两种参数无需修改收件配置。
+
 在固定目录检出已审查的代码，进入 `apps/social-stats`，安装 `requirements.txt`，并执行 `manage.py migrate`。将 `deploy/macmini/report.env.example` 复制到 `~/Library/Application Support/NewBeeSocialStats/report.env`，填写实际值，设置文件权限为 `0600`。`DASHBOARD_SECRET_KEY` 可用 `python3 -c 'import secrets; print(secrets.token_urlsafe(64))'` 生成。将数据库目录设为仅当前用户可读。
 
 首次接通前，在本机重新检测直连 IPv4，和 David 加入的地址核对一致，再手动运行一次 `manage.py sync_wechat --days 1`，核对官方数据。然后执行 `manage.py send_weekly_report --dry-run` 检查邮件内容；只有发件邮箱与收件人名单核对完毕后，才手动发送一次并安装定时任务。
