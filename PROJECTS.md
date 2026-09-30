@@ -9,6 +9,7 @@
 - 🔵 视频号：等待 Harry 提供腾讯的明确授权回复及接口资料；没有普通创作者号官方统计数据，不进入账号页面或使用抓包/Cookie。
 - 🔵 PR #1 待团队合并；Mac Mini 当前直接运行 PR 分支检出，不依赖 main 合并。不要在计划任务使用的检出中随意切分支。
 - 🔵 完成度核验工具缺口：同 thread 两份原始 transcript、截图双载体导致 session-context 标 incomplete，无法生成有效 completion bundle；不得声称全部需求已获独立完成验证。完整收尾记录见 `docs/social-stats/SIGNOFF-2026-10-01.md`。
+  - 另有既存全量 Codex skills 镜像漂移：共享同步器被未托管的 external-model-worker/references 目录拦住，后台同步最近退出 1。本轮已用同一同步器的 `--skill session-signoff` 完成该 skill 的定向同步与检查；没有覆盖未托管目录。全量漂移属工具维护待办，不是公众号运行故障。
 
 ## BACKLOG（本次独立审查的 P2；不阻断本轮代码修复）
 
