@@ -1,0 +1,57 @@
+{
+  "assurance": "code_review_only; completion_inconclusive",
+  "initial": {
+    "host": "codex",
+    "reviewer": "claude",
+    "heterogeneous": true,
+    "base": "8cb84a9439115f9cf43cf62ab838b4d0f4dfa86a",
+    "review_subject_head": "92bc86ee42bd6d2f05fa36d6a3b61e99b2ee6571",
+    "code_scope_sha256": "b66ed67d3ab6600ab793aec15807d807828b9e4e9d26a5da765f01a7258424a0",
+    "p0_count": 0,
+    "p1_count": 1,
+    "p2_count": 5,
+    "signoff_action": "continue_development",
+    "elapsed_sec": 87,
+    "reservation_id": "6eb1f0b39ee64631a16bb2a689517474"
+  },
+  "repair": {
+    "host": "codex",
+    "reviewer": "claude",
+    "heterogeneous": true,
+    "base": "92bc86ee42bd6d2f05fa36d6a3b61e99b2ee6571",
+    "review_subject_head": "1eb6ccb7ee1fb04b22fdbf07348408cebd58652d",
+    "code_scope_sha256": "7c229b503875a4a637ee91aae65584119a152afc77691be5b8562be4676fa04c",
+    "p0_count": 0,
+    "p1_count": 0,
+    "p2_count": 0,
+    "signoff_action": "stop",
+    "elapsed_sec": 30,
+    "reservation_id": "64583573d30d4529a5f23aeeeefa914a"
+  },
+  "artifact_sha256": {
+    "code-review.md": "6fc6e5409e77dc6c7d6aa74b987a7a740b3fc956bb1b15374c016cfdf9e76042",
+    "code-review-result.json": "513f2d3a11ee5fa945497ee1575d0b3f5d11e66241453aa7d939a62996259b73",
+    "repair-review.md": "8ffd87010e042f1e43089a2d55d1fb417240f7462f8b7ee6ca9866a3208f17d6",
+    "repair-review-result.json": "00bcb6918ad415c86f27339e8e7927e21ea59405f1357382fe791525f113d551"
+  },
+  "complete_claim": false,
+  "completion_status": "inconclusive",
+  "completion_freshness": "not_established",
+  "budget": {
+    "max_calls": 3,
+    "max_seconds": 2190,
+    "used_calls": 2,
+    "used_seconds": 117.0,
+    "remaining_calls": 1,
+    "remaining_seconds": 2073.0,
+    "budget_policy_version": "strategy-cycle-v3",
+    "policy_migrated": false,
+    "strategy_cycle": {
+      "route": "release",
+      "review_calls": 3,
+      "infrastructure_replacement_calls": 1
+    },
+    "budget_authority": "internal_estimate",
+    "policy_replan_count": 0
+  }
+}
