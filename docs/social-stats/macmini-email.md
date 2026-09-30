@@ -2,6 +2,8 @@
 
 当前 NewBee Mac Mini 已确认不自动休眠、可直连外网。该方案每天在 Mac 本地运行公众号只读采集，周报每周只发送一次；不需要上线看板、开放入站端口或配置 `stats.new-bee.club`。视频号仍等待官方授权接口，不会写入假数据。
 
+**2026-09-30 当前状态：** 公众号官方接口已接通并回填 2026-09-17 至 09-29；已批准 IP、私有密钥、五位收件人及现有 Titan 发件账号均在 Mac Mini 上验证。用户级定时任务已加载并完成一次只同步、不发信的演练；数据库备份已生成。首封邮件定于 2026-10-05 周一上午，报告 09-28 至 10-04。此前不会补发旧周报。
+
 ## 上线前一次性准备
 
 1. 向 David 提供**部署当天**从 Mac Mini 直连外网检测到的 IPv4，让他只在公众号后台的「设置名单」里**追加**，不要删除原有地址。当前检测值不能证明运营商长期不换 IP。若换 IP，任务会停止采集；发件邮箱可用时会给维护者发异常邮件。程序不能自动改公众号后台名单。
@@ -14,6 +16,8 @@
 
 首次接通前，在本机重新检测直连 IPv4，和 David 加入的地址核对一致，再手动运行一次 `manage.py sync_wechat --days 1`，核对官方数据。然后执行 `manage.py send_weekly_report --dry-run` 检查邮件内容；只有发件邮箱与收件人名单核对完毕后，才手动发送一次并安装定时任务。
 
-`deploy/macmini/club.new-bee.social-stats-mail.plist.template` 是系统级 `launchd` 模板。用实际用户名、用户主目录、应用绝对路径和日志目录替换四个占位符；创建仅本机用户可写的日志目录，将生成文件以 `root:wheel`、`0644` 安装到 `/Library/LaunchDaemons/club.new-bee.social-stats-mail.plist`，再运行 `sudo launchctl bootstrap system /Library/LaunchDaemons/club.new-bee.social-stats-mail.plist`。任务以指定普通用户身份运行，退出桌面登录后仍可按时执行。安装后检查 `sudo launchctl print system/club.new-bee.social-stats-mail` 和本机日志。不要在密钥、白名单、发件邮箱和收件人尚未验证时加载定时任务。
+`deploy/macmini/club.new-bee.social-stats-mail.agent.plist.template` 是当前 Mac Mini 使用的用户级 `launchd` 模板，与已有 NewBee 邮件简报任务相同。将应用和日志目录绝对路径替换占位符，安装到 `~/Library/LaunchAgents/club.new-bee.social-stats-mail.plist`，再运行 `launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/club.new-bee.social-stats-mail.plist`。任务在该用户已登录时按本机时间每天 14:30 运行，能读取该用户 Keychain 中已有的邮件凭据；Mac 重启后该用户需要重新登录。安装后检查 `launchctl print gui/$(id -u)/club.new-bee.social-stats-mail` 和本机日志。不要在密钥、白名单、发件邮箱和收件人尚未验证时加载定时任务。
+
+若以后需要在用户退出登录后继续运行，可评估 `deploy/macmini/club.new-bee.social-stats-mail.plist.template` 的系统级模板；切换前必须另外验证系统任务能否读取邮件凭据，避免无凭据定时失败。
 
 后续改收件人只改本机配置；改共享邮件内容只改程序。若 IP 变化，先由 David 更新公众号名单，再修改 `WECHAT_ALLOWED_EGRESS_IPV4` 并重试。Mac Mini 停机、断网或邮件服务失败时，查看日志；不要把未送达邮件说成已发。本机备份不能防止整台 Mac 丢失，必要时用团队已有的私有备份方式再保留异地副本。

@@ -26,6 +26,10 @@ if [[ -r "$digest_root/scripts/digest/load-env.sh" ]]; then
   export REPORT_SMTP_SSL="${REPORT_SMTP_SSL:-1}"
   export REPORT_SMTP_TLS="${REPORT_SMTP_TLS:-0}"
 fi
+if [[ -z "${REPORT_FROM_EMAIL:-}" || -z "${REPORT_SMTP_HOST:-}" || -z "${REPORT_SMTP_USER:-}" || -z "${REPORT_SMTP_PASSWORD:-}" ]]; then
+  echo "发件配置不完整，任务停止；检查 NewBee 简报账号和本机 Keychain。" >&2
+  exit 1
+fi
 
 if "$app_dir/.venv/bin/python" "$app_dir/manage.py" run_macmini_mail; then
   job_status=0

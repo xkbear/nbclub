@@ -142,6 +142,15 @@ class WeeklyEmailTests(TestCase):
         self.assertIn("暂无数据", output.getvalue())
         self.assertNotIn("本周净增关注：0 人", output.getvalue())
 
+    def test_net_change_uses_official_end_of_week_snapshots_when_daily_changes_missing(self):
+        self.add_observation("followers", date(2026, 9, 20), 102)
+        self.add_observation("followers", date(2026, 9, 27), 124)
+        output = StringIO()
+        call_command("send_weekly_report", today=date(2026, 9, 28), dry_run=True, stdout=output)
+        self.assertIn("本周净增关注：22 人", output.getvalue())
+        self.assertIn("本周新增关注：暂无数据", output.getvalue())
+        self.assertIn("官方关注总数之差", output.getvalue())
+
     def test_changed_ip_stops_before_wechat_sync(self):
         with patch.dict("os.environ", {"WECHAT_ALLOWED_EGRESS_IPV4": "192.0.2.10"}):
             with patch("stats.management.commands.run_macmini_mail.current_public_ipv4", return_value="192.0.2.11"):
@@ -149,3 +158,13 @@ class WeeklyEmailTests(TestCase):
                     with self.assertRaises(CommandError):
                         call_command("run_macmini_mail", stdout=StringIO())
                     nested.assert_not_called()
+
+    def test_first_period_guard_only_syncs_before_agreed_first_report(self):
+        with patch.dict("os.environ", {
+            "WECHAT_ALLOWED_EGRESS_IPV4": "192.0.2.10",
+            "REPORT_FIRST_PERIOD_END": "2100-01-01",
+        }):
+            with patch("stats.management.commands.run_macmini_mail.current_public_ipv4", return_value="192.0.2.10"):
+                with patch("stats.management.commands.run_macmini_mail.call_command") as nested:
+                    call_command("run_macmini_mail", stdout=StringIO())
+        nested.assert_called_once_with("sync_wechat", days=7)

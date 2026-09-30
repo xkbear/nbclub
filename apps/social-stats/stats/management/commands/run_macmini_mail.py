@@ -1,6 +1,6 @@
 import ipaddress
 import os
-from datetime import datetime
+from datetime import date, datetime
 from urllib.request import ProxyHandler, build_opener
 from zoneinfo import ZoneInfo
 
@@ -58,11 +58,19 @@ class Command(BaseCommand):
 
         today = datetime.now(ZoneInfo("Asia/Shanghai")).date()
         _, week_end = previous_week(today)
+        first_period_end = os.environ.get("REPORT_FIRST_PERIOD_END", "").strip()
+        try:
+            skip_send = bool(first_period_end and week_end < date.fromisoformat(first_period_end))
+        except ValueError:
+            raise CommandError("REPORT_FIRST_PERIOD_END 应为 YYYY-MM-DD。") from None
         already_sent = ReportDelivery.objects.filter(report_kind="wechat_mp_weekly", period_end=week_end).exists()
-        days = 7 if already_sent else 7 + today.weekday()
+        days = 7 if already_sent or skip_send else 7 + today.weekday()
         try:
             call_command("sync_wechat", days=days)
-            call_command("send_weekly_report", today=today)
+            if skip_send:
+                self.stdout.write("首个约定周报周期尚未结束，只同步数据，不发送邮件。")
+            else:
+                call_command("send_weekly_report", today=today)
         except CommandError as exc:
             alert_maintainer("Mac mini 公众号取数或周报发送失败。请检查本机任务日志；未发送虚构数据。")
             raise exc

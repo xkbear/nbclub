@@ -13,7 +13,7 @@ def format_weekly_report(week_start, week_end):
     observations = Observation.objects.filter(
         platform=PLATFORM,
         account_key=ACCOUNT_KEY,
-        stat_date__gte=week_start,
+        stat_date__gte=week_start - timedelta(days=1),
         stat_date__lte=week_end,
         metric_key__in=("followers", "new_followers", "unfollowed"),
     )
@@ -28,6 +28,12 @@ def format_weekly_report(week_start, week_end):
     new = weekly_total("new_followers")
     unfollowed = weekly_total("unfollowed")
     net = new - unfollowed if new is not None and unfollowed is not None else None
+    net_from_snapshots = False
+    if net is None and followers is not None:
+        opening = values.get(("followers", week_start - timedelta(days=1)))
+        if opening is not None:
+            net = followers - opening
+            net_from_snapshots = True
 
     def shown(value):
         return f"{value:,} 人" if value is not None else "暂无数据"
@@ -44,5 +50,7 @@ def format_weekly_report(week_start, week_end):
     ]
     if any(value is None for value in (followers, new, unfollowed)):
         lines += ["", "部分日期的官方数据尚未取得；“暂无数据”不代表 0。"]
+    if net_from_snapshots:
+        lines += ["本周净增关注按统计周开始前一天和结束当天的官方关注总数之差计算。"]
     lines += ["", "视频号：等待官方授权接口，目前没有自动数据。", "来源：微信公众号官方数据接口；日期按北京时间。"]
     return subject, "\n".join(lines), followers is not None
