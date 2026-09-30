@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-from .models import Observation
+from .models import ConnectorStatus, Observation
 from .wechat import ACCOUNT_KEY, PLATFORM
 
 
@@ -54,6 +54,10 @@ def collect_weekly_report(week_start, week_end):
         })
     with_readers = [row for row in daily if row["readers"] is not None]
     with_net = [row for row in daily if row["net"] is not None]
+    secondary_sync_failed = ConnectorStatus.objects.filter(
+        platform=PLATFORM, account_key=ACCOUNT_KEY,
+        feed__in=("follower_changes", "content"), state="sync_error",
+    ).exists()
     return {
         "week_start": week_start, "week_end": week_end, "daily": daily,
         "followers": followers, "opening": opening, "new": new, "unfollowed": unfollowed,
@@ -65,6 +69,7 @@ def collect_weekly_report(week_start, week_end):
         "follower_days": sum(row["followers"] is not None for row in daily),
         "content_days": len(with_readers),
         "change_days": sum(("new_followers", day) in values and ("unfollowed", day) in values for day in days),
+        "sync_warning": "关注增减或内容接口本次同步未完成；相应数据保留上次成功取得的结果，缺失不记为 0。" if secondary_sync_failed else "",
     }
 
 
@@ -89,6 +94,8 @@ def format_weekly_report(week_start, week_end, report=None):
         lines += ["", "部分日期的官方数据尚未取得；“暂无数据”不代表 0。"]
     if report["net_from_snapshots"]:
         lines += ["本周净增关注按统计周开始前一天和结束当天的官方关注总数之差计算。"]
+    if report["sync_warning"]:
+        lines += ["", report["sync_warning"]]
     if report["published"] is not None:
         lines += ["", f"本周发布篇数：{report['published']} 篇"]
     if report["reading_peak"]:

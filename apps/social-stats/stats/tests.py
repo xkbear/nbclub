@@ -1,4 +1,5 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 from io import StringIO
 from unittest.mock import patch
 import re
@@ -209,3 +210,49 @@ class WeeklyEmailTests(TestCase):
                 with patch("stats.management.commands.run_macmini_mail.call_command") as nested:
                     call_command("run_macmini_mail", stdout=StringIO())
         nested.assert_called_once_with("sync_wechat", days=7)
+
+    def test_partial_content_failure_still_sends_fresh_official_followers_with_warning(self):
+        from .reports import previous_week
+        start, end = previous_week(datetime.now(ZoneInfo("Asia/Shanghai")).date())
+
+        def partial_sync(command, **kwargs):
+            if command == "sync_wechat":
+                try:
+                    sync_range(FixtureAPI(delayed=True), start, end)
+                except WeChatError as exc:
+                    raise CommandError(str(exc)) from None
+            else:
+                return call_command(command, stdout=StringIO(), **kwargs)
+
+        with patch.dict("os.environ", {
+            "WECHAT_ALLOWED_EGRESS_IPV4": "192.0.2.10", "REPORT_FIRST_PERIOD_END": "",
+            "REPORT_FROM_EMAIL": "office@example.com", "REPORT_RECIPIENTS": "team@example.com",
+            "REPORT_SMTP_HOST": "smtp.example.com",
+        }):
+            with patch("stats.management.commands.run_macmini_mail.current_public_ipv4", return_value="192.0.2.10"), \
+                 patch("stats.management.commands.run_macmini_mail.call_command", side_effect=partial_sync), \
+                 patch("stats.management.commands.run_macmini_mail.alert_maintainer", return_value=True):
+                call_command("run_macmini_mail", stdout=StringIO(), stderr=StringIO())
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertIn("周末关注总数：1,200 人", mail.outbox[0].body)
+        self.assertIn("本次同步未完成", mail.outbox[0].body)
+        self.assertIn("本次同步未完成", mail.outbox[0].alternatives[0].content)
+        self.assertFalse(Observation.objects.filter(metric_key="content_readers").exists())
+        self.assertEqual(ReportDelivery.objects.count(), 1)
+
+    def test_failed_sync_cannot_send_using_an_old_connected_status(self):
+        from .reports import previous_week
+        _, end = previous_week(datetime.now(ZoneInfo("Asia/Shanghai")).date())
+        self.add_observation("followers", end, 1200)
+        ConnectorStatus.objects.create(
+            platform="wechat_mp", account_key="newbee_wechat_mp", feed="followers",
+            state="connected", data_through=end, last_success_at=timezone.now() - timedelta(days=1),
+        )
+        with patch.dict("os.environ", {"WECHAT_ALLOWED_EGRESS_IPV4": "192.0.2.10", "REPORT_FIRST_PERIOD_END": ""}):
+            with patch("stats.management.commands.run_macmini_mail.current_public_ipv4", return_value="192.0.2.10"), \
+                 patch("stats.management.commands.run_macmini_mail.call_command", side_effect=CommandError("sync failed")), \
+                 patch("stats.management.commands.run_macmini_mail.alert_maintainer", return_value=True):
+                with self.assertRaises(CommandError):
+                    call_command("run_macmini_mail", stdout=StringIO())
+        self.assertEqual(len(mail.outbox), 0)
+        self.assertEqual(ReportDelivery.objects.count(), 0)

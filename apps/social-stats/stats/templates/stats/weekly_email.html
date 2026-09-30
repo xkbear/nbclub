@@ -94,6 +94,7 @@
         {% endif %}
         <tr><td class="pad" style="padding:0 32px 24px;font-size:12px;line-height:1.75;color:#8a9285;">内容数据 {{ content_days }}/7 天。阅读按微信「发表内容概览」口径展示，不跨日相加为周去重阅读人数。</td></tr>
         <tr><td class="pad" style="padding:20px 32px 24px;background-color:#f8f9f5;border-top:1px solid #e9ece2;">
+          {% if sync_warning %}<p style="margin:0 0 10px;font-size:12px;line-height:1.8;color:#a45731;">{{ sync_warning }}</p>{% endif %}
           <p style="margin:0 0 7px;font-size:12px;line-height:1.8;color:#727d70;">关注增减明细：本周新增 {{ new_display }} 人 · 取消关注 {{ unfollowed_display }} 人。{% if change_days < 7 %}微信仅返回 {{ change_days }}/7 天明细，周合计暂不展示；“—”不代表 0。{% endif %}</p>
           <p style="margin:0;font-size:12px;line-height:1.8;color:#727d70;">视频号数据仍待接入。</p>
         </td></tr>
