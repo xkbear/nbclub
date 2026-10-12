@@ -1,0 +1,49 @@
+/* K6: an editorial, horizontal invitation, not a scaled-down print poster. */
+.upcoming-event.is-k6{--k6-accent:#bc541e;grid-template-columns:minmax(0,1.5fr) minmax(240px,.8fr);gap:clamp(28px,4vw,64px);padding:clamp(26px,3.5vw,48px);border-top-color:#df722b;overflow:hidden}
+.is-k6 .upcoming-copy{grid-row:auto}
+.is-k6 .upcoming-label>span{background:#f8e6d8;color:#984018}
+.is-k6 h2{font-size:clamp(34px,3.8vw,52px);line-height:1.2;letter-spacing:-.04em;margin:22px 0 18px}
+.is-k6 h2 span{display:block}
+.is-k6 .upcoming-description{font-size:16px;line-height:1.8;max-width:35em}
+.k6-values{color:var(--k6-accent);font-size:15px;font-weight:600;letter-spacing:.08em;margin:14px 0 22px;line-height:1.9}
+.is-k6 .story-speaker{font-size:15px;line-height:1.8;color:var(--ink);margin:0;padding:16px 0;border-block:1px solid var(--line)}
+.is-k6 .story-speaker span{display:inline-block;margin-right:20px}
+.is-k6 .upcoming-facts{grid-template-columns:1fr 1fr;margin-top:20px;gap:20px}
+.is-k6 .upcoming-facts dd{font-size:15px}
+.k6-fee{margin-top:16px;font-size:13px;color:var(--muted);line-height:1.8}
+.is-k6 .upcoming-actions{margin-top:18px;gap:22px}
+.k6-film{margin:0;min-width:0;width:100%;justify-self:center}
+.k6-film-stage{background:#ebeada;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;justify-content:center}
+.k6-film video{display:block;width:100%;height:auto;max-height:480px;aspect-ratio:9/16;object-fit:contain;background:#ebeada}
+.k6-film figcaption{display:flex;justify-content:space-between;gap:12px;font-size:12px;line-height:1.5;color:var(--muted);margin-top:12px}
+.k6-film figcaption a{color:var(--accent)}
+.k6-film video:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.k6-index{margin-top:34px;border:1px solid var(--line);border-left:4px solid #df722b;border-radius:16px;padding:25px 30px;display:grid;grid-template-columns:130px 1fr auto;align-items:center;gap:24px;background:var(--card)}
+.k6-index .eyebrow{color:var(--muted)}
+.k6-index time{font-size:32px;font-weight:600;line-height:1.4;display:block;color:var(--ink)}
+.k6-index h2{font-size:24px;line-height:1.4;margin:0 0 8px}
+.k6-index .story-speaker{font-size:14px;color:var(--muted);line-height:1.7}
+.k6-index .link-arrow{white-space:nowrap}
+.k6-detail{max-width:1080px;margin:auto;padding:55px var(--gutter) 80px}
+.k6-detail .article-head{padding:0;text-align:left;margin:0;max-width:none}
+.k6-detail h1{font-size:clamp(34px,4.2vw,58px);line-height:1.25;letter-spacing:-.04em;margin:22px 0}
+.k6-detail .upcoming-event{margin:0;max-width:none}
+.k6-body{max-width:820px;margin:55px auto 0;line-height:1.9}
+.k6-body h2{font-size:28px;margin:38px 0 22px;line-height:1.4}
+.k6-body p{font-size:17px;color:var(--muted);margin-bottom:16px}
+.k6-stories{list-style:none;padding:0;margin:0;counter-reset:story}
+.k6-stories li{position:relative;padding:22px 0 22px 60px;border-top:1px solid var(--line);counter-increment:story}
+.k6-stories li:before{content:'0' counter(story);position:absolute;left:0;top:20px;color:#bc541e;font-size:28px;font-weight:500}
+.k6-stories h3{font-size:20px;margin:0 0 8px}
+.k6-stories p{margin:0}
+.k6-booking{scroll-margin-top:100px;background:var(--card);border:1px solid var(--line);padding:28px;border-radius:20px;margin-top:38px}
+.k6-booking h2{margin-top:0}
+.k6-booking .button{margin:6px 0 18px}
+.k6-booking details{border-top:1px solid var(--line);padding-top:18px;margin-top:12px}
+.k6-booking summary{cursor:pointer;color:var(--accent)}
+.k6-booking img{display:block;width:min(100%,560px);height:auto;margin:20px auto 0}
+:root[data-theme=dark] .is-k6{--k6-accent:#f7a66b}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .is-k6{--k6-accent:#f7a66b}}
+@media(max-width:900px){.upcoming-event.is-k6{grid-template-columns:minmax(0,1fr) minmax(210px,.65fr);gap:24px;padding:28px}.is-k6 h2{font-size:34px}.is-k6 .upcoming-facts{grid-template-columns:1fr;gap:12px}.k6-index{grid-template-columns:90px 1fr}.k6-index>.link-arrow{grid-column:2}}
+@media(max-width:620px){.upcoming-event.is-k6{grid-template-columns:1fr;padding:24px;gap:26px}.is-k6 h2{font-size:32px}.is-k6 .upcoming-description{font-size:15px}.is-k6 .upcoming-facts{grid-template-columns:1fr 1fr;gap:14px}.is-k6 .upcoming-facts dd{font-size:13px}.k6-values{font-size:13px;letter-spacing:0}.k6-film{max-width:320px}.k6-film video{max-height:440px}.k6-index{padding:22px;gap:16px;grid-template-columns:1fr}.k6-index>.link-arrow{grid-column:auto}.k6-index time{display:inline;font-size:24px}.k6-detail{padding:30px 16px 55px}.k6-detail h1{font-size:32px}.k6-body{margin:34px 8px 0}.k6-body h2{font-size:24px}.k6-booking{padding:22px}.k6-stories li{padding-left:48px}}
+@media(max-width:370px){.upcoming-event.is-k6{padding:18px}.is-k6 h2,.k6-detail h1{font-size:28px}.is-k6 .upcoming-facts{grid-template-columns:1fr}.is-k6 .story-speaker{font-size:14px}}

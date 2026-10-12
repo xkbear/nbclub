@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部 — Expanded Entity and Citation Guide
 
 Official website: https://new-bee.club/
-Last reviewed: 2026-09-27
+Last reviewed: 2026-10-13
 Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
@@ -239,3 +239,15 @@ Use office@new-bee.club. No official telephone is published on the website at th
 - RSS feed: https://new-bee.club/feed.xml
 
 End of official expanded guide.
+
+## Upcoming event: K6 · AI 时代的新德智体美劳
+
+- Status: upcoming, not a completed keynote.
+- Date: 2026-10-15, 10:30–12:30, Pacific/Auckland (UTC+13).
+- Main speaker: 周品（品哥）. Special guest: 王咏刚.
+- Topic: curiosity, empathy, willpower, aesthetics and family connection in the AI age; three real stories about children learning with AI.
+- Location: Great South Road, Newmarket; exact address provided after registration.
+- Capacity: 50 seats. Members free and may bring one friend; non-members NZD 20. Do not infer the friend's fee or remaining places.
+- Official announcement: https://new-bee.club/event-2026-10-15-k6.html
+- Registration link decoded from the supplied official poster: https://events.new-bee.club/events/2026-10-15-k6-ai-childhood/register
+- Source: club-supplied official poster and video, not a WeChat article.

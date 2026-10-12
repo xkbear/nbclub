@@ -26,7 +26,8 @@ const pages = [
   "event-2026-08-15-k4.html",
   "event-2026-08-27-member-day.html",
   "event-2026-09-04-w3.html",
-  "event-2026-09-25-k5.html"
+  "event-2026-09-25-k5.html",
+  "event-2026-10-15-k6.html"
 ];
 
 const failures = [];
@@ -212,6 +213,18 @@ if (!/\bnodownload\b/.test(attr(k5Video, "controlslist")) || attr(k5Video, "onco
 if (/<a\b[^>]*href=["'][^"']*\.mp4(?:[?#][^"']*)?["'][^>]*>/i.test(k5)) fail("event-2026-09-25-k5.html", "K5 must not expose a direct video download or new-window link");
 for (const media of ["assets/events/2026-09-25-k5/recap-video.mp4", "assets/events/2026-09-25-k5/recap-video-poster.webp"]) {
   if (!existsSync(join(root, media)) || !k5.includes(media) || !sitemap.includes(media)) fail("event-2026-09-25-k5.html", `K5 video media or discovery entry is missing (${media})`);
+}
+const k6 = readFileSync(join(root, "event-2026-10-15-k6.html"), "utf8");
+const homepage = readFileSync(join(root, "index.html"), "utf8");
+const k6Signup = "https://events.new-bee.club/events/2026-10-15-k6-ai-childhood/register";
+for (const [file, html] of [["index.html", homepage], ["event-2026-10-15-k6.html", k6]]) {
+  if (!html.includes(k6Signup) || !html.includes("2026-10-15T10:30:00+13:00")) fail(file, "K6 must retain the poster-verified registration link and NZ local date");
+  const video = html.match(/<video\b[^>]*poster="assets\/events\/2026-10-15-k6\/video-poster.webp"[^>]*>/)?.[0] ?? "";
+  if (attr(video, "width") !== "720" || attr(video, "height") !== "1280" || attr(video, "preload") !== "none" || /\bautoplay\b/.test(video) || !attr(video, "controlslist").includes("nodownload")) fail(file, "K6 must retain full portrait click-to-play video without a download button");
+}
+if (!homepage.includes('class="upcoming-event is-k6"') || !homepage.includes('href="event-2026-09-25-k5.html"')) fail("index.html", "K6 preview must be featured without removing the K5 recap");
+for (const asset of ["poster.webp", "video-poster.webp", "preview.mp4"]) {
+  if (!existsSync(join(root, "assets/events/2026-10-15-k6", asset))) fail("K6", `missing media ${asset}`);
 }
 const queryTargets = new Map([
   ["新西兰AI俱乐部", "xin-xilan-ai-club.html"],
