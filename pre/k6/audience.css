@@ -1,0 +1,9 @@
+.audience-patch-layer{position:absolute;inset:0;width:1280px;height:720px;container-type:inline-size;pointer-events:none}
+.audience-patch{position:absolute;display:block;overflow:hidden;padding:2px 3px;font-size:var(--patch-size);line-height:1.35;white-space:normal;letter-spacing:0;text-align:left;box-sizing:border-box}
+.audience-composition{position:relative;width:100%;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;flex:none}
+.audience-composition>img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain!important;margin:0!important}
+.audience-composition .audience-patch{padding:.15625cqw .234375cqw}
+#zoom-scroll>.audience-zoom{width:min(1280px,100%);margin:auto;cursor:zoom-in}
+#zoom-scroll>.audience-zoom.large{width:2560px;max-width:none;cursor:zoom-out}
+.evidenceDialogue .evidence-lesson{font-weight:550;color:#315572}
+.evidenceDialogue .dialogue-label{font-size:16px}
