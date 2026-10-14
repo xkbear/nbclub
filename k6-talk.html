@@ -16,8 +16,8 @@
   <meta property="og:url" content="https://new-bee.club/pre/k6-qa/">
   <meta property="og:image" content="https://new-bee.club/assets/events/2026-10-15-k6/poster.webp">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="assets/k6-talk/page.css?v=20261015-4">
-  <script src="assets/k6-talk/page.js" defer></script>
+  <link rel="stylesheet" href="assets/k6-talk/page.css?v=20261015-5">
+  <script src="assets/k6-talk/page.js?v=20261015-5"></script>
   <script src="assets/analytics.js" defer></script>
 </head>
 <body>
@@ -54,7 +54,12 @@
 
       <section class="topics" id="topics" aria-labelledby="topics-title">
         <div class="topics-heading"><h2 id="topics-title">五个话题</h2><span lang="en">A CONVERSATION IN FIVE PARTS</span></div>
-        <ol class="topic-list">
+        <div class="topic-controls" hidden>
+          <button class="reveal-next" type="button" aria-controls="question-list" title="也可按右方向键或空格键">显示第 1 问 <span aria-hidden="true">→</span></button>
+          <span class="reveal-progress" aria-hidden="true">0 / 5</span>
+          <button class="reveal-reset" type="button" disabled>重新开始</button>
+        </div>
+        <ol class="topic-list" id="question-list">
           <li><span class="topic-number" aria-hidden="true">01</span><h3>AI：工具，<br>还是另一种智慧？</h3></li>
           <li><span class="topic-number" aria-hidden="true">02</span><h3>AI 越来越会回答，<br>孩子还需要费力学什么？</h3></li>
           <li><span class="topic-number" aria-hidden="true">03</span><h3>父母的经验，<br>会不会成为孩子的边界？</h3></li>
