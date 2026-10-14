@@ -15,9 +15,9 @@ h1,h2,h3,p,figure{margin:0}
 .masthead{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:24px;border-bottom:1px solid var(--line)}
 .identity{display:flex;align-items:center;gap:24px}
 .brand{font-family:"Baskerville","Palatino Linotype",serif;font-size:34px;font-weight:600;letter-spacing:-1.4px;line-height:1;white-space:nowrap}
-.edition{font-family:var(--body);font-size:21px;letter-spacing:-.6px;background:var(--ink);color:var(--paper);display:inline-block;vertical-align:middle;margin-left:8px;padding:6px 9px 5px}
+.edition{font-family:var(--body);font-size:21px;letter-spacing:-.6px;background:var(--ink);color:var(--paper);display:inline-block;vertical-align:middle;margin-left:8px;padding:6px 9px 5px;border-radius:7px}
 .club{font-size:12px;letter-spacing:.2em;padding-top:5px;color:var(--muted)}
-.fullscreen{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:4px;background:transparent;font-size:12px;padding:8px 11px}
+.fullscreen{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;background:transparent;font-size:12px;padding:8px 11px}
 .fullscreen:hover{background:#e8e6dc}
 .conversation{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(50px,6vw,100px);align-items:center;flex:1;padding:clamp(40px,4.4vw,74px) 0}
 .intro{min-width:0;display:flex;flex-direction:column;gap:clamp(40px,4.5vw,70px)}
@@ -28,9 +28,9 @@ h1 span{font-size:clamp(40px,4.3vw,70px);display:block}
 h1 strong{display:block;color:var(--accent);font-size:clamp(43px,4.6vw,76px);font-weight:700;margin-top:6px;white-space:nowrap}
 .values{margin-top:25px;font-size:clamp(12px,1vw,15px);letter-spacing:.035em;color:var(--muted);line-height:1.8}
 .people{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.5vw,24px)}
-.portrait{aspect-ratio:4/4.65;position:relative;overflow:hidden;background:#e3e3dc}
+.portrait{aspect-ratio:4/4.65;position:relative;overflow:hidden;background:#e3e3dc;border-radius:20px}
 .portrait img{display:block;width:100%;height:100%;object-fit:cover}
-.portrait--pin img{object-position:50% 20%}
+.portrait--pin img{object-position:50% 45%}
 .portrait--ally{background:#0c0916}
 .portrait--ally img{object-position:50% 40%}
 .portrait--wang img{object-position:50% 30%}
