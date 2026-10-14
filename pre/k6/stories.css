@@ -134,3 +134,6 @@
 .risk .story-bottom{bottom:75px}
 .risk .story-bottom p{font-size:24px;max-width:830px}
 @media(prefers-reduced-motion:reduce){.process-step{transition:none;transform:none}}
+
+.case-milestone .case-evidence{font-size:16px;margin-top:10px;padding:0}
+.case-silvia .case-milestone p{font-size:15px}

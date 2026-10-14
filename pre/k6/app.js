@@ -33,7 +33,7 @@
     else if(n===8)html=comic();
     else if(n===12)html=window.renderInventors();
     else if(n===17)html=monet();
-    else if(n===20)html=window.renderFamilyStory('rose',rose());
+    else if(n===20)html=window.renderFamilyStory('rose',rose(),current+1);
     else if(n===40)html=ending();
     else html=`<img class="slide-image zoomable" src="${d.image}" alt="${E(d.title)}；点击放大原页" data-zoom><div class="sr-only">${paragraphs(d.text)}</div><span class="raster-number" style="background:${E(d.background||'#fff')}">${String(current+1).padStart(2,'0')}</span>`;
     stage.innerHTML=html;
@@ -89,7 +89,7 @@
     window.mountInventors(stage,renderView);
     $$('[data-zoom]').forEach(b=>b.onclick=()=>openZoom());
   }
-  function bindFamilyStory(){window.mountFamilyStory(stage,view=>{stage.innerHTML=window.renderFamilyStory(view,rose());window.prepareAudience(stage,SLIDES[current]);bindFamilyStory();$$('[data-zoom]').forEach(b=>b.onclick=()=>openZoom());resize();showControls();});}
+  function bindFamilyStory(){window.mountFamilyStory(stage,view=>{stage.innerHTML=window.renderFamilyStory(view,rose(),current+1);window.prepareAudience(stage,SLIDES[current]);bindFamilyStory();$$('[data-zoom]').forEach(b=>b.onclick=()=>openZoom());resize();showControls();});}
   function go(n){n=Math.max(1,Math.min(total,Math.trunc(Number(n)||1)));if(n===current+1&&stage.children.length)return;if(location.hash!==`#${n}`)location.hash=String(n);else {current=n-1;render();}}
   function resize(){const r=$('#viewport').getBoundingClientRect();const scale=Math.min(r.width/1280,r.height/720);$('#frame').style.width=`${1280*scale}px`;$('#frame').style.height=`${720*scale}px`;stage.style.transform=`scale(${scale})`;}
   window.addEventListener('resize',resize);
