@@ -4,7 +4,7 @@
 
 | 人物 | 身份核对页面 | 原始图片 |
 | --- | --- | --- |
-| 品哥（周品），主持人 | 用户在本次会话直接提供 | 用户指定头像原图，1440 × 1440 |
+| 周品，主持人 | 用户在本次会话直接提供 | 用户指定头像原图，1440 × 1440 |
 | Ally Zhang（张彤），嘉宾 | https://www.linkedin.com/in/ally-zhang-9b150a5/ | 用户指定的 LinkedIn 个人主页头像，797 × 797，已本地保存 |
 | 王咏刚，嘉宾 | https://pm-summit.org/speaker/1152?uid=c1042 | https://boolan.com/UploadResources/api/3beb122941914380aec04cb884c32de6.png |
 
