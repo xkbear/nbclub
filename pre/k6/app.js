@@ -9,16 +9,14 @@
   const stage=$('#stage'), total=SLIDES.length;
   let current=0, noteTab='script', player=null, playerTimer=null, toastTimer=null, controlTimer=null, touchX=null, touchY=null, renderId=0;
   const questions=new Set([3,7,11,16,19]);
-  const expanded = {4:'assets/story/feynman-poster.jpg',8:'assets/story/zouji-comic.png',12:'assets/story/dyson-testing.jpg',17:'assets/story/monet.jpg',20:'assets/story/rose-triptych.png',29:'assets/story/silvia-fridge-interior.jpg'};
+  const expanded = {4:'assets/story/feynman-poster.jpg',8:'assets/story/zouji-comic.png',12:'assets/story/edison-lamp.jpg',17:'assets/story/monet.jpg',20:'assets/story/rose-triptych.png',29:'assets/story/silvia-fridge-interior.jpg'};
   const playIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3 21 12 7 21Z"/></svg>';
   const pageNo=n=>`<span class="page-label">${String(current+1).padStart(2,'0')}</span>`;
   function cover(){return `<section class="native cover poster-cover"><img class="cover-child" src="assets/story/poster-child-cutout.png" alt="海报中的水彩孩子仰望，蓝色像素向外延伸"><div class="cover-wash"></div><p class="kicker">NewBee AI Club · 先蜂 AI 俱乐部 <span>K6 · 线下分享</span></p><div class="cover-copy"><h1><span>AI 时代的</span><br>新德智体美劳</h1><p class="cover-question">当 AI 越来越会回答，<br>孩子是否还愿意主动提问、<br>独立思考、理解他人？</p><p class="cover-dimensions">好奇心 · 同理心 · 意志力 · 审美力 · 亲缘感</p><p class="cover-promise">AI 可以加速得到结果，<br>成长仍需要孩子亲自经历过程。</p></div><footer class="cover-footer"><span><b>周品（品哥）</b> · 主讲</span><span>2026.10.15 · 60 分钟分享＋20 分钟交流</span></footer></section>`;}
   function feynman(view='video'){if(view!=='video')return window.renderFeynmanLearning(view);return `<section class="native feynman-page">${window.feynmanTabs('video')}<p class="kicker">好奇心 · 费曼父亲与鸟的名字</p><div class="feynman-copy"><h1>知道名字，<br>然后呢？</h1><p class="lead">父亲教给他的，<br>是继续观察一只鸟。</p><p class="takeaway">拿到解释后，<br>我们还能观察什么？</p></div><div class="video-wrap"><div class="video-box" id="video-box"><img src="${E(FEYNMAN_VIDEO.poster)}" alt="Richard Feynman 本人访谈画面"><button class="play-video" id="play-video" aria-label="播放费曼本人访谈节选，约48秒">${playIcon}<span>播放原访谈节选 · 48 秒</span></button></div><div class="video-meta"><span>费曼本人影像 · Heureka Labs 转载节选</span><a href="${E(FEYNMAN_VIDEO.original)}" target="_blank" rel="noopener">导演上传的完整原片 ↗</a></div><div class="video-message"><strong>同伴问鸟名</strong><span>→</span><strong>父亲换了问题</strong><span>→</span><strong>回到观察</strong></div><p class="video-status" id="video-status">点击后加载在线视频；无法播放时可打开原片 06:22–07:20。</p></div><button class="feynman-continue" data-feynman-view="darwin">继续：带着问题出发 →</button><p class="credit">BBC Horizon · The Pleasure of Finding Things Out（1981）· 本页中文为转述，非逐字字幕。</p>${pageNo(4)}</section>`;}
   const comicCaptions=['三次发问：谁更美？','妾与客，也给了赞美','见到徐公，再照镜比较','夜里，他开始想：为什么？'];
   const positions=['0% 0%','100% 0%','0% 100%','100% 100%'];
-  function comic(){return `<section class="native comic-page"><p class="kicker">同理心 · 《战国策·齐策一》</p><h1 class="page-title">三个回答一样，三个理由不同。</h1><div class="comic-grid">${comicCaptions.map((c,i)=>`<button class="comic-panel" data-comic="${i}" aria-label="放大第${i+1}格：${c}"><span class="panel-art" style="background-position:${positions[i]}" role="img" aria-label="${c}"></span><span class="panel-caption"><b>0${i+1}</b><span>${c}</span></span></button>`).join('')}</div><aside class="comic-aside"><h2>听见赞美，<br>也要看见处境。</h2><div class="motives"><div class="motive"><strong>妻</strong><span>偏爱自己</span></div><div class="motive"><strong>妾</strong><span>有所畏惧</span></div><div class="motive"><strong>客</strong><span>有求于他</span></div></div><p class="lesson">当 AI 顺着我说时，<br>我还愿意听见<br>真实人的不同意见吗？</p><p class="small-note">点任一格可放大。第 2 格合绘两次问答。<br>古典叙事与 AI 的关联，是讲者的类比。</p></aside><p class="credit">据《邹忌讽齐王纳谏》改编 · AI 生成漫画 · 正文顺序：见徐公 → 照镜比较 → 暮寝而思。</p>${pageNo(8)}</section>`;}
-  const processSteps=[['发现问题','先看哪里不对，而不是先要一个“完美答案”。'],['做一版','让想法成为能检查、能试用的东西。'],['试一试','自己动手检验，也让真实的人试用。'],['再修改','把这次发现的问题，带进下一次尝试。']];
-  function dyson(){return `<section class="native dyson-page"><p class="kicker">意志力 · 戴森与反复修改的原型</p><div class="number">5,127</div><p class="number-label">个原型，多年的测试与修改。</p><p class="dyson-lesson">“错”的那一版，<br>也在告诉我们<br><span class="accent">下一步怎么改。</span></p><img class="dyson-photo" data-zoom src="assets/story/dyson-testing.jpg" alt="Dyson 官方发布的现代 Cyclone V10 测试照片"><p class="dyson-photo-note">Dyson 官方现代测试照片；不是历史 5,127 个原型的现场记录。</p><div class="process">${processSteps.map((s,i)=>`<button data-process="${i}" class="${i===0?'active':''}"><b>0${i+1}</b><span>${s[0]}</span></button>`).join('')}</div><p class="process-tip" id="process-tip">${processSteps[0][1]}</p><p class="credit">数字据 Dyson 官方回顾；具体年数口径不同，采用“多年”。流程为教学示意。</p>${pageNo(12)}</section>`;}
+  function comic(view='reflection'){if(view==='court')return window.renderZoujiCourt(current+1);return `<section class="native comic-page"><p class="kicker">同理心 · 《战国策·齐策一》</p><h1 class="page-title">三个回答一样，三个理由不同。</h1><div class="comic-grid">${comicCaptions.map((c,i)=>`<button class="comic-panel" data-comic="${i}" aria-label="放大第${i+1}格：${c}"><span class="panel-art" style="background-position:${positions[i]}" role="img" aria-label="${c}"></span><span class="panel-caption"><b>0${i+1}</b><span>${c}</span></span></button>`).join('')}</div><aside class="comic-aside"><h2>听见赞美，<br>也要看见处境。</h2><div class="motives"><div class="motive"><strong>妻</strong><span>偏爱自己</span></div><div class="motive"><strong>妾</strong><span>有所畏惧</span></div><div class="motive"><strong>客</strong><span>有求于他</span></div></div><p class="lesson">当 AI 顺着我说时，<br>我还愿意听见<br>真实人的不同意见吗？</p><p class="small-note">点任一格可放大。第 2 格合绘两次问答。<br>古典叙事与 AI 的关联，是讲者的类比。</p></aside><button class="primary comic-continue" data-comic-view="court">接着看：齐王怎样纳谏 →</button><p class="credit">据《邹忌讽齐王纳谏》改编 · AI 生成漫画 · 正文顺序：见徐公 → 照镜比较 → 暮寝而思。</p>${pageNo(8)}</section>`;}
   function monet(){return `<section class="native monet-page" data-step="0"><p class="kicker">审美 · 先有自己的观察</p><div class="monet-copy"><h1 id="monet-heading">先看画，<br>猜猜是谁？</h1><p id="monet-info">你先注意到什么？<br>你觉得，这是谁的作品？</p><button class="primary" id="monet-reveal-button">揭晓作品</button><p class="monet-reveal" id="monet-reveal" hidden>勒鲁瓦讥讽这幅海景：<br>连初步的壁纸图样，<br>都比它完整。<small>路易·勒鲁瓦 · 1874 年评论</small></p></div><img class="monet-art" data-zoom src="assets/story/monet.jpg" alt="港口日出油画"><p class="monet-art-label" hidden>Claude Monet · Impression, soleil levant · 1872 · Musée Marmottan Monet</p>${pageNo(17)}</section>`;}
   function bindMonet(){const b=$('#monet-reveal-button');if(!b)return;b.onclick=()=>{const page=$('.monet-page'),step=(Number(page.dataset.step)+1)%3;page.dataset.step=step;$('#monet-heading').innerHTML=step?'莫奈。':'先看画，<br>猜猜是谁？';$('#monet-info').innerHTML=step?'《印象·日出》<br>1872 年 · 油画':'你先注意到什么？<br>你觉得，这是谁的作品？';$('.monet-art-label').hidden=step===0;$('#monet-reveal').hidden=step!==2;$('.monet-art').alt=step?'莫奈《印象·日出》，1872年':'港口日出油画';b.textContent=['揭晓作品','再看当年的评论','重新看画'][step];};}
   function rose(){return `<section class="native rose-page"><p class="kicker">亲缘感 · 《小王子》与他的玫瑰</p><h1 class="page-title">关系，藏在那些看似低效的小事里。</h1><img class="rose-strip" data-zoom src="assets/story/rose-triptych.png" alt="AI 改编三联图：为玫瑰浇水、挡风、耐心陪伴"><div class="rose-labels"><div><strong>为她浇水</strong><span>花时间照料</span></div><div><strong>为她挡风</strong><span>回应需要</span></div><div><strong>听她说话</strong><span>共同经历</span></div></div><p class="credit">《小王子》第 21 章，中文转述 · AI 生成文学改编，非原书插图 · 关系的价值不以效率衡量。</p>${pageNo(20)}</section>`;}
@@ -48,8 +46,8 @@
     if($('#notes').open)renderNote();
     $$('[data-comic]').forEach(b=>b.onclick=()=>openZoom(Number(b.dataset.comic)));
     $$('[data-zoom]').forEach(b=>b.onclick=()=>openZoom());
-    $$('[data-process]').forEach(b=>b.onclick=()=>{$$('[data-process]').forEach(x=>x.classList.toggle('active',x===b));$('#process-tip').textContent=processSteps[Number(b.dataset.process)][1];});
     bindFeynman();
+    if(n===8)bindComic();
     bindMonet();
     if(n===12)bindInventors();
     if(n===20)bindFamilyStory();
@@ -73,10 +71,22 @@
       resize();showControls();
     });
   }
+  function bindComic(){
+    $$('[data-comic-view]').forEach(b=>b.onclick=()=>{
+      const view=b.dataset.comicView;
+      stage.innerHTML=comic(view);
+      window.prepareAudience(stage,SLIDES[current]);
+      bindComic();
+      $$('[data-comic]').forEach(x=>x.onclick=()=>openZoom(Number(x.dataset.comic)));
+      window.mountZoujiCourt(stage);
+      const title=stage.querySelector('h1');title.tabIndex=-1;title.focus({preventScroll:true});
+      $('#status').textContent=view==='court'?'第9页续：邹忌进谏，齐王纳谏':'第9页：邹忌的三个回答';
+      resize();showControls();
+    });
+  }
   function bindInventors(){
-    const renderView=view=>{stopPlayer();stage.innerHTML=window.renderInventors(view,dyson());window.prepareAudience(stage,SLIDES[current]);bindInventors();resize();showControls();};
+    const renderView=view=>{stopPlayer();stage.innerHTML=window.renderInventors(view);window.prepareAudience(stage,SLIDES[current]);bindInventors();resize();showControls();};
     window.mountInventors(stage,renderView);
-    $$('[data-process]').forEach(b=>b.onclick=()=>{$$('[data-process]').forEach(x=>x.classList.toggle('active',x===b));$('#process-tip').textContent=processSteps[Number(b.dataset.process)][1];});
     $$('[data-zoom]').forEach(b=>b.onclick=()=>openZoom());
   }
   function bindFamilyStory(){window.mountFamilyStory(stage,view=>{stage.innerHTML=window.renderFamilyStory(view,rose());window.prepareAudience(stage,SLIDES[current]);bindFamilyStory();$$('[data-zoom]').forEach(b=>b.onclick=()=>openZoom());resize();showControls();});}
