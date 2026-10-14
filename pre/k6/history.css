@@ -3,17 +3,15 @@
 .history-tabs button{font-size:16px;padding:8px 17px;border-radius:20px;color:#6e6e73}
 .history-tabs .selected{background:white;color:#1d1d1f;box-shadow:0 1px 6px #1528420c}
 .history-bottom{position:absolute;left:64px;right:64px;bottom:55px;font-size:28px;font-weight:550;letter-spacing:-.6px;border-top:1px solid #e4e8ed;padding-top:24px}
-.darwin-ship{position:absolute;left:58px;top:253px;width:610px}
-.darwin-ship img{width:100%;height:286px;object-fit:contain;mix-blend-mode:multiply}
-.darwin-ship figcaption{margin-top:12px;text-align:center;color:#82909a;font-size:14px}
-.darwin-moment{position:absolute;left:752px;right:64px;top:272px}
-.darwin-moment>span{color:#0071e3;font-size:19px;font-weight:550}
-.darwin-moment h2{font-size:31px;line-height:1.45;font-weight:600;letter-spacing:-.7px;margin:18px 0}
-.darwin-moment p{color:#64717c;font-size:24px;line-height:1.65}
-.history-timeline{position:absolute;left:750px;right:64px;top:516px;display:flex;gap:15px}
-.history-timeline button{border-top:2px solid #d9e0e7;text-align:left;flex:1;padding:13px 0;font-size:15px;color:#85919b;border-radius:0}
-.history-timeline button span{display:block;font-size:13px;margin-bottom:7px}
-.history-timeline .selected{border-color:#0071e3;color:#0071e3}
+.darwin-page h1{font-size:46px;top:99px;letter-spacing:-1.5px}
+.darwin-subtitle{position:absolute;left:64px;top:160px;font-size:21px;color:#6e6e73}
+.darwin-route{position:absolute;left:64px;top:190px;width:1152px;height:440px;padding:0;background:#fff;cursor:zoom-in;border-radius:0}
+.darwin-route img{display:block;width:100%;height:100%}
+.darwin-route:hover{background:#fff}
+.darwin-route:focus-visible{outline:2px solid #0071e3;outline-offset:3px}
+.darwin-ending{position:absolute;left:64px;right:64px;top:646px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.darwin-ending strong{font-size:23px;font-weight:550;letter-spacing:-.5px}
+.darwin-ending button{font-size:17px;color:#0071e3;white-space:nowrap}
 .edison-object{position:absolute;left:97px;top:245px;width:300px;text-align:center}
 .edison-object img{width:180px;height:185px;object-fit:contain;border-radius:9px;margin-top:18px}
 .edison-object figcaption{margin-top:8px;text-align:center;font-size:14px;color:#81909a}

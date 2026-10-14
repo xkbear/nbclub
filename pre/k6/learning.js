@@ -1,4 +1,4 @@
-/* Three-step teaching reveal within page 4; no extra slide numbers. */
+/* Four-step teaching reveal within page 4; no extra slide numbers. */
 (() => {
   const tabs = active => `<nav class="feynman-tabs" aria-label="费曼章节画面">${[['video','原访谈'],['darwin','达尔文'],['method','学习法'],['pyramid','金字塔']].map(([id,label]) => `<button data-feynman-view="${id}" class="${active===id?'selected':''}" aria-pressed="${active===id}">${label}</button>`).join('')}</nav>`;
   window.feynmanTabs = tabs;
@@ -18,7 +18,7 @@
   const pyramid = () => {
     const rows = [['听讲','5%'],['阅读','10%'],['视听','20%'],['演示','30%'],['小组讨论','50%'],['实践练习','75%'],['教别人 / 立即应用','90%']];
     const fills = ['#e5e8f0','#dae4f0','#cbdff2','#b7d8f3','#9bc8f4','#77b2ee','#4a91df'];
-    return `<svg class="learning-pyramid" viewBox="0 0 690 445" role="img" aria-labelledby="pyramid-title pyramid-desc"><title id="pyramid-title">学习金字塔：一组流传很广的百分比</title><desc id="pyramid-desc">听讲5%，阅读10%，视听20%，演示30%，小组讨论50%，实践练习75%，教别人或立即应用90%。这是常见流传版本。继续本页的三步讲述，检查这套说法。</desc>${rows.map(([name,pct],i)=>{
+    return `<svg class="learning-pyramid" viewBox="0 0 690 445" role="img" aria-labelledby="pyramid-title pyramid-desc"><title id="pyramid-title">学习金字塔：一组流传很广的百分比</title><desc id="pyramid-desc">听讲5%，阅读10%，视听20%，演示30%，小组讨论50%，实践练习75%，教别人或立即应用90%。这是常见流传版本。继续本页的讲述，检查这套说法。</desc>${rows.map(([name,pct],i)=>{
       const top=i*62, bottom=top+56, half=95+i*29, prev=half-26;
       const points=i===0?`286,0 ${286+half},${bottom} ${286-half},${bottom}`:`${286-prev},${top} ${286+prev},${top} ${286+half},${bottom} ${286-half},${bottom}`;
       const baseline=i===0?44:top+36;
@@ -42,12 +42,14 @@
       title:'看起来很科学，却没有可靠依据。', label:'这套精确的百分比，站不住。',
       eyebrow:'谁测的？怎么测？对谁成立？', heading:'给直觉套上数字，<br>就是科学了吗？',
       finding:'2007 年的文献核查，<br>未找到支持这套比例的可信研究。', meaning:'把它当成科学定律，<br>就是“伪科学”包装。',
-      bottom:'借鉴主动学习：多讨论、多实践、多输出。<br>不用这些百分比做学习规划或效果承诺。', next:''
+      bottom:'借鉴主动学习：多讨论、多实践、多输出。<br>不用这些百分比做学习规划或效果承诺。', next:'这些数字从哪来？ →'
     }
   ];
+  const pyramidOrigin = () => `<section class="native learning-page pyramid-origin" data-pyramid-step="3"><p class="kicker">好奇心 · 追到源头</p>${tabs('pyramid')}<h1>一张真图，怎么变成了假定律？</h1><p class="origin-subtitle">两条不同的线索，后来被拼在了一起。</p><figure class="origin-cone"><button data-learning-zoom="assets/story/dale-original-cone.gif" aria-label="放大戴尔的经验之塔原图"><img src="assets/story/dale-original-cone.gif" alt="戴尔1969年版书中的经验之塔原图，没有记忆百分比"></button><figcaption><strong>1946 · 戴尔提出“经验之塔”</strong><span>区分具体与抽象的经验，没有记忆百分比。<br>上图为 1969 年版原图 · 点击放大</span></figcaption></figure><div class="origin-trail"><article><span>另一条线索 · 20 世纪初已有</span><h2>先有“能记住多少”的口号。</h2><p>读、听、做各能记住多少的说法另行流传，<br>数字和分类不断变化，没有可靠实验支撑。</p></article><article><span>约 1970 年前后 · 两者混合</span><h2>把百分比，叠到戴尔的图上。</h2><p>描述经验的图，被误当成效果排名；<br>后来又在讲义、培训材料和网络中反复转述。</p></article><article><span>追问“NTL 研究” · 原始证据在哪里？</span><h2>机构名称，也补不上实验依据。</h2><p>2002 年论文收录 NTL 的邮件答复：<br>他们找不到支持这些数字的原始研究。</p></article></div><p class="origin-boundary">这套 5%—90% 的最初编造者，仍无法可靠确认。</p><div class="origin-bottom"><strong>能查到转引出处，不等于有科学依据。</strong><div class="pyramid-controls"><button class="pyramid-back" data-pyramid-to="2" aria-label="返回金字塔上一步">←</button><button class="primary pyramid-next" data-feynman-view="method">回到可以练习的方法 →</button></div></div><span class="page-label">04 · 4/4</span></section>`;
   window.renderLearningPyramid = (step=0) => {
+    if(step===3)return pyramidOrigin();
     const s=pyramidScenes[step];
-    return `<section class="native learning-page pyramid-page" data-pyramid-step="${step}"><p class="kicker">好奇心 · 学习金字塔</p>${tabs('pyramid')}<h1>${s.title}</h1><p class="pyramid-label">${s.label}</p><div class="pyramid-chart">${pyramid()}</div><aside class="pyramid-reading" aria-live="polite"><p class="pyramid-eyebrow">${s.eyebrow}</p><h2>${s.heading}</h2><p class="pyramid-finding">${s.finding}</p>${s.meaning?`<p class="pyramid-meaning">${s.meaning}</p>`:''}</aside><div class="pyramid-bottom"><p>${s.bottom}</p><div class="pyramid-controls">${step>0?`<button class="pyramid-back" data-pyramid-to="${step-1}" aria-label="返回金字塔上一步">←</button>`:''}${s.next?`<button class="primary pyramid-next" data-pyramid-to="${step+1}">${s.next}</button>`:'<button class="primary pyramid-next" data-feynman-view="method">回到可以练习的方法 →</button>'}</div></div><span class="page-label">04 · ${step+1}/3</span></section>`;
+    return `<section class="native learning-page pyramid-page" data-pyramid-step="${step}"><p class="kicker">好奇心 · 学习金字塔</p>${tabs('pyramid')}<h1>${s.title}</h1><p class="pyramid-label">${s.label}</p><div class="pyramid-chart">${pyramid()}</div><aside class="pyramid-reading" aria-live="polite"><p class="pyramid-eyebrow">${s.eyebrow}</p><h2>${s.heading}</h2><p class="pyramid-finding">${s.finding}</p>${s.meaning?`<p class="pyramid-meaning">${s.meaning}</p>`:''}</aside><div class="pyramid-bottom"><p>${s.bottom}</p><div class="pyramid-controls">${step>0?`<button class="pyramid-back" data-pyramid-to="${step-1}" aria-label="返回金字塔上一步">←</button>`:''}${s.next?`<button class="primary pyramid-next" data-pyramid-to="${step+1}">${s.next}</button>`:'<button class="primary pyramid-next" data-feynman-view="method">回到可以练习的方法 →</button>'}</div></div><span class="page-label">04 · ${step+1}/4</span></section>`;
   };
   window.renderFeynmanLearning = view => view==='darwin' ? window.renderDarwin() : view==='method' ? `<section class="native learning-page method-page"><p class="kicker">好奇心 · 从知道答案，到自己讲明白</p>${tabs('method')}<h1>把答案合上，讲给另一个人听。</h1><p class="learning-subtitle">费曼学习法：讲给别人听，发现自己还没弄懂的地方。</p><div class="learning-steps">${steps.map((s,i)=>`<article class="learning-step"><div class="learning-step-top"><span>0${i+1}</span>${icons[i]}</div><h2>${s[0]}</h2><p>${s[1]}</p><small>${s[2].replace(/\n/g,'<br>')}</small>${i<3?'<span class="learning-arrow" aria-hidden="true">→</span>':''}</article>`).join('')}</div><div class="learning-takeaway"><span>家长可以这样接一句</span><strong>“你先讲，我来听；讲不清的地方，我们再一起找。”</strong></div><button class="learning-next" data-feynman-view="pyramid">再看一张熟悉的学习金字塔 <span>→</span></button><p class="credit">四步为本次家庭练习建议，非费曼逐字原话；研究支持特定条件下的提取练习，不保证固定记忆百分比。</p><span class="page-label">04</span></section>` : window.renderLearningPyramid();
 })();

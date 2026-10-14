@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2304" height="880" viewBox="0 0 1152 440" role="img" aria-labelledby="title desc">
+<title id="title">达尔文的研究之路：从1831年出航到1859年出版物种起源</title>
+<desc id="desc">按箭头从上排左向右，再到下排左向右：1831出航观察，1835留意岛屿物种差异，1836至1837返航比较标本，1838形成自然选择思路，1842至1844写成草稿，1846至1856积累证据并检验，1858与华莱士的文章共同发表，1859年11月24日出版物种起源。依据Darwin Online年表及剑桥大学达尔文通信项目绘制。图标为示意，非历史原件。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="m1 1 7 4-7 4" fill="none" stroke="#a9bdce" stroke-width="1.6" stroke-linejoin="round"/></marker></defs>
+<rect width="1152" height="440" fill="white"/>
+<g fill="none" stroke="#d3dfe8" stroke-width="2.2" marker-end="url(#arrow)">
+<path d="M191 65H352"/><path d="M489 65H650"/><path d="M787 65H948"/>
+<path d="M1077 65h22q25 0 25 25v109q0 25-25 25H38q-16 0-16 16v27q0 15 16 15h27"/>
+<path d="M191 282H352"/><path d="M489 282H650"/><path d="M787 282H948"/>
+</g><g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',sans-serif" text-anchor="middle">
+<g><circle cx="132" cy="65" r="54" fill="#f3f7fa"/>
+<g transform="translate(88 21) scale(.88)" fill="none" stroke="#587181" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="48" r="33"/><path d="m64 25-9 29-28 12 10-29Z" fill="#d4e5ed"/><path d="m37 37 18 17M50 7V0M50 96v-7M9 48H2m96 0h-7"/></g>
+<circle cx="85" cy="22" r="12" fill="white"/><text x="85" y="26" fill="#8d9ba5" font-size="11">01</text>
+<text x="132" y="137" fill="#2674a3" font-size="18" font-weight="600">1831</text>
+<text x="132" y="165" fill="#1d1d1f" font-size="24" font-weight="600">出航观察</text>
+<text x="132" y="191" fill="#6e7780" font-size="17">22 岁，从英国出发</text>
+<text x="132" y="214" fill="#6e7780" font-size="17">采集、观察地层与化石</text></g>
+<g><circle cx="430" cy="65" r="54" fill="#f3f7fa"/>
+<g transform="translate(386 21) scale(.88)" fill="none" stroke="#587181" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 42q5-22 25-19l12-10 3 13 14 9-15 3q-1 20-20 21L6 68l12-22M29 58v12m-7 0h14" fill="#dce9e8"/><circle cx="35" cy="30" r="1.8" fill="#456879"/><path d="M47 73q8-21 24-17l12-12 2 13 13 5-14 6q-3 18-18 18l-23 9 12-18M69 86v10m-7 0h14" fill="#f1dfbb"/><circle cx="77" cy="61" r="1.8" fill="#456879"/></g>
+<circle cx="383" cy="22" r="12" fill="white"/><text x="383" y="26" fill="#8d9ba5" font-size="11">02</text>
+<text x="430" y="137" fill="#2674a3" font-size="18" font-weight="600">1835</text>
+<text x="430" y="165" fill="#1d1d1f" font-size="24" font-weight="600">留意差异</text>
+<text x="430" y="191" fill="#6e7780" font-size="17">加拉帕戈斯群岛</text>
+<text x="430" y="214" fill="#6e7780" font-size="17">记录不同岛屿的嘲鸫</text></g>
+<g><circle cx="728" cy="65" r="54" fill="#f3f7fa"/>
+<g transform="translate(684 21) scale(.88)" fill="none" stroke="#587181" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="21" width="56" height="66" rx="5" fill="#f2eadc"/><path d="M8 43h56M8 65h56M34 21v66M17 33h9m17 22h11M17 76h9"/><circle cx="64" cy="35" r="21" fill="#e4eff4"/><path d="m79 51 17 20M55 34q9-14 18 0-9 14-18 0Z"/></g>
+<circle cx="681" cy="22" r="12" fill="white"/><text x="681" y="26" fill="#8d9ba5" font-size="11">03</text>
+<text x="728" y="137" fill="#2674a3" font-size="18" font-weight="600">1836—37</text>
+<text x="728" y="165" fill="#1d1d1f" font-size="24" font-weight="600">返航比较</text>
+<text x="728" y="191" fill="#6e7780" font-size="17">请专家鉴定标本</text>
+<text x="728" y="214" fill="#6e7780" font-size="17">开始研究物种变化</text></g>
+<g><circle cx="1026" cy="65" r="54" fill="#f3f7fa"/>
+<g transform="translate(982 21) scale(.88)" fill="none" stroke="#587181" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M50 93V67L26 43V21M50 67l26-26V13M26 43 9 27M76 41l17-17M50 67V39l-7-13"/><circle cx="26" cy="17" r="7" fill="#f0dfbb"/><circle cx="9" cy="23" r="6" fill="#d5e5ef"/><circle cx="43" cy="21" r="6" fill="#d5e5ef"/><circle cx="76" cy="9" r="7" fill="#f0dfbb"/><circle cx="93" cy="21" r="6" fill="#d5e5ef"/><path d="M40 93h20"/></g>
+<circle cx="979" cy="22" r="12" fill="white"/><text x="979" y="26" fill="#8d9ba5" font-size="11">04</text>
+<text x="1026" y="137" fill="#2674a3" font-size="18" font-weight="600">1838</text>
+<text x="1026" y="165" fill="#1d1d1f" font-size="24" font-weight="600">形成解释</text>
+<text x="1026" y="191" fill="#6e7780" font-size="17">阅读马尔萨斯</text>
+<text x="1026" y="214" fill="#6e7780" font-size="17">形成自然选择思路</text></g>
+<g><circle cx="132" cy="282" r="54" fill="#f3f7fa"/>
+<g transform="translate(88 238) scale(.88)" fill="none" stroke="#587181" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 11h58v79H14Z" fill="#f4eddf"/><path d="M24 11v79M32 28h27M32 40h27M32 52h20M32 64h14M32 77h19"/><path d="m58 73 21-42 11 6-22 42-13 6Z" fill="#d7e7ee"/><path d="m79 31 4-8q2-5 7-2l3 2q3 2 1 6l-4 8M58 73l10 6"/></g>
+<circle cx="85" cy="239" r="12" fill="white"/><text x="85" y="243" fill="#8d9ba5" font-size="11">05</text>
+<text x="132" y="354" fill="#2674a3" font-size="18" font-weight="600">1842—44</text>
+<text x="132" y="382" fill="#1d1d1f" font-size="24" font-weight="600">写成草稿</text>
+<text x="132" y="408" fill="#6e7780" font-size="17">先勾勒，再扩写</text>
+<text x="132" y="431" fill="#6e7780" font-size="17">把想法组织成论证</text></g>
+<g><circle cx="430" cy="282" r="54" fill="#f3f7fa"/>
+<g transform="translate(386 238) scale(.88)" fill="none" stroke="#587181" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m41 12 15 7-18 35-15-7Z" fill="#d5e5ef"/><path d="m47 8 11 5M55 40q30 8 24 34-3 14-28 14M16 65h44M35 65v21M17 91h66M69 40l5-11"/><ellipse cx="74" cy="23" rx="8" ry="11" fill="#e4ead2" transform="rotate(24 74 23)"/><path d="m72 28 4-11"/></g>
+<circle cx="383" cy="239" r="12" fill="white"/><text x="383" y="243" fill="#8d9ba5" font-size="11">06</text>
+<text x="430" y="354" fill="#2674a3" font-size="18" font-weight="600">1846—56</text>
+<text x="430" y="382" fill="#1d1d1f" font-size="24" font-weight="600">积累与检验</text>
+<text x="430" y="408" fill="#6e7780" font-size="17">研究藤壶、进行实验</text>
+<text x="430" y="431" fill="#6e7780" font-size="17">1856 年起写更完整的论著</text></g>
+<g><circle cx="728" cy="282" r="54" fill="#f3f7fa"/>
+<g transform="translate(684 238) scale(.88)" fill="none" stroke="#587181" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="17" width="39" height="60" rx="4" fill="#dce9f1"/><rect x="57" y="17" width="39" height="60" rx="4" fill="#f2e5cb"/><path d="M13 30h21M13 40h21M13 50h13M66 30h21M66 40h21M66 50h13M24 77v12h52V77M50 89v10"/></g>
+<circle cx="681" cy="239" r="12" fill="white"/><text x="681" y="243" fill="#8d9ba5" font-size="11">07</text>
+<text x="728" y="354" fill="#2674a3" font-size="18" font-weight="600">1858</text>
+<text x="728" y="382" fill="#1d1d1f" font-size="24" font-weight="600">共同发表</text>
+<text x="728" y="408" fill="#6e7780" font-size="17">华莱士独立提出相近理论</text>
+<text x="728" y="431" fill="#6e7780" font-size="17">两人的文章同场宣读</text></g>
+<g><circle cx="1026" cy="282" r="54" fill="#f2f5ed"/>
+<g transform="translate(982 238) scale(.88)" fill="none" stroke="#587181" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 5h67v87H17q-8 0-8-8V13q0-8 8-8Z" fill="#355d50" stroke="#355d50"/><path d="M18 7v77M18 84h67M18 91h67" stroke="#d5c398"/><text x="51" y="28" text-anchor="middle" fill="#efdfb8" stroke="none" font-size="7" letter-spacing="1">ON THE</text><text x="51" y="42" text-anchor="middle" fill="#efdfb8" stroke="none" font-size="11">ORIGIN</text><text x="51" y="54" text-anchor="middle" fill="#efdfb8" stroke="none" font-size="9">OF SPECIES</text><path d="M32 63h39" stroke="#b8a780" stroke-width="1"/><text x="51" y="75" text-anchor="middle" fill="#efdfb8" stroke="none" font-size="8">1859</text></g>
+<circle cx="979" cy="239" r="12" fill="white"/><text x="979" y="243" fill="#8d9ba5" font-size="11">08</text>
+<text x="1026" y="354" fill="#2674a3" font-size="18" font-weight="600">1859.11.24</text>
+<text x="1026" y="382" fill="#1d1d1f" font-size="24" font-weight="600">《物种起源》出版</text>
+<text x="1026" y="408" fill="#6e7780" font-size="17">返航后，继续研究 23 年</text>
+<text x="1026" y="431" fill="#6e7780" font-size="17">把证据与解释写成书</text></g>
+</g></svg>

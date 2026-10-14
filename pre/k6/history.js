@@ -1,16 +1,7 @@
 /* Historical stories use public archives; teaching takeaways are our narration. */
 (() => {
-  const stages = [
-    ['1831 · 出发','22 岁，登上小猎犬号。','他还没有自然选择理论。先去观察、采集、记录。'],
-    ['1835 · 追问','相邻的岛，鸟为什么不同？','加拉帕戈斯的嘲鸫差异，成为他继续研究的线索。'],
-    ['1859 · 成书','问题没有在返航时结束。','回到英国后继续研究，二十多年后出版《物种起源》。']
-  ];
-  window.renderDarwin = () => `<section class="native history-page darwin-page"><p class="kicker">好奇心 · 达尔文与小猎犬号</p>${window.feynmanTabs('darwin')}<h1>没有现成答案，<br>也可以先出发。</h1><figure class="darwin-ship"><img src="assets/story/darwin-beagle-plan.jpg" alt="1832 年小猎犬号的甲板与剖面图"><figcaption>小猎犬号 · 1832 年图稿 · Philip Gidley King</figcaption></figure><div class="darwin-moment"><span id="darwin-date">${stages[0][0]}</span><h2 id="darwin-event">${stages[0][1]}</h2><p id="darwin-detail">${stages[0][2]}</p></div><nav class="history-timeline" aria-label="达尔文的探索过程">${stages.map((s,i)=>`<button data-darwin-step="${i}" class="${i===0?'selected':''}" aria-pressed="${i===0}"><span>0${i+1}</span>${s[0]}</button>`).join('')}</nav><p class="history-bottom">伟大的发现，常从不放过一个问题开始。</p><span class="page-label">04</span></section>`;
-  window.mountDarwin = root => root.querySelectorAll('[data-darwin-step]').forEach(b=>b.onclick=()=>{
-    const i=Number(b.dataset.darwinStep),s=stages[i];
-    root.querySelector('#darwin-date').textContent=s[0];root.querySelector('#darwin-event').textContent=s[1];root.querySelector('#darwin-detail').textContent=s[2];
-    root.querySelectorAll('[data-darwin-step]').forEach(x=>{x.classList.toggle('selected',x===b);x.setAttribute('aria-pressed',String(x===b));});
-  });
+  window.renderDarwin = () => `<section class="native history-page darwin-page"><p class="kicker">好奇心 · 达尔文的研究之路</p>${window.feynmanTabs('darwin')}<h1>带着好奇出发，沿着证据走下去。</h1><p class="darwin-subtitle">1831—1859 · 从小猎犬号远航，到《物种起源》</p><button class="darwin-route" data-learning-zoom="assets/story/darwin-research-journey.svg" aria-label="放大达尔文从观察到物种起源的完整研究路线图"><img src="assets/story/darwin-research-journey.svg" alt="八个节点：出航观察、留意差异、返航比较、形成解释、写成草稿、积累与检验、共同发表、物种起源出版"></button><div class="darwin-ending"><strong>一个问题，值得用观察、比较与验证，一直追下去。</strong><button data-feynman-view="method">接着看：怎样学懂 →</button></div><span class="page-label">04</span></section>`;
+  window.mountDarwin = () => {};
   const tabs = active => `<nav class="history-tabs" aria-label="意志力的故事">${[['edison','爱迪生'],['rocket','SpaceX']].map(([id,label])=>`<button data-inventor="${id}" class="${active===id?'selected':''}" aria-pressed="${active===id}">${label}</button>`).join('')}</nav>`;
   const experiments=[['灯丝容易烧断','换材料，重新测试。'],['1879 · 碳化棉线','一次试验，亮了至少 13 小时。'],['继续改进','寻找更好的灯丝，也完善供电系统。']];
   window.renderInventors = (view='edison') => {
