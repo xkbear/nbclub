@@ -216,6 +216,31 @@ for (const media of ["assets/events/2026-09-25-k5/recap-video.mp4", "assets/even
 }
 const k6 = readFileSync(join(root, "event-2026-10-15-k6.html"), "utf8");
 const homepage = readFileSync(join(root, "index.html"), "utf8");
+// The recap rail contains held events only; upcoming dates must never take over
+// the main recap until the corresponding event has actually been archived.
+const recapRail = homepage.split('id="activity-rail"')[1]?.split('</section>')[0] ?? "";
+const recaps = [...recapRail.matchAll(/<article\b[^>]*class="story-card"[^>]*>[\s\S]*?<\/article>/g)]
+  .map(([html]) => ({
+    html,
+    href: html.match(/<a\b[^>]*href="([^"]+)"/)?.[1],
+    date: html.match(/<time\b[^>]*datetime="(\d{4}-\d{2}-\d{2})"/)?.[1]
+  }))
+  .filter(({ href, date }) => href && date)
+  .sort((a, b) => b.date.localeCompare(a.date));
+const latestRecap = recaps[0];
+const mainRecap = homepage.match(/<figure\b[^>]*class="hero-photo\b[^"\n]*"[^>]*>[\s\S]*?<\/figure>/)?.[0] ?? "";
+if (!latestRecap || !mainRecap) {
+  fail("index.html", "latest completed event and main recap must both exist");
+} else {
+  const mainLinks = [...mainRecap.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map((match) => match[1]);
+  if (mainLinks.length < 2 || mainLinks.some((href) => href !== latestRecap.href) || !mainRecap.includes(`datetime="${latestRecap.date}"`)) {
+    fail("index.html", `main recap must feature the latest completed event (${latestRecap.href}), not an older recap or upcoming event`);
+  }
+  const mainImage = mainRecap.match(/<img\b[^>]*src="([^"]+)"/)?.[1];
+  if (!mainImage || !latestRecap.html.includes(mainImage)) fail("index.html", "main recap must use the latest completed event's cover");
+  const speaker = latestRecap.html.match(/<p class="story-speaker">([\s\S]*?)<\/p>/)?.[1];
+  if (speaker && speaker.split(/<br\s*\/?\s*>| · /).some((part) => !mainRecap.includes(part))) fail("index.html", "main recap must retain the latest keynote's speaker roles");
+}
 const k6Signup = "https://events.new-bee.club/events/2026-10-15-k6-ai-childhood/register";
 for (const [file, html] of [["index.html", homepage], ["event-2026-10-15-k6.html", k6]]) {
   if (!html.includes(k6Signup) || !html.includes("2026-10-15T10:30:00+13:00")) fail(file, "K6 must retain the poster-verified registration link and NZ local date");
