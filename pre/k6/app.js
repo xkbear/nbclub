@@ -57,6 +57,15 @@
     resize();showControls();
   }
   function bindFeynman(){
+    $$('[data-pyramid-to]').forEach(b=>b.onclick=()=>{
+      const step=Number(b.dataset.pyramidTo);
+      stage.innerHTML=window.renderLearningPyramid(step);
+      window.prepareAudience(stage,SLIDES[current]);
+      bindFeynman();
+      const title=stage.querySelector('h1');title.tabIndex=-1;title.focus({preventScroll:true});
+      $('#status').textContent=`第4页，学习金字塔，第${step+1}步，共3步`;
+      resize();showControls();
+    });
     if($('#play-video'))$('#play-video').onclick=startVideo;
     $$('[data-feynman-view]').forEach(b=>b.onclick=()=>{
       const view=b.dataset.feynmanView;
