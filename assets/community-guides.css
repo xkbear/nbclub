@@ -1,0 +1,20 @@
+/* Scoped to the two community guides; homepage resources remain unchanged. */
+.page-guide .guide-toc{display:flex;flex-wrap:wrap;gap:12px 26px;padding:0 0 28px;font-size:14px;color:var(--muted)}
+.page-guide .guide-toc a:hover,.page-guide .guide-photo a:hover{color:var(--accent)}
+.page-guide .guide-photo{margin:0 0 52px}
+.page-guide .guide-photo img{display:block;width:100%;height:auto;border-radius:24px}
+.page-guide .guide-photo figcaption{margin:12px 0 0;font-size:13px;line-height:1.7;color:var(--muted)}
+.page-guide .guide-photo figcaption a{text-decoration:underline;text-underline-offset:3px}
+.page-guide .guide-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:32px}
+.page-guide .guide-gallery .guide-photo{margin-bottom:0}
+.page-guide .guide-gallery img{aspect-ratio:4/3;object-fit:contain;background:var(--surface)}
+.page-guide .fact h3{font-size:21px;line-height:1.4;margin:0 0 14px}
+.page-guide .guide-source{margin-top:24px;font-size:15px;line-height:1.85;color:var(--muted);max-width:900px}
+.page-guide .guide-checklist{list-style:none;counter-reset:visit;margin:0;padding:0;border-top:1px solid var(--line)}
+.page-guide .guide-checklist-title{font-size:24px;line-height:1.4;margin:42px 0 24px}
+.page-guide .guide-checklist li{counter-increment:visit;display:grid;grid-template-columns:48px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
+.page-guide .guide-checklist li::before{content:counter(visit,decimal-leading-zero);color:var(--muted);font-size:15px;font-variant-numeric:tabular-nums}
+.page-guide .guide-checklist h3{font-size:20px;line-height:1.4;margin-bottom:10px}
+.page-guide .guide-checklist p{font-size:16px;line-height:1.8;color:var(--muted)}
+.page-guide section[id]{scroll-margin-top:100px}
+@media(max-width:680px){.page-guide .guide-gallery{grid-template-columns:1fr;gap:26px}.page-guide .guide-photo img{border-radius:18px}.page-guide .guide-toc{gap:12px 20px}.page-guide .guide-checklist li{grid-template-columns:28px 1fr;gap:14px}}

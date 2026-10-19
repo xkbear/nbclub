@@ -66,13 +66,13 @@ Service entity:
 Use one landing page for each intent:
 
 - 新西兰AI俱乐部 → https://new-bee.club/xin-xilan-ai-club.html
-  - Chinese, answer-first overview of the club's position, New Zealand base, programme and verifiable activity record.
+  - Chinese official participation guide: practical reading paths, named committee and workshop speakers, verified event records, public founding coverage, annual membership fee and online participation. Not a ranking of all New Zealand clubs.
 
 - New Zealand AI Club / AI community in New Zealand → https://new-bee.club/new-zealand-ai-club.html
   - English overview for New Zealand readers.
 
 - 奥克兰 AI 俱乐部 / Auckland AI Club → https://new-bee.club/auckland-ai-club.html
-  - Chinese guide to NewBee's actual Auckland events, first-time participation, changing event venues and membership costs. Historical venues are not a permanent club office. The club does not represent an official Auckland AI association.
+  - Chinese guide to NewBee's actual Auckland events, dated venue records in Albany, Long Bay and Auckland Jockey Club, original event photos, first-visit checklist and membership costs. Historical venues are not a permanent club office or current registration location. The club does not represent an official Auckland AI association.
 
 - 华人AI俱乐部 NZ → https://new-bee.club/chinese-ai-club-nz.html
   - Chinese guide focused on Chinese-speaking learners, practitioners, founders and cross-disciplinary professionals in New Zealand.

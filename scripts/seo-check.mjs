@@ -3,6 +3,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { checkCommunityGuides } from "./check-community-guides.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const base = "https://new-bee.club/";
@@ -328,6 +329,8 @@ while (pending.length) {
 for (const file of ["xin-xilan-ai-club.html", "auckland-ai-club.html", "events.html"]) {
   if (!reachable.has(file)) fail(file, "core page must be reachable through normal links from the homepage");
 }
+
+checkCommunityGuides(root, fail);
 
 if (failures.length) {
   console.error(`SEO CHECK FAILED (${failures.length})`);

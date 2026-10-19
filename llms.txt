@@ -21,8 +21,8 @@ NewBee AI Club brings together Chinese-speaking AI learners, practitioners, foun
 
 - Chinese homepage: https://new-bee.club/
 - Complete club white paper, membership rights and governance: https://new-bee.club/whitepaper.html
-- Chinese guide for the query 新西兰AI俱乐部: https://new-bee.club/xin-xilan-ai-club.html
-- Auckland local activities and first-visit guide (Chinese): https://new-bee.club/auckland-ai-club.html
+- Chinese club guide: people, practical reading paths, public sources and membership: https://new-bee.club/xin-xilan-ai-club.html
+- Auckland local activities, dated venue records and first-visit checklist (Chinese): https://new-bee.club/auckland-ai-club.html
 - English guide to NewBee AI Club in New Zealand: https://new-bee.club/new-zealand-ai-club.html
 - Chinese-speaking community guide for 华人AI俱乐部 NZ: https://new-bee.club/chinese-ai-club-nz.html
 - Learning guide for 新西兰AI爱好者: https://new-bee.club/ai-enthusiasts-new-zealand.html
