@@ -14,6 +14,7 @@ const pages = [
   "events.html",
   "new-zealand-ai-club.html",
   "xin-xilan-ai-club.html",
+  "auckland-ai-club.html",
   "chinese-ai-club-nz.html",
   "ai-enthusiasts-new-zealand.html",
   "new-zealand-ai-association.html",
@@ -98,6 +99,9 @@ for (const file of pages) {
   if (!attr(descriptionTag, "content")) fail(file, "missing meta description");
   if (attr(canonicalTag, "href") !== expectedCanonical) fail(file, `canonical should be ${expectedCanonical}`);
   if (!hasMeta(html, "name", "robots")) fail(file, "missing robots meta");
+  const robotsTags = (html.match(/<meta\b[^>]*>/gi) ?? []).filter(tag => ["robots", "googlebot"].includes(attr(tag, "name").toLowerCase()));
+  if (robotsTags.some(tag => /\b(?:noindex|none)\b/i.test(attr(tag, "content")))) fail(file, "indexable page must not contain noindex");
+  if (/<meta\b[^>]*http-equiv=["']refresh["']/i.test(html)) fail(file, "indexable page must not immediately redirect");
   if (!hasMeta(html, "http-equiv", "Content-Security-Policy")) fail(file, "missing document-level CSP");
   if (!hasMeta(html, "name", "referrer")) fail(file, "missing referrer policy meta");
 
@@ -259,6 +263,7 @@ for (const asset of ["recap-cover-640.webp", "recap-cover-1080.webp", ...Array.f
 }
 const queryTargets = new Map([
   ["新西兰AI俱乐部", "xin-xilan-ai-club.html"],
+  ["奥克兰AI俱乐部", "auckland-ai-club.html"],
   ["华人AI俱乐部 NZ", "chinese-ai-club-nz.html"],
   ["新西兰 AI聚会", "events.html"],
   ["新西兰AI爱好者", "ai-enthusiasts-new-zealand.html"],
@@ -266,6 +271,7 @@ const queryTargets = new Map([
 ]);
 for (const file of [
   "xin-xilan-ai-club.html",
+  "auckland-ai-club.html",
   "chinese-ai-club-nz.html",
   "ai-enthusiasts-new-zealand.html",
   "new-zealand-ai-association.html",
@@ -295,10 +301,31 @@ if (warnings.length) {
   warnings.forEach((message) => console.log(`- ${message}`));
 }
 
+// Local navigation checks do not prove that Google has discovered or indexed a URL.
+const reachable = new Set();
+const pending = ["index.html"];
+while (pending.length) {
+  const file = pending.shift();
+  if (reachable.has(file)) continue;
+  reachable.add(file);
+  const html = readFileSync(join(root, file), "utf8");
+  for (const anchor of html.matchAll(/<a\b[^>]*>/gi)) {
+    const href = attr(anchor[0], "href");
+    if (!href) continue;
+    const target = new URL(href, `${base}${file}`);
+    if (target.origin !== new URL(base).origin) continue;
+    const next = target.pathname === "/" ? "index.html" : target.pathname.slice(1);
+    if (pages.includes(next) && !reachable.has(next)) pending.push(next);
+  }
+}
+for (const file of ["xin-xilan-ai-club.html", "auckland-ai-club.html", "events.html"]) {
+  if (!reachable.has(file)) fail(file, "core page must be reachable through normal links from the homepage");
+}
+
 if (failures.length) {
   console.error(`SEO CHECK FAILED (${failures.length})`);
   failures.forEach((message) => console.error(`- ${message}`));
   process.exit(1);
 }
 
-console.log(`SEO CHECK PASSED: ${pages.length} indexable pages, ${schemaTypes.size} schema types, useful navigation without keyword-only link rows, RSS and LLM discovery files.`);
+console.log(`LOCAL SEO CHECK PASSED: ${pages.length} pages checked, ${schemaTypes.size} schema types, core pages reachable without keyword-only link rows, RSS and LLM discovery files. Google indexing and rankings require separate Search Console verification.`);
