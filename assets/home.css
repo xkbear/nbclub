@@ -9,6 +9,10 @@
 .hero-photo>a{display:block;overflow:hidden;border-radius:28px;isolation:isolate;background:var(--surface)}
 .hero-photo img{width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain;transition:transform 1s var(--ease)}
 .hero-photo.is-recap img{object-fit:cover;object-position:center 54%}
+.hero-photo.is-k6-recap img{aspect-ratio:3/1;object-fit:contain}
+.featured-story.k6-recap-feature{grid-template-columns:1fr}
+.k6-recap-feature .featured-photo{aspect-ratio:3/1;min-height:0}
+.k6-recap-feature .featured-photo img{height:auto;aspect-ratio:3/1;object-fit:contain}
 .hero-photo .story-speaker{margin:6px 0 0;font-size:inherit;line-height:1.6}
 .hero-photo.is-recap .photo-caption{font-size:14px;line-height:1.6}
 .hero-photo.is-recap .hero-photo-note{font-size:12px}

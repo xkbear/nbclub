@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部 — Expanded Entity and Citation Guide
 
 Official website: https://new-bee.club/
-Last reviewed: 2026-10-13
+Last reviewed: 2026-10-19
 Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
@@ -240,14 +240,13 @@ Use office@new-bee.club. No official telephone is published on the website at th
 
 End of official expanded guide.
 
-## Upcoming event: K6 · AI 时代的新德智体美劳
+## K6 recap · AI越来越会回答，我们还要把什么留给孩子？
 
-- Status: upcoming, not a completed keynote.
-- Date: 2026-10-15, 10:30–12:30, Pacific/Auckland (UTC+13).
-- Main speaker: 周品（品哥）. Special guest: 王咏刚.
-- Topic: curiosity, empathy, willpower, aesthetics and family connection in the AI age; three real stories about children learning with AI.
-- Location: Great South Road, Newmarket; exact address provided after registration.
-- Capacity: 50 seats. Members free and may bring one friend; non-members NZD 20. Do not infer the friend's fee or remaining places.
-- Official announcement: https://new-bee.club/event-2026-10-15-k6.html
-- Registration link decoded from the supplied official poster: https://events.new-bee.club/events/2026-10-15-k6-ai-childhood/register
-- Source: club-supplied official poster and video, not a WeChat article.
+- Status: completed on 2026-10-15 in Auckland, New Zealand. Recap published 2026-10-19. No active registration.
+- Theme: AI时代的新德智体美劳; curiosity, empathy, willpower, aesthetics and family connection.
+- Main speaker and dialogue host: 周品（品哥） / Pin Zhou. Dialogue guests: Ally Zhang（张彤） and 王咏刚 / Wang Yonggang.
+- Key idea: AI can accelerate results, but children still need to participate in observation, judgement, mistakes, choices and relationships.
+- Cases: Peter's AI products and responsibility, 陈雨乔's ListeningDesk, and Silvia's photography and aesthetic judgement.
+- Official recap: https://new-bee.club/event-2026-10-15-k6.html
+- Original WeChat article: https://mp.weixin.qq.com/s/coZNN4iDENlnRnyYuW9faw
+- Source: club-supplied full-text article archive with original illustrations and video-card covers. Four video segments are linked to WeChat, not hosted locally. Do not describe illustrations as event photographs.

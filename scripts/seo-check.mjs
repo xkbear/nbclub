@@ -242,14 +242,20 @@ if (!latestRecap || !mainRecap) {
   if (speaker && speaker.split(/<br\s*\/?\s*>| · /).some((part) => !mainRecap.includes(part))) fail("index.html", "main recap must retain the latest keynote's speaker roles");
 }
 const k6Signup = "https://events.new-bee.club/events/2026-10-15-k6-ai-childhood/register";
-for (const [file, html] of [["index.html", homepage], ["event-2026-10-15-k6.html", k6]]) {
-  if (!html.includes(k6Signup) || !html.includes("2026-10-15T10:30:00+13:00")) fail(file, "K6 must retain the poster-verified registration link and NZ local date");
-  const video = html.match(/<video\b[^>]*poster="assets\/events\/2026-10-15-k6\/video-poster.webp"[^>]*>/)?.[0] ?? "";
-  if (attr(video, "width") !== "720" || attr(video, "height") !== "1280" || attr(video, "preload") !== "none" || /\bautoplay\b/.test(video) || !attr(video, "controlslist").includes("nodownload")) fail(file, "K6 must retain full portrait click-to-play video without a download button");
+const k6Source = "https://mp.weixin.qq.com/s/coZNN4iDENlnRnyYuW9faw";
+for (const file of ["index.html", "events.html", "event-2026-10-15-k6.html", "feed.xml", "llms.txt", "llms-full.txt"]) {
+  const html = readFileSync(join(root, file), "utf8");
+  if (html.includes(k6Signup) || /upcoming-event is-k6|下一场 · K6|K6 活动预告|Upcoming event: K6|Status: upcoming/.test(html)) fail(file, "completed K6 must not retain an invitation or registration link");
 }
-if (!homepage.includes('class="upcoming-event is-k6"') || !homepage.includes('href="event-2026-09-25-k5.html"')) fail("index.html", "K6 preview must be featured without removing the K5 recap");
-for (const asset of ["poster.webp", "video-poster.webp", "preview.mp4"]) {
-  if (!existsSync(join(root, "assets/events/2026-10-15-k6", asset))) fail("K6", `missing media ${asset}`);
+if (!k6.includes('2026-10-15T10:30:00+13:00') || !k6.includes(k6Source) || !k6.includes("阅读公众号原文") || !k6.includes("Ally 张彤")) fail("K6", "recap must retain the event date, verified source and dialogue guests");
+if (k6.includes('"offers"') || k6.includes("preview.mp4") || k6.includes("EventScheduled")) fail("K6", "recap must not present preview media or ticket offers as current");
+if ((k6.match(/class="recap-video-card"/g) ?? []).length !== 4 || !k6.includes("未转存视频文件")) fail("K6", "four source-only video previews must be clearly labelled");
+const k6EventList = readFileSync(join(root, "events.html"), "utf8");
+const keynoteCount = (homepage.match(/<article class="story-card" data-category="keynote">/g) ?? []).length;
+if (keynoteCount !== 6 || !homepage.includes(`<strong>${keynoteCount}</strong><span>场已举办主题讲座`)) fail("index.html", "completed keynote count must match the archive");
+if (!k6EventList.includes('id="latest-recap" href="event-2026-10-15-k6.html"') || !k6EventList.includes("11 场活动回顾")) fail("events.html", "K6 must lead the updated eleven-event archive");
+for (const asset of ["recap-cover-640.webp", "recap-cover-1080.webp", ...Array.from({length:13}, (_,i)=>`recap-${String(i+2).padStart(2,"0")}.webp`)]) {
+  if (!existsSync(join(root, "assets/events/2026-10-15-k6", asset))) fail("K6", `missing recap media ${asset}`);
 }
 const queryTargets = new Map([
   ["新西兰AI俱乐部", "xin-xilan-ai-club.html"],

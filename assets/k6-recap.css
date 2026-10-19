@@ -1,0 +1,14 @@
+/* K6 recap: keep the original illustrations and clearly label video previews. */
+.k6-recap .article-head .story-speaker{font-size:16px;line-height:1.8;margin:22px 0;color:var(--body-ink)}
+.k6-recap .cover figcaption{padding:12px 18px;font-size:12px;line-height:1.6;color:var(--muted)}
+.k6-recap .article-body>.eyebrow{font-size:12px;letter-spacing:.1em;margin-top:50px;color:var(--accent)}
+.k6-recap .article-body>.eyebrow+h2{margin-top:12px}
+.k6-recap .recap-figure img{height:auto;max-height:720px;object-fit:contain}
+.recap-video-card{display:grid;grid-template-columns:minmax(130px,190px) minmax(0,1fr);gap:28px;padding:24px;background:var(--surface);border-radius:20px;margin:30px 0;align-items:start}
+.recap-video-card img{width:100%;height:auto;border-radius:12px}
+.article-body .recap-video-card h3{font-size:20px;margin:0 0 14px}
+.article-body .recap-video-card p{font-size:15px;line-height:1.8;margin:12px 0}
+.recap-video-card .button{font-size:14px}
+.recap-video-card details{border-top:1px solid var(--line);padding-top:16px;margin-top:20px}
+.recap-video-card summary{font-size:14px;color:var(--accent);cursor:pointer}
+@media(max-width:540px){.recap-video-card{grid-template-columns:1fr;gap:22px;padding:22px}.recap-video-card>a{width:min(190px,100%);justify-self:center}.k6-recap .article-head .story-speaker{font-size:14px}}
