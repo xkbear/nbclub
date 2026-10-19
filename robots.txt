@@ -31,3 +31,4 @@ User-agent: YisouSpider
 Allow: /
 
 Sitemap: https://new-bee.club/sitemap.xml
+Sitemap: https://new-bee.club/sitemap.txt

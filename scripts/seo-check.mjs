@@ -283,8 +283,15 @@ for (const file of [
   if (questionHeadings.length < 3) fail(file, "fewer than three visible question-style FAQ headings");
 }
 
-for (const required of ["feed.xml", "llms.txt", "llms-full.txt", "robots.txt", "sitemap.xml"]) {
+for (const required of ["feed.xml", "llms.txt", "llms-full.txt", "robots.txt", "sitemap.xml", "sitemap.txt"]) {
   if (!existsSync(join(root, required))) fail(required, "file is missing");
+}
+
+if (existsSync(join(root, "sitemap.txt"))) {
+  const textUrls = readFileSync(join(root, "sitemap.txt"), "utf8").trim().split(/\r?\n/);
+  const xmlUrls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => match[1]);
+  if (JSON.stringify([...textUrls].sort()) !== JSON.stringify([...xmlUrls].sort())) fail("sitemap.txt", "plain-text sitemap must contain the same canonical URLs as sitemap.xml");
+  if (!readFileSync(join(root, "robots.txt"), "utf8").includes(`Sitemap: ${base}sitemap.txt`)) fail("robots.txt", "plain-text sitemap discovery is missing");
 }
 
 const feed = readFileSync(join(root, "feed.xml"), "utf8");
