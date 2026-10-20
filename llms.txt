@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部
 
 Official website: https://new-bee.club/
-Last updated: 2026-10-19
+Last updated: 2026-10-20
 
 ## Entity
 
@@ -32,6 +32,21 @@ NewBee AI Club brings together Chinese-speaking AI learners, practitioners, foun
 - RSS activity feed: https://new-bee.club/feed.xml
 - Expanded entity and citation guide: https://new-bee.club/llms-full.txt
 
+
+## Learning system and reusable public materials
+
+The club's archive contains 11 dated records from 2026-05-04 to 2026-10-15: a founding meeting, six keynotes, three workshops and one member visit. The member visit was to an event hosted by Icehouse Ventures, not an event hosted by NewBee.
+
+The public learning guide connects these records into five reading paths: work and organisations, content production, family life, human judgement, and New Zealand innovation exchange. These are reading paths assembled from published activities, not accredited courses or claims of measured learning outcomes.
+
+- Human-readable guide and source links (Chinese): https://new-bee.club/ai-enthusiasts-new-zealand.html#learning-paths
+- English method summaries with links to Chinese originals: https://new-bee.club/new-zealand-ai-club.html#practical-resources
+- W2 six-stage content workflow / 六步内容工作流: https://new-bee.club/event-2026-07-17-w2.html#six-step-workflow
+- W2 four human review checkpoints / 四个人工检查点: https://new-bee.club/event-2026-07-17-w2.html#human-checkpoints
+- K2 five business-workflow questions / 业务闭环五问: https://new-bee.club/event-2026-06-26-k2.html#workflow-checklist
+- K6 one-week family practice / 一周家庭行动表: https://new-bee.club/event-2026-10-15-k6.html#family-week
+
+These summaries refer to visible public page sections. Event dates remain distinct from the date on which materials were edited. Activities and participant cases are not proof of a particular business or educational outcome.
 
 ## K6 recap · AI越来越会回答，我们还要把什么留给孩子？
 

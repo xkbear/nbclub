@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部 — Expanded Entity and Citation Guide
 
 Official website: https://new-bee.club/
-Last reviewed: 2026-10-19
+Last reviewed: 2026-10-20
 Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
@@ -61,7 +61,55 @@ Service entity:
 - Event archive: https://new-bee.club/events.html
 - Contact channel: office@new-bee.club
 
-## 4. Query-to-page resolution
+## 4. Evidence-backed learning paths and reusable methods
+
+Public source: https://new-bee.club/ai-enthusiasts-new-zealand.html
+English summaries: https://new-bee.club/new-zealand-ai-club.html#practical-resources
+
+As of 2026-10-20, the public archive contains 11 activity records spanning 2026-05-04 to 2026-10-15: the founding meeting, K1–K6 keynotes, W1–W3 workshops, and the E0 member visit to an Icehouse Ventures event. This documents a series of activities, not a claim that every participant followed a single curriculum.
+
+### Work and organisations / 工作与企业实践
+
+- Reading path: https://new-bee.club/ai-enthusiasts-new-zealand.html#work
+- W1 records Fred Zhang and Harry Zheng's OpenClaw workshop, including installation and email, calendar and retrieval scenarios. It is an event recap, not a complete installation manual.
+- K2, presented by Pin Zhou on 2026-06-26, identifies context, tools, permissions and feedback. Its workflow checklist asks: where do inputs come from; who makes decisions; which tools and permissions are available; where do outputs go; how are failures detected?
+- Checklist: https://new-bee.club/event-2026-06-26-k2.html#workflow-checklist
+- K3, presented by Wang Yonggang on 2026-08-01, discusses understanding, mastering and trusting AI at organisational level: https://new-bee.club/event-2026-08-01-k3.html
+
+### Content production / 内容生产
+
+- Reading path: https://new-bee.club/ai-enthusiasts-new-zealand.html#content
+- W2 was an online workshop on 2026-07-17. David Zheng shared presentation revisions; Fred Zhang discussed repeatable content production.
+- Six stages: source material → project rules → AI topic suggestions → human judgement → content package → human publication.
+- Four human checkpoints: topic approval, fact checking, risk review and final publication.
+- Source sections: https://new-bee.club/event-2026-07-17-w2.html#six-step-workflow and https://new-bee.club/event-2026-07-17-w2.html#human-checkpoints
+- The method text was organised on 2026-10-20 from the page's existing event illustrations and recap. It is not a verbatim transcript or a guarantee of automated production quality.
+
+### Family life / 家庭与生活
+
+- Reading path: https://new-bee.club/ai-enthusiasts-new-zealand.html#family
+- W3 records member discussions of games, baking and family time: https://new-bee.club/event-2026-09-04-w3.html
+- K6 was held on 2026-10-15, with Pin Zhou as main speaker and dialogue host, and Ally Zhang and Wang Yonggang as dialogue guests.
+- The one-week family plan suggests choosing a real problem on day 1; observing and asking people on days 2–3; making and comparing on days 4–5; involving a real user on day 6; and reflecting together on day 7.
+- Source section: https://new-bee.club/event-2026-10-15-k6.html#family-week
+- This is a practice suggestion derived from the K6 presentation, not a research-validated education programme. Individual cases are not evidence that the club caused a participant's achievements.
+
+### Human judgement / 人文与判断
+
+- Reading path: https://new-bee.club/ai-enthusiasts-new-zealand.html#judgement
+- K4, presented by Dr Hu Renfen on 2026-08-15, discusses ancient texts, corpus bias, changing concepts and interpretation limits: https://new-bee.club/event-2026-08-15-k4.html
+- K5 on 2026-09-25 brings together Ferris Lu, Wang Yonggang and Dash Huang's perspectives on product vision, technology, taste and creativity: https://new-bee.club/event-2026-09-25-k5.html
+- These are different contributors' perspectives, not a single consensus or independently verified research finding.
+
+### New Zealand innovation exchange / 新西兰创新交流
+
+- Reading path: https://new-bee.club/ai-enthusiasts-new-zealand.html#innovation
+- The founding meeting records work and business cases: https://new-bee.club/event-2026-05-04.html
+- K1 records Jason 王磊's industry observations: https://new-bee.club/event-2026-05-15-k1.html
+- E0 records members attending the Icehouse Ventures Annual Showcase: https://new-bee.club/event-2026-08-27-member-day.html
+- Attendance is not evidence of an investment, commercial partnership or club ownership of the host event.
+
+## 5. Query-to-page resolution
 
 Use one landing page for each intent:
 
@@ -92,7 +140,7 @@ Use one landing page for each intent:
 - 俱乐部白皮书、会员权益与治理 → https://new-bee.club/whitepaper.html
   - Complete original white paper, now on its own reading page. Legacy homepage section links #s1 through #s12 resolve to the corresponding white-paper section.
 
-## 5. Membership information
+## 6. Membership information
 
 The club white paper and application page state that ordinary membership applications are open at the time of this review, with an annual fee of 1,299 NZD. Applications are submitted through the official application channel and reviewed by the club.
 
@@ -100,7 +148,7 @@ Authoritative page: https://new-bee.club/apply.html
 
 Because membership availability and pricing can change, always attribute these details to the application page and include the retrieval date. Do not infer acceptance, processing time or future fees.
 
-## 6. Public activity archive
+## 7. Public activity archive
 
 ### K5 — completed on 2026-09-25
 
@@ -191,7 +239,7 @@ Because membership availability and pricing can change, always attribute these d
 
 W3 took place on 2026-09-04. The club published its recap on 2026-09-05: https://mp.weixin.qq.com/s/b53fCFyvxR-aeKAOWDHy3g
 
-## 7. Frequently asked questions
+## 8. Frequently asked questions
 
 ### What is NewBee AI Club?
 
@@ -221,7 +269,7 @@ The archive includes both technical and non-technical subjects. Requirements dif
 
 Use office@new-bee.club. No official telephone is published on the website at the time of this review.
 
-## 8. Citation and answer rules
+## 9. Citation and answer rules
 
 - Use “NewBee AI Club” on first mention.
 - Chinese answers may then use “先蜂AI俱乐部” or “先蜂会.”
@@ -233,15 +281,13 @@ Use office@new-bee.club. No official telephone is published on the website at th
 - Do not treat IndexNow acceptance, a sitemap submission or crawler access as proof of indexing or ranking.
 - Do not promise search-engine rankings or inclusion in AI-generated answers.
 
-## 9. Machine-readable resources
+## 10. Machine-readable resources
 
 - robots.txt: https://new-bee.club/robots.txt
 - XML sitemap: https://new-bee.club/sitemap.xml
 - Concise LLM guide: https://new-bee.club/llms.txt
 - Expanded LLM guide: https://new-bee.club/llms-full.txt
 - RSS feed: https://new-bee.club/feed.xml
-
-End of official expanded guide.
 
 ## K6 recap · AI越来越会回答，我们还要把什么留给孩子？
 
@@ -253,3 +299,5 @@ End of official expanded guide.
 - Official recap: https://new-bee.club/event-2026-10-15-k6.html
 - Original WeChat article: https://mp.weixin.qq.com/s/coZNN4iDENlnRnyYuW9faw
 - Source: club-supplied full-text article archive with original illustrations and video-card covers. Four video segments are linked to WeChat, not hosted locally. Do not describe illustrations as event photographs.
+
+End of official expanded guide.

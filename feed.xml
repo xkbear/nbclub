@@ -5,7 +5,7 @@
     <link>https://new-bee.club/events.html</link>
     <description>NewBee AI Club 先蜂AI俱乐部在新西兰及线上举办的 AI Keynote、实操 Workshop、会员活动日与公开回顾。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 +1300</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 21:00:00 +1300</lastBuildDate>
     <atom:link href="https://new-bee.club/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://new-bee.club/logo.jpg</url>
@@ -20,7 +20,8 @@
       <guid isPermaLink="true">https://new-bee.club/event-2026-10-15-k6.html</guid>
       <pubDate>Mon, 19 Oct 2026 00:00:00 +1300</pubDate>
       <category>Keynote</category><category>活动回顾</category>
-      <description>2026 年 10 月 15 日，先蜂会 K6 以“AI时代的新德智体美劳”为题。主讲周品（品哥），对谈嘉宾 Ally 张彤、王咏刚，讨论好奇心、同理心、意志力、审美力与亲缘感，以及不能外包的成长经历。 活动已结束，图文回顾及四段视频的观看入口已收录。</description>
+      <description>2026 年 10 月 15 日，先蜂会 K6 以“AI时代的新德智体美劳”为题。主讲周品（品哥），对谈嘉宾 Ally 张彤、王咏刚。活动已结束。10 月 20 日根据现场课件补充一周家庭行动表：选择问题、观察与询问、动手比较、交给真实使用者、共同复盘。此为实践建议，不是教育效果保证。</description>
+      <content:encoded><![CDATA[<p>回顾保留五种能力、具体案例、五组问答和原文视频入口。本次资料更新不改变活动日期。</p><p><a href="https://new-bee.club/event-2026-10-15-k6.html#family-week">阅读一周家庭行动表及来源说明</a>，或按<a href="https://new-bee.club/ai-enthusiasts-new-zealand.html#family">家庭与生活学习路径</a>继续阅读。</p>]]></content:encoded>
     </item>
 
     <item>
@@ -71,7 +72,8 @@
       <guid isPermaLink="true">https://new-bee.club/event-2026-07-17-w2.html</guid>
       <pubDate>Mon, 24 Aug 2026 00:00:00 +1200</pubDate>
       <category>Workshop</category>
-      <description>PPT 实战与公众号内容工作流：让 AI 从一次对话走向持续、可靠的生产协作。</description>
+      <description>David Zheng 分享 PPT 制作与返工，Fred Zhang 分享公众号内容工作流。10 月 20 日依据原有活动图示整理六步流程：真实资料、项目规则、AI 选题、人工判断、内容包、人工发布，并列出四个人工检查点。</description>
+      <content:encoded><![CDATA[<p><a href="https://new-bee.club/event-2026-07-17-w2.html#six-step-workflow">六步内容工作流</a>与<a href="https://new-bee.club/event-2026-07-17-w2.html#human-checkpoints">四个人工检查点</a>已整理为可读正文。依据本次活动原有图示与回顾，不是讲者逐字引语或效果承诺。活动仍为 2026 年 7 月 17 日的线上工作坊。</p>]]></content:encoded>
     </item>
     <item>
       <title>K2 硅基员工应用讲座</title>
@@ -79,7 +81,8 @@
       <guid isPermaLink="true">https://new-bee.club/event-2026-06-26-k2.html</guid>
       <pubDate>Mon, 24 Aug 2026 00:00:00 +1200</pubDate>
       <category>Keynote</category>
-      <description>周品（品哥）主讲：从聊天框走向智能体、组织上下文、权限边界与真实业务闭环。</description>
+      <description>周品（品哥）主讲：从聊天框走向智能体、组织上下文、权限边界与真实业务闭环。10 月 20 日将已有内容整理为五问检查清单：输入来自哪里、谁负责判断、可以调用什么、结果写回哪里、失败如何发现。</description>
+      <content:encoded><![CDATA[<p><a href="https://new-bee.club/event-2026-06-26-k2.html#workflow-checklist">阅读业务闭环五问</a>。清单供梳理流程使用，不代表某个系统已经通过验证。活动日期仍为 2026 年 6 月 26 日。</p>]]></content:encoded>
     </item>
     <item>
       <title>W1 OpenClaw（龙虾）实战工作坊</title>
