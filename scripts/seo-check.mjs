@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { dirname, extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { checkCommunityGuides } from "./check-community-guides.mjs";
+import { checkSiteNavigation } from "./check-site-navigation.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const base = "https://new-bee.club/";
@@ -309,27 +310,9 @@ if (warnings.length) {
   warnings.forEach((message) => console.log(`- ${message}`));
 }
 
-// Local navigation checks do not prove that Google has discovered or indexed a URL.
-const reachable = new Set();
-const pending = ["index.html"];
-while (pending.length) {
-  const file = pending.shift();
-  if (reachable.has(file)) continue;
-  reachable.add(file);
-  const html = readFileSync(join(root, file), "utf8");
-  for (const anchor of html.matchAll(/<a\b[^>]*>/gi)) {
-    const href = attr(anchor[0], "href");
-    if (!href) continue;
-    const target = new URL(href, `${base}${file}`);
-    if (target.origin !== new URL(base).origin) continue;
-    const next = target.pathname === "/" ? "index.html" : target.pathname.slice(1);
-    if (pages.includes(next) && !reachable.has(next)) pending.push(next);
-  }
-}
-for (const file of ["xin-xilan-ai-club.html", "auckland-ai-club.html", "events.html"]) {
-  if (!reachable.has(file)) fail(file, "core page must be reachable through normal links from the homepage");
-}
-
+// Cover every public sitemap page, not just the three original core guides.
+// This is a navigation check, not proof of Google discovery or indexing.
+checkSiteNavigation(root, fail);
 checkCommunityGuides(root, fail);
 
 if (failures.length) {
@@ -338,4 +321,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`LOCAL SEO CHECK PASSED: ${pages.length} pages checked, ${schemaTypes.size} schema types, core pages reachable without keyword-only link rows, RSS and LLM discovery files. Google indexing and rankings require separate Search Console verification.`);
+console.log(`LOCAL SEO CHECK PASSED: ${pages.length} pages checked, ${schemaTypes.size} schema types, all sitemap pages reachable with return routes and no orphans, RSS and LLM discovery files. Google indexing and rankings require separate Search Console verification.`);
