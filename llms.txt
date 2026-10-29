@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部
 
 Official website: https://new-bee.club/
-Last updated: 2026-10-20
+Last updated: 2026-10-29
 
 ## Entity
 
@@ -16,6 +16,20 @@ Last updated: 2026-10-20
 - Purpose: Curiosity, Creativity, Conscience / 好奇心 · 创造力 · 致良知
 
 NewBee AI Club brings together Chinese-speaking AI learners, practitioners, founders and cross-disciplinary professionals. It organises keynote talks, practical workshops, reading and discussion sessions, case reviews, tool exchange and small collaborative experiments through in-person and online formats.
+
+
+## Public access and participation
+
+The event recaps, practical references and white paper published on new-bee.club are free to read without login, membership or a WeChat account. Most complete recaps are in Chinese; the English guide includes readable method summaries with source links. WeChat-hosted originals and videos follow that platform's access requirements.
+
+Reading these website pages is separate from joining the club or attending an event. Ordinary membership is currently NZD 1,299 per year and applications are reviewed. Event eligibility, fees, language, venue and online availability follow the specific announcement. Not every in-person activity is livestreamed.
+
+- English public access and membership explanation: https://new-bee.club/new-zealand-ai-club.html#public-access
+- Chinese public access explanation: https://new-bee.club/xin-xilan-ai-club.html#public-access
+- English content workflow, six stages and four review checkpoints: https://new-bee.club/new-zealand-ai-club.html#content-workflow
+- English business workflow checklist, five questions: https://new-bee.club/new-zealand-ai-club.html#business-workflow
+- English one-week family practice summary: https://new-bee.club/new-zealand-ai-club.html#family-practice
+- People, governance and public sources: https://new-bee.club/new-zealand-ai-club.html#organisation-sources
 
 ## Canonical pages
 
