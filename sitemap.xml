@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://new-bee.club/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://new-bee.club/"/>
@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/new-zealand-ai-club.html</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en-NZ" href="https://new-bee.club/new-zealand-ai-club.html"/>
@@ -69,7 +69,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/ai-enthusiasts-new-zealand.html</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -99,13 +99,13 @@
   </url>
   <url>
     <loc>https://new-bee.club/events.html</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://new-bee.club/assets/events/2026-10-15-k6/recap-cover-1080.webp</image:loc>
+      <image:loc>https://new-bee.club/assets/events/2026-10-30-w4/recap-cover-1080.webp</image:loc>
       <image:title>NewBee 先蜂AI俱乐部活动日历</image:title>
-      <image:caption>先蜂AI俱乐部 Keynote、Workshop、会员活动日与创会记录；最新回顾为 K6：AI越来越会回答，我们还要把什么留给孩子？</image:caption>
+      <image:caption>先蜂AI俱乐部 Keynote、Workshop、会员活动日与创会记录；最新回顾为 W4：昨天，奥克兰多了一群 AI 导演</image:caption>
     </image:image>
   </url>
   <url>
@@ -232,4 +232,5 @@
     </video:video>
   </url>
   <url><loc>https://new-bee.club/event-2026-10-15-k6.html</loc><lastmod>2026-10-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><image:image><image:loc>https://new-bee.club/assets/events/2026-10-15-k6/recap-cover-1080.webp</image:loc><image:title>K6 活动回顾：AI越来越会回答，我们还要把什么留给孩子？</image:title></image:image></url>
+  <url><loc>https://new-bee.club/event-2026-10-30-w4.html</loc><lastmod>2026-11-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><image:image><image:loc>https://new-bee.club/assets/events/2026-10-30-w4/recap-cover-1080.webp</image:loc><image:title>W4 活动回顾：昨天，奥克兰多了一群 AI 导演</image:title></image:image><video:video><video:thumbnail_loc>https://new-bee.club/assets/events/2026-10-30-w4/recap-video-poster.webp</video:thumbnail_loc><video:title>W4 今天，你当导演！活动短片</video:title><video:description>2026 年 10 月 30 日 AI 视频创作体验课活动短片。</video:description><video:content_loc>https://new-bee.club/assets/events/2026-10-30-w4/recap-video.mp4</video:content_loc><video:duration>77</video:duration></video:video></url>
 </urlset>

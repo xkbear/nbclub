@@ -30,7 +30,8 @@ const pages = [
   "event-2026-08-27-member-day.html",
   "event-2026-09-04-w3.html",
   "event-2026-09-25-k5.html",
-  "event-2026-10-15-k6.html"
+  "event-2026-10-15-k6.html",
+  "event-2026-10-30-w4.html"
 ];
 
 const failures = [];
@@ -256,10 +257,22 @@ for (const file of ["index.html", "events.html", "event-2026-10-15-k6.html", "fe
 if (!k6.includes('2026-10-15T10:30:00+13:00') || !k6.includes(k6Source) || !k6.includes("阅读公众号原文") || !k6.includes("Ally 张彤")) fail("K6", "recap must retain the event date, verified source and dialogue guests");
 if (k6.includes('"offers"') || k6.includes("preview.mp4") || k6.includes("EventScheduled")) fail("K6", "recap must not present preview media or ticket offers as current");
 if ((k6.match(/class="recap-video-card"/g) ?? []).length !== 4 || !k6.includes("未转存视频文件")) fail("K6", "four source-only video previews must be clearly labelled");
-const k6EventList = readFileSync(join(root, "events.html"), "utf8");
+const eventList = readFileSync(join(root, "events.html"), "utf8");
 const keynoteCount = (homepage.match(/<article class="story-card" data-category="keynote">/g) ?? []).length;
 if (keynoteCount !== 6 || !homepage.includes(`<strong>${keynoteCount}</strong><span>场已举办主题讲座`)) fail("index.html", "completed keynote count must match the archive");
-if (!k6EventList.includes('id="latest-recap" href="event-2026-10-15-k6.html"') || !k6EventList.includes("11 场活动回顾")) fail("events.html", "K6 must lead the updated eleven-event archive");
+const archiveCount = (eventList.match(/<article class="story-card" data-category=/g) ?? []).length;
+if (!eventList.includes(`id="latest-recap" href="${latestRecap?.href}"`) || !eventList.includes(`${archiveCount} 场活动回顾`)) fail("events.html", "latest completed recap and displayed archive count must match the cards");
+const workshopCount = (homepage.match(/<article class="story-card" data-category="workshop">/g) ?? []).length;
+if (workshopCount !== 4 || !homepage.includes(`<strong>${workshopCount}</strong><span>场实操工作坊`)) fail("index.html", "workshop count must match the completed archive");
+const w4 = readFileSync(join(root, "event-2026-10-30-w4.html"), "utf8");
+const w4Video = w4.match(/<video\b[^>]*>/i)?.[0] ?? "";
+if (!w4.includes("马雨枫") || !w4.includes("2026-10-30") || !w4.includes("https://mp.weixin.qq.com/s/7vu2FWXjbyG5CqiWraTc8Q")) fail("W4", "recap needs the verified speaker, event date and original source");
+if (attr(w4Video,"width") !== "720" || attr(w4Video,"height") !== "1280" || attr(w4Video,"preload") !== "none" || /\bautoplay\b/.test(w4Video) || !/\bcontrols\b/.test(w4Video) || !/\bplaysinline\b/.test(w4Video) || !/\bnodownload\b/.test(attr(w4Video,"controlslist"))) fail("W4", "video must preserve portrait dimensions, click-to-play and hidden download control");
+if (/请插入|encfilekey=|EventScheduled|"offers"/.test(w4)) fail("W4", "recap must not expose editing instructions, transient video URLs or current ticket offers");
+for (const media of ["recap-video.mp4", "recap-video-poster.webp"]) {
+ const path = "assets/events/2026-10-30-w4/" + media;
+ if (!existsSync(join(root,path)) || !w4.includes(path) || !sitemap.includes(path)) fail("W4", `missing media or discovery entry (${path})`);
+}
 for (const asset of ["recap-cover-640.webp", "recap-cover-1080.webp", ...Array.from({length:13}, (_,i)=>`recap-${String(i+2).padStart(2,"0")}.webp`)]) {
   if (!existsSync(join(root, "assets/events/2026-10-15-k6", asset))) fail("K6", `missing recap media ${asset}`);
 }

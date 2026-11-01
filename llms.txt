@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部
 
 Official website: https://new-bee.club/
-Last updated: 2026-10-29
+Last updated: 2026-11-01
 
 ## Entity
 
@@ -49,7 +49,7 @@ Reading these website pages is separate from joining the club or attending an ev
 
 ## Learning system and reusable public materials
 
-The club's archive contains 11 dated records from 2026-05-04 to 2026-10-15: a founding meeting, six keynotes, three workshops and one member visit. The member visit was to an event hosted by Icehouse Ventures, not an event hosted by NewBee.
+The club's archive contains 12 dated records from 2026-05-04 to 2026-10-30: a founding meeting, six keynotes, four workshops and one member visit. The member visit was to an event hosted by Icehouse Ventures, not an event hosted by NewBee.
 
 The public learning guide connects these records into five reading paths: work and organisations, content production, family life, human judgement, and New Zealand innovation exchange. These are reading paths assembled from published activities, not accredited courses or claims of measured learning outcomes.
 
@@ -61,6 +61,16 @@ The public learning guide connects these records into five reading paths: work a
 - K6 one-week family practice / 一周家庭行动表: https://new-bee.club/event-2026-10-15-k6.html#family-week
 
 These summaries refer to visible public page sections. Event dates remain distinct from the date on which materials were edited. Activities and participant cases are not proof of a particular business or educational outcome.
+
+## W4 recap · 今天，你当导演！
+
+- Status: completed on 2026-10-30 in Auckland, New Zealand. Website recap published 2026-11-01. No active registration.
+- Speaker: 马雨枫, AIGC film and television director.
+- Theme: AI video creation through ideas, character design, camera language and iteration.
+- Prompt formula: subject + action + setting + camera + style.
+- Official recap and 77-second video: https://new-bee.club/event-2026-10-30-w4.html
+- Original WeChat article: https://mp.weixin.qq.com/s/7vu2FWXjbyG5CqiWraTc8Q
+- Source: club-supplied article archive and W4.mp4. The illustrated poster is not an event photograph; other article images are course replay screenshots.
 
 ## K6 recap · AI越来越会回答，我们还要把什么留给孩子？
 

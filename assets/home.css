@@ -138,3 +138,17 @@
  .archive-grid .story-card{max-width:none}.archive-faq{padding-block:60px}
 }
 @media(max-width:540px){.archive-grid{grid-template-columns:1fr}.archive-grid .story-body h3{font-size:24px}.photo-caption{align-items:flex-start}.photo-caption>a{white-space:nowrap}.hero-description br{display:none}.hero-actions{gap:18px}.home-hero .button{min-height:42px;padding:10px 20px}.home-hero .link-arrow{font-size:15px}.benefits{grid-template-columns:1fr}.benefit:last-child{grid-column:auto}.benefit{display:grid;grid-template-columns:27px 1fr;column-gap:10px}.benefit-number{grid-row:1/3;padding-top:3px}.benefit h3{margin:0 0 7px}.membership-price p{font-size:16px}.membership-price strong{font-size:48px}}
+
+/* W4: retain the complete portrait artwork in a wide editorial composition. */
+.hero-photo>a.w4-recap-visual{display:grid;grid-template-columns:1fr 1fr;align-items:center;background:#f4eee1;color:#12213c;padding:28px 6%;gap:36px}
+.w4-recap-copy{text-align:left;padding:28px 0}
+.w4-recap-copy .eyebrow{color:#854a25;font-size:12px}
+.w4-recap-copy h2{font-size:clamp(38px,5.5vw,76px);line-height:1.15;margin:24px 0;letter-spacing:-.04em}
+.w4-recap-copy p{font-size:clamp(17px,2vw,24px);line-height:1.7;color:#38445b}
+.w4-film-label{display:block;margin-top:30px;font-size:13px;color:#854a25}
+.hero-photo.is-w4-recap img{aspect-ratio:3/4;object-fit:contain;width:auto;max-width:100%;max-height:520px;justify-self:center;border-radius:12px}
+.featured-story.w4-recap-feature{grid-template-columns:minmax(0,.8fr) minmax(0,1fr)}
+.w4-recap-feature .featured-photo{background:#f4eee1;padding:24px;display:grid;place-items:center}
+.w4-recap-feature .featured-photo img{height:auto;max-height:440px;width:auto;max-width:100%;aspect-ratio:3/4;object-fit:contain}
+.w4-recap-feature .w4-art-note{font-size:12px;color:var(--muted)}
+@media(max-width:680px){.hero-photo>a.w4-recap-visual{grid-template-columns:1fr;padding:24px;gap:18px}.w4-recap-copy{padding:0}.w4-recap-copy h2{font-size:42px;margin:15px 0}.w4-recap-copy p{display:none}.w4-film-label{margin-top:14px}.hero-photo.is-w4-recap img{max-height:400px;width:100%}.featured-story.w4-recap-feature{grid-template-columns:1fr}.w4-recap-feature .featured-photo img{max-height:360px}}

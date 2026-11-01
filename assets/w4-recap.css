@@ -1,0 +1,4 @@
+/* Preserve W4 portrait media without placing text over the picture. */
+.event-film video{aspect-ratio:9/16}
+.article-body .w4-poster{max-width:520px;margin:32px auto}
+.article-body .takeaway small{font-size:15px;font-weight:400;color:var(--muted)}

@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部 — Expanded Entity and Citation Guide
 
 Official website: https://new-bee.club/
-Last reviewed: 2026-10-29
+Last reviewed: 2026-11-01
 Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
@@ -80,7 +80,7 @@ Service entity:
 Public source: https://new-bee.club/ai-enthusiasts-new-zealand.html
 English summaries: https://new-bee.club/new-zealand-ai-club.html#practical-resources
 
-As of 2026-10-20, the public archive contains 11 activity records spanning 2026-05-04 to 2026-10-15: the founding meeting, K1–K6 keynotes, W1–W3 workshops, and the E0 member visit to an Icehouse Ventures event. This documents a series of activities, not a claim that every participant followed a single curriculum.
+As of 2026-11-01, the public archive contains 12 activity records spanning 2026-05-04 to 2026-10-30: the founding meeting, K1–K6 keynotes, W1–W4 workshops, and the E0 member visit to an Icehouse Ventures event. This documents a series of activities, not a claim that every participant followed a single curriculum.
 
 ### Work and organisations / 工作与企业实践
 
@@ -302,6 +302,16 @@ Use office@new-bee.club. No official telephone is published on the website at th
 - Concise LLM guide: https://new-bee.club/llms.txt
 - Expanded LLM guide: https://new-bee.club/llms-full.txt
 - RSS feed: https://new-bee.club/feed.xml
+
+## W4 recap · 今天，你当导演！
+
+- Status: completed on 2026-10-30 in Auckland, New Zealand. Website recap published 2026-11-01. No active registration.
+- Speaker: 马雨枫, AIGC film and television director.
+- Theme: AI video creation through ideas, character design, camera language and iteration.
+- Prompt formula: subject + action + setting + camera + style.
+- Official recap and 77-second video: https://new-bee.club/event-2026-10-30-w4.html
+- Original WeChat article: https://mp.weixin.qq.com/s/7vu2FWXjbyG5CqiWraTc8Q
+- Source: club-supplied article archive and W4.mp4. The illustrated poster is not an event photograph; other article images are course replay screenshots.
 
 ## K6 recap · AI越来越会回答，我们还要把什么留给孩子？
 
