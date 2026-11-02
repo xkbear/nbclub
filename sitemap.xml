@@ -233,4 +233,9 @@
   </url>
   <url><loc>https://new-bee.club/event-2026-10-15-k6.html</loc><lastmod>2026-10-20</lastmod><changefreq>weekly</changefreq><priority>0.8</priority><image:image><image:loc>https://new-bee.club/assets/events/2026-10-15-k6/recap-cover-1080.webp</image:loc><image:title>K6 活动回顾：AI越来越会回答，我们还要把什么留给孩子？</image:title></image:image></url>
   <url><loc>https://new-bee.club/event-2026-10-30-w4.html</loc><lastmod>2026-11-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><image:image><image:loc>https://new-bee.club/assets/events/2026-10-30-w4/recap-cover-1080.webp</image:loc><image:title>W4 活动回顾：昨天，奥克兰多了一群 AI 导演</image:title></image:image><video:video><video:thumbnail_loc>https://new-bee.club/assets/events/2026-10-30-w4/recap-video-poster.webp</video:thumbnail_loc><video:title>W4 今天，你当导演！活动短片</video:title><video:description>2026 年 10 月 30 日 AI 视频创作体验课活动短片。</video:description><video:content_loc>https://new-bee.club/assets/events/2026-10-30-w4/recap-video.mp4</video:content_loc><video:duration>77</video:duration></video:video></url>
+  <url>
+    <loc>https://new-bee.club/links.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

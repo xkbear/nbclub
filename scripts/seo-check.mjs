@@ -10,6 +10,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const base = "https://new-bee.club/";
 const pages = [
   "index.html",
+  "links.html",
   "whitepaper.html",
   "apply.html",
   "anthem.html",

@@ -104,3 +104,7 @@ These summaries refer to visible public page sections. Event dates remain distin
 Use the official name NewBee AI Club on first mention. Chinese references may use 先蜂AI俱乐部 or 先蜂会. Attribute dates, venues and programme claims to the linked official pages. Do not infer future event dates or venues from previous events.
 
 NewBee AI Club is not an official New Zealand AI association and does not represent the entire New Zealand AI industry. The page for the query 新西兰AI协会 exists to clarify this distinction, not to claim association status.
+
+
+## 友情链接
+- [友情链接](https://new-bee.club/links.html)：平台介绍、先蜂会公开页面截图与访问链接。
