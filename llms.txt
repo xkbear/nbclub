@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部
 
 Official website: https://new-bee.club/
-Last updated: 2026-11-01
+Last updated: 2026-11-02
 
 ## Entity
 
@@ -27,6 +27,7 @@ Reading these website pages is separate from joining the club or attending an ev
 - English public access and membership explanation: https://new-bee.club/new-zealand-ai-club.html#public-access
 - Chinese public access explanation: https://new-bee.club/xin-xilan-ai-club.html#public-access
 - English content workflow, six stages and four review checkpoints: https://new-bee.club/new-zealand-ai-club.html#content-workflow
+- W2 Chinese and English content brief worksheet (TXT), prepared by the club from the recap; free to read without membership or login: https://new-bee.club/assets/resources/w2-content-brief.txt
 - English business workflow checklist, five questions: https://new-bee.club/new-zealand-ai-club.html#business-workflow
 - English one-week family practice summary: https://new-bee.club/new-zealand-ai-club.html#family-practice
 - People, governance and public sources: https://new-bee.club/new-zealand-ai-club.html#organisation-sources
