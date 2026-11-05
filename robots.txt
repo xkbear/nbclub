@@ -32,3 +32,4 @@ Allow: /
 
 Sitemap: https://new-bee.club/sitemap.xml
 Sitemap: https://new-bee.club/sitemap.txt
+Sitemap: https://new-bee.club/sitemap-pages.xml

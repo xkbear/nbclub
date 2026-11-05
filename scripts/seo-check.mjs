@@ -299,8 +299,22 @@ for (const file of [
   if (questionHeadings.length < 3) fail(file, "fewer than three visible question-style FAQ headings");
 }
 
-for (const required of ["feed.xml", "llms.txt", "llms-full.txt", "robots.txt", "sitemap.xml", "sitemap.txt"]) {
+for (const required of ["feed.xml", "llms.txt", "llms-full.txt", "robots.txt", "sitemap.xml", "sitemap.txt", "sitemap-pages.xml"]) {
   if (!existsSync(join(root, required))) fail(required, "file is missing");
+}
+
+if (existsSync(join(root, "sitemap-pages.xml"))) {
+  const pageSitemap = readFileSync(join(root, "sitemap-pages.xml"), "utf8");
+  const pageEntries = source => [...source.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(match => ({
+    location: match[1].match(/<loc>([^<]+)<\/loc>/)?.[1],
+    modified: match[1].match(/<lastmod>([^<]+)<\/lastmod>/)?.[1]
+  }));
+  if (JSON.stringify(pageEntries(pageSitemap)) !== JSON.stringify(pageEntries(sitemap))) {
+    fail("sitemap-pages.xml", "page URLs and dates must match sitemap.xml; run node scripts/build-page-sitemap.mjs");
+  }
+  if (!readFileSync(join(root, "robots.txt"), "utf8").includes(`Sitemap: ${base}sitemap-pages.xml`)) {
+    fail("robots.txt", "page-only XML sitemap must be discoverable");
+  }
 }
 
 if (existsSync(join(root, "sitemap.txt"))) {
