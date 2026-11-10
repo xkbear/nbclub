@@ -1,10 +1,16 @@
 # NewBee AI Club / 先蜂AI俱乐部 — Expanded Entity and Citation Guide
 
 Official website: https://new-bee.club/
-Last reviewed: 2026-11-02
+Last reviewed: 2026-11-10
 Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
+
+## Upcoming event — K7 (announcement, not a recap)
+
+Title: AI 时代游戏开发 × Cindy 实战. Speaker: 黄一孟 (Dash), TapTap founder and 心动游戏董事长, according to the club announcement. Date: 2026-11-14, 10:30–12:30 Pacific/Auckland. Venue: Albany; specific address supplied after registration. Capacity: 40. Members and one accompanying friend attend free; non-members NZD 20. Refreshments provided. In-person registration closes 2026-11-11 at 20:00 Pacific/Auckland. The homepage provides separate posters for in-person registration and WeChat Channels livestream reservation: https://new-bee.club/#upcoming
+
+This future event is not counted among completed activities. W4 on 2026-10-30 remains the latest published recap; completed totals remain six keynotes and four workshops.
 
 This file is an expanded, plain-text guide to the public pages on new-bee.club. It is intended to help search and answer systems resolve the organisation, select the right landing page, and cite claims without inventing missing details.
 

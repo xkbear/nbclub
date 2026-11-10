@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部
 
 Official website: https://new-bee.club/
-Last updated: 2026-11-02
+Last updated: 2026-11-10
 
 ## Entity
 
@@ -31,6 +31,14 @@ Reading these website pages is separate from joining the club or attending an ev
 - English business workflow checklist, five questions: https://new-bee.club/new-zealand-ai-club.html#business-workflow
 - English one-week family practice summary: https://new-bee.club/new-zealand-ai-club.html#family-practice
 - People, governance and public sources: https://new-bee.club/new-zealand-ai-club.html#organisation-sources
+
+## Upcoming K7 keynote (not a completed event)
+
+- AI 时代游戏开发 × Cindy 实战. Speaker: 黄一孟 (Dash), TapTap founder and 心动游戏董事长, as supplied in the club announcement.
+- 2026-11-14, 10:30–12:30 Pacific/Auckland. Albany; specific address provided after registration.
+- 40 seats. Members and one accompanying friend attend free; non-members NZD 20. Refreshments provided.
+- In-person registration closes 2026-11-11 at 20:00 Pacific/Auckland. Registration and separate WeChat Channels livestream reservation posters: https://new-bee.club/#upcoming
+- Completed totals remain 6 keynotes and 4 workshops; latest published recap remains W4 (2026-10-30).
 
 ## Canonical pages
 
