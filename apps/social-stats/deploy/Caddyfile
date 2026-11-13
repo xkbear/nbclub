@@ -1,0 +1,14 @@
+stats.new-bee.club {
+    encode zstd gzip
+    handle_path /static/* {
+        root * /opt/newbee-social-stats/apps/social-stats/staticfiles
+        file_server
+    }
+    handle {
+        reverse_proxy 127.0.0.1:8001
+    }
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy same-origin
+    }
+}

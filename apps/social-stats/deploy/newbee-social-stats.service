@@ -1,0 +1,22 @@
+[Unit]
+Description=NewBee private social stats dashboard
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=newbee-stats
+Group=newbee-stats
+WorkingDirectory=/opt/newbee-social-stats/apps/social-stats
+EnvironmentFile=/etc/newbee-social-stats.env
+ExecStart=/opt/newbee-social-stats/apps/social-stats/.venv/bin/gunicorn config.wsgi:application --bind 127.0.0.1:8001 --workers 1 --access-logfile -
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/newbee-social-stats
+
+[Install]
+WantedBy=multi-user.target
