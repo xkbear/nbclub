@@ -16,6 +16,16 @@ assert.equal(event.startDate, '2026-11-14T10:30:00+13:00');
 assert.equal(event.endDate, '2026-11-14T12:30:00+13:00');
 assert.equal(event.maximumAttendeeCapacity, 40);
 assert.equal(event.eventStatus, 'https://schema.org/EventScheduled');
+assert.equal(event.offers?.['@type'], 'Offer', 'Known public ticket facts must be available to search engines');
+assert.equal(event.offers.price, 20, 'Public non-member price must not be replaced by the conditional member benefit');
+assert.equal(event.offers.priceCurrency, 'NZD');
+assert.equal(event.offers.url, event.url, 'Offer must point to the visible K7 ticket information section');
+assert.equal(event.offers.validThrough, '2026-11-11T20:00:00+13:00', 'Keep the verified registration deadline');
+assert(event.offers.description.includes('报名已于') && event.offers.description.includes('会员'), 'Explain the closed registration and member condition');
+assert(!event.offers.availability, 'No verified live inventory: do not claim InStock or SoldOut');
+assert(!event.offers.validFrom, 'Do not invent an on-sale timestamp');
+assert(html.includes('id="upcoming"') && /data-k7-dialog="k7-register"/.test(preview), 'Ticket details must have a visible route from the event section');
+
 assert(html.includes('class="k7-art-window"'), 'Poster must use fixed framing rather than viewport-dependent cover cropping');
 const stats = html.match(/<div class="stat-strip">[\s\S]*?<\/section>/)?.[0] ?? '';
 assert(stats.includes('场会员活动日 · E0'), 'E0 membership day must appear in homepage statistics');
