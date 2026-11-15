@@ -32,7 +32,8 @@ const pages = [
   "event-2026-09-04-w3.html",
   "event-2026-09-25-k5.html",
   "event-2026-10-15-k6.html",
-  "event-2026-10-30-w4.html"
+  "event-2026-10-30-w4.html",
+  "event-2026-11-14-k7.html"
 ];
 
 const failures = [];
@@ -260,7 +261,7 @@ if (k6.includes('"offers"') || k6.includes("preview.mp4") || k6.includes("EventS
 if ((k6.match(/class="recap-video-card"/g) ?? []).length !== 4 || !k6.includes("未转存视频文件")) fail("K6", "four source-only video previews must be clearly labelled");
 const eventList = readFileSync(join(root, "events.html"), "utf8");
 const keynoteCount = (homepage.match(/<article class="story-card" data-category="keynote">/g) ?? []).length;
-if (keynoteCount !== 6 || !homepage.includes(`<strong>${keynoteCount}</strong><span>场已举办主题讲座`)) fail("index.html", "completed keynote count must match the archive");
+if (keynoteCount !== 7 || !homepage.includes(`<strong>${keynoteCount}</strong><span>场已举办主题讲座`)) fail("index.html", "completed keynote count must match the archive");
 const archiveCount = (eventList.match(/<article class="story-card" data-category=/g) ?? []).length;
 if (!eventList.includes(`id="latest-recap" href="${latestRecap?.href}"`) || !eventList.includes(`${archiveCount} 场活动回顾`)) fail("events.html", "latest completed recap and displayed archive count must match the cards");
 const workshopCount = (homepage.match(/<article class="story-card" data-category="workshop">/g) ?? []).length;
