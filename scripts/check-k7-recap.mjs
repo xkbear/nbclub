@@ -26,7 +26,7 @@ for (const name of ['index.html','events.html',page,'feed.xml','llms.txt','llms-
 }
 if (process.argv.includes('--publish')) {
   const original = blocks.find(x => x['@type'] === 'BlogPosting').isBasedOn;
-  assert(original?.startsWith('https://mp.weixin.qq.com/s'), 'Publishing requires the verified formal WeChat original');
+  assert.equal(original, 'https://mp.weixin.qq.com/s/7O5d-3utq_bEZ7JL2k5LcA', 'Publishing requires the verified formal WeChat original');
   assert(!/tempkey=|正式链接待补/.test(html), 'Do not publish a temporary source or pending placeholder');
   assert(html.includes('阅读公众号原文'));
 }

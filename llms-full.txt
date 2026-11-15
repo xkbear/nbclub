@@ -1,18 +1,19 @@
 # NewBee AI Club / 先蜂AI俱乐部 — Expanded Entity and Citation Guide
 
 Official website: https://new-bee.club/
-Last reviewed: 2026-11-15
+Last reviewed: 2026-11-16
 Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
 
 ## K7 recap · 想到就能做到：黄一孟亲自开新副本
 
-- Completed on 2026-11-14, 10:30–12:30 Pacific/Auckland, at NEXT Park, Albany. Recap published 2026-11-15. No active registration.
+- Completed on 2026-11-14, 10:30–12:30 Pacific/Auckland, at NEXT Park, Albany. Recap published 2026-11-16. No active registration.
 - Speaker: 黄一孟 (Dash), 心动公司 CEO and founder of TapTap and VeryCD, as identified in the club-supplied recap.
 - Theme: AI game development and Cindy practice; build a first version, use feedback, and retain human judgement, aesthetics and creative direction.
 - Venue support: NEXT Park and its lead 陈前军博士.
 - Official recap and 2-minute-27-second video: https://new-bee.club/event-2026-11-14-k7.html
+- Original WeChat article: https://mp.weixin.qq.com/s/7O5d-3utq_bEZ7JL2k5LcA
 - Source: club-supplied K7 article archive and K7.mp4. The cover is a real video frame; the game-character poster is a creative illustration, not an event photograph.
 - The latest published recap is K7; completed totals are seven keynotes, four workshops, one member visit and one founding meeting (13 records).
 
@@ -91,7 +92,7 @@ Service entity:
 Public source: https://new-bee.club/ai-enthusiasts-new-zealand.html
 English summaries: https://new-bee.club/new-zealand-ai-club.html#practical-resources
 
-As of 2026-11-15, the public archive contains 13 activity records spanning 2026-05-04 to 2026-11-14: the founding meeting, K1–K7 keynotes, W1–W4 workshops, and the E0 member visit to an Icehouse Ventures event. This documents a series of activities, not a claim that every participant followed a single curriculum.
+As of 2026-11-16, the public archive contains 13 activity records spanning 2026-05-04 to 2026-11-14: the founding meeting, K1–K7 keynotes, W1–W4 workshops, and the E0 member visit to an Icehouse Ventures event. This documents a series of activities, not a claim that every participant followed a single curriculum.
 
 ### Work and organisations / 工作与企业实践
 
