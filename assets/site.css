@@ -52,7 +52,12 @@ button:focus-visible,a:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .brand-lockup img{width:64px;height:26px;object-fit:contain}
 .brand-lockup span{font-size:19px;font-weight:600;letter-spacing:-.035em;white-space:nowrap}
 .desktop-nav{display:flex;align-items:center;gap:30px;margin-left:auto}
-.desktop-nav a{font-size:13px;color:var(--body-ink);transition:color .2s}
+.desktop-nav a{font-size:13px;color:var(--body-ink);transition:color .2s;white-space:nowrap}
+@media(min-width:821px) and (max-width:1100px){
+  .nav-shell{gap:20px;padding-inline:24px}
+  .desktop-nav{gap:20px}
+  .nav-actions{gap:14px}
+}
 .desktop-nav a:hover,.desktop-nav a[aria-current=page]{color:var(--ink)}
 .nav-actions{display:flex;align-items:center;gap:20px}
 .language-link{font-size:12px;color:var(--muted)}

@@ -173,8 +173,7 @@
   if (filters) {
     filters.hidden = false;
     const cards = Array.from(document.querySelectorAll('.archive-grid .story-card'));
-    filters.addEventListener('click', event => {
-      const button = event.target.closest('button[data-filter]');
+    const applyFilter = button => {
       if (!button) return;
       filters.querySelectorAll('button').forEach(el => el.setAttribute('aria-pressed', String(el === button)));
       let count = 0;
@@ -187,8 +186,17 @@
         }
       });
       const result = document.querySelector('[data-filter-result]');
-      if (result) result.textContent = count + ' 场活动';
-    });
+      if (result) result.textContent = document.documentElement.lang.startsWith('en')
+        ? count + (count === 1 ? ' event' : ' events') : count + ' 场活动';
+    };
+    filters.addEventListener('click', event => applyFilter(event.target.closest('button[data-filter]')));
+    const filterFromHash = () => {
+      const value = location.hash.slice(1);
+      const button = Array.from(filters.querySelectorAll('button[data-filter]')).find(el => el.dataset.filter === value);
+      if (button) applyFilter(button);
+    };
+    filterFromHash();
+    addEventListener('hashchange', filterFromHash);
   }
 
   const progress = document.querySelector('.reading-progress');

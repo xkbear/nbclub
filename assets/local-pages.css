@@ -21,6 +21,8 @@
 .section-head h2{font-size:clamp(30px,3.2vw,44px);line-height:1.2}
 .section-intro{color:var(--muted);font-size:17px;line-height:1.8;margin-top:20px}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+:lang(en) #programme .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:680px){:lang(en) #programme .cards{grid-template-columns:1fr}}
 .card{border-radius:22px;background:var(--surface);padding:30px;min-height:245px}
 .card-index{font-size:11px;color:var(--muted)}
 .card h3{margin:44px 0 17px;font-size:23px}

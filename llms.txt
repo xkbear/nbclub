@@ -132,3 +132,10 @@ NewBee AI Club is not an official New Zealand AI association and does not repres
 
 ## 友情链接
 - [友情链接](https://new-bee.club/links.html)：平台介绍、先蜂会公开页面截图与访问链接。
+
+## English reading routes
+- English event archive (all 14 dated event summaries, K/W/E/S filters): https://new-bee.club/events-en.html
+- English Support hub: https://new-bee.club/support-en.html
+- Full English S01 NXT Build Sprint recap, original English showcase video, finalists, awards and sponsorship record: https://new-bee.club/event-2026-11-15-nxt-en.html
+- English club introduction, organisation and membership information: https://new-bee.club/new-zealand-ai-club.html
+- NXT Build Sprint was conducted in English. Earlier full event recaps and the original closing-report PDF are in Chinese; the English archive labels these links. English summaries do not imply English-language sessions.

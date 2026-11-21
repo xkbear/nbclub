@@ -62,8 +62,11 @@
 .support-home-copy .support-home-action{display:block;color:#fff;font-size:14px;margin-top:30px}
 .hero-photo.is-support-recap img{height:auto;width:100%;max-height:470px;aspect-ratio:768/821;object-fit:contain;justify-self:center}
 .hero-photo.is-support-recap>a:hover img{transform:none}
-.support-story-image{background:#304aff!important}
-.support-story-image img{object-fit:contain!important}
+.support-story-image{background:#304aff!important;position:relative}
+.support-story-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain!important}
+.story-card:hover .support-story-image img{transform:none}
+/* English labels remain discoverable without a horizontally scrolling strip. */
+.page-events:lang(en) .filter-group{flex-wrap:wrap;border-radius:22px;overflow:visible}
 .support-channel-link{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:22px 26px;border:1px solid var(--line);border-radius:18px;margin:30px 0;font-size:17px}
 .support-channel-link span{font-size:13px;color:var(--muted)}
 .featured-story.support-feature{grid-template-columns:.9fr 1.1fr}

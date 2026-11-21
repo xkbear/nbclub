@@ -16,6 +16,9 @@ const pages = [
   "anthem.html",
   "events.html",
   "support.html",
+  "events-en.html",
+  "support-en.html",
+  "event-2026-11-15-nxt-en.html",
   "event-2026-11-15-nxt.html",
   "new-zealand-ai-club.html",
   "xin-xilan-ai-club.html",
@@ -87,7 +90,8 @@ for (const file of pages) {
   if (!body.includes('class="site-header"') || !body.includes('class="site-footer"')) fail(file, "missing shared navigation or footer");
   if (/class=["'][^"']*\b(?:footer-topics|intent-nav)\b/.test(body)) fail(file, "keyword-only navigation must not return");
   const footer = body.match(/<footer\b[^>]*>[\s\S]*?<\/footer>/i)?.[0] ?? "";
-  for (const target of ["events.html", "whitepaper.html", "anthem.html", "apply.html", "mailto:office@new-bee.club", "feed.xml"]) {
+  const englishPage = /<html\s+lang="en/.test(html);
+  for (const target of [englishPage ? "events-en.html" : "events.html", "whitepaper.html", "anthem.html", "apply.html", "mailto:office@new-bee.club", "feed.xml"]) {
     if (!footer.includes('href="' + target + '"')) fail(file, `missing useful footer link (${target})`);
   }
   for (const shared of ["assets/theme.js", "assets/site.css", "assets/site.js", "assets/analytics.js"]) {
