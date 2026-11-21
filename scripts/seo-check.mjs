@@ -16,7 +16,7 @@ const pages = [
   "anthem.html",
   "events.html",
   "support.html",
-  "event-2026-11-15-s01.html",
+  "event-2026-11-15-nxt.html",
   "new-zealand-ai-club.html",
   "xin-xilan-ai-club.html",
   "auckland-ai-club.html",

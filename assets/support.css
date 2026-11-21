@@ -13,6 +13,7 @@
 .support-metrics strong span{font-size:16px;margin-left:6px}
 .support-metrics div>span{display:block;margin-top:12px;font-size:13px;color:var(--muted);line-height:1.6}
 .support-film{padding-block:78px 0;scroll-margin-top:90px}
+.support-film .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px}
 .support-film h2,.support-report h2,.support-projects h2,.support-funding h2,.support-closing h2,.support-principles h2{font-size:clamp(27px,3vw,40px);line-height:1.3;letter-spacing:-.035em}
 .support-player{position:relative;max-width:100%;background:#080c20;border-radius:20px;overflow:hidden}
 .support-player video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#080c20}
