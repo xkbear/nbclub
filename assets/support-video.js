@@ -15,7 +15,7 @@
     button.hidden = true;
     button.disabled = false;
     loading = false;
-    status.textContent = '720p · 56:26 · 可拖动进度条、调节音量或全屏观看。';
+    status.textContent = '720p · 55:52 · 可拖动进度条、调节音量或全屏观看。';
     video.play().catch(() => {
       if (button.hidden && !video.error) {
         status.textContent = '视频已就绪，请点击播放器中的播放按钮。';

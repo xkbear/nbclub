@@ -27,18 +27,18 @@ for(const [type,count] of Object.entries({keynote:7,workshop:4,member:1,founding
 const video=detail.match(/<video\b[^>]*>/)[0];
 for(const s of ['width="1280"','height="720"','preload="none"','controlslist="nodownload"','playsinline','data-hls='])assert(video.includes(s),s);
 assert(!video.includes('autoplay'));
-const manifest=read(assets+'hls/index.m3u8');
+const manifest=read(assets+'hls/replay.m3u8');
 assert(manifest.includes('#EXT-X-ENDLIST'));
 assert(manifest.includes('#EXT-X-INDEPENDENT-SEGMENTS'));
 const durations=[...manifest.matchAll(/#EXTINF:([\d.]+)/g)].map(x=>+x[1]);
-assert(Math.abs(durations.reduce((a,b)=>a+b,0)-3385.833333)<.1);
+assert(Math.abs(durations.reduce((a,b)=>a+b,0)-3352)<.1);
 const files=manifest.split('\n').filter(x=>x&&!x.startsWith('#'));
 assert.equal(files.length,durations.length);
-assert.equal(files.length,424);
+assert.equal(files.length,419);
 for(const name of ['init.mp4',...files])assert(statSync(join(root,assets,'hls',name)).size>0);
 for(const name of readdirSync(join(root,assets,'hls')))assert(statSync(join(root,assets,'hls',name)).size<10*1024*1024,'Unexpected large segment');
 for(const file of ['feed.xml','llms.txt','llms-full.txt','sitemap.xml','sitemap-pages.xml','sitemap.txt'])assert(read(file).includes(page),file);
 assert(statSync(join(root,assets+'poster.webp')).size>1000);
 assert(statSync(join(root,assets+'nxt-build-sprint-report.pdf')).size>1000);
-console.log('S01 checks passed: roles, dates, evidence, 14 records, source links, 424 complete HLS segments and lazy playback.');
+console.log('S01 checks passed: roles, dates, evidence, 14 records, source links, 419 complete HLS segments and lazy playback.');
 
