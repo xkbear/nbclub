@@ -31,7 +31,10 @@ for (const item of itemList.itemListElement) {
   assert.ok(text(article).includes(text(item.name)), `schema route name matches visible text: ${fragment}`);
 }
 const archive = [...new Set([...read("events.html").matchAll(/href="(event-[^"#]+\.html)"/g)].map(([, file]) => file))];
-assert.equal(archive.length, 11, "Review the dated inventory when a new activity is published");
+const visibleInventory = text(hub).match(/的(\d+)份活动记录/);
+assert.ok(visibleInventory, "learning guide exposes its dated activity inventory");
+assert.ok(archive.length > 0, "activity archive is populated");
+assert.equal(archive.length, Number(visibleInventory[1]), "visible learning inventory matches the current published archive");
 for (const file of archive) assert.ok(hub.includes(`href="${file}`), `learning guide must link its cited activity: ${file}`);
 
 for (const file of pages) {
@@ -92,4 +95,4 @@ for (const file of ["llms.txt", "llms-full.txt", "feed.xml"]) {
     assert.ok(source.includes("#" + fragment), `${file}: source link for ${fragment}`);
   }
 }
-console.log("KNOWLEDGE CHECK PASSED: 5 visible learning paths, 11 source activities, 3 attributed methods, valid section links, matching discovery summaries, and unchanged presentation noindex boundaries.");
+console.log("KNOWLEDGE CHECK PASSED: 5 visible learning paths, " + archive.length + " source activities, 3 attributed methods, valid section links, matching discovery summaries, and unchanged presentation noindex boundaries.");

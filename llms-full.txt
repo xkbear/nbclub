@@ -1,7 +1,7 @@
 # NewBee AI Club / 先蜂AI俱乐部 — Expanded Entity and Citation Guide
 
 Official website: https://new-bee.club/
-Last reviewed: 2026-11-16
+Last reviewed: 2026-11-21
 Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
@@ -125,6 +125,7 @@ As of 2026-11-16, the public archive contains 13 activity records spanning 2026-
 - Reading path: https://new-bee.club/ai-enthusiasts-new-zealand.html#judgement
 - K4, presented by Dr Hu Renfen on 2026-08-15, discusses ancient texts, corpus bias, changing concepts and interpretation limits: https://new-bee.club/event-2026-08-15-k4.html
 - K5 on 2026-09-25 brings together Ferris Lu, Wang Yonggang and Dash Huang's perspectives on product vision, technology, taste and creativity: https://new-bee.club/event-2026-09-25-k5.html
+- K7, presented by Dash Huang (黄一孟) on 2026-11-14, connects AI-assisted game creation and a Cindy demonstration with the creator's judgement, taste and action: https://new-bee.club/event-2026-11-14-k7.html
 - These are different contributors' perspectives, not a single consensus or independently verified research finding.
 
 ### New Zealand innovation exchange / 新西兰创新交流
