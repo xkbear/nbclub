@@ -5,7 +5,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://new-bee.club/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-CN" href="https://new-bee.club/"/>
@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://new-bee.club/new-zealand-ai-club.html</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en-NZ" href="https://new-bee.club/new-zealand-ai-club.html"/>
@@ -99,13 +99,13 @@
   </url>
   <url>
     <loc>https://new-bee.club/events.html</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://new-bee.club/assets/events/2026-11-14-k7/recap-cover.webp</image:loc>
+      <image:loc>https://new-bee.club/assets/events/2026-11-15-s01/poster.webp</image:loc>
       <image:title>NewBee 先蜂AI俱乐部活动日历</image:title>
-      <image:caption>先蜂AI俱乐部 Keynote、Workshop、会员活动日与创会记录；最新回顾为 K7：想到就能做到，黄一孟亲自开新副本</image:caption>
+      <image:caption>先蜂AI俱乐部 Keynote、Workshop、会员活动日、Support 与创会记录；最新回顾为 S01：NXT Build Sprint 青少年创造者活动</image:caption>
     </image:image>
   </url>
   <url>
@@ -239,4 +239,6 @@
     <changefreq>monthly</changefreq>
   </url>
 <url><loc>https://new-bee.club/event-2026-11-14-k7.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><image:image><image:loc>https://new-bee.club/assets/events/2026-11-14-k7/recap-cover.webp</image:loc><image:title>K7 活动回顾：想到就能做到：黄一孟亲自开新副本</image:title></image:image><video:video><video:thumbnail_loc>https://new-bee.club/assets/events/2026-11-14-k7/recap-video-poster.webp</video:thumbnail_loc><video:title>K7 黄一孟主题讲座精彩回顾</video:title><video:description>2026 年 11 月 14 日，AI 游戏开发与 Cindy 实战。</video:description><video:content_loc>https://new-bee.club/assets/events/2026-11-14-k7/recap-video.mp4</video:content_loc><video:duration>147</video:duration></video:video></url>
+<url><loc>https://new-bee.club/support.html</loc><lastmod>2026-11-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+<url><loc>https://new-bee.club/event-2026-11-15-s01.html</loc><lastmod>2026-11-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><image:image><image:loc>https://new-bee.club/assets/events/2026-11-15-s01/poster.webp</image:loc><image:title>S01 NXT Build Sprint 官方海报</image:title></image:image><video:video><video:thumbnail_loc>https://new-bee.club/assets/events/2026-11-15-s01/poster.webp</video:thumbnail_loc><video:title>S01 NXT Build Sprint 决赛展示录屏</video:title><video:description>NXT 主办、先蜂会资助的青少年线上黑客松决赛展示，约56分钟。</video:description><video:content_loc>https://new-bee.club/assets/events/2026-11-15-s01/hls/index.m3u8</video:content_loc><video:duration>3386</video:duration></video:video></url>
 </urlset>

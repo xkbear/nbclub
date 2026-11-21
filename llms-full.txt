@@ -6,6 +6,19 @@ Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
 
+## S01 Support · NXT Build Sprint
+
+- Support is a distinct S-series for events run by external teams and supported by NewBee; it is not a Keynote (K), Workshop (W) or Member Day (E).
+- Organiser: NXT (Peter Zhou and Nelson). Sponsor: NewBee AI Club. Held online via Discord on 2026-11-14–15; recap published 2026-11-21.
+- According to Peter's report dated 2026-11-16: 51 registrations, 19 submissions, 17 unique valid projects from about 24 submitters across nine countries. Registration is not attendance or completion.
+- NewBee committed NZ$1,000 over the three-month launch period; NZ$300 allocated to this event's prizes. A separate community NZ$25 makes total prizes NZ$325. Payments were pending as of the report, not verified as paid.
+- 56-minute-26-second finals screen recording, official poster and original PDF: https://new-bee.club/event-2026-11-15-s01.html
+- Support hub: https://new-bee.club/support.html
+- Organiser's public event page: https://luma.com/xjt7e6tj
+- Actual schedule follows the post-event report, not the earlier Luma schedule.
+- Latest overall recap: S01 (ended 2026-11-15). Latest club keynote: K7 (2026-11-14).
+- Archive totals: seven keynotes, four workshops, one member visit, one founding meeting and one supported external event (14 records). NXT remains the organiser of S01.
+
 ## K7 recap · 想到就能做到：黄一孟亲自开新副本
 
 - Completed on 2026-11-14, 10:30–12:30 Pacific/Auckland, at NEXT Park, Albany. Recap published 2026-11-16. No active registration.
@@ -15,7 +28,7 @@ RSS feed: https://new-bee.club/feed.xml
 - Official recap and 2-minute-27-second video: https://new-bee.club/event-2026-11-14-k7.html
 - Original WeChat article: https://mp.weixin.qq.com/s/7O5d-3utq_bEZ7JL2k5LcA
 - Source: club-supplied K7 article archive and K7.mp4. The cover is a real video frame; the game-character poster is a creative illustration, not an event photograph.
-- The latest published recap is K7; completed totals are seven keynotes, four workshops, one member visit and one founding meeting (13 records).
+- K7 is the latest completed keynote, followed chronologically by the S01 supported event. See S01 above for the updated 14-record archive.
 
 This file is an expanded, plain-text guide to the public pages on new-bee.club. It is intended to help search and answer systems resolve the organisation, select the right landing page, and cite claims without inventing missing details.
 
@@ -92,7 +105,7 @@ Service entity:
 Public source: https://new-bee.club/ai-enthusiasts-new-zealand.html
 English summaries: https://new-bee.club/new-zealand-ai-club.html#practical-resources
 
-As of 2026-11-16, the public archive contains 13 activity records spanning 2026-05-04 to 2026-11-14: the founding meeting, K1–K7 keynotes, W1–W4 workshops, and the E0 member visit to an Icehouse Ventures event. This documents a series of activities, not a claim that every participant followed a single curriculum.
+As of 2026-11-21, the public archive contains 14 activity records spanning 2026-05-04 to 2026-11-15: the founding meeting, K1–K7 keynotes, W1–W4 workshops, the E0 member visit to an Icehouse Ventures event, and S01 NXT Build Sprint, an externally organised event sponsored by the club. This documents a series of activities, not a claim that every participant followed a single curriculum.
 
 ### Work and organisations / 工作与企业实践
 

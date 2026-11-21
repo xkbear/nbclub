@@ -15,12 +15,12 @@ for (const attr of ['width="544"', 'height="960"', 'controls', 'controlslist="no
 assert(!video.includes('autoplay'));
 assert(!/<a[^>]+href="[^"]+\.mp4/.test(html), 'No direct download link');
 for (const name of ['recap-video.mp4','recap-video-poster.webp','recap-cover.webp','recap-poster.webp']) assert(existsSync(new URL('assets/events/2026-11-14-k7/'+name,root)));
-assert(home.includes('class="hero-photo is-recap is-k7-recap"'));
+assert(home.includes(page), 'K7 remains reachable in the recap archive');
 assert(home.includes('<strong>7</strong><span>场已举办主题讲座'));
 assert(home.includes('场会员活动日 · E0'));
-assert(home.split('id="activity-rail"')[1].match(/<article[\s\S]*?<\/article>/)[0].includes(page));
-assert(events.includes(`id="latest-recap" href="${page}"`));
-assert(events.includes('13 场活动回顾'));
+assert(home.split('id="activity-rail"')[1].includes(page));
+assert(events.includes(`href="${page}"`));
+assert(events.includes('14 场活动回顾'));
 for (const name of ['index.html','events.html',page,'feed.xml','llms.txt','llms-full.txt']) {
   assert(!/tempkey=|sharer_shareinfo=|data-k7-register|k7-preview\.(css|js)|K7 活动预告|Upcoming K7|Upcoming event — K7/.test(read(name)), name+' has stale preview or temporary credentials');
 }
