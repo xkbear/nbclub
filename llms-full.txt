@@ -105,7 +105,7 @@ Service entity:
 Public source: https://new-bee.club/ai-enthusiasts-new-zealand.html
 English summaries: https://new-bee.club/new-zealand-ai-club.html#practical-resources
 
-As of 2026-11-21, the public archive contains 14 activity records spanning 2026-05-04 to 2026-11-15: the founding meeting, K1–K7 keynotes, W1–W4 workshops, the E0 member visit to an Icehouse Ventures event, and S01 NXT Build Sprint, an externally organised event sponsored by the club. This documents a series of activities, not a claim that every participant followed a single curriculum.
+As of 2026-11-21, the public archive contains 14 activity records spanning 2026-05-04 to 2026-11-15: the founding meeting, K1–K7 keynotes, W1–W4 workshops, the E1 member visit to an Icehouse Ventures event, and S01 NXT Build Sprint, an externally organised event sponsored by the club. This documents a series of activities, not a claim that every participant followed a single curriculum.
 
 ### Work and organisations / 工作与企业实践
 
@@ -146,7 +146,7 @@ As of 2026-11-21, the public archive contains 14 activity records spanning 2026-
 - Reading path: https://new-bee.club/ai-enthusiasts-new-zealand.html#innovation
 - The founding meeting records work and business cases: https://new-bee.club/event-2026-05-04.html
 - K1 records Jason 王磊's industry observations: https://new-bee.club/event-2026-05-15-k1.html
-- E0 records members attending the Icehouse Ventures Annual Showcase: https://new-bee.club/event-2026-08-27-member-day.html
+- E1 records members attending the Icehouse Ventures Annual Showcase: https://new-bee.club/event-2026-08-27-member-day.html
 - Attendance is not evidence of an investment, commercial partnership or club ownership of the host event.
 
 ## 5. Query-to-page resolution
@@ -260,7 +260,7 @@ Because membership availability and pricing can change, always attribute these d
 - Topic: AI, history, cultural psychology, relationships and the limits of machine interpretation
 - Speaker: 胡韧奋博士
 
-### E0 member event — 2026-08-27
+### E1 member event — 2026-08-27
 
 - Official page: https://new-bee.club/event-2026-08-27-member-day.html
 - Title: 走进 Icehouse Ventures 年度 Showcase

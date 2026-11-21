@@ -1,0 +1,9 @@
+.farm-banner{margin:32px auto;max-width:1200px;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;overflow:hidden;border-radius:24px;background:#123f36;color:#fff5d8;text-align:left}
+.farm-copy{align-self:center;padding:clamp(22px,3vw,46px)}
+.farm-copy small{font-weight:650;color:#f7da95;letter-spacing:.07em}
+.farm-copy h2{font-size:clamp(26px,3vw,44px);margin:12px 0}.farm-copy p{font-size:16px;line-height:1.55;color:#e4eadf}
+.farm-copy a{display:inline-block;margin-top:18px;color:white;text-decoration:underline;text-underline-offset:5px}
+.farm-art{background:#427381 url(e2-farm.jpg) center center/cover no-repeat;min-height:175px}
+.farm-gate{max-width:760px;padding-block:clamp(36px,6vw,85px)}.farm-gate h1{margin:12px 0;font-size:clamp(30px,5vw,55px)}.farm-gate p{margin:16px 0}
+.farm-gate label{display:block;margin-top:24px;font-weight:600}.farm-gate input{background:var(--card);color:var(--ink);border:1px solid var(--line-strong);border-radius:8px;padding:10px 12px;max-width:100%;margin:8px 6px 8px 0}
+@media(max-width:650px){.farm-banner{grid-template-columns:1fr}.farm-art{grid-row:1;aspect-ratio:2.55;min-height:0;background-position:50% 60%}.farm-copy{padding:20px}}

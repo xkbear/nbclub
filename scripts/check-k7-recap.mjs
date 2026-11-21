@@ -17,7 +17,7 @@ assert(!/<a[^>]+href="[^"]+\.mp4/.test(html), 'No direct download link');
 for (const name of ['recap-video.mp4','recap-video-poster.webp','recap-cover.webp','recap-poster.webp']) assert(existsSync(new URL('assets/events/2026-11-14-k7/'+name,root)));
 assert(home.includes(page), 'K7 remains reachable in the recap archive');
 assert(home.includes('<strong>7</strong><span>场已举办主题讲座'));
-assert(home.includes('场会员活动日 · E0'));
+assert(home.includes('场会员活动日 · E1'));
 assert(home.split('id="activity-rail"')[1].includes(page));
 assert(events.includes(`href="${page}"`));
 assert(events.includes('14 场活动回顾'));
