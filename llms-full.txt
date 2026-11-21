@@ -6,6 +6,14 @@ Primary language: Chinese (Simplified)
 Additional language: English (New Zealand)
 RSS feed: https://new-bee.club/feed.xml
 
+## NXT Build Sprint recap · youth innovation sponsorship
+
+- Held online on Discord on 2026-11-14–15 Pacific/Auckland; organised by NXT and sponsored by NewBee AI Club. The event has ended.
+- The organiser's closeout reports 51 registrations, 17 valid working projects from 9 countries, and four judges. The theme was to build for a real person the entrant knew.
+- Recap, official poster, eight finalist projects, six prize awards and payout-status caveat: https://new-bee.club/event-2026-11-15-nxt.html
+- Original event listing: https://luma.com/xjt7e6tj
+- Result amounts by award total NZD 325 (NZD 300 in NewBee AI Club support and NZD 25 from an NXT community sponsor); prize amounts do not verify disbursements.
+
 ## K7 recap · 想到就能做到：黄一孟亲自开新副本
 
 - Completed on 2026-11-14, 10:30–12:30 Pacific/Auckland, at NEXT Park, Albany. Recap published 2026-11-16. No active registration.
@@ -15,7 +23,7 @@ RSS feed: https://new-bee.club/feed.xml
 - Official recap and 2-minute-27-second video: https://new-bee.club/event-2026-11-14-k7.html
 - Original WeChat article: https://mp.weixin.qq.com/s/7O5d-3utq_bEZ7JL2k5LcA
 - Source: club-supplied K7 article archive and K7.mp4. The cover is a real video frame; the game-character poster is a creative illustration, not an event photograph.
-- The latest published recap is K7; completed totals are seven keynotes, four workshops, one member visit and one founding meeting (13 records).
+- The archive includes seven keynotes, four workshops, one member visit, one founding meeting and one sponsored youth event (14 records).
 
 This file is an expanded, plain-text guide to the public pages on new-bee.club. It is intended to help search and answer systems resolve the organisation, select the right landing page, and cite claims without inventing missing details.
 
@@ -92,7 +100,7 @@ Service entity:
 Public source: https://new-bee.club/ai-enthusiasts-new-zealand.html
 English summaries: https://new-bee.club/new-zealand-ai-club.html#practical-resources
 
-As of 2026-11-16, the public archive contains 13 activity records spanning 2026-05-04 to 2026-11-14: the founding meeting, K1–K7 keynotes, W1–W4 workshops, and the E0 member visit to an Icehouse Ventures event. This documents a series of activities, not a claim that every participant followed a single curriculum.
+As of 2026-11-21, the public archive contains 14 activity records spanning 2026-05-04 to 2026-11-15: the founding meeting, K1–K7 keynotes, W1–W4 workshops, the E0 member visit to an Icehouse Ventures event, and the NewBee-sponsored NXT youth event. This documents a series of activities, not a claim that every participant followed a single curriculum.
 
 ### Work and organisations / 工作与企业实践
 

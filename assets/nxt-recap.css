@@ -1,0 +1,22 @@
+/* NXT recap and its two discovery cards; no global layout changes. */
+.nxt-hero{width:min(1080px,calc(100% - 48px));margin:64px auto 0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:center;gap:clamp(24px,5vw,68px)}
+.nxt-hero .article-head{margin:0;padding:0}
+.nxt-jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}
+.nxt-jump .button{font-size:14px}
+.nxt-poster{min-width:0;margin:0}
+.nxt-poster img{display:block;width:100%;height:auto;border-radius:18px}
+.nxt-poster figcaption{text-align:center;color:var(--muted);font-size:12px;margin-top:9px}
+.nxt-flow li{color:var(--body-ink);margin:12px 0;line-height:1.7}
+.nxt-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px}
+.nxt-awards{border-collapse:collapse;width:100%;min-width:500px;font-size:15px;text-align:left;background:var(--surface)}
+.nxt-awards th,.nxt-awards td{padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.nxt-awards td small{display:block;color:var(--muted);font-size:12px}
+.nxt-awards tfoot{font-weight:700}
+.nxt-awards tfoot th,.nxt-awards tfoot td{border-bottom:0}
+.hero-photo>a.nxt-feature-visual{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(20px,5vw,64px);align-items:center;padding:clamp(24px,5vw,60px)}
+.hero-photo.is-nxt-recap img{aspect-ratio:768/821;object-fit:contain;width:100%;max-width:380px;height:auto;justify-self:center;border-radius:14px}
+.nxt-feature-visual h2{font-size:clamp(27px,4.6vw,54px);line-height:1.2;margin:12px 0;letter-spacing:-.035em}
+.nxt-feature-visual p{color:var(--muted);margin:0 0 16px}
+.featured-story.nxt-recap-feature .featured-photo{padding:24px;display:grid;place-items:center;background:var(--card)}
+.featured-story.nxt-recap-feature .featured-photo img{max-width:390px;aspect-ratio:768/821;width:100%;height:auto;object-fit:contain;border-radius:12px}
+@media(max-width:700px){.nxt-hero{grid-template-columns:1fr;gap:24px;margin-top:40px}.nxt-poster{max-width:480px;justify-self:center}.hero-photo>a.nxt-feature-visual{grid-template-columns:1fr}.hero-photo.is-nxt-recap img{max-width:290px}.nxt-awards th,.nxt-awards td{padding:10px}.featured-story.nxt-recap-feature .featured-photo img{max-width:285px}}
