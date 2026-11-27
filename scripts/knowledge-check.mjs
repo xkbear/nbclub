@@ -30,7 +30,10 @@ for (const item of itemList.itemListElement) {
   assert.ok(article, `visible route: ${fragment}`);
   assert.ok(text(article).includes(text(item.name)), `schema route name matches visible text: ${fragment}`);
 }
-const archive = [...new Set([...read("events.html").matchAll(/href="(event-[^"#]+\.html)"/g)].map(([, file]) => file))];
+// The public recap grid is separate from upcoming invitations on the same page.
+const recapGrid = read("events.html").match(/<div\b[^>]*class="archive-grid"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+assert.ok(recapGrid, "public recap grid is present");
+const archive = [...new Set([...recapGrid.matchAll(/href="(event-[^"#]+\.html)"/g)].map(([, file]) => file))];
 const visibleInventory = text(hub).match(/的(\d+)份活动记录/);
 assert.ok(visibleInventory, "learning guide exposes its dated activity inventory");
 assert.ok(archive.length > 0, "activity archive is populated");
