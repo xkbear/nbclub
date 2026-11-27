@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet"><meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; frame-src https://drive.google.com; form-action 'none'; base-uri 'none'">
+<title>内部审片室 · 先蜂会</title><link rel="icon" href="../favicon.png"><link rel="stylesheet" href="room.css"><script src="room.js" defer></script></head>
+<body><header><strong>先蜂会 <span>/ NewBee AI Club</span></strong><button id="lock" hidden>锁定并退出</button></header>
+<main><p class="label">E2 &nbsp;/&nbsp; PRIVATE SCREENING</p><h1>内部审片室</h1>
+<section id="gate"><p>此页仅供筹备组使用。请用专用链接和审片密码进入。</p>
+<form method="post"><label for="pass">审片密码</label><div class="line"><input id="pass" type="password" required maxlength="128" autocomplete="off" autocapitalize="none" spellcheck="false"><button>进入审片室 →</button></div></form>
+<noscript>请启用 JavaScript 以解锁。</noscript><p id="message" role="status"></p></section>
+<section id="room" hidden><div class="grid"><div><p class="label" id="counter"></p><h2 id="title" tabindex="-1"></h2>
+<div id="screen"></div><div class="controls"><a id="drive" target="_blank" rel="noopener noreferrer">在 Drive 中播放 ↗</a><button id="prev">上一段</button><button id="next">下一段</button></div>
+<p class="hint">点播放器中的播放键开始观看。若浏览器限制嵌入播放，可在 Drive 中打开。</p></div>
+<aside><label for="search">片单 <span>/ FILM INDEX</span></label><input type="search" id="search" placeholder="按姓名或序号查找"><p id="total" aria-live="polite"></p><div id="list"></div></aside></div></section></main></body></html>
