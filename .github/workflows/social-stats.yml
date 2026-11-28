@@ -1,0 +1,37 @@
+name: Social stats checks
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/social-stats.yml
+      - apps/social-stats/**
+      - docs/social-stats/**
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/social-stats.yml
+      - apps/social-stats/**
+      - docs/social-stats/**
+
+permissions:
+  contents: read
+
+jobs:
+  django:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/social-stats
+    env:
+      DASHBOARD_DEBUG: "1"
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: apps/social-stats/requirements.txt
+      - run: python -m pip install -r requirements.txt
+      - run: python manage.py test
+      - run: python manage.py makemigrations --check --dry-run
+      - run: python manage.py check

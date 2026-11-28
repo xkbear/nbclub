@@ -1,0 +1,15 @@
+[Unit]
+Description=Back up NewBee stats database locally
+
+[Service]
+Type=oneshot
+User=newbee-stats
+Group=newbee-stats
+WorkingDirectory=/opt/newbee-social-stats/apps/social-stats
+EnvironmentFile=/etc/newbee-social-stats.env
+ExecStart=/opt/newbee-social-stats/apps/social-stats/.venv/bin/python deploy/backup.py
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/newbee-social-stats

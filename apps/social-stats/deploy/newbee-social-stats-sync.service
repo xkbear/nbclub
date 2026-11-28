@@ -1,0 +1,17 @@
+[Unit]
+Description=Sync NewBee official WeChat analytics
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=newbee-stats
+Group=newbee-stats
+WorkingDirectory=/opt/newbee-social-stats/apps/social-stats
+EnvironmentFile=/etc/newbee-social-stats.env
+ExecStart=/opt/newbee-social-stats/apps/social-stats/.venv/bin/python manage.py sync_wechat --days 7
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/newbee-social-stats

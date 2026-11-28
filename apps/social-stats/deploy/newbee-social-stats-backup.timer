@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily local backup of NewBee stats database
+
+[Timer]
+OnCalendar=*-*-* 02:30:00 UTC
+Persistent=true
+Unit=newbee-social-stats-backup.service
+
+[Install]
+WantedBy=timers.target

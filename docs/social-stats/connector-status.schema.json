@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:newbee:social-stats:connector-status:v1",
+  "title": "NewBee social connector status",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "platform",
+    "account_key",
+    "state",
+    "last_attempt_at",
+    "last_success_at",
+    "data_through"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "platform": {
+      "enum": ["wechat_mp", "wechat_channels", "xiaohongshu"]
+    },
+    "account_key": { "type": "string", "minLength": 1 },
+    "state": {
+      "enum": [
+        "researching",
+        "awaiting_authorization",
+        "connected",
+        "sync_error",
+        "not_offered"
+      ]
+    },
+    "last_attempt_at": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ]
+    },
+    "last_success_at": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ]
+    },
+    "data_through": {
+      "oneOf": [
+        { "type": "string", "format": "date" },
+        { "type": "null" }
+      ]
+    },
+    "message": { "type": "string" }
+  }
+}
